@@ -137,6 +137,23 @@ public class ProductDAO {
 
 						
 				}
+		
+		//추천순 데이터 출력
+		public List<ProductDTO> p_getListsRecommand(int start, int end){
+							
+							
+			Map<String, Object> hMap = new HashMap<String, Object>();
+									
+			hMap.put("start", start);
+			hMap.put("end", 4);
+							
+			List<ProductDTO> ideahitcountlists = 		
+					sessionTemplate.selectList("com.sajo.god.product.mapper.p_getListsIdeaHitCount",hMap);
+							
+				return ideahitcountlists;
+
+						
+		}
 						
 				
 		
