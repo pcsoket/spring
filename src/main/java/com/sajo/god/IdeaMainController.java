@@ -36,7 +36,7 @@ public class IdeaMainController {
 	public String invent(){
 		
 		
-		return "Invent";
+		return "invent";
 	}
 
 }
