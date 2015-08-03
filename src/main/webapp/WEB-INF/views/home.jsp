@@ -13,7 +13,11 @@
 
 <P>  The time on the server is ${serverTime}. </P>
 =======
+<<<<<<< HEAD
 >>>>>>> a705107daf3c2bccdabcb3de18db1bfd5c54158f
+=======
+>>>>>>> 1ed3b4734a2154675b3cf2d46764916d7b742773
+>>>>>>> 5b56e4f69e3e9bbdecdeac365dc8a8830e287298
 =======
 <style type="text/css">
 .main{
