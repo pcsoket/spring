@@ -8,7 +8,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-</head>
 <style type="text/css">
 .btn-primary {
     color: #8b4513;
@@ -16,6 +15,9 @@
     border-color: #ffd2d7;
 }
 </style>
+
+</head>
+
 <body>
 
 <div align="center" style="width: 100%;"> <!-- 전체 틀 -->
@@ -46,9 +48,10 @@
 					<div style="width: 200px; float: left;">배송정보</div>
 				</div>
 				
-				<div style="border-bottom: solid 2px #ff7b8a; padding-bottom: 10px;">
+				<div align="left" style="border-bottom: solid 2px #ff7b8a; padding-left: 50px;">
 					<div>
-					상품 이미지 아래 버튼만들기
+					<button type="button" class="btn btn-link" onclick="javascript:location.href='/god/purchase.action';">즉시구매></button>&nbsp;&nbsp;
+					<button type="button" class="btn btn-link" onclick="javascript:location.href='/god/del.action';">삭제></button>&nbsp;&nbsp;
 					</div>
 				</div>
 				
@@ -58,7 +61,7 @@
 			
 			<div style="padding-left: 10px; padding-right: 10px;">
 				<div style="float: left; width: 100px;"><input type="checkbox" checked="checked"></div>
-				<div align="left"><button type="button" class="btn btn-primary btn-xs">삭제</button></div>
+				<div align="left"><button type="button" class="btn btn-primary btn-xs" onclick="">삭제</button></div>
 			</div>
 			
 			<div> <!-- 결제 예정금액 틀--> 
@@ -89,7 +92,7 @@
 	</div>
 		
 		<div style="width: 100%;height: 60px;">
-			<div><button type="button" class="btn btn-primary btn-lg">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
+			<div><button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/purchase.action';">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
 		</div>
 
 	

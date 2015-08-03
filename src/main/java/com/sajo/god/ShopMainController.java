@@ -25,5 +25,11 @@ public class ShopMainController {
 		return "basket";
 	}
 	
+	@RequestMapping(value="/purchase.action")
+	public String purchase(){
+		
+		return "purchase";
+	}
+	
 	
 }
