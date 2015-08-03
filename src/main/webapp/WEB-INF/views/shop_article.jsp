@@ -92,13 +92,13 @@
 				<td class="line4" width="150px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>수량</b></font></td>
 				<td class="line5" width="200px" height="50px">
-					1개</td>
+					&nbsp;&nbsp;1개</td>
 			</tr>
 			<tr>
 				<td class="line4" width="150px" height="80px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>구매예정금액</b></font></td>
 				<td class="line5" width="200px" height="80px">
-					13900원</td>
+					&nbsp;&nbsp;13900원</td>
 			</tr>
 		</table>
 		</td>
@@ -115,37 +115,37 @@
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>판매가</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					13,900원</td>
+					&nbsp;&nbsp;13,900원</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>상품번호</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					a190523</td>
+					&nbsp;&nbsp;a190523</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>평점</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					★★★★★</td>
+					&nbsp;&nbsp;★★★★★</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>조회수</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					2</td>
+					&nbsp;&nbsp;2</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>재고</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					10개</td>
+					&nbsp;&nbsp;10개</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="250px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>설명</b></font></td>
 				<td class="line5" width="400px" height="250px">
-					ㅇㅇㅇ</td>
+					&nbsp;&nbsp;ㅇㅇㅇ</td>
 			</tr>
 			
 			<tr>

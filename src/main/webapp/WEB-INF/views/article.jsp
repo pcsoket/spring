@@ -108,13 +108,13 @@
 
 
 
-<table width="1000" height="100px" align="center" class="line4">
+<table width="1000" height="100px" align="center" class="line5">
 	<tr height="30px"> 
 		<td colspan="5" class="font1"><b>댓글</b></font></td>
 	</tr>
 </table>
 
-<table width="1000" height="100px" align="center" class="line4">
+<table width="1000" height="100px" align="center" class="line5">
 
 
 	<tr>
@@ -128,10 +128,7 @@
 				<input type="hidden" name="acnum">
 				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="ac_sendIt('${cdto.acnum}');"/>			
 			</td>
-		
-			
-		
-		
+
 				<td></td>
 		
 	</tr>
@@ -141,11 +138,8 @@
 		
 		
 				<td></td>
-		
-		
+	
 				<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" style="height: 30px"onclick=""/></td>
-
-		
 			<td></td>
 		
 		
