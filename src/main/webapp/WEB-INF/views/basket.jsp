@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<div style="width: 100%;"> <!-- 전체 틀 -->
+<div align="center" style="width: 100%;"> <!-- 전체 틀 -->
 
 	<div style="background-color: #ffd2d7;width: 1000px; height: 55px;">
 		<div style="font-size: 20pt; float:left; width: 540px; margin-left: 10px;">장바구니</div>
@@ -18,7 +18,7 @@
 		
 		<div style="width: 1000px;"> <!-- 장바구니에 들어있는 물품 -->
 		
-			<div align="center" style="height:25px; border-top: solid 2px #ff7b8a; padding-left: 10px; padding-right: 10px;"> <!-- 장바구니 물품 내역 -->
+			<div align="center" style="height:25px; background-color:#ffd2d7; border-top: solid 2px #ff7b8a; border-bottom: solid 2px #ffa3ad; padding-left: 10px; padding-right: 10px;"> <!-- 장바구니 물품 내역 -->
 				<div style="float: left; width: 100px;"><input type="checkbox" checked="checked"></div>
 				<div style="float: left; width: 450px;">상품명</div>
 				<div style="float: left; width: 100px;">수량</div>
@@ -27,19 +27,24 @@
 			</div>
 		
 			<div>
-				<div>체크박스</div>
-				<div>상품이미지,제목</div>
-				<div>수량bamount</div>
-				<div>가격bprice</div>
-				<div>
-				상품 이미지 아래 버튼만들기
+				<div style="height: 60px;">
+					<div style="float: left; width: 100px;"><input type="checkbox" checked="checked"></div>
+					<div style="float: left; width: 450px;">상품이미지,제목</div>
+					<div style="float: left; width: 100px;">수량bamount</div>
+					<div style="float: left; width: 100px;">가격bprice</div>
+					<div style="width: 200px; float: left;">배송정보</div>
 				</div>
 				
+				<div>
+					<div>
+					상품 이미지 아래 버튼만들기
+					</div>
+				</div>
 			</div>
-			
+			<br/>
 			
 			<div>
-				<div>체크박스</div>
+				<div style="float: left; width: 100px;"><input type="checkbox" checked="checked"></div>
 				<div>삭제버튼</div>
 			</div>
 			
