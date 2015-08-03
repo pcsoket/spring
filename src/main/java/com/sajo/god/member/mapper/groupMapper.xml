@@ -36,5 +36,30 @@
 ]]>
 </select>
 
+<!-- 조회수 수정 -->
+<update id="updateHitCount" parameterType="int">
+	update group set gHitCount=gHitCount+1 where gNum=#{gNum}
+</update>
+
+<!-- 한개의 데이터 -->
+<select id="getReadData" parameterType="int" resultType="com.sajo.god.member.BoardDTO">
+	select num,name,pwd,email,subject,content,hitCount,created from group where gNum=#{gNum}
+</select>
+
+<!-- 데이터 수정 -->
+<update id="updateData" parameterType="com.sajo.god.member.BoardDTO">
+	update group set name=#{name},pwd=#{pwd},email=#{email},gSubject=#{gSubject},
+	content=#{content} where gNum=#{gNum}
+</update>
+
+<!-- 데이터 삭제 -->
+<delete id="deleteData" parameterType="int">
+	delete group where gNum=#{gNum}
+</delete>
+
+<!-- insert into group(gNo,gNum,gHitCount,mId,gSubject,gImg1,gImg2,gImg3,gImg4,
+	gCount,gCreated,boardName) values (#{gNo},#{gNum},0,#{mId},#{gSubject},#{gImg1},#{gImg2},#{gImg3},#{gImg4},
+	#{gCount},sysdate,#{boardName})
+ -->
 	
 </mapper>
