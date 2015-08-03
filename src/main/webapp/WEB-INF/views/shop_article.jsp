@@ -5,6 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<<<<<<< HEAD
+=======
 
 
 <script type="text/javascript">
@@ -16,16 +18,22 @@
 </script>
 
 
+>>>>>>> a705107daf3c2bccdabcb3de18db1bfd5c54158f
 <style type="text/css">
 
 .box{
 	border-collapse: collapse;
 	}
+<<<<<<< HEAD
+
+
+=======
 	
 .line1{
 	border: 1px solid black;
 	margin-left: 20px;
 }
+>>>>>>> a705107daf3c2bccdabcb3de18db1bfd5c54158f
 
 .line2{
 		border-bottom: 2px solid #ffd2d7;
@@ -62,11 +70,19 @@
 		<table class="box" height="700px">
 			<tr>
 				<td width="350px" height="400px" class="box" colspan="2">
+<<<<<<< HEAD
+				<img alt="" src="/god/resources/image/ww.PNG">
+=======
 				<img alt="" src="/god/resources/image/ww.PNG" name="img01"/><br/>
+>>>>>>> a705107daf3c2bccdabcb3de18db1bfd5c54158f
 				</td>
         	</tr>
 			<tr>
 				<td width="330px" height="150px" class="line2" colspan="2">
+<<<<<<< HEAD
+				&nbsp; 사진들
+				</td></tr>
+=======
 				<table><tr>
     					<td width="90px" height="100px" class="line1">
     						<img alt="" src="/god/resources/image/ww.PNG" 
@@ -88,6 +104,7 @@
 				</td>
 			</tr>
 			
+>>>>>>> a705107daf3c2bccdabcb3de18db1bfd5c54158f
 			<tr>
 				<td class="line4" width="150px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>수량</b></font></td>
