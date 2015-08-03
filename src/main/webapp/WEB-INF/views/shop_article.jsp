@@ -5,6 +5,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
+
+<script type="text/javascript">
+
+	function fimg(csrc){
+		window.document.images["img01"].src = csrc;		
+	}
+
+</script>
+
+
 <style type="text/css">
 
 .box{
@@ -13,10 +24,8 @@
 	
 .line1{
 	border: 1px solid black;
-	margin: 20px;
+	margin-left: 20px;
 }
-
-
 
 .line2{
 		border-bottom: 2px solid #ffd2d7;
@@ -53,15 +62,27 @@
 		<table class="box" height="700px">
 			<tr>
 				<td width="350px" height="400px" class="box" colspan="2">
-				<img alt="" src="/god/resources/image/ww.PNG">
+				<img alt="" src="/god/resources/image/ww.PNG" name="img01"/><br/>
 				</td>
         	</tr>
 			<tr>
 				<td width="330px" height="150px" class="line2" colspan="2">
 				<table><tr>
-    					<td width="90px" height="100px" class="line1"></td>
-      					<td width="90px" height="100px" class="line1"></td>
-    					<td width="90px" height="100px" class="line1"></td>
+    					<td width="90px" height="100px" class="line1">
+    						<img alt="" src="/god/resources/image/ww.PNG" 
+    						width="90px" height="100px" border="1"
+								style="cursor: hand" onmouseover="fimg('/god/resources/image/ww.PNG')"/>
+    					</td>
+      					<td width="90px" height="100px" class="line1">
+      						<img alt="" src="/god/resources/image/qq.PNG"
+      						width="90px" height="100px" border="1"
+								style="cursor: hand" onmouseover="fimg('/god/resources/image/qq.PNG')"/>
+      					</td>
+    					<td width="90px" height="100px" class="line1">
+    						<img alt="" src="/god/resources/image/ee.PNG" 
+    						width="90px" height="100px" border="1"
+								style="cursor: hand" onmouseover="fimg(this.src)"/>
+    					</td>
    						</tr>
    				</table>
 				</td>
