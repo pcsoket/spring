@@ -1,5 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String cp = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,8 +13,6 @@
 .box{
 	border-collapse: collapse;
 	}
-
-
 
 .line2{
 		border-bottom: 2px solid #ffd2d7;
@@ -38,6 +40,11 @@
 
 	}
 </style>
+
+
+
+</script>
+
 </head>
 <body>
 		
@@ -66,14 +73,16 @@
 			<input type="button" style="width: 50px; height: 40px;" value=" 검 색 " class="btn2" onclick="write_sendIt();"/>
 		</td>
 		<td>
-		<input type="button" value=" 글쓰기 " margin-left="500px" class="btn1" style="height: 40px;"/>
+		<input type="button" value=" 글쓰기 " margin-left="500px" 
+		class="btn1" style="height: 40px;"
+		onclick="javascript:location.href='/god/created.action';"/>
 		  </form>	
 		 </td>
 		 <tr height="10px"><td></td></tr>
 		 
 </tr>
 <tr height="40px" class="line4" bordercolor="#EAEAEA" align="center" style="font-size: 15px;">
-	<td width="50px"><b>번호</b></td>
+	<td width="50px"><b>이름</b></td>
 	<td width="300px"><b>제목</b></td>
 	<td width="150px"><b>글쓴이</b></td>
 	<td width="150px"><b>작성일</b></td>
