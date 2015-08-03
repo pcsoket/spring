@@ -27,7 +27,7 @@ String cp = request.getContextPath();
    
     <div id="pop_container">
        
-        <div id="pop_content" class="content_primary login member">
+        <div id="pop_content" class="content_primary login member" style="margin: 0 auto; width: 500px;">
             <div class="section">
                 <h2 class="blind">로그인</h2>
                 <form id="loginForm" method="post">            

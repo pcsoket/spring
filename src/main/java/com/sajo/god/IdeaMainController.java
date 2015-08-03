@@ -45,5 +45,12 @@ public class IdeaMainController {
 		
 		return "Invent";
 	}
+	
+	@RequestMapping(value="/login.action")
+	public String login(){
+		
+		
+		return "login";
+	}
 
 }
