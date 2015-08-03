@@ -40,13 +40,13 @@ function sendIt() {
 	f.userPwd1.value = str;
 	
 	str1 = f.userPwd2.value;
-	str = str.trim();
-	if(!str){
+	str1 = str1.trim();
+	if(!str1){
 		alert("\n제목을 입력하세요.");
 		f.userpwd2.focus();
 		return;
 	}
-	f.userId.value = str;
+	f.userPwd.value = str;
 	
 	f.submit();
 	

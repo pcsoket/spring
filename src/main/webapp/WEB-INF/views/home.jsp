@@ -2,8 +2,6 @@
 <%@ page session="false" %>
 <html>
 <head>
-<<<<<<< HEAD
-<<<<<<< HEAD
 	<title>Home</title>
 </head>
 <body>
@@ -12,9 +10,16 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> a705107daf3c2bccdabcb3de18db1bfd5c54158f
 =======
 >>>>>>> 1ed3b4734a2154675b3cf2d46764916d7b742773
+>>>>>>> 5b56e4f69e3e9bbdecdeac365dc8a8830e287298
 =======
+=======
+>>>>>>> aa74a4c85fee0018f24e3671fac9db5f0ae4f938
 <style type="text/css">
 .main{
 	width: 1000px;
@@ -38,20 +43,10 @@
 	overflow: hidden;
 }
 </style>
->>>>>>> accae465b7e6314b640c1c18667a6848dde9d29b
 	<title>Home</title>
 </head>
 <body>
 
-<<<<<<< HEAD
-<h2>
-<a href=/god/com.action>com</a></h2>
-
-
-<h2>
-<a href=/god/div.action>div</a></h2>
-	
-=======
 <div class="main">
 	<div>top</div>
 	<div>
@@ -64,9 +59,5 @@
 	</div>
 </div>
 
-
->>>>>>> accae465b7e6314b640c1c18667a6848dde9d29b
-
->>>>>>> accae465b7e6314b640c1c18667a6848dde9d29b
 </body>
 </html>

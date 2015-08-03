@@ -6,25 +6,7 @@
 <title>Insert title here</title>
 <style type="text/css">
 
-.box{
-	border-collapse: collapse;
-	}
 
-
-
-.line2{
-		border-bottom: 2px solid #ffd2d7;
-		
-		}
-
-.line3{border-top: 5px solid  #A6A6A6;
-	border-bottom: 1px solid #ffd2d7;
-
-}
-.line4{	
-	border-bottom: 1px solid  #EAEAEA;
-	background-color:  #ffd2d7;
-	}
 .line5{
 	border-bottom: 1px solid  #EAEAEA;
 
@@ -38,48 +20,10 @@
 
 	}
 
-
 </style>
 </head>
 <body>
 
-
-
-	
-<table width="1000" align="center" class="box">
-		
-<tr height="50px">
-</tr>
-<tr height="40px"> 
-
-
-<td class="line3" colspan="5"><font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="10px"><b>제목</b></font></td>
-
-
-</tr>
-<tr height="20px">
-</tr>
-
-<tr align="center" height="30px" class="line5">
-	<td width="200px"><font color="#8b4513 " style="font-family: 나눔바른펜;"><b>이름</b></font></td>
-	<td width="300px"></td>
-	<td width="200px"><font color="#8b4513 " style="font-family: 나눔바른펜;"><b>날짜</b></font></td>
-	<td width="100px"><font color="#8b4513 " style="font-family: 나눔바른펜;"><b>조회수</b></font></td>
-</tr>
-<tr class="line5"><td colspan="4" style="padding: 20px 80px 20px 62px;" valign="top" height="400" class="font2">
-		내용
-	</td></tr>
-	
-<tr height="40px">
-	<td	class="line5" colspan="4">
-	 <input type="button" value=" 수정 "  class="btn1" style="height:30px;" onclick=""/>
-     <input type="button" value=" 삭제 "  class="btn1" style="height:30px;" onclick=""/>
-	 <input type="button" value=" 리스트 "  class="btn1" style="height:30px;" onclick=""/>
-</td>
-</tr>
-
-
-</table> 
 
 
 <form action="" method="post" name="myForm">

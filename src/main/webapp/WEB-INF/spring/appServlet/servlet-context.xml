@@ -23,7 +23,7 @@
 	
 	<context:component-scan base-package="*" />
 	
-	<beans:bean id="memberDAO" class="com.sajo.god.member.dao.MemberDAO">
+	<beans:bean id="memberDAO" class="com.sajo.dao.MemberDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
 	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
