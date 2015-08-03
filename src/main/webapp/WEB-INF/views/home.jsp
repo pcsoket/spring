@@ -3,6 +3,17 @@
 <html>
 <head>
 <<<<<<< HEAD
+<<<<<<< HEAD
+	<title>Home</title>
+</head>
+<body>
+<h1>
+	Hello world!  
+</h1>
+
+<P>  The time on the server is ${serverTime}. </P>
+=======
+>>>>>>> 1ed3b4734a2154675b3cf2d46764916d7b742773
 =======
 <style type="text/css">
 .main{
@@ -56,5 +67,6 @@
 
 >>>>>>> accae465b7e6314b640c1c18667a6848dde9d29b
 
+>>>>>>> accae465b7e6314b640c1c18667a6848dde9d29b
 </body>
 </html>
