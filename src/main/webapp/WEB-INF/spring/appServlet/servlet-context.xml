@@ -21,10 +21,13 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="*" />
-	<beans:bean id="memberDAO" class="com.sajo.god.member.dao.MemberDAO">
-		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
-	</beans:bean>
+	<context:component-scan base-package="com.sajo.god" />
+	
+   <beans:bean id="memberDAO" class="com.sajo.god.member.dao.MemberDAO">
+      <beans:property name="sessionTemplate" ref="sessionTemplate"/>
+   </beans:bean> 
+
+	
 	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sessionFactory"/>
 	</beans:bean>
