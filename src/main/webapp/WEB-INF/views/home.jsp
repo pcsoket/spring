@@ -2,7 +2,6 @@
 <%@ page session="false" %>
 <html>
 <head>
-<<<<<<< HEAD
 	<title>Home</title>
 </head>
 <body>
@@ -11,7 +10,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-=======
 <style type="text/css">
 .main{
 	width: 1000px;
@@ -51,8 +49,5 @@
 	</div>
 </div>
 
-
-
->>>>>>> accae465b7e6314b640c1c18667a6848dde9d29b
 </body>
 </html>
