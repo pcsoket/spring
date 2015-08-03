@@ -15,7 +15,6 @@
 *{ margin:0;}
 
 div{
-border: solid 1px;
 }
 
 #wrapBody{
@@ -71,10 +70,11 @@ width: 100%;
 padding-left: 20px; 
 }
 
-#basicInfo_boxtitle{
-padding-left: 20px;
+.basicInfo_boxtitle{
 float: left;
 width: 700px;
+border-top: 2px solid #EAEAEA;
+background-color:#ffd2d7;
 }
 
 .basicInfo_title{
@@ -87,6 +87,19 @@ width: 300px;
 text-align: left;
 }
 
+.basicInfo_contentWrap{
+border-top: 2px solid #EAEAEA;
+}
+
+.purchaseInfo_contentWrap{
+border-top: 2px solid #EAEAEA;
+}
+
+.purchaseInfo_boxtitle{
+background-color:#ffd2d7;
+width: 700px;
+}
+
 .purchaseInfo_title{
 padding-left: 20px;
 float: left;
@@ -96,6 +109,10 @@ width: 300px;
 .purchaseInfo_content{
 padding-left: 20px;
 text-align: left;
+}
+
+.bodytitle{
+border-top: 2px solid #EAEAEA;
 }
 
 #loginfoBox{
