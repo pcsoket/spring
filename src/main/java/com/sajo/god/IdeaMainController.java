@@ -52,18 +52,4 @@ public class IdeaMainController {
 		
 		return "login";
 	}
-
-	@RequestMapping(value="/myPage.action")
-	public String myPage(){
-		
-		
-		return "shopMyPage";
-	}
-	
-	@RequestMapping(value="/orderList.action")
-	public String orderList(){
-		
-		
-		return "shopOrderList";
-	}
 }
