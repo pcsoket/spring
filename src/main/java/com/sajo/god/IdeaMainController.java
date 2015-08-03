@@ -52,5 +52,12 @@ public class IdeaMainController {
 		
 		return "shopMyPage";
 	}
+	
+	@RequestMapping(value="/orderList.action")
+	public String orderList(){
+		
+		
+		return "shopOrderList";
+	}
 
 }

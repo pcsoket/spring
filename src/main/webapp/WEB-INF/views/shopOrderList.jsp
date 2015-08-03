@@ -14,7 +14,6 @@
 *{ margin:0;}
 
 div{
-border: solid 1px;
 }
 
 #bodyWrap{
@@ -46,6 +45,7 @@ float: left;
 
 .searchOrdertitle{
 height: 30px;
+border-top: 2px solid #EAEAEA;
 }
 
 #searchOrdertitle{
@@ -161,6 +161,12 @@ height: 150px;
 	text-align:center;
 }
 
+.searchOrderwithdate{
+background-color:#ffd2d7;
+height: 110px;
+border-top: 2px solid #EAEAEA
+}
+
 
 </style>
 </head>
@@ -171,7 +177,7 @@ height: 150px;
 			<div class="searchOrdertitle">
 				주문 배송조회
 			</div>
-			<div class="searchOrderwithdate">
+			<div class="searchOrderwithdate" style="">
 				<div class="orderdatetitle">조회기간</div>
 				<div class="datesearchBox">
 					<button type="button" class="datebtn" onClick="setDate('20150730','20150730', 'form1');"><span>오늘</span></button>
@@ -217,23 +223,32 @@ height: 150px;
 		<div id="orderList_list">
 			<div id="title">
 				<dl>
-					<dt class="num">주문일자</dt>
-					<dt class="subject">주문상품정보</dt>
-					<dt class="name">상품금액(수량)</dt>
-					<dt class="created">배송비(판매자)</dt>
-					<dt class="hitCount">주문상태</dt>
+					<dt class="date">주문일자</dt>
+					<dt class="orderinfo">주문상품정보</dt>
+					<dt class="price">상품금액(수량)</dt>
+					<dt class="tax">배송비(판매자)</dt>
+					<dt class="state">주문상태</dt>
 				</dl>
 			</div>
 			<div id="lists">
+				<dl>
+					<dd class="date">예시</dd>
+					<dd class="orderinfo">
+					<a href="${articleUrl}&num=${dto.num}">예시
+					${dto.subject }</a></dd>
+					<dd class="price">예시</dd>
+					<dd class="tax">예시</dd>
+					<dd class="state">예시</dd>
+				</dl>
 			<c:forEach var="dto" items="${lists}">
 				<dl>
-					<dd class="num">${dto.num }</dd>
-					<dd class="subject">
+					<dd class="date"></dd>
+					<dd class="orderinfo">
 					<a href="${articleUrl}&num=${dto.num}">
 					${dto.subject }</a></dd>
-					<dd class="name">${dto.name }</dd>
-					<dd class="created">${dto.created }</dd>
-					<dd class="hitCount">${dto.hitCount }</dd>
+					<dd class="price">${dto.name }</dd>
+					<dd class="tax">${dto.created }</dd>
+					<dd class="state">${dto.hitCount }</dd>
 				</dl>
 			</c:forEach>
 			</div>
