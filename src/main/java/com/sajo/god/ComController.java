@@ -35,6 +35,12 @@ public class ComController{
 		return "created";
 	}
 	
+	@RequestMapping(value="/comment.action")
+	public String comment(){
+		
+		return "comment";
+	}
+	
 
 	
 

@@ -5,6 +5,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 
 <script type="text/javascript">
 
@@ -14,16 +19,30 @@
 
 </script>
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 <style type="text/css">
 
 .box{
 	border-collapse: collapse;
 	}
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 	
 .line1{
 	border: 1px solid black;
 	margin-left: 20px;
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 
 .line2{
 		border-bottom: 2px solid #ffd2d7;
@@ -67,6 +86,10 @@
         	</tr>
 			<tr>
 				<td width="330px" height="150px" class="line2" colspan="2">
+<<<<<<< HEAD
+
+=======
+>>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 				<table><tr>
     					<td width="90px" height="100px" class="line1">
     						<img alt="" src="/god/resources/image/ww.PNG" 
@@ -87,17 +110,22 @@
    				</table>
 				</td>
 			</tr>
+<<<<<<< HEAD
+			
+
+=======
+>>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 			<tr>
 				<td class="line4" width="150px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>수량</b></font></td>
 				<td class="line5" width="200px" height="50px">
-					1개</td>
+					&nbsp;&nbsp;1개</td>
 			</tr>
 			<tr>
 				<td class="line4" width="150px" height="80px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>구매예정금액</b></font></td>
 				<td class="line5" width="200px" height="80px">
-					13900원</td>
+					&nbsp;&nbsp;13900원</td>
 			</tr>
 		</table>
 		</td>
@@ -114,37 +142,37 @@
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>판매가</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					13,900원</td>
+					&nbsp;&nbsp;13,900원</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>상품번호</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					a190523</td>
+					&nbsp;&nbsp;a190523</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>평점</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					★★★★★</td>
+					&nbsp;&nbsp;★★★★★</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>조회수</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					2</td>
+					&nbsp;&nbsp;2</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>재고</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					10개</td>
+					&nbsp;&nbsp;10개</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="250px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>설명</b></font></td>
 				<td class="line5" width="400px" height="250px">
-					ㅇㅇㅇ</td>
+					&nbsp;&nbsp;ㅇㅇㅇ</td>
 			</tr>
 			
 			<tr>

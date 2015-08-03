@@ -52,7 +52,11 @@
 </tr>
 <tr height="40px"> 
 
+<<<<<<< HEAD
+<td class="line3" colspan="5"><font color="#8b4513 " style="font-family: 나눔손글씨 붓; font-size :18pt ;" ><b>상품평 제목</b></font></td>
+=======
 <td class="line3" colspan="5"><font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="10px"><b>제목</b></font></td>
+>>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 
 </tr>
 <tr height="20px">
@@ -106,13 +110,13 @@
 
 
 
-<table width="1000" height="100px" align="center" class="line4">
+<table width="1000" height="100px" align="center" class="line5">
 	<tr height="30px"> 
 		<td colspan="5" class="font1"><b>댓글</b></font></td>
 	</tr>
 </table>
 
-<table width="1000" height="100px" align="center" class="line4">
+<table width="1000" height="100px" align="center" class="line5">
 
 
 	<tr>
@@ -126,10 +130,7 @@
 				<input type="hidden" name="acnum">
 				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="ac_sendIt('${cdto.acnum}');"/>			
 			</td>
-		
-			
-		
-		
+
 				<td></td>
 		
 	</tr>
@@ -139,11 +140,8 @@
 		
 		
 				<td></td>
-		
-		
+	
 				<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" style="height: 30px"onclick=""/></td>
-
-		
 			<td></td>
 		
 		
