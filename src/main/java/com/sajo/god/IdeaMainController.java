@@ -46,6 +46,13 @@ public class IdeaMainController {
 		return "Invent";
 	}
 	
+	@RequestMapping(value="/login.action")
+	public String login(){
+		
+		
+		return "login";
+	}
+
 	@RequestMapping(value="/myPage.action")
 	public String myPage(){
 		
@@ -59,5 +66,4 @@ public class IdeaMainController {
 		
 		return "shopOrderList";
 	}
-
 }
