@@ -51,6 +51,117 @@ height: 30px;
 #searchOrdertitle{
 height: 120px;
 }
+
+#searchOrderbox{
+height: 150px;
+}
+
+                                                  /*게시물부분  */
+
+#orderList {
+	width:690px;
+	margin:30px auto;
+	text-align:left;
+}
+
+#orderList_title {
+	width:664px;   /* 690px - (padding-left+border:3px+border:3px) */
+	padding-left:20px;
+	height:40px;
+	border:3px solid #D6D4A6;
+	text-align:left;
+	font-weight: bold;
+	line-height:40px;
+	font-size:10pt;
+	margin-bottom:30px;
+}
+
+#title{
+	font-size:9pt;
+}
+
+
+#orderList_header {
+	height:27px;
+}
+
+#orderList_header #leftHeader{
+	float:left;
+	width:345px;
+	text-align:left;
+}
+#orderList_header #rightHeader{
+	float:right;
+	width:345px;
+	text-align:right;
+}
+
+#orderList_header .selectFiled {border:1px solid; border-color:#666666; background-color:#ffffff; font-family:굴림; font-size:9pt;}
+#orderList_header .textFiled {border:1px solid; height:13px; padding:2px 2px 2px 2px; border-color:#666666; background-color:#ffffff; font-family:"굴림"; font-size:9pt;}
+
+#orderList_list {
+	clear:both;
+}
+
+#orderList_list dd {
+	float:left;
+	height:27px;
+	line-height:27px;
+	text-align:center;
+}
+
+#orderList_list #title {
+	height:30px;
+	border-top:1px solid #CCCCCC;
+	border-bottom:1px solid #CCCCCC;
+	background-color: #E6E4E6;
+}
+
+#orderList_list #title dl {
+	height:27px;
+	border-left:0px solid #5db062;
+	border-right:0px solid #5db062;
+}
+
+#orderList_list #title dt {
+	float:left;
+	line-height:34px;
+	text-align:center;
+}
+
+#orderList_list .num {width:70px;}
+#orderList_list .subject {width:370px;}
+#orderList_list .name {width:110px;}
+#orderList_list .created {width:80px;}
+#orderList_list .hitCount {width:60px;}
+
+#orderList_list #lists {
+	clear:both;
+}
+
+#orderList_list #lists dl {
+	float:left;
+	border-bottom:1px solid #E4E4E4;
+}
+
+#orderList_list dd.subject {
+	width:360px;
+	margin-left:10px;
+	text-align:left;
+}
+#orderList_list a {
+	line-height: 27px;
+}
+
+#orderList_list #footer {
+	clear:both;
+	height:32px;
+	line-height:32px;
+	margin-top:5px;
+	text-align:center;
+}
+
+
 </style>
 </head>
 <body>
@@ -100,6 +211,45 @@ height: 120px;
 				</div>	
 			</div>
 		</div>
+		
+		<!-- 서치박스끝 리스트출력 -->
+		
+		<div id="orderList_list">
+			<div id="title">
+				<dl>
+					<dt class="num">주문일자</dt>
+					<dt class="subject">주문상품정보</dt>
+					<dt class="name">상품금액(수량)</dt>
+					<dt class="created">배송비(판매자)</dt>
+					<dt class="hitCount">주문상태</dt>
+				</dl>
+			</div>
+			<div id="lists">
+			<c:forEach var="dto" items="${lists}">
+				<dl>
+					<dd class="num">${dto.num }</dd>
+					<dd class="subject">
+					<a href="${articleUrl}&num=${dto.num}">
+					${dto.subject }</a></dd>
+					<dd class="name">${dto.name }</dd>
+					<dd class="created">${dto.created }</dd>
+					<dd class="hitCount">${dto.hitCount }</dd>
+				</dl>
+			</c:forEach>
+			</div>
+			
+			<div id="footer">
+				<p>
+					<c:if test="${dataCount!=0 }">
+						${pageIndexList }
+					</c:if>
+					<c:if test="${dataCount==0 }">
+						등록된게시물이 없습니다.
+					</c:if>
+				</p>
+			</div>	
+		</div>
+	
 	</div>
 </div>
 </body>

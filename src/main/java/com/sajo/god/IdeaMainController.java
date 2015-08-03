@@ -45,5 +45,12 @@ public class IdeaMainController {
 		
 		return "Invent";
 	}
+	
+	@RequestMapping(value="/myPage.action")
+	public String myPage(){
+		
+		
+		return "shopMyPage";
+	}
 
 }

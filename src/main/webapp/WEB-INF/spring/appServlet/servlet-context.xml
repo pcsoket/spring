@@ -23,11 +23,4 @@
 	
 	<context:component-scan base-package="com.sajo.god" />
 	
-<<<<<<< HEAD
-=======
-		
-	
->>>>>>> accae465b7e6314b640c1c18667a6848dde9d29b
-	
-	
 </beans:beans>
