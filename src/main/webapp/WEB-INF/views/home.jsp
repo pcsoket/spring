@@ -2,6 +2,8 @@
 <%@ page session="false" %>
 <html>
 <head>
+<<<<<<< HEAD
+=======
 <style type="text/css">
 .main{
 	width: 1000px;
@@ -25,10 +27,20 @@
 	overflow: hidden;
 }
 </style>
+>>>>>>> accae465b7e6314b640c1c18667a6848dde9d29b
 	<title>Home</title>
 </head>
 <body>
 
+<<<<<<< HEAD
+<h2>
+<a href=/god/com.action>com</a></h2>
+
+
+<h2>
+<a href=/god/div.action>div</a></h2>
+	
+=======
 <div class="main">
 	<div>top</div>
 	<div>
@@ -42,6 +54,7 @@
 </div>
 
 
+>>>>>>> accae465b7e6314b640c1c18667a6848dde9d29b
 
 </body>
 </html>
