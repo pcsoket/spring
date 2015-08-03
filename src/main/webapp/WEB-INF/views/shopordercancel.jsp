@@ -14,7 +14,7 @@
 *{ margin:0;}
 
 div{
-border: solid 1px;
+
 }
 
 #bodyWrap{
@@ -25,8 +25,8 @@ margin: 0 auto;
 width: 700px;
 height: 800px;
 float: left;
+margin: 0 auto;
 }
-
 
                                                   /*게시물부분  */
 
@@ -101,11 +101,11 @@ float: left;
 	text-align:center;
 }
 
-#orderList_list .num {width:70px;}
-#orderList_list .subject {width:370px;}
-#orderList_list .name {width:110px;}
-#orderList_list .created {width:80px;}
-#orderList_list .hitCount {width:60px;}
+#orderList_list .date {width:70px;}
+#orderList_list .orderinfo {width:370px;}
+#orderList_list .price {width:110px;}
+#orderList_list .tax {width:80px;}
+#orderList_list .state {width:60px;}
 
 #orderList_list #lists {
 	clear:both;
@@ -133,6 +133,16 @@ float: left;
 	text-align:center;
 }
 
+#selectwhy *{
+font-size: 9pt;
+background-color:#ffd2d7;
+}
+
+#tfoot{
+margin: 0 auto;
+width: 700px;
+}
+
 
 </style>
 </head>
@@ -144,22 +154,22 @@ float: left;
 		<div id="orderList_list">
 			<div id="title">
 				<dl>
-					<dt class="num">주문일자</dt>
-					<dt class="subject">주문상품정보</dt>
-					<dt class="name">상품금액(수량)</dt>
-					<dt class="created">배송비(판매자)</dt>
-					<dt class="hitCount">주문상태</dt>
+					<dt class="date">주문일자</dt>
+					<dt class="orderinfo">주문상품정보</dt>
+					<dt class="price">상품금액(수량)</dt>
+					<dt class="tax">배송비(판매자)</dt>
+					<dt class="state">주문상태</dt>
 				</dl>
 			</div>
 			<div id="lists">
 				<dl>
-					<dd class="num">${dto.num }</dd>
-					<dd class="subject">
+					<dd class="date"></dd>
+					<dd class="orderinfo">
 					<a href="${articleUrl}&num=${dto.num}">
 					${dto.subject }</a></dd>
-					<dd class="name">${dto.name }</dd>
-					<dd class="created">${dto.created }</dd>
-					<dd class="hitCount">${dto.hitCount }</dd>
+					<dd class="price">${dto.name }</dd>
+					<dd class="tax">${dto.created }</dd>
+					<dd class="state">${dto.hitCount }</dd>
 				</dl>
 			</div>
 			
@@ -185,7 +195,7 @@ float: left;
 								
 											<option value="116">기타(판매자 책임사유)</option>
 						</select>
-						<label for="clmReqCont"><input type="text" name="clmReqCont"  id="clmReqCont" class="gray" value="상세 사유를 입력해 주세요" onclick="" style="width:400px;"></label>
+						<label for="clmReqCont"><input type="text" name="clmReqCont"  id="clmReqCont" class="gray" value="상세 사유를 입력해 주세요" onclick="" style="width:280px;"></label>
 						<span class="blue">반품책임 : <strong><span id="responClf"></span></strong></span>
                         <span id="cnCouponGuide" class="gold" style="display: none;">구매자 책임사유로 반품 완료 시 유효기간이 만료된 쿠폰은 재발급되지 않습니다.</span>
 				</p>

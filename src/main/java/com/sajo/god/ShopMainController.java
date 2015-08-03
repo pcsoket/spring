@@ -25,5 +25,26 @@ public class ShopMainController {
 		return "basket";
 	}
 	
+	@RequestMapping(value="/myPage.action")
+	public String myPage(){
+		
+		
+		return "shopMyPage";
+	}
+	
+	@RequestMapping(value="/orderList.action")
+	public String orderList(){
+		
+		
+		return "shopOrderList";
+	}
+	
+	@RequestMapping(value="/cancel.action")
+	public String orderCancel(){
+		
+		
+		return "shopordercancel";
+	}
+	
 	
 }
