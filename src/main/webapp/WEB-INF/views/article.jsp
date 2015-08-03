@@ -51,11 +51,9 @@
 <tr height="50px">
 </tr>
 <tr height="40px"> 
-<<<<<<< HEAD
-<td class="line3" colspan="5"><font color="#8b4513 " style="font-family: 나눔손글씨 붓; font-size :18pt ;" ><b>상품평 제목</b></font></td>
-=======
+
 <td class="line3" colspan="5"><font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="10px"><b>제목</b></font></td>
->>>>>>> a705107daf3c2bccdabcb3de18db1bfd5c54158f
+
 </tr>
 <tr height="20px">
 </tr>
@@ -69,10 +67,6 @@
 <tr class="line5"><td colspan="4" style="padding: 20px 80px 20px 62px;" valign="top" height="400" class="font2">
 		내용
 	</td></tr>
-	
-	
-
-	
 	
 <tr height="40px">
 	<td	class="line5" colspan="4">
