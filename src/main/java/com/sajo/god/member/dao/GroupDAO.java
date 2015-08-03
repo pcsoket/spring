@@ -65,26 +65,26 @@ public class GroupDAO {
 	}
 	
 	//조회수증가
-	public void updateHitCount(int num){
+	public void updateHitCount(int gNum){
 		
-		sessionTemplate.update("com.sajo.god.member.mapper.updateHitCount",num);
+		sessionTemplate.update("com.sajo.god.member.mapper.updateHitCount",gNum);
 		
 	}
 	
 	//한명의 데이터 출력
-	public GroupDTO getReadData(int num){
+	public GroupDTO getReadData(int gNum){
 		
 		GroupDTO dto =		
-				sessionTemplate.selectOne("com.sajo.god.member.mapper.getReadData",num);
+				sessionTemplate.selectOne("com.sajo.god.member.mapper.getReadData",gNum);
 		
 		return dto;
 		
 	}
 	
 	//삭제
-	public void deleteData(int num){
+	public void deleteData(int gNum){
 		
-		sessionTemplate.delete("com.sajo.god.member.mapper.deleteData",num);	
+		sessionTemplate.delete("com.sajo.god.member.mapper.deleteData",gNum);	
 		
 	}
 	
