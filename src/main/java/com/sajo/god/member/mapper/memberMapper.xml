@@ -4,8 +4,8 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
-<mapper namespace="com.sjao.member.sql">
-	<insert id="insertData">
+<mapper namespace="com.sajo.member.sql">
+	<insert id="insertData" parameterType="com.sajo.god.member.dto.MemberDTO">
 	insert into member (mid,mname,mpwd,maddr,mtel,memail,mcreated)
 	values (#{mid},#{mname},#{mpwd},#{maddr},#{mtel},#{memail},sysdate)
 	</insert>	

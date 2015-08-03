@@ -22,6 +22,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="*" />
+	
 	<beans:bean id="memberDAO" class="com.sajo.god.member.dao.MemberDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>

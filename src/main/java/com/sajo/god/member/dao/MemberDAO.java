@@ -16,7 +16,7 @@ public class MemberDAO {
 	
 	public void insertData(MemberDTO dto){
 		
-		sessionTemplate.insert("com.sajo.member.sql", dto);
+		sessionTemplate.insert("com.sajo.member.sql.insertData", dto);
 		
 	}
 

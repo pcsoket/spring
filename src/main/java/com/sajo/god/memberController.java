@@ -13,7 +13,7 @@ import com.sajo.god.member.dao.MemberDAO;
 import com.sajo.god.member.dto.MemberDTO;
 
 
-@Controller("Member")
+@Controller("MemberController")
 public class memberController {
 
 	@Autowired
