@@ -22,5 +22,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.sajo.god" />
-		
+	
+	
+	
 </beans:beans>
