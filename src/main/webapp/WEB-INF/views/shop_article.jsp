@@ -4,12 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<<<<<<< HEAD
+<title>shop_article</title>
 
-
-=======
->>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 
 <script type="text/javascript">
 
@@ -19,30 +15,17 @@
 
 </script>
 
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 <style type="text/css">
 
 .box{
 	border-collapse: collapse;
 	}
-<<<<<<< HEAD
 
-
-=======
->>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
-	
 .line1{
 	border: 1px solid black;
 	margin-left: 20px;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 
 .line2{
 		border-bottom: 2px solid #ffd2d7;
@@ -86,10 +69,7 @@
         	</tr>
 			<tr>
 				<td width="330px" height="150px" class="line2" colspan="2">
-<<<<<<< HEAD
 
-=======
->>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 				<table><tr>
     					<td width="90px" height="100px" class="line1">
     						<img alt="" src="/god/resources/image/ww.PNG" 
@@ -110,11 +90,7 @@
    				</table>
 				</td>
 			</tr>
-<<<<<<< HEAD
-			
 
-=======
->>>>>>> 2833a977235b6e788596017848bcf8db929c2ba1
 			<tr>
 				<td class="line4" width="150px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>수량</b></font></td>
