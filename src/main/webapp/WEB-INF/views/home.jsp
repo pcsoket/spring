@@ -10,16 +10,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> a705107daf3c2bccdabcb3de18db1bfd5c54158f
-=======
->>>>>>> 1ed3b4734a2154675b3cf2d46764916d7b742773
->>>>>>> 5b56e4f69e3e9bbdecdeac365dc8a8830e287298
-=======
-=======
->>>>>>> aa74a4c85fee0018f24e3671fac9db5f0ae4f938
 <style type="text/css">
 .main{
 	width: 1000px;

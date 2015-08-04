@@ -69,6 +69,7 @@
 				<option value="aname">작성자</option>
 				<option value="acontent">내용</option>
 			</select>
+			  </form>	
 		<input type="text" name="searchValue" style="height: 40px;"/>
 			<input type="button" style="width: 50px; height: 40px;" value=" 검 색 " class="btn2" onclick="write_sendIt();"/>
 		</td>
@@ -76,7 +77,7 @@
 		<input type="button" value=" 글쓰기 " margin-left="500px" 
 		class="btn1" style="height: 40px;"
 		onclick="javascript:location.href='/god/created.action';"/>
-		  </form>	
+		
 		 </td>
 		 <tr height="10px"><td></td></tr>
 		 

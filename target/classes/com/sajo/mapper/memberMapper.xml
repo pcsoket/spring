@@ -6,7 +6,10 @@
 	
 <mapper namespace="com.sajo.member.sql">
 	<insert id="insertData" parameterType="com.sajo.dto.MemberDTO">
-	insert into member (mid,mname,mpwd,maddr,mtel,memail,mcreated)
-	values (#{mid},#{mname},#{mpwd},#{maddr},#{mtel},#{memail},sysdate)
-	</insert>	
+	insert into member (mid,mName,mPwd,mAddr,mTel,mEmail,mCreated)
+	values (#{userId},#{userName},#{userPwd},#{userAddr},#{userTel},#{userEmail},sysdate)
+	</insert>
+	<delete id="deleteData" parameterType="String">
+		delete member where mid=#{userId}
+	</delete>
 </mapper>
