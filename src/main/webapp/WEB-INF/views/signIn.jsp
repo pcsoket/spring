@@ -54,6 +54,12 @@ function sendIt() {
 	f.submit();
 	
 }
+//주소 검색 팝업창 추가-> jsp도 같이 추가
+function searchData() {
+	
+	window.open("<%=cp %>/zipcode.action","popup","width='50px',height='90px'");
+	
+}
 </script>
 <title> 회 원 가 입 </title>
 <style type="text/css"></style>
@@ -154,7 +160,7 @@ function sendIt() {
 					    <div style="float: left; width: 10px; margin-top:8px;" > - </div>
 					    
 						<div style="float: left;"><input type="text" name="code2" style="margin-top:8px; float:left;" size="10" maxlength="3" class="boxTF" /></div>
-						<div style="float: left; padding-left: 3px;"><input type="button" style="margin-top:8px;" value="주소 검색 " onclick=""/></div>
+						<div style="float: left; padding-left: 3px;"><input type="submit" style="margin-top:8px;" value="주소 검색 " onclick="searchData();"/></div>
 				    </div>
 				    <div style="float: left; height: 30px; width: 450px;">
 					    <div style="padding-left: 5px; float:left;">
