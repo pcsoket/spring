@@ -21,16 +21,24 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<context:component-scan base-package="*" />
-	<beans:bean id="memberDAO" class="com.sajo.god.member.dao.MemberDAO">
+
+	<context:component-scan base-package="com.sajo.*" />
+	
+	<beans:bean id="memberDAO" class="com.sajo.dao.MemberDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
+	<!-- login DAO 추가 -->
+	<beans:bean id="loginDAO" class="com.sajo.dao.LoginDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+
 	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sessionFactory"/>
 	</beans:bean>
 	<beans:bean id="sessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"/>
-		<beans:property name="configLocation" value="classpath:/member-mybatis-config.xml"/>
+		<!-- member-mybatis-config.xml -> mybatis-config.xml 로 name 변경 -->
+		<beans:property name="configLocation" value="classpath:/mybatis-config.xml"/>
 	</beans:bean>
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>

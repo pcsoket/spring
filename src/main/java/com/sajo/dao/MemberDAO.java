@@ -1,8 +1,8 @@
-package com.sajo.god.member.dao;
+package com.sajo.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
-import com.sajo.god.member.dto.MemberDTO;
+import com.sajo.dto.MemberDTO;
 
 public class MemberDAO {
 	
@@ -16,7 +16,13 @@ public class MemberDAO {
 	
 	public void insertData(MemberDTO dto){
 		
-		sessionTemplate.insert("com.sajo.member.sql", dto);
+		sessionTemplate.insert("com.sajo.member.sql.insertData", dto);
+		
+	}
+	
+	public void deleteData(String mid){
+		
+		sessionTemplate.delete("com.sajo.member.sql.deleteData",mid);
 		
 	}
 

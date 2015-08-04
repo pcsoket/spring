@@ -69,7 +69,11 @@
 				<option value="aname">작성자</option>
 				<option value="acontent">내용</option>
 			</select>
+<<<<<<< HEAD
 			</form>	
+=======
+			  </form>	
+>>>>>>> 9509ab39fd6547c8ce5484014b4cd05198c9309f
 		<input type="text" name="searchValue" style="height: 40px;"/>
 			<input type="button" style="width: 50px; height: 40px;" value=" 검 색 " class="btn2" onclick="write_sendIt();"/>
 		</td>
@@ -77,7 +81,11 @@
 		<input type="button" value=" 글쓰기 " margin-left="500px" 
 		class="btn1" style="height: 40px;"
 		onclick="javascript:location.href='/god/created.action';"/>
+<<<<<<< HEAD
 		  
+=======
+		
+>>>>>>> 9509ab39fd6547c8ce5484014b4cd05198c9309f
 		 </td>
 		 <tr height="10px"><td></td></tr>
 		 

@@ -8,6 +8,7 @@
 <body>
 
 Login화면 띄우기shop
-
+session id : ${userId }
+<a href="/god/header.action">a</a>
 </body>
 </html>
