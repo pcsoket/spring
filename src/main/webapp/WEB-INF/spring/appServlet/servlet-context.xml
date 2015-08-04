@@ -25,6 +25,7 @@
 	<beans:bean id="memberDAO" class="com.sajo.god.member.dao.MemberDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
+	
 	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sessionFactory"/>
 	</beans:bean>

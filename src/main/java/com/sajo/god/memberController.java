@@ -14,7 +14,7 @@ import com.sajo.god.member.dto.MemberDTO;
 
 
 @Controller("Member")
-public class memberController {
+public class MemberController {
 
 	@Autowired
 	@Qualifier("memberDAO")
