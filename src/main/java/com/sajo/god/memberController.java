@@ -19,6 +19,11 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sajo.dao.MemberDAO;
 import com.sajo.dto.MemberDTO;
 
+<<<<<<< HEAD
+@Controller("Member")
+public class MemberController {
+=======
+>>>>>>> 9509ab39fd6547c8ce5484014b4cd05198c9309f
 
 @Controller
 public class MemberController {

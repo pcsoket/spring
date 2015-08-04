@@ -41,6 +41,12 @@ public class ComController{
 		return "comment";
 	}
 	
+	@RequestMapping(value="/category.action")
+	public String category(){
+		
+		return "category";
+	}
+	
 
 	
 
