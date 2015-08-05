@@ -1,7 +1,10 @@
 package com.sajo.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 
+import com.sajo.dto.AddrDTO;
 import com.sajo.dto.MemberDTO;
 
 public class MemberDAO {
@@ -23,6 +26,15 @@ public class MemberDAO {
 	public void deleteData(String mid){
 		
 		sessionTemplate.delete("com.sajo.member.sql.deleteData",mid);
+		
+	}
+	
+	public List<AddrDTO> getAddrList(String dong){
+		
+		List<AddrDTO> lists = 
+		sessionTemplate.selectList("com.sajo.member.sql.getAddrList", dong);
+		
+		return lists;
 		
 	}
 

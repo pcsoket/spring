@@ -2,6 +2,7 @@ package com.sajo.god;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,13 +18,8 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.dao.MemberDAO;
+import com.sajo.dto.AddrDTO;
 import com.sajo.dto.MemberDTO;
-
-<<<<<<< HEAD
-@Controller("Member")
-public class MemberController {
-=======
->>>>>>> 9509ab39fd6547c8ce5484014b4cd05198c9309f
 
 @Controller
 public class MemberController {
@@ -115,9 +111,25 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/zipcode.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String searchAddr(){
+	public String searchAddr(HttpServletRequest req,HttpServletResponse resp){
 		
-		return"searchAddr";
+		String dong = req.getParameter("juso");
+		
+		if(dong==null||dong.equals("")){
+			
+		
+			
+			return "searchAddr";
+			
+		}
+		
+		
+		List<AddrDTO> lists = 
+				dao.getAddrList(dong);
+	
+		req.setAttribute("lists", lists);
+		return "searchAddr";
+		
 	}
 
 }

@@ -12,4 +12,7 @@
 	<delete id="deleteData" parameterType="String">
 		delete member where mid=#{userId}
 	</delete>
+	<select id="getAddrList" parameterType="String" resultType="com.sajo.dto.AddrDTO">
+		select zipcode,sido,gugun,dong,bunji from post where dong like #{dong}||'%'
+	</select>
 </mapper>

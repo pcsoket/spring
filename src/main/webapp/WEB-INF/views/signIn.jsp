@@ -57,7 +57,8 @@ function sendIt() {
 //주소 검색 팝업창 추가-> jsp도 같이 추가
 function searchData() {
 	
-	window.open("<%=cp %>/zipcode.action","popup","width='50px',height='90px'");
+	var popOption = "width=400, height=500, scrollbars=no, status=no, top=300,left=700;";
+	window.open("<%=cp %>/zipcode.action","",popOption);
 	
 }
 </script>
