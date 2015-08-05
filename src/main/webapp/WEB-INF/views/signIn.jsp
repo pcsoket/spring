@@ -8,11 +8,52 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src ="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
-
+function sendIt() {
+	
+	f = document.myForm;
+	
+	str = f.userId.value;
+	str = str.trim();
+	if(!str){
+		alert("\n제목을 입력하세요.");
+		f.userId.focus();
+		return;
+	}
+	f.userId.value = str;
+	
+	str = f.userName.value;
+	str = str.trim();
+	if(!str){
+		alert("\n제목을 입력하세요.");
+		f.userName.focus();
+		return;
+	}
+	f.userName.value = str;
+	
+	str = f.userPwd1.value;
+	str = str.trim();
+	if(!str){
+		alert("\n제목을 입력하세요.");
+		f.userPwd1.focus();
+		return;
+	}
+	f.userPwd1.value = str;
+	
+	str1 = f.userPwd2.value;
+	str1 = str1.trim();
+	if(!str1){
+		alert("\n제목을 입력하세요.");
+		f.userpwd2.focus();
+		return;
+	}
+	f.userPwd.value = str;
+	
+	f.submit();
+	
+}
 </script>
 <title> 회 원 가 입 </title>
 <style type="text/css"></style>
-
 </head>
 <body>
 
@@ -20,6 +61,7 @@
 <div style="width: 100%;  margin: 0 auto; padding-top: 15px;">
 	<!-- 추가 -->
 	<div style="width: 1024px; margin: 0 auto;" align="center">
+	
 	<div align="center" style="margin: 0 auto;">
 		
 		<div>
@@ -34,7 +76,7 @@
 		</div>
 		
 <br/>
-		
+		<form >
 		<div align="center" style="width:650px; margin: 0 auto;">
 			
 			<div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
@@ -156,7 +198,7 @@
 		
 		
 		</div>
-		
+		</form>
 		<br/>
 		
 		<div>
@@ -167,13 +209,14 @@
 		<!-- 버튼 위치 변경 -->
 		<div align="center" style="margin: 0 auto;">
 			<div  style="margin: 0 auto;">
-				<button type="button" style="width: 50px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="/write.action">가입</button>
-				<button type="button" style="width: 50px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="/header.action">취소</button>
+				<button type="button" style="width: 50px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="sendIt();">가입</button>
+				<button type="button" style="width: 50px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="/shop.action">취소</button>
 			</div>
 		</div>
 	</div>
 	</div>
 </div>
 <!-- 전체묶기 -->
+
 </body>
 </html>
