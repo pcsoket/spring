@@ -29,6 +29,17 @@ function searchAddr() {
 	
 }
 
+function sendIt(str1,str2,str3,str4) {
+	alert(str1);
+	alert(1);
+	opener.document.getElementsByName("code1").value=str1;
+	alert(2);
+	opener.document.getElementsByName("addr1").value=str2+str3+str4;
+	alert(3);
+	self.close();
+	alert(4);
+}
+
 </script>
 <title> 주 소 검 색 </title>
 </head>
@@ -72,15 +83,23 @@ function searchAddr() {
 <div id="addrlist">
 	<c:forEach var="dto" items="${lists }">
 	<dl>
-		<dd>${zipcode}</dd>
-		<dd>${sido} ${gugun} ${dong} ${bunji}</dd>
-	</dl>
+		<dd>${dto.zipcode}</dd>
+		<dd>${dto.sido} ${dto.gugun} ${dto.dong} ${dto.bunji}</dd>
+	</dl><input type="submit" value="선택" onclick="sendIt('${dto.zipcode}','${dto.sido}','${dto.gugun}','${dto.dong}');"/>
 	</c:forEach>
 </div>
 <div>
 	<div style="border: 1px solid; border-color: #bdbdbd;"></div>
 </div>
-	<div>
+	<div align="center">
+		<p>
+			<c:if test="${dataCount!=0 }">
+				${pageIndexList }
+			</c:if>
+			<c:if test="${dataCount==0 }">
+				찾으실 주소를 검색하세요....
+			</c:if>
+		</p>
 	</div>
 <div>
 	<div style="border: 1px solid; border-color: #bdbdbd;"></div>

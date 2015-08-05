@@ -2,6 +2,9 @@ package com.sajo.god;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,12 +23,16 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sajo.dao.MemberDAO;
 import com.sajo.dto.AddrDTO;
 import com.sajo.dto.MemberDTO;
+import com.sajo.util.MyUtil;
 
 @Controller
 public class MemberController {
 	@Autowired
 	@Qualifier("memberDAO")
 	MemberDAO dao;
+	
+	@Autowired
+	MyUtil myUtil;
 	
 	@RequestMapping(value="/write.action")
 	public ModelAndView created(){
@@ -111,23 +118,58 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="/zipcode.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String searchAddr(HttpServletRequest req,HttpServletResponse resp){
+	public String searchAddr(HttpServletRequest req,HttpServletResponse resp) throws UnsupportedEncodingException{
 		
+		String cp = req.getContextPath();
 		String dong = req.getParameter("juso");
+		String userId = req.getParameter("userId");
+		String userName = req.getParameter("userName");
+		String userPwd = req.getParameter("userPwd");
 		
 		if(dong==null||dong.equals("")){
-			
-		
 			
 			return "searchAddr";
 			
 		}
+		String pageNum = req.getParameter("pageNum");
+		//첫 페이지
+		int currentPage = 1;
+		//전체데이터 갯수
+		int dataCount = dao.getDataCount(dong);
+		
+		
+		if(pageNum != null)
+			currentPage = Integer.parseInt(pageNum);
+		//전체페이지수
+		int numPerPage = 10;
+		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+		
+		//페이징 처리
+		String param = "";
+		if(!dong.equals("")){
+			param = "dong=" + dong;
+		
+		}
+		String listUrl = cp + "/zipcode.action";
+		if(!param.equals("")){
+			listUrl = listUrl + "?" + param;				
+		}
+		
+		String pageIndexList =
+				myUtil.pageIndexList(currentPage, totalPage,listUrl);
 		
 		
 		List<AddrDTO> lists = 
 				dao.getAddrList(dong);
 	
 		req.setAttribute("lists", lists);
+		req.setAttribute("pageIndexList", pageIndexList);
+		req.setAttribute("dataCount", dataCount);
+		req.setAttribute("userId", userId);
+		req.setAttribute("userName", userName);
+		req.setAttribute("userPwd", userPwd);
+		req.setAttribute("userId", userPwd);
+		
 		return "searchAddr";
 		
 	}

@@ -129,11 +129,11 @@ height: 150px;
 	text-align:center;
 }
 
-#orderList_list .num {width:70px;}
-#orderList_list .subject {width:370px;}
-#orderList_list .name {width:110px;}
-#orderList_list .created {width:80px;}
-#orderList_list .hitCount {width:60px;}
+#orderList_list .date {width:70px;}
+#orderList_list .orderinfo {width:370px;}
+#orderList_list .price {width:110px;}
+#orderList_list .tax {width:80px;}
+#orderList_list .state {width:60px;}
 
 #orderList_list #lists {
 	clear:both;

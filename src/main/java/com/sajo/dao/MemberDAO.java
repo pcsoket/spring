@@ -1,5 +1,6 @@
 package com.sajo.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
@@ -31,10 +32,26 @@ public class MemberDAO {
 	
 	public List<AddrDTO> getAddrList(String dong){
 		
+		System.out.println(dong);
+		
 		List<AddrDTO> lists = 
 		sessionTemplate.selectList("com.sajo.member.sql.getAddrList", dong);
 		
 		return lists;
+		
+	}
+	
+public int getDataCount(String dong){
+		
+
+		HashMap<String, Object>params = new HashMap<String, Object>();
+		
+		params.put("dong", dong);
+		
+		int result =
+				sessionTemplate.selectOne("com.sajo.member.sql.getDataCount",params);
+		
+		return result;
 		
 	}
 
