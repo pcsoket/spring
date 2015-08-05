@@ -4,7 +4,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>shop_article</title>
+
 
 <script type="text/javascript">
 
@@ -24,6 +25,7 @@
 	border: 1px solid black;
 	margin-left: 20px;
 }
+
 
 .line2{
 		border-bottom: 2px solid #ffd2d7;

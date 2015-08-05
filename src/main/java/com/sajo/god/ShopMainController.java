@@ -67,10 +67,25 @@ public class ShopMainController {
 		return "basket";
 	}
 	
-	@RequestMapping(value="/purchase.action")
-	public String purchase(){
+	@RequestMapping(value="/myPage.action")
+	public String myPage(){
 		
-		return "purchase";
+		
+		return "shopMyPage";
+	}
+	
+/*	@RequestMapping(value="/orderList.action")             테스트중
+	public String orderList(){
+		
+		
+		return "shopOrderList";
+	}*/
+	
+	@RequestMapping(value="/cancel.action")
+	public String orderCancel(){
+		
+		
+		return "shopordercancel";
 	}
 	
 	

@@ -3,12 +3,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title> 주 소 검 색 </title>
 </head>
 <body>
-
-Login화면 띄우기shop
-session id : ${userId }
-<a href="/god/header.action">a</a>
+<div>
+	<div>
+		<input type="text" name="juso"/>
+		<input type="submit" value="검색">
+	</div>
+</div>
 </body>
 </html>

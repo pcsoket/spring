@@ -2,63 +2,63 @@ package com.sajo.dto;
 
 public class MemberDTO {
 	
-	private String mid,mname,mpwd,maddr,mtel,memail,mcreated,mpimg,mself;
-	private int gno,mauth;
+	private String userId,userName,userPwd,userAddr,userTel,userEmail,userCreated,userPimg,userSelf;
+	private int gno,userAuth;
 	
 	
-	public String getMid() {
-		return mid;
+	public String getUserId() {
+		return userId;
 	}
-	public void setMid(String mid) {
-		this.mid = mid;
+	public void setUserId(String userId) {
+		this.userId = userId;
 	}
-	public String getMname() {
-		return mname;
+	public String getUserName() {
+		return userName;
 	}
-	public void setMname(String mname) {
-		this.mname = mname;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public String getMpwd() {
-		return mpwd;
+	public String getUserPwd() {
+		return userPwd;
 	}
-	public void setMpwd(String mpwd) {
-		this.mpwd = mpwd;
+	public void setUserPwd(String userPwd) {
+		this.userPwd = userPwd;
 	}
-	public String getMaddr() {
-		return maddr;
+	public String getUserAddr() {
+		return userAddr;
 	}
-	public void setMaddr(String maddr) {
-		this.maddr = maddr;
+	public void setUserAddr(String userAddr) {
+		this.userAddr = userAddr;
 	}
-	public String getMtel() {
-		return mtel;
+	public String getUserTel() {
+		return userTel;
 	}
-	public void setMtel(String mtel) {
-		this.mtel = mtel;
+	public void setUserTel(String userTel) {
+		this.userTel = userTel;
 	}
-	public String getMemail() {
-		return memail;
+	public String getUserEmail() {
+		return userEmail;
 	}
-	public void setMemail(String memail) {
-		this.memail = memail;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
-	public String getMcreated() {
-		return mcreated;
+	public String getUserCreated() {
+		return userCreated;
 	}
-	public void setMcreated(String mcreated) {
-		this.mcreated = mcreated;
+	public void setUserCreated(String userCreated) {
+		this.userCreated = userCreated;
 	}
-	public String getMpimg() {
-		return mpimg;
+	public String getUserPimg() {
+		return userPimg;
 	}
-	public void setMpimg(String mpimg) {
-		this.mpimg = mpimg;
+	public void setUserPimg(String userPimg) {
+		this.userPimg = userPimg;
 	}
-	public String getMself() {
-		return mself;
+	public String getUserSelf() {
+		return userSelf;
 	}
-	public void setMself(String mself) {
-		this.mself = mself;
+	public void setUserSelf(String userSelf) {
+		this.userSelf = userSelf;
 	}
 	public int getGno() {
 		return gno;
@@ -66,11 +66,14 @@ public class MemberDTO {
 	public void setGno(int gno) {
 		this.gno = gno;
 	}
-	public int getMauth() {
-		return mauth;
+	public int getUserAuth() {
+		return userAuth;
 	}
-	public void setMauth(int mauth) {
-		this.mauth = mauth;
+	public void setUserAuth(int userAuth) {
+		this.userAuth = userAuth;
 	}
+	
+	
+	
 
 }

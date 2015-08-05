@@ -25,13 +25,6 @@ public class IdeaMainController {
 		return "shop";
 	}
 	
-	@RequestMapping(value="/signin.action")
-	public String signin(){
-		
-		
-		return "signIn";
-	}
-	
 	@RequestMapping(value="/header.action")
 	public String header(){
 		
@@ -45,25 +38,5 @@ public class IdeaMainController {
 		
 		return "Invent";
 	}
-	
-	@RequestMapping(value="/login.action")
-	public String login(){
-		
-		
-		return "login";
-	}
 
-	@RequestMapping(value="/myPage.action")
-	public String myPage(){
-		
-		
-		return "shopMyPage";
-	}
-	
-	@RequestMapping(value="/orderList.action")
-	public String orderList(){
-		
-		
-		return "shopOrderList";
-	}
 }
