@@ -1,8 +1,8 @@
-package com.sajo.god.member.dao;
+package com.sajo.dao;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
-import com.sajo.god.member.dto.MemberDTO;
+import com.sajo.dto.MemberDTO;
 
 public class MemberDAO {
 	

@@ -9,12 +9,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sajo.god.member.dao.MemberDAO;
-import com.sajo.god.member.dto.MemberDTO;
+import com.sajo.dao.MemberDAO;
+import com.sajo.dto.MemberDTO;
 
 
-@Controller("Member")
-public class memberController {
+@Controller
+public class MemberController {
 
 	@Autowired
 	@Qualifier("memberDAO")

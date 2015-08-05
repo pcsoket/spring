@@ -32,12 +32,12 @@ public class ShopMainController {
 		return "shopMyPage";
 	}
 	
-	@RequestMapping(value="/orderList.action")
+/*	@RequestMapping(value="/orderList.action")             테스트중
 	public String orderList(){
 		
 		
 		return "shopOrderList";
-	}
+	}*/
 	
 	@RequestMapping(value="/cancel.action")
 	public String orderCancel(){

@@ -25,6 +25,33 @@
 <body>
 
 
+
+<form action="" method="post" name="myForm">
+
+<table width=800" height="150" border="0" align="center" background="#F6F6F6">
+	<tr height="50px"></tr>
+	
+	
+	
+	
+	<tr>
+		<td class="line5"><b>아이디</b></td>
+		<td>
+		<textarea rows="7" cols="80" name="accontent" class="line5"></textarea>
+		</td></tr>
+		
+	<tr>
+		<td height="30px" colspan="4" align="right">
+		<input type="button" value="등록" class="btn1" style="height:30px; width: 50px" 
+		onclick="a_sendIt();"/>
+		</td>
+	</tr>
+	
+
+</table>
+
+
+
 <table width="1000" height="100px" align="center" class="line5">
 	<tr height="30px"> 
 		<td colspan="5" class="font1"><b>댓글</b></font></td>

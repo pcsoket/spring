@@ -1,4 +1,4 @@
-package com.sajo.god.member.dto;
+package com.sajo.dto;
 
 public class GroupDTO {
 	

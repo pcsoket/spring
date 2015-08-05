@@ -26,6 +26,7 @@
 	</environments>
 	<!-- 사용자 정의 sql 파일 -->
 	<mappers>
-		<mapper resource="com/sajo/god/member/mapper/memberMapper.xml"/>
+		<mapper resource="com/sajo/mapper/memberMapper.xml"/>
+		<mapper resource="com/sajo/mapper/purchaseMapper.xml"/>
 	</mappers>
 </configuration>

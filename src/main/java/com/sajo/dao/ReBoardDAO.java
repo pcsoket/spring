@@ -1,11 +1,11 @@
-package com.sajo.god.member.dao;
+package com.sajo.dao;
 
 import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
-import com.sajo.god.member.dto.ReBoardDTO;
+import com.sajo.dto.ReBoardDTO;
 
 public class ReBoardDAO {
 	

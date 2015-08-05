@@ -1,11 +1,11 @@
-package com.sajo.god.member.dao;
+package com.sajo.dao;
 
 import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
-import com.sajo.god.member.dto.GroupDTO;
+import com.sajo.dto.GroupDTO;
 
 public class GroupDAO {
 	
