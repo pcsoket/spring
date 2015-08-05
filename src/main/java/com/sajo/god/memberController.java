@@ -113,5 +113,11 @@ public class MemberController {
 		
 		return"redirect:/shopMain.action";
 	}
+	
+	@RequestMapping(value="/zipcode.action",method={RequestMethod.GET,RequestMethod.POST})
+	public String searchAddr(){
+		
+		return"searchAddr";
+	}
 
 }
