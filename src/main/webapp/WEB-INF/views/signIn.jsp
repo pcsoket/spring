@@ -57,7 +57,7 @@ function sendIt() {
 //주소 검색 팝업창 추가-> jsp도 같이 추가
 function searchData() {
 	
-	var popOption = "width=500, height=500, scrollbars=no, status=no, top=300,left=700;";
+	var popOption = "width=500, height=500,resizable=no,scrollbars=no, status=no, top=300,left=700;";
 	window.open("<%=cp %>/zipcode.action","popup",popOption);
 	
 }
@@ -72,7 +72,7 @@ function searchData() {
 <div style="width: 100%;  margin: 0 auto; padding-top: 15px;">
 	<!-- 추가 -->
 	<div style="width: 1024px; margin: 0 auto;" align="center">
-	<form name="write" method="post" enctype="multipart/form-data">
+	<form name="write" method="post">
 	<div align="center" style="margin: 0 auto;">
 		
 		<div>
@@ -84,30 +84,26 @@ function searchData() {
 			<div class="border" style="width:660px; border: solid 1px; border-color: #ffd2d7;"></div>
 			<!-- 추가 -->
 			<div style="text-align: left; margin-left: 20%;"><font size="2pt" style="font-family: 나눔손글씨 붓; color: red;"><b>*  필수입력사항</b></font></div>
-		</div>
-		
-<br/>
-		
+		</div>	
+		<br/>	
 		<div align="center" style="width:650px; margin: 0 auto;">
 			<!-- 이미지 등록 추가 -->
-			<div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
+			<!-- <div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
 			
 				<div  style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:30px; float:left; height:30pt;">
 					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>프로필 사진</b></font>
 				</div>
-				
 				<div style="float: left;">			
-					<input type="file" name="userPimg" value="${userPimg}"/>
+					<input type="file" name="userPimg"/>
 				</div>
-		   </div>
-			
+		   </div> -->
 			<div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
 				<div  style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:30px; float:left; height:30pt;">
 					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>회원아이디</b></font><font color="red">*</font>
 				</div>
 				
 				<div style="float: left; padding-left: 10px;">
-					<input type="text" name="userId" value="${userId }" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" onkeyup="chkid"/>
+					<input type="text" name="userId"  style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" onkeyup="chkid"/>
 					${message}<!-- 중복처리 문제 결정후 구현으로 보류상태  -->
 			    </div>
 		   </div>
@@ -115,11 +111,11 @@ function searchData() {
 			<div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
 			
 				<div style="background-color:#ffd2d7; width: 200px; line-height:30px; float:left; height:30pt;">
-					<font color="#8b4513" style="font-family: 나눔바른펜;">이름 </font><font color="red">*</font>
+					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>이름</b></font><font color="red">*</font>
 				</div>
 				
 				<div style="float: left; padding-left: 10px;">
-					<input type="text" name="userName" value="${userName }" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
+					<input type="text" name="userName" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
 			    </div>
 		   </div>
 			
@@ -130,9 +126,9 @@ function searchData() {
 				</div>
 				
 				<div style="float: left;padding-left: 10px;">
-					<input type="text" name="userPwd" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
+					<input type="password" name="userPwd" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
 					<div align="left" style="float: left; margin-top: 9px;">
-					<font size="2pt" style="font-family: 나눔바른펜;">비밀번호는 6~16자 입력 바랍니다.</font>
+					<font size="2pt" style="font-family: 나눔바른펜;">&nbsp;&nbsp;비밀번호는 6~16자 입력 바랍니다.</font>
 					</div>	
 			    </div>
 		   </div>
@@ -142,49 +138,52 @@ function searchData() {
 				<div style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:30px; float:left; height:30pt;">
 					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>비밀번호확인</b> </font><font color="red">*</font>
 				</div>
-				
 				<div style="float: left;padding-left: 10px;">
-					<input type="text" name="userPwd1" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
+					<input type="password" name="userPwd1" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
 			    </div>
 		   </div>
 		   
 		   <div style="border-top: 2px solid #EAEAEA; overflow: hidden; width: 650px;">
 			
-				<div style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:120px; float:left; height:110pt;">
-					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>자택주소</b> </font>
+				<div style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:120px; float:left; height:150pt;">
+					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>자택주소</b></font><font color="red">*</font>
 				</div>
 				<input type="hidden" value="zip"/>
 					<div style="height: 30px;">
 						<div style="float: left; padding-left: 10px;">
-							<input type="text" name="code1" value="${code1 }" style="margin-top:8px; float:left" size="10" maxlength="3" class="boxTF" />
+							<input type="text" name="code1" id="code1" style="margin-top:8px; float:left" size="10" maxlength="3" class="boxTF" />
 					    </div>
 					    
 					    <div style="float: left; width: 10px; margin-top:8px;" > - </div>
 					    
-						<div style="float: left;"><input type="text" name="code2" value="${code1 }" style="margin-top:8px; float:left;" size="10" maxlength="3" class="boxTF" /></div>
-						<div style="float: left; padding-left: 3px;"><input type="submit" style="margin-top:8px;" value="주소 검색 " onclick="searchData();"/></div>
+						<div style="float: left;"><input type="text" name="code2" id="code2"  style="margin-top:8px; float:left;" size="10" maxlength="3" class="boxTF" /></div>
+						<div style="float: left; padding-left: 3px;"><input type="button" style="margin-top:8px;" value="주소 검색 " onclick="searchData();"/></div>
 				    </div>
 				    <div style="float: left; height: 30px; width: 450px;">
-					    <div style="padding-left: 5px; float:left;">
-							<input type="text" name="addr1"  value="${addr1}" style="margin-top:8px;" size="20" maxlength="20" class="boxTF" />
+					    <div style="padding-left: 5px; float:left; overflow: hidden;">
+							<input type="text" name="addr1" id="addr1" style="margin-top:8px;" size="40" maxlength="40" class="boxTF" />
 					    </div>
-					    <div style=" padding-left: 5px; float: left;" >
-							<input type="text" name="addr2" style="margin-top:8px;" size="20" maxlength="20" class="boxTF" />
-					    </div>
+		
 				    </div>
 				    
-				    <div align="left" style="height: 50px; float: left; width: 450px; font-size: 9pt;">
-					    <br/>
+				    <div style="float: left; height: 30px; width: 450px;">
+				    	<div style=" padding-left: 5px; float: left; " >
+							<input type="text" name="addr2" style="margin-top:8px;" size="40" maxlength="40" class="boxTF" />
+					    </div>
+				    </div>
+			
+				    <div align="left" style="height: 70px; float: left; width: 450px; font-size: 9pt;">
+					   
 					    	&nbsp;&nbsp;· 사은품 및 우편물이 배송될 주소입니다.<br/>
 							&nbsp;&nbsp;· 정확한 주소를 표기해 주시기 바랍니다.<br/>
 							&nbsp;&nbsp;·&nbsp;주소변경은 마이페이지에서 가능합니다.<br/>		
 				    </div>
-				    <br/>
+				    
 				    <!-- style 변경 -->
-				    	<div style="padding-left:5px; padding-top: 80px; height: 20px; width: 450px;">
+				    	<div style="padding-left:5px; margin-top:10px; padding-top: 80px; height: 50px; width: 450px;">
 				    		<div style="font-size: 9pt; float: left;">&nbsp;우편물 수령지</div>
 				    		<div style="font-size: 9pt; float: left;"><input type="radio" name="radio" value="자택" checked="checked" />자택</div>
-				    		<!-- <div style="font-size: 9pt; float: left;"><input type="radio" name="radio" value="직장"/>직장</div> -->
+				    		<div style="font-size: 9pt; float: left;"><input type="radio" name="radio" value="직장"/>직장</div>
 				    	</div>
 				    
 				</div>
@@ -205,22 +204,16 @@ function searchData() {
 					<div style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:30px; float:left; height:30pt;">
 						<font color="#8b4513" style="font-family: 나눔바른펜;">이메일주소 </font><font color="red">*</font>
 					</div>
-					
 					<div style="float: left;padding-left: 10px;">
 						<input type="text" name="userEmail" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
 				    </div>
 		   		</div>
-		   		
 		   		<div style="border-top: 2px solid #EAEAEA; overflow: hidden;"></div>
-				
-		</div>
-	
+			</div>
 		<br/>
-		
 		<div>
 			<div class="border" style="width:660px; border: solid 1px; border-color: #ffd2d7;"></div>
 		</div>
-	
 	<br/>
 		<!-- 버튼 위치 변경 -->
 		<div align="center" style="margin: 0 auto;">
