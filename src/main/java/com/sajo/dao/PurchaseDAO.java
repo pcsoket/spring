@@ -1,19 +1,10 @@
 package com.sajo.dao;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import javax.sql.DataSource;
-
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
-
 import com.sajo.dto.PurchaseDTO;
 
 public class PurchaseDAO {
@@ -23,7 +14,7 @@ public class PurchaseDAO {
 	private Connection conn = null;
 	
 
-	public void setSessionT(SqlSessionTemplate asd) throws Exception{
+	public void setSessionTemplate(SqlSessionTemplate asd) throws Exception{
 		this.sessionTemplate = asd;
 	}
 	

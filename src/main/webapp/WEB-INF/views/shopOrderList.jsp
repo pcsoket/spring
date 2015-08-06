@@ -231,24 +231,15 @@ border-top: 2px solid #EAEAEA
 				</dl>
 			</div>
 			<div id="lists">
-				<dl>
-					<dd class="date">예시</dd>
-					<dd class="orderinfo">
-					<a href="${articleUrl}&num=${dto.num}">예시
-					${dto.subject }</a></dd>
-					<dd class="price">예시</dd>
-					<dd class="tax">예시</dd>
-					<dd class="state">예시</dd>
-				</dl>
 			<c:forEach var="dto" items="${lists}">
 				<dl>
-					<dd class="date"></dd>
+					<dd class="date" style="font-size: 7px;">${dto.bdate}</dd>
 					<dd class="orderinfo">
-					<a href="${articleUrl}&num=${dto.num}">
-					${dto.subject }</a></dd>
-					<dd class="price">${dto.name }</dd>
-					<dd class="tax">${dto.created }</dd>
-					<dd class="state">${dto.hitCount }</dd>
+					<a href="${articleUrl}&gnum=${dto.pnum}">
+					${dto.pname}</a></dd>
+					<dd class="price">${dto.pprice}(${dto.pamount})</dd>
+					<dd class="tax">구매자</dd>
+					<dd class="state">${dto.state}</dd>
 				</dl>
 			</c:forEach>
 			</div>
