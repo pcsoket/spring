@@ -95,7 +95,7 @@
 				<td class="line4" width="150px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>수량</b></font></td>
 				<td class="line5" width="200px" height="50px">
-					&nbsp;&nbsp;1개</td>
+					&nbsp;&nbsp;${dto.pNum}</td>
 			</tr>
 			<tr>
 				<td class="line4" width="150px" height="80px" align="center">
@@ -112,7 +112,7 @@
 			<tr>
 				<td class="line3" height="80px" colspan="2">
 					&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="5px"><b>
-					[국내산] 유명 산지 수박</b></font></td></tr>
+					수박</b></font></td></tr>
 			
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">

@@ -36,7 +36,7 @@
 	<beans:bean id="ProductDAO" class="com.sajo.dao.ProductDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
-
+	
 	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sessionFactory"/>
 	</beans:bean>
@@ -51,5 +51,7 @@
 		<beans:property name="username" value="god"/>
 		<beans:property name="password" value="god"/>
 	</beans:bean>
+	
+	<beans:bean id="myUtil" class="com.sajo.util.MyUtil"/>
 	
 </beans:beans>
