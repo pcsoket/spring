@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,12 +17,41 @@
 }
 </style>
 
+<script type="text/javascript">
+	function minus() {
+		
+		f = document.myForm;
+		
+		if(Number(f.amount.value)>0){
+			
+			f.amount.value = Number(f.amount.value) -1;
+			
+		}else if(Number(f.amount.value)<1){
+			
+			alert("수량을 1개 이상 선택해 주세요.");
+			
+			
+		}
+		
+		
+		
+	}
+	
+	function plus() {
+		
+		f = document.myForm;
+		
+		f.amount.value = Number(f.amount.value) + 1;
+		
+	}
+</script>
+
 </head>
 
 <body>
 
 <div align="center" style="width: 100%;"> <!-- 전체 틀 -->
-
+	<form action="" method="post" name="myForm">
 	<div style="background-color: #ffd2d7;width: 1000px; height: 55px;">
 		<div align="left" style="font-size: 30pt; float:left; width: 535px; margin-left: 15px; font-family: 나눔손글씨 붓;">장바구니</div>
 		<div align="right" style="font-size: 20pt; float:left; width: 440px; height:55px; vertical-align: bottom; margin-right: 10px; font-family: 나눔손글씨 붓;">장바구니 > 주문결제 > 주문완료 </div>
@@ -40,11 +70,20 @@
 			</div>
 		
 			<div style="padding-left: 10px; padding-right: 10px;">
+			
+			<c:if test="${dataCount != 0 }">
+			<c:forEach var="dto" items="${bklists }">
+			
+			
 				<div style="height: 60px;">
 					<div style="float: left; width: 100px;"><input type="checkbox" checked="checked"></div>
-					<div style="float: left; width: 450px;">상품이미지,제목</div>
-					<div style="float: left; width: 100px;">수량bamount</div>
-					<div style="float: left; width: 100px;">가격bprice</div>
+					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" />${dto.bPName }</div>
+					<div style="float: left; width: 100px;">
+						<div style="float: left;"><img src="/god/resources/image/minus.png" width="20px" height="20px" onclick="minus();"></div>
+						<div style="width: 20px;" ><input type="text" value="1" name="amount" maxlength="2" size="5px" /></div>
+						<div style="float: left;"><img src="/god/resources/image/plus.png" width="20px" height="20px" onclick="plus();"></div>
+					</div>
+					<div style="float: left; width: 100px;"></div>
 					<div style="width: 200px; float: left;">배송정보</div>
 				</div>
 				
@@ -55,6 +94,15 @@
 					</div>
 				</div>
 				
+				
+				
+			</c:forEach>
+			</c:if>
+			<c:if test="${dataCount == 0 }">
+				<div align="left" style="border-bottom: solid 2px #ff7b8a; padding-left: 50px;">
+					장바구니에 등록된 상품이 없습니다.
+				</div>
+				</c:if>
 			</div>
 			
 			<br/>
@@ -94,7 +142,7 @@
 		<div style="width: 100%;height: 60px;">
 			<div><button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/purchase.action';">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
 		</div>
-
+	</form>
 	
 </div>
 

@@ -10,9 +10,9 @@ public class DBConn {
 	
 	public static Connection getConnection(){
 		
-		String url="jdbc:oracle:thin:@172.16.6.18:1521:testdb";
-		String user="suzi";
-		String pwd="a123";
+		String url="jdbc:oracle:thin:@192.168.16.15:1521:testdb";
+		String user="god";
+		String pwd="god";
 		
 		if(conn==null){
 			

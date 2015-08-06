@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.sajo.purchase">
+
+	<insert id="insertData" parameterType="com.sajo.dto.PurchaseDTO">
+	insert into purchase (bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake)
+	values (#{bnum},#{pnum},#{pprice},#{pamount},#{pname},#{mid},#{maddr},sysdate,#{state},#{retake})
+	</insert>
+	
+	<select id="getLists"  parameterType="hashMap" resultType="com.sajo.dto.PurchaseDTO">
+		select * from (
+		select rownum rnum, data.* from (
+		select bnum,pnum,pprice,pamount,pname,mid,maddr,state,retake,to_char(bdate,'YYYY-MM-DD') bdate
+		from purchase where pname like '%' || #{searchValue} || '%' and mid=#{userId}
+		order by bnum desc) data)
+		<![CDATA[
+		where rnum>=#{start} and rnum<=#{end}
+		]]>
+	</select>
+	
+	<select id="maxNum" resultType="int">
+		select nvl(max(bnum),0) from purchase
+	</select>
+	
+	<select id="getDataCount" parameterType="hashMap" resultType="int">
+		select nvl(count(*),0) from purchase
+		where pname like '%' || #{searchValue} || '%'
+	</select>
+	
+	<select id="getReadData" parameterType="int" resultType="com.sajo.dto.PurchaseDTO">
+		select bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake
+		from purchase where bnum=#{bnum}
+	</select>
+	
+	<update id="updateData" parameterType="com.sajo.dto.PurchaseDTO">
+		update purchase set state=#{state},retake=#{retake} where bnum=#{bnum}
+	</update>
+	
+	<delete id="deleteData">
+		delete purchse where bnum=#{bnum}
+	</delete>
+</mapper>

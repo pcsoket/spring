@@ -27,7 +27,8 @@
 	<!-- 사용자 정의 sql 파일 -->
 	<mappers>
 		<mapper resource="com/sajo/mapper/memberMapper.xml"/>
-		<!-- loginMapper.xml 추가 -->
+		<mapper resource="com/sajo/mapper/basketMapper.xml"/>
+		<mapper resource="com/sajo/mapper/purchaseMapper.xml"/>
 		<mapper resource="com/sajo/mapper/loginMapper.xml"/>
 		<!-- productMapper.xml 추가 -->
 		<mapper resource="com/sajo/mapper/productMapper.xml"/>

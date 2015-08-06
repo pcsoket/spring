@@ -20,10 +20,9 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
 
 	<context:component-scan base-package="com.sajo.*" />
-	
+	<beans:bean id="myUtil" class="com.sajo.util.MyUtil"/>
 	<beans:bean id="memberDAO" class="com.sajo.dao.MemberDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
@@ -31,12 +30,15 @@
 	<beans:bean id="loginDAO" class="com.sajo.dao.LoginDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
-	
-	<!-- Product DAO 추가 -->
-	<beans:bean id="ProductDAO" class="com.sajo.dao.ProductDAO">
-		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	<!-- Purchase DAO 추가 -->
+	<beans:bean id="purchaseDAO" class="com.sajo.dao.PurchaseDAO">
+		<beans:property name="sessionT" ref="sessionTemplate"/>
 	</beans:bean>
-	
+	<!-- Basket DAO 추가 -->	
+	<beans:bean id="basketDAO" class="com.sajo.dao.BasketDAO">
+      <beans:property name="sessionTemplate" ref="sessionTemplate"/>
+    </beans:bean> 
+
 	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sessionFactory"/>
 	</beans:bean>
@@ -51,7 +53,5 @@
 		<beans:property name="username" value="god"/>
 		<beans:property name="password" value="god"/>
 	</beans:bean>
-	
-	<beans:bean id="myUtil" class="com.sajo.util.MyUtil"/>
 	
 </beans:beans>

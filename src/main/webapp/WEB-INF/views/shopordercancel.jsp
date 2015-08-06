@@ -14,7 +14,6 @@
 *{ margin:0;}
 
 div{
-border: solid 1px;
 }
 
 #bodyWrap{
@@ -25,8 +24,8 @@ margin: 0 auto;
 width: 700px;
 height: 800px;
 float: left;
+margin: 0 auto;
 }
-
 
                                                   /*게시물부분  */
 
@@ -101,11 +100,11 @@ float: left;
 	text-align:center;
 }
 
-#orderList_list .num {width:70px;}
-#orderList_list .subject {width:370px;}
-#orderList_list .name {width:110px;}
-#orderList_list .created {width:80px;}
-#orderList_list .hitCount {width:60px;}
+#orderList_list .date {width:70px;}
+#orderList_list .orderinfo {width:370px;}
+#orderList_list .price {width:110px;}
+#orderList_list .tax {width:80px;}
+#orderList_list .state {width:60px;}
 
 #orderList_list #lists {
 	clear:both;
@@ -133,6 +132,59 @@ float: left;
 	text-align:center;
 }
 
+#selectwhy{
+font-size: 9pt;
+margin: 0 auto;
+height: 30px;
+width: 700px;
+background-color:#ffd2d7;
+padding-top: 8px;padding-left: 6px;
+}
+
+select {vertical-align:middle;color: gray;}
+
+input {color:#4d4d4d;border:1px solid #bbb;vertical-align:middle;}
+
+.repay_wrap{
+height: 150px;
+width: 700px;
+}
+
+.repay_wrap div{
+border-color: #4d4d4d;
+}
+
+.subtraction{
+height: 150px;
+width: 200px;
+float: left;
+background-color:#ffd2d7;
+}
+.final_sum{
+height: 150px;
+width: 250px;
+float: left;
+background-color:#ffd2d7;
+}
+.paybox{
+height: 150px;
+width: 250px;
+float: left;
+background-color:#ffd2d7;
+border-right: 1px white;
+}
+
+.btn1{
+	background-color: #ffd2d7;
+	border:1px solid #ffd2d7;
+	font :"#8b4513";
+	font-family : 나눔바른펜";
+}
+a{
+text-decoration: none;
+
+}
+
 
 </style>
 </head>
@@ -144,50 +196,53 @@ float: left;
 		<div id="orderList_list">
 			<div id="title">
 				<dl>
-					<dt class="num">주문일자</dt>
-					<dt class="subject">주문상품정보</dt>
-					<dt class="name">상품금액(수량)</dt>
-					<dt class="created">배송비(판매자)</dt>
-					<dt class="hitCount">주문상태</dt>
+					<dt class="date">주문일자</dt>
+					<dt class="orderinfo">주문상품정보</dt>
+					<dt class="price">상품금액(수량)</dt>
+					<dt class="tax">배송비(판매자)</dt>
+					<dt class="state">주문상태</dt>
 				</dl>
 			</div>
 			<div id="lists">
 				<dl>
-					<dd class="num">${dto.num }</dd>
-					<dd class="subject">
+					<dd class="date"></dd>
+					<dd class="orderinfo">
 					<a href="${articleUrl}&num=${dto.num}">
 					${dto.subject }</a></dd>
-					<dd class="name">${dto.name }</dd>
-					<dd class="created">${dto.created }</dd>
-					<dd class="hitCount">${dto.hitCount }</dd>
+					<dd class="price">${dto.name }</dd>
+					<dd class="tax">${dto.created }</dd>
+					<dd class="state">${dto.hitCount }</dd>
 				</dl>
+			</div>
+			<div class="banner" style="height: 90px;width: 700px;">
+			
+			
 			</div>
 			
 			<div id="selectwhy">
 				<p class="tfoot">
-						<label for="clmReqRsn"><span class="a_inhide">반품사유선택</span></label>
-						<select name="clmReqRsn" id="clmReqRsn" style="width:200px;"
-							onChange="">
-							<option value="">반품사유선택</option>
-											<option value="101">상품에 이상 없으나 구매 의사 없어짐</option>
-								
-											<option value="110">사이즈, 색상 등을 잘못 선택함</option>
-								
-											<option value="105">상품이 상품상세 정보와 틀림</option>
-								
-											<option value="111">배송된 상품의 파손/하자/포장 불량</option>
-								
-											<option value="112">상품이 도착하고 있지 않음</option>
-								
-											<option value="108">다른 상품이 잘못 배송됨</option>
-								
-											<option value="113">기타(구매자 책임사유)</option>
-								
-											<option value="116">기타(판매자 책임사유)</option>
-						</select>
-						<label for="clmReqCont"><input type="text" name="clmReqCont"  id="clmReqCont" class="gray" value="상세 사유를 입력해 주세요" onclick="" style="width:400px;"></label>
-						<span class="blue">반품책임 : <strong><span id="responClf"></span></strong></span>
-                        <span id="cnCouponGuide" class="gold" style="display: none;">구매자 책임사유로 반품 완료 시 유효기간이 만료된 쿠폰은 재발급되지 않습니다.</span>
+					반품사유선택
+					<select name="clmReqRsn" id="clmReqRsn" style="width:200px;background:#f8f8f8;" onChange="">
+						<option value="">반품사유선택</option>
+										<option value="101">상품에 이상 없으나 구매 의사 없어짐</option>
+							
+										<option value="110">사이즈, 색상 등을 잘못 선택함</option>
+							
+										<option value="105">상품이 상품상세 정보와 틀림</option>
+							
+										<option value="111">배송된 상품의 파손/하자/포장 불량</option>
+							
+										<option value="112">상품이 도착하고 있지 않음</option>
+							
+										<option value="108">다른 상품이 잘못 배송됨</option>
+							
+										<option value="113">기타(구매자 책임사유)</option>
+							
+										<option value="116">기타(판매자 책임사유)</option>
+					</select>&nbsp;
+					<input type="text" name="clmReqCont"  id="clmReqCont" class="gray" value="상세 사유를 입력해 주세요" onclick="" style="width:280px;background:#f8f8f8;border-left:none;">
+					반품책임 :
+                    <span id="cnCouponGuide" class="gold" style="display: none;">구매자 책임사유로 반품 완료 시 유효기간이 만료된 쿠폰은 재발급되지 않습니다.</span>
 				</p>
 			</div>
 			
@@ -203,12 +258,11 @@ float: left;
 							<div class="layer_conts">
 								동일한 주문에서 여러 건의 취소/반품 진행될 경우 환불이 확정되는 순서에 따라 환불확정금액이 신청 시 환불예상금액과 달라질 수 있습니다.
 							</div>
-							<button class="btn_layclose" type="button" onclick="layerHidden('defbtnInfo01');">레이어 닫기</button>
 						</div>
 					</div>
 				</div>
 				<div class="repay_wrap">
-					<div>
+					<div class="paybox">
 						<div>
 							<span>원 결제금액</span><strong><em>0</em>원</strong>
 						</div>
@@ -224,7 +278,6 @@ float: left;
 							<li class="">
 								<span>할인금액</span>
 								<strong><em>0</em>원</strong>
-
 							</li>
 						</ul>
 					</div>
@@ -255,9 +308,9 @@ float: left;
 			
 			
 			<!-- 반품 결정 -->
-			<div>
-				<a href="" class="bt_prevPage"><span>이전 페이지로</span></a>
-				<a href=""  class="bt_returnRequest"><span>반품신청</span></a>
+			<div style="text-align: center;">
+				<a href="" class="btn1"><span>이전 페이지로</span></a>
+				<a href=""  class="btn1"><span>반품신청</span></a>
 			</div>
 			
 		</div>

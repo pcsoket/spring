@@ -57,9 +57,11 @@ function sendIt() {
 //주소 검색 팝업창 추가-> jsp도 같이 추가
 function searchData() {
 	
-	window.open("<%=cp %>/zipcode.action","popup","width='50px',height='90px'");
+	var popOption = "width=500, height=500, scrollbars=no, status=no, top=300,left=700;";
+	window.open("<%=cp %>/zipcode.action","popup",popOption);
 	
 }
+
 </script>
 <title> 회 원 가 입 </title>
 <style type="text/css"></style>
@@ -95,7 +97,7 @@ function searchData() {
 				</div>
 				
 				<div style="float: left;">			
-					<input type="file" name="userPimg"/>
+					<input type="file" name="userPimg" value="${userPimg}"/>
 				</div>
 		   </div>
 			
@@ -105,7 +107,7 @@ function searchData() {
 				</div>
 				
 				<div style="float: left; padding-left: 10px;">
-					<input type="text" name="userId" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" onkeyup="chkid"/>
+					<input type="text" name="userId" value="${userId }" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" onkeyup="chkid"/>
 					${message}<!-- 중복처리 문제 결정후 구현으로 보류상태  -->
 			    </div>
 		   </div>
@@ -117,7 +119,7 @@ function searchData() {
 				</div>
 				
 				<div style="float: left; padding-left: 10px;">
-					<input type="text" name="userName" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
+					<input type="text" name="userName" value="${userName }" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
 			    </div>
 		   </div>
 			
@@ -151,20 +153,20 @@ function searchData() {
 				<div style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:120px; float:left; height:110pt;">
 					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>자택주소</b> </font>
 				</div>
-				
+				<input type="hidden" value="zip"/>
 					<div style="height: 30px;">
 						<div style="float: left; padding-left: 10px;">
-							<input type="text" name="code1" style="margin-top:8px; float:left" size="10" maxlength="3" class="boxTF" />
+							<input type="text" name="code1" value="${code1 }" style="margin-top:8px; float:left" size="10" maxlength="3" class="boxTF" />
 					    </div>
 					    
 					    <div style="float: left; width: 10px; margin-top:8px;" > - </div>
 					    
-						<div style="float: left;"><input type="text" name="code2" style="margin-top:8px; float:left;" size="10" maxlength="3" class="boxTF" /></div>
+						<div style="float: left;"><input type="text" name="code2" value="${code1 }" style="margin-top:8px; float:left;" size="10" maxlength="3" class="boxTF" /></div>
 						<div style="float: left; padding-left: 3px;"><input type="submit" style="margin-top:8px;" value="주소 검색 " onclick="searchData();"/></div>
 				    </div>
 				    <div style="float: left; height: 30px; width: 450px;">
 					    <div style="padding-left: 5px; float:left;">
-							<input type="text" name="addr1" style="margin-top:8px;" size="20" maxlength="20" class="boxTF" />
+							<input type="text" name="addr1"  value="${addr1}" style="margin-top:8px;" size="20" maxlength="20" class="boxTF" />
 					    </div>
 					    <div style=" padding-left: 5px; float: left;" >
 							<input type="text" name="addr2" style="margin-top:8px;" size="20" maxlength="20" class="boxTF" />
@@ -181,8 +183,8 @@ function searchData() {
 				    <!-- style 변경 -->
 				    	<div style="padding-left:5px; padding-top: 80px; height: 20px; width: 450px;">
 				    		<div style="font-size: 9pt; float: left;">&nbsp;우편물 수령지</div>
-				    		<div style="font-size: 9pt; float: left;"><input type="radio" name="radio" value="자택" />자택</div>
-				    		<div style="font-size: 9pt; float: left;"><input type="radio" name="radio" value="직장"/>직장</div>
+				    		<div style="font-size: 9pt; float: left;"><input type="radio" name="radio" value="자택" checked="checked" />자택</div>
+				    		<!-- <div style="font-size: 9pt; float: left;"><input type="radio" name="radio" value="직장"/>직장</div> -->
 				    	</div>
 				    
 				</div>
