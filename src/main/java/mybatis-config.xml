@@ -29,5 +29,7 @@
 		<mapper resource="com/sajo/mapper/memberMapper.xml"/>
 		<!-- loginMapper.xml 추가 -->
 		<mapper resource="com/sajo/mapper/loginMapper.xml"/>
+		<!-- productMapper.xml 추가 -->
+		<mapper resource="com/sajo/mapper/productMapper.xml"/>
 	</mappers>
 </configuration>

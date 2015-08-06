@@ -1,4 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String cp = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -144,8 +149,8 @@
 				
 			</table>
 			<table class="box">
-				<tr><td class="category2">
-						<img alt="" src="/god/resources/image/aa.PNG"/><br/></td>
+				<tr><td class="category2"><a href='/god/shop_article.action'>
+						<img alt="" src="/god/resources/image/aa.PNG"/><br/></a></td>
 					<td class="category2">
 						<img alt="" src="/god/resources/image/tt.PNG"/><br/></td>
 					<td class="category2">
@@ -157,11 +162,13 @@
 				</tr>
 				
 				<tr><td class="category3" align="center">
+			
+				<a href='/god/shop_article.action'>
 						<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-							자두 100g<br/>7,000원</font></td>
+							자두<br/>7,000원</font></a></td>
 					<td class="category3" align="center">
 						<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-							활 랍스터 <br/>11,800원</font></td>
+							${dto.pName}<br/>11,800원</font></td>
 					<td class="category3" align="center">
 						<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 							호주산 등심 100g<br/>10,000원</font></td>
@@ -170,8 +177,11 @@
 							자두 100g<br/>7000원</font></td>					
 					<td class="category3" align="center">
 						<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-							진라면 5개<br/>2,350원</font></td>
+							진라면 5개<br/>2,350원</font>
+							
+							</td>
 				</tr>
+				
 			
 				<tr><td class="category2">
 						<img alt="" src="/god/resources/image/ff.PNG"/><br/></td>

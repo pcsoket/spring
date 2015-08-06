@@ -31,6 +31,11 @@
 	<beans:bean id="loginDAO" class="com.sajo.dao.LoginDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
+	
+	<!-- Product DAO 추가 -->
+	<beans:bean id="ProductDAO" class="com.sajo.dao.ProductDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
 
 	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sessionFactory"/>
