@@ -1,4 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String cp = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -61,20 +66,20 @@
 </tr>
 
 <tr align="center" height="30px" class="line5">
-	<td width="200px"><font color="#8b4513 " style="font-family: 나눔바른펜;"><b>이름</b></font></td>
+	<td width="200px"><font color="#8b4513 " style="font-family: 나눔바른펜;"><b>${dto.mId}</b></font></td>
 	<td width="300px"></td>
-	<td width="200px"><font color="#8b4513 " style="font-family: 나눔바른펜;"><b>날짜</b></font></td>
-	<td width="100px"><font color="#8b4513 " style="font-family: 나눔바른펜;"><b>조회수</b></font></td>
+	<td width="200px"><font color="#8b4513 " style="font-family: 나눔바른펜;"><b>${dto.gCreated}</b></font></td>
+	<td width="100px"><font color="#8b4513 " style="font-family: 나눔바른펜;"><b>${dto.gHitCount}</b></font></td>
 </tr>
 <tr class="line5"><td colspan="4" style="padding: 20px 80px 20px 62px;" valign="top" height="400" class="font2">
-		내용
+		${dto.gContent}
 	</td></tr>
 	
 <tr height="40px">
 	<td	class="line5" colspan="4">
-	 <input type="button" value=" 수정 "  class="btn1" style="height:30px;" onclick=""/>
-     <input type="button" value=" 삭제 "  class="btn1" style="height:30px;" onclick=""/>
-	 <input type="button" value=" 리스트 "  class="btn1" style="height:30px;" onclick=""/>
+	 <input type="button" value=" 수정 "  class="btn1" style="height:30px;" onclick="javascript:location.href='<%=cp%>/group/updated.action?gNum=${dto.gNum}&${params}';"/>
+     <input type="button" value=" 삭제 "  class="btn1" style="height:30px;" onclick="javascript:location.href='<%=cp%>/group/deleted.action?gNum=${dto.gNum}&${params}';"/>
+	 <input type="button" value=" 목록 "  class="btn1" style="height:30px;" onclick="javascript:location.href='<%=cp%>/group/list.action?${params}';"/>
 </td>
 </tr>
 
@@ -86,12 +91,9 @@
 
 <table width=800" height="150" border="0" align="center" background="#F6F6F6">
 	<tr height="50px"></tr>
-	
-	
-	
-	
+
 	<tr>
-		<td class="line5"><b>아이디</b></td>
+		<td class="line5"><b>${dto.mId}</b></td>
 		<td>
 		<textarea rows="7" cols="80" name="accontent" class="line5"></textarea>
 		</td></tr>
@@ -102,7 +104,6 @@
 		onclick="a_sendIt();"/>
 		</td>
 	</tr>
-	
 
 </table>
 
@@ -126,7 +127,7 @@
 		
 					<td width="100px" align="center">
 				<input type="hidden" name="acnum">
-				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="ac_sendIt('${cdto.acnum}');"/>			
+				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="javascript:location.href='<%=cp%>/group/list.action';"/>			
 			</td>
 
 				<td></td>
