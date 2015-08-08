@@ -51,7 +51,7 @@ public class MemberController {
 			return "signIn";
 			
 		}
-		//ÁÖ¼Ò µî·Ï
+		//ì£¼ì†Œ ë“±ë¡
 		String code1 = req.getParameter("code1");
 		String code2 = req.getParameter("code2");
 		String addr1 = req.getParameter("addr1");
@@ -61,7 +61,7 @@ public class MemberController {
 		maddr += addr1 + addr2;
 		
 		dto.setUserAddr(maddr);
-		//ÀÌ¹ÌÁö µî·Ï (±¸Çö ¿¹Á¤)
+		//ì´ë¯¸ì§€ ë“±ë¡ (êµ¬í˜„ ì˜ˆì •)
 		/*String path = 
 				request.getSession().getServletContext().getRealPath("/WEB-INF/files/");
 		
