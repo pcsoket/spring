@@ -9,6 +9,12 @@
 	insert into member (mid,mname,mpwd,maddr,mtel,memail,mcreated)
 	values (#{mid},#{mname},#{mpwd},#{maddr},#{mtel},#{memail},sysdate)
 	</insert>
+<<<<<<< HEAD
+=======
+	<select id="getAddrList" parameterType="String" resultType="com.sajo.dto.AddrDTO">
+	select zipcode,sido,gugun,dong,bunji from post where dong like #{dong} || '%'
+	</select>
+>>>>>>> 35ec544530626d23e0868bfb13503fc9bbea5cc9
 	<select id="getDataCount" parameterType="String" resultType="int">
 	select nvl(count(*),0) from post where dong like #{dong} ||'%'
 	</select>	
