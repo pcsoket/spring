@@ -62,6 +62,20 @@ function searchData() {
 	
 }
 
+function inPimg() {
+	
+	var popOption = "width=350, height=300,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+	window.open("<%=cp %>/upload.action","popup",popOption);
+	
+}
+
+function idchk() {
+	
+	var popOption = "width=200, height=200,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+	window.open("<%=cp %>/idchk.action","popup",popOption);
+	
+}
+
 </script>
 <title> 회 원 가 입 </title>
 <style type="text/css"></style>
@@ -72,7 +86,7 @@ function searchData() {
 <div style="width: 100%;  margin: 0 auto; padding-top: 15px;">
 	<!-- 추가 -->
 	<div style="width: 1024px; margin: 0 auto;" align="center">
-	<form name="write" method="post">
+	<form name="write" method="post" enctype="multipart/form-data">
 	<div align="center" style="margin: 0 auto;">
 		
 		<div>
@@ -88,23 +102,24 @@ function searchData() {
 		<br/>	
 		<div align="center" style="width:650px; margin: 0 auto;">
 			<!-- 이미지 등록 추가 -->
-			<!-- <div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
+	 <div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
 			
 				<div  style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:30px; float:left; height:30pt;">
-					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>프로필 사진</b></font>
+					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>프로필 사진</b></font><font color="red">*</font>
 				</div>
-				<div style="float: left;">			
-					<input type="file" name="userPimg"/>
+				<div style="float: left;">
+					<input type="button" value="등록하기" onclick="inPimg();"/>
+					<input type="text" id="userPimg" name="userPimg" value="${userPimg}" style="margin-top:8px; float:left" readonly="readonly" class="boxTF" />
 				</div>
-		   </div> -->
+		   </div> 
 			<div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
 				<div  style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:30px; float:left; height:30pt;">
 					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>회원아이디</b></font><font color="red">*</font>
 				</div>
 				
 				<div style="float: left; padding-left: 10px;">
-					<input type="text" name="userId"  style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" onkeyup="chkid"/>
-					${message}<!-- 중복처리 문제 결정후 구현으로 보류상태  -->
+					<input type="text" name="userId"  style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF"/>
+					<input type="button" value="중복아이디" onclick="idchk();"/>
 			    </div>
 		   </div>
 			
