@@ -33,5 +33,14 @@ public class BasketDAO {
 		return result;
 		
 	}
+	
+	public int sumPro(int pnum){
+		
+		int result = 0;
+		
+		result = sessionTemplate.selectOne("com.sajo.mapper.basket.sumPro", pnum);
+		
+		return result ;
+	}
 
 }
