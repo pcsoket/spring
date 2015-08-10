@@ -45,6 +45,28 @@
 
 
 </style>
+
+<script type="text/javascript">
+	function a_sendIt() {
+		 f = document.myForm;
+	    	str = f.cmContent.value;
+		    str = str.trim();
+	        if(!str) {
+	            alert("내용을 입력하세요. ");
+	            f.cmContent.focus();
+	            return;
+	        }
+	    	f.cmContent.value = str;
+	
+	 	
+	        f.action = "<%=cp%>/comm/created.action";
+	        f.submit();
+	}
+
+              	
+
+        
+</script>
 </head>
 <body>
 
@@ -89,15 +111,24 @@
 
 <form action="" method="post" name="myForm">
 
+<%-- <input type="hidden" name="cid" value="${sessionScope.loginInfo.mid}"> --%>
+<input type="hidden" name="gNum" value="${dto.gNum}">
+<%-- <input type="hidden" name="name" value="${sessionScope.loginInfo.name}"> --%>
+<input type="hidden" name="pageNum" value="${pageNum}">
+<input type="hidden" name="boardName" value="test">
+<input type="hidden" name="gNo" value="${dto.gNo}">
+<input type="hidden" name="cmId" value="1">
+<!-- 파람스 받아놓아야함 세션아이디 -->
+
+
 <table width=800" height="150" border="0" align="center" background="#F6F6F6">
 	<tr height="50px"></tr>
 
 	<tr>
 		<td class="line5"><b>${dto.mId}</b></td>
 		<td>
-		<textarea rows="7" cols="80" name="accontent" class="line5"></textarea>
+		<textarea rows="7" cols="80" name="cmContent" class="line5"></textarea>
 		</td></tr>
-		
 	<tr>
 		<td height="30px" colspan="4" align="right">
 		<input type="button" value="등록" class="btn1" style="height:30px; width: 50px" 
@@ -148,6 +179,65 @@
 	</tr>
 	
 </table>
+<c:forEach var="cdto" items="${lists}">	
 
+<table width="800" height="100px" align="center" class="line4">
+
+
+	<tr>
+		<td width="100px" height="50px" align="center" class="font1">${cdto.name}</td>
+		<td width="400px" align="right">${cdto.cdate}</td>
+		
+		<c:choose>
+		<c:when test="${empty sessionScope.loginInfo.id}">
+			<td></td>
+		</c:when>
+		<c:when test="${sessionScope.loginInfo.id == cdto.id}">	
+			<td width="100px" align="center">
+				<input type="hidden" name="cnum">
+				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="c_sendIt('${cdto.cnum}');"/>			
+			</td>
+		</c:when>
+		<c:when test="${sessionScope.loginInfo.id == 'admin'}">	
+			<td width="100px" align="center">
+				<input type="hidden" name="cnum">
+				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="c_sendIt('${cdto.cnum}');"/>			
+			</td>
+		</c:when>
+		<c:when test="${sessionScope.loginInfo.id != cdto.id}">
+			<td></td>
+		</c:when>
+		</c:choose>
+		
+	</tr>
+	<tr>
+		<td></td>
+		<td class="font2" width="600px">${cdto.ccontent}</td>
+		
+		<c:choose>
+		<c:when test="${empty sessionScope.loginInfo.id}">
+			<td></td>
+		</c:when>
+		<c:when test="${sessionScope.loginInfo.id == cdto.id}">
+			<td align="center" align="top">
+			
+			<input type="button" value=" 삭제 " class="btn1" style="height: 30px" 
+			onclick="javascript:location.href='<%=cp%>/sjuno/cbg_deleted.do?qnum=${dto.qnum}&pageNum=${pageNum}&cnum=${cdto.cnum}';"/></td>
+		</c:when>
+		
+		<c:when test="${sessionScope.loginInfo.id == 'admin'}">
+			<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" 
+			onclick="javascript:location.href='<%=cp%>/sjuno/cbg_deleted.do?qnum=${dto.qnum}&pageNum=${pageNum}&cnum=${cdto.cnum}';"/></td>
+		</c:when>
+		<c:when test="${sessionScope.loginInfo.id != cdto.id}">
+			<td></td>
+		</c:when>
+		</c:choose>		
+		
+	</tr>
+	
+</table>
+
+</c:forEach>
 </body>
 </html>

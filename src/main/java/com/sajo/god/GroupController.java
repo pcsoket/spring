@@ -35,20 +35,13 @@ public class GroupController {
 		return "index";
 		
 	}
-	
-	/*@RequestMapping(value="group/created.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String created(HttpServletRequest request,HttpServletResponse response){
 		
-		return "created";
-		
-	}*/
-	
 	@RequestMapping(value="/group/created.action")
 	public ModelAndView created(){
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("created");
+		mav.setViewName("board/created");
 		
 		return mav;
 		
@@ -145,7 +138,7 @@ public class GroupController {
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		
-		return "list";
+		return "board/list";
 		
 	}
 	
@@ -185,18 +178,11 @@ public class GroupController {
 			param += "&searchKey=" + searchKey;
 			param += "&searchValue=" 
 				+ URLEncoder.encode(searchValue, "UTF-8");
-		}
-		
-		/*request.setAttribute("dto", dto);
-		request.setAttribute("params",param);
-		request.setAttribute("lineSu",lineSu);
-		request.setAttribute("pageNum",pageNum);
-		
-		return "article";*/
+		}		
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("article");
+		mav.setViewName("board/article");
 		
 		mav.addObject("dto",dto);
 		mav.addObject("params",param);
@@ -212,21 +198,18 @@ public class GroupController {
 		
 		String cp = request.getContextPath();
 	
-	//	int num = Integer.parseInt(request.getParameter("num"));
 		String pageNum = request.getParameter("pageNum");
 		
 		GroupDTO dto = dao.getReadData(gNum);
 		
-		if(dto == null){/*
-			String url = cp + "/list.action";
-			response.sendRedirect(url);*/
+		if(dto == null){
 			return "redirect:/group/list.action?pageNum=" + pageNum;
 		}
 		
 		request.setAttribute("dto", dto);
 		request.setAttribute("pageNum", pageNum);
 		
-		return "updated";
+		return "board/updated";
 
 	}
 	
@@ -235,15 +218,6 @@ public class GroupController {
 	
 		String pageNum = request.getParameter("pageNum");
 		
-		/*GroupDTO dto = new GroupDTO();
-		
-		dto.setNum(Integer.parseInt(request.getParameter("num")));
-		dto.setSubject(request.getParameter("subject"));
-		dto.setName(request.getParameter("name"));
-		dto.setEmail(request.getParameter("email"));
-		dto.setPwd(request.getParameter("pwd"));
-		dto.setContent(request.getParameter("content"));
-		*/
 		dao.updateData(dto);
 		
 		return "redirect:/group/list.action?pageNum=" + pageNum;
@@ -254,8 +228,7 @@ public class GroupController {
 	public String deleted(int gNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 		String pageNum = request.getParameter("pageNum");
-		//int num =Integer.parseInt(request.getParameter("num"));
-		
+				
 		dao.deleteData(gNum);
 		
 		return "redirect:/group/list.action?pageNum=" + pageNum;

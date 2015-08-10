@@ -43,6 +43,15 @@
 	<beans:bean id="groupDAO" class="com.sajo.dao.GroupDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
+	<!-- Comment DAO 추가 -->
+	<beans:bean id="commentDAO" class="com.sajo.dao.CommentDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	<!-- Basket DAO 추가 -->
+	<beans:bean id="basketDAO" class="com.sajo.dao.BasketDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+	
 	<!-- 파일업로드 기능 적용 인터페이스 -->
  	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
  	 	<beans:property value="268435456" name="maxUploadSize"/>

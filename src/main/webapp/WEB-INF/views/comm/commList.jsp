@@ -24,15 +24,10 @@
 </head>
 <body>
 
-
-
 <form action="" method="post" name="myForm">
 
 <table width=800" height="150" border="0" align="center" background="#F6F6F6">
-	<tr height="50px"></tr>
-	
-	
-	
+	<tr height="50px"></tr>	
 	
 	<tr>
 		<td class="line5"><b>아이디</b></td>
@@ -42,15 +37,13 @@
 		
 	<tr>
 		<td height="30px" colspan="4" align="right">
-		<input type="button" value="등록" class="btn1" style="height:30px; width: 50px" 
-		onclick="a_sendIt();"/>
+		<input type="button" value="등록" class="btn1"
+		 style="height:30px; width: 50px" 
+		onclick="sendIt();"/>
 		</td>
-	</tr>
-	
+	</tr>	
 
 </table>
-
-
 
 <table width="1000" height="100px" align="center" class="line5">
 	<tr height="30px"> 
@@ -60,20 +53,18 @@
 
 <table width="1000" height="100px" align="center" class="line5">
 
-
 	<tr>
 		<td width="100px" height="50px" align="center">이름</td>
 		<td width="400px" align="right">날짜</td>
 		
-					<td></td>
+		<td></td>		
 		
-		
-					<td width="100px" align="center">
-				<input type="hidden" name="acnum">
-				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="ac_sendIt('${cdto.acnum}');"/>			
-			</td>
+		<td width="100px" align="center">
+			<input type="hidden" name="acnum">
+			<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="ac_sendIt('${cdto.acnum}');"/>			
+		</td>
 
-				<td></td>
+		<td></td>
 		
 	</tr>
 	<tr>
@@ -81,13 +72,11 @@
 		<td class="font2" width="600px">내용</td>
 		
 		
-				<td></td>
+		<td></td>
 	
-				<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" style="height: 30px"onclick=""/></td>
-			<td></td>
-		
-		
-		
+		<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" style="height: 30px"onclick=""/></td>
+		<td></td>
+			
 	</tr>
 	
 </table>
