@@ -1,7 +1,11 @@
 package com.sajo.god;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,10 +16,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sajo.dao.ImageDAO;
 import com.sajo.dao.ProductDAO;
+import com.sajo.dto.ImageDTO;
 import com.sajo.dto.ProductDTO;
 import com.sajo.util.MyUtil;
 
@@ -25,6 +32,10 @@ public class ProductController {
 	@Autowired
 	@Qualifier("productDAO")
 	ProductDAO dao;
+	
+	@Autowired
+	@Qualifier("imageDAO")
+	ImageDAO idao;
 
 	@Autowired
 	MyUtil myUtil;
@@ -173,10 +184,70 @@ public class ProductController {
 	
 	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
 	
-	public ModelAndView shop_created (MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
+	public ModelAndView shop_created (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("productWrite");
+		mav.setViewName("/shop_article.action");
 		
+		//==========================================================================이미지 insert
+		
+		
+		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/");
+
+		File dir = new File(path);
+		if (!dir.exists())
+			dir.mkdirs();
+
+		MultipartFile file = req.getFile("upload");
+
+
+		if (file != null && file.getSize() > 0) {
+
+			try {
+				String newFileName = null;
+
+				newFileName = String.format("%1$tY%1$tm%1$td%1$tH%1$tM%1$tS", Calendar.getInstance());
+				newFileName += System.nanoTime();
+
+				FileOutputStream ostream = new FileOutputStream(path + "/" + file.getOriginalFilename());
+
+				InputStream istream = file.getInputStream();
+
+				byte[] buffer = new byte[512];
+
+				while (true) {
+
+					int count = istream.read(buffer, 0, buffer.length);
+
+					if (count == -1)
+						break;
+
+					ostream.write(buffer, 0, count);
+
+				}
+
+				istream.close();
+				ostream.close();
+				idto.setSaveFileName(newFileName);
+
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+
+		int maxNum = idao.getMaxNum();
+
+		idto.setImgNum(maxNum + 1);
+		idto.setUploadFileName("product"); ///-----안씀
+		idto.setOriginalFileName(file.getOriginalFilename());
+		idao.insertData(idto);
+		//==========================================================================이미지 insert
+		
+		pdto.setpNum(dao.p_maxNum()+1);
+		pdto.setpCategory("product");     ///-------------임시로 카테고리지정
+		
+		
+		mav.addObject("pdto",pdto);
 		return mav;
 	}
 }
