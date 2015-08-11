@@ -162,9 +162,9 @@ public class ProductController {
 			response.sendRedirect(url);
 		}
 		
-
+		int lineSu = dto.getpContent().split("\n").length;
 		
-		
+		dto.setpContent(dto.getpContent().replaceAll("\n", "<br/>"));
 		
 		String param = "pageNum=" + pageNum;
 		if(searchKey!=null){
@@ -179,6 +179,7 @@ public class ProductController {
 		
 		mav.addObject("dto",dto);
 		mav.addObject("params",param);
+		mav.addObject("lineSu",lineSu);
 		mav.addObject("pageNum",pageNum);
 		
 		return mav;

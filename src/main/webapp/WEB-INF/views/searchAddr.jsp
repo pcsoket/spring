@@ -30,20 +30,23 @@ function searchAddr() {
 }
 
 function sendIt(str1,str2,str3,str4) {
-	alert(str1);
-	alert(1);
-	opener.document.getElementsByName("code1").value=str1;
-	alert(2);
-	opener.document.getElementsByName("addr1").value=str2+str3+str4;
-	alert(3);
+	var a = str1.split("-");
+	a1 = a[0];
+	a2 = a[1];
+
+	opener.document.getElementById("code1").value=a1;
+	opener.document.getElementById("code2").value=a2;
+	opener.document.getElementById("addr1").value=str2+str3+str4;
+	
 	self.close();
-	alert(4);
+
 }
 
 </script>
 <title> 주 소 검 색 </title>
 </head>
 <body>
+<div style="width: 100%;">
 <div>
 <form name="house" method="post">
 	<div align="center">
@@ -57,40 +60,43 @@ function sendIt(str1,str2,str3,str4) {
 	</form>
 </div>
 <br/>
-<div>
-	<div style="border: 1px solid; border-color: #bdbdbd;"></div>
-</div>
-<div>
-	<div align="center" id="addrList">
-		<div align="center" id="addrList_title">
-			<dl>
-				<dt> 우 편 번 호 &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; </dt>
-				<dt> 주 &nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						&nbsp;&nbsp;&nbsp;&nbsp;
-						 소 </dt>
-			</dl>
+<div style="width: 100%">
+	<div>
+		<div style="border: 1px solid; border-color: #bdbdbd;"></div>
+	</div>
+	
+	<div>
+		<div align="center" id="addrList">
+			<div align="center" id="addrList_title">
+				<dl>
+					<dt> 우 편 번 호 &nbsp;&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;&nbsp; </dt>
+					<dt> 주 &nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							 소 
+					</dt>
+				</dl>
+			</div>
 		</div>
 	</div>
+	<br/>
+	<div>
+		<div style="border: 1px solid; border-color: #bdbdbd;"></div>
+	</div>
 </div>
-<div>
-	<div style="border: 1px solid; border-color: #bdbdbd;"></div>
-</div>
+
 <div id="addrlist">
 	<c:forEach var="dto" items="${lists }">
 	<dl>
-		<dd>${dto.zipcode}</dd>
+		<dd>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${dto.zipcode}&nbsp;&nbsp; | &nbsp;&nbsp;</dd>  
 		<dd>${dto.sido} ${dto.gugun} ${dto.dong} ${dto.bunji}</dd>
 	</dl><input type="submit" value="선택" onclick="sendIt('${dto.zipcode}','${dto.sido}','${dto.gugun}','${dto.dong}');"/>
 	</c:forEach>
-</div>
-<div>
-	<div style="border: 1px solid; border-color: #bdbdbd;"></div>
-</div>
+</div>	
 	<div align="center">
 		<p>
 			<c:if test="${dataCount!=0 }">
@@ -101,8 +107,7 @@ function sendIt(str1,str2,str3,str4) {
 			</c:if>
 		</p>
 	</div>
-<div>
-	<div style="border: 1px solid; border-color: #bdbdbd;"></div>
+
 </div>
 </body>
 </html>

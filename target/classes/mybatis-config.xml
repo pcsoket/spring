@@ -30,7 +30,11 @@
 		<mapper resource="com/sajo/mapper/basketMapper.xml"/>
 		<mapper resource="com/sajo/mapper/purchaseMapper.xml"/>
 		<mapper resource="com/sajo/mapper/loginMapper.xml"/>
+<<<<<<< HEAD
 		<!-- productMapper.xml 추가 -->
 		<mapper resource="com/sajo/mapper/productMapper.xml"/>
+=======
+		<mapper resource="com/sajo/mapper/imageMapper.xml"/>
+>>>>>>> 10e9a0b55d45bbd4dc78ae186d4d452cb0bb4be7
 	</mappers>
 </configuration>

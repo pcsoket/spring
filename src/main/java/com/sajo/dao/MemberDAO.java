@@ -32,8 +32,6 @@ public class MemberDAO {
 	
 	public List<AddrDTO> getAddrList(String dong){
 		
-		System.out.println(dong);
-		
 		List<AddrDTO> lists = 
 		sessionTemplate.selectList("com.sajo.member.sql.getAddrList", dong);
 		

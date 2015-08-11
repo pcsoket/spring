@@ -153,6 +153,7 @@
 				<td width="200px" height="100px" align="center" class="category2">
 					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
+					
 						${dto.pName}<br>${dto.pPrice}원</font><img alt="" src="">
 				</td>
 							<%

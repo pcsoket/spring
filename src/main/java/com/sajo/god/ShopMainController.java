@@ -13,20 +13,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.sajo.dao.BasketDAO;
-import com.sajo.dto.BasketDTO;
+/*import com.sajo.dao.BasketDAO;
+import com.sajo.dto.BasketDTO;*/
 import com.sajo.util.MyUtil;
 
 
-@Controller
+//@Controller
 public class ShopMainController {
 	
-	@Autowired
+	//@Autowired
 	@Qualifier("basketDAO") //중복방지
-	BasketDAO dao;
+	//BasketDAO dao;
 
-	@Autowired
-	MyUtil myUtil;
+	//@Autowired
+	//MyUtil myUtil;
 
 	
 	@RequestMapping(value="/shopmain.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -46,9 +46,9 @@ public class ShopMainController {
 		
 		String cp = request.getContextPath();
 		
-		int dataCount = dao.getDataCount();
+		//int dataCount = dao.getDataCount();
 		
-		List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(pnum);
+		//List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(pnum);
 		
 		
 		
@@ -58,10 +58,10 @@ public class ShopMainController {
 		
 		request.setAttribute("savePath", savePath);
 		request.setAttribute("imageUrl", imageUrl);
-		request.setAttribute("bklists", lists);
-		request.setAttribute("dataCount", dataCount);
+		//request.setAttribute("bklists", lists);
+		//request.setAttribute("dataCount", dataCount);
 		
-		System.out.println(dataCount);
+		//System.out.println(dataCount);
 
 		
 		return "basket";

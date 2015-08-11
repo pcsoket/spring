@@ -8,18 +8,18 @@
 	float: left;
 	margin-left: 10px;	
 }
-#addrList title {
+#addrList_title {
 	width: 400px;
 	height:10px;
 	font-weight: bold;
 	font-size:10pt;
 	margin: 0 auto;
 }
-#addrList dl{
+#addrList_title dl{
 	text-align:left;
 		margin: 0 auto;
 }
-#addrList dt{
+#addrList_title dt{
 	float: left;
 	font-size: 9pt;
 	font-family: 나눔고딕;
@@ -27,7 +27,7 @@
 }
 
 #addrlist{
-	width: 300px;
+	width: 480px;
 	height: 320px;
 	margin: 0 auto;
 	text-align: left;

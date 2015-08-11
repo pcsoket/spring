@@ -32,12 +32,25 @@
 	</beans:bean>
 	<!-- Purchase DAO 추가 -->
 	<beans:bean id="purchaseDAO" class="com.sajo.dao.PurchaseDAO">
-		<beans:property name="sessionT" ref="sessionTemplate"/>
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
+	<!-- Image DAO 추가 -->
+	<beans:bean id="imageDAO" class="com.sajo.dao.ImageDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
+
+	<!-- 파일업로드 기능 적용 인터페이스 -->
+ 	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+ 	 	<beans:property value="268435456" name="maxUploadSize"/>
+ 		<beans:property value="10240000" name="maxInMemorySize"/>
+ 		<beans:property value="utf-8" name="defaultEncoding"/>
+ 	</beans:bean>
+	
 	<!-- Basket DAO 추가 -->	
 	<beans:bean id="basketDAO" class="com.sajo.dao.BasketDAO">
       <beans:property name="sessionTemplate" ref="sessionTemplate"/>
     </beans:bean> 
+
 
 	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sessionFactory"/>

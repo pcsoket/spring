@@ -32,15 +32,10 @@ public class Orderlisttest {
 		
 		String userId = "1";// 테스트 아이디. 로그인포세션으로 교체해야함
 		
-		
 		String cp = request.getContextPath();
 		
-		String pageNum = request.getParameter("pageNum");
 		int currentPage = 1;
-		
-		if(pageNum != null)
-			currentPage = Integer.parseInt(pageNum);
-		
+
 		String searchValue = request.getParameter("searchValue");
 		
 		if(searchValue == null||searchValue.equals("")){
