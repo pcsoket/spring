@@ -95,13 +95,13 @@
 				<td class="line4" width="150px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>수량</b></font></td>
 				<td class="line5" width="200px" height="50px">
-					&nbsp;&nbsp;1개</td>
+					&nbsp;&nbsp;2</td>
 			</tr>
 			<tr>
 				<td class="line4" width="150px" height="80px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>구매예정금액</b></font></td>
 				<td class="line5" width="200px" height="80px">
-					&nbsp;&nbsp;13900원</td>
+					&nbsp;&nbsp;${2*dto.pPrice}</td>
 			</tr>
 		</table>
 		</td>
@@ -112,43 +112,43 @@
 			<tr>
 				<td class="line3" height="80px" colspan="2">
 					&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="5px"><b>
-					[국내산] 유명 산지 수박</b></font></td></tr>
+					${dto.pName}</b></font></td></tr>
 			
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>판매가</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					&nbsp;&nbsp;13,900원</td>
+					&nbsp;&nbsp;${dto.pPrice}</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>상품번호</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					&nbsp;&nbsp;a190523</td>
+					&nbsp;&nbsp;${dto.pNum}</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>평점</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					&nbsp;&nbsp;★★★★★</td>
+					&nbsp;&nbsp;${dto.pGrade}</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>조회수</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					&nbsp;&nbsp;2</td>
+					&nbsp;&nbsp;${dto.pHitcount}</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>재고</b></font></td>
 				<td class="line5" width="400px" height="50px">
-					&nbsp;&nbsp;10개</td>
+					&nbsp;&nbsp;${dto.pStock}</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="250px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>설명</b></font></td>
 				<td class="line5" width="400px" height="250px">
-					&nbsp;&nbsp;ㅇㅇㅇ</td>
+					&nbsp;&nbsp;${dto.pContent}</td>
 			</tr>
 			
 			<tr>

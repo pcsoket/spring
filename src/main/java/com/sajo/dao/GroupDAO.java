@@ -84,7 +84,8 @@ public class GroupDAO {
 	//ªË¡¶
 	public void deleteData(int gNum){
 		
-		sessionTemplate.delete("com.sajo.mapper.deleteData",gNum);	
+		sessionTemplate.delete("com.sajo.mapper.deleteData",gNum);
+		sessionTemplate.delete("com.sajo.mapper.c_deleteData",gNum);
 		
 	}
 	

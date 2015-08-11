@@ -1,11 +1,21 @@
 package com.sajo.dto;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class MemberDTO {
 	
 	private String userId,userName,userPwd,userAddr,userTel,userEmail,userCreated,userPimg,userSelf;
+	private MultipartFile file2;
 	private int gno,userAuth;
 	
 	
+	
+	public MultipartFile getFile2() {
+		return file2;
+	}
+	public void setFile2(MultipartFile file2) {
+		this.file2 = file2;
+	}
 	public String getUserId() {
 		return userId;
 	}

@@ -1,6 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%
 	String cp = request.getContextPath();
+
+	String userPimg = (String)request.getAttribute("userPimg");
+	String userPimgUrl = (String)request.getAttribute("userPimgUrl");
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -9,6 +13,67 @@
 <script src ="http://code.jquery.com/jquery-latest.js"></script>
 <!-- javaScript 추가 -->
 <script type="text/javascript">
+//이미지 preview 추가
+$.fn.setPreview = function(opt){
+	"use strict"
+	var defaultOpt = {
+			inputFile: $(this),
+			img: null,
+			w: 200,
+			h: 200
+			};
+	$.extend(defaultOpt, opt);
+	var previewImage = function(){
+		if (!defaultOpt.inputFile || !defaultOpt.img)
+			return;
+		var inputFile = defaultOpt.inputFile.get(0);
+		var img       = defaultOpt.img.get(0);
+		
+		// FileReader
+		if (window.FileReader) {
+			// image 파일만
+			if (!inputFile.files[0].type.match(/image\//))
+				return;
+			// preview
+			try {
+				var reader = new FileReader();
+				reader.onload = function(e){
+					img.src = e.target.result;
+					img.style.width  = defaultOpt.w+'px';
+					img.style.height = defaultOpt.h+'px';
+					img.style.display = '';
+					}
+				reader.readAsDataURL(inputFile.files[0]);
+				} catch (e) {
+					// exception...
+					}
+				// img.filters (MSIE)
+				} else if (img.filters) {
+					inputFile.select();
+					inputFile.blur();
+					var imgSrc = document.selection.createRange().text;
+					img.style.width  = defaultOpt.w+'px';
+					img.style.height = defaultOpt.h+'px';
+					img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";
+					img.style.display = '';
+					// no support
+					} else {
+						// Safari5, ...
+						}
+		};
+		// onchange
+		$(this).change(function(){
+			previewImage();
+			});
+		};
+		$(document).ready(function(){
+			var opt = {
+					img: $('#img_preview'),
+					w: 200,
+					h: 200
+					};
+			$('#file1').setPreview(opt);
+});
 
 function sendIt() {
 	
@@ -36,7 +101,7 @@ function sendIt() {
 	str = str.trim();
 	if(!str){
 		alert("\n비밀번호을 입력하세요.");
-		f.userPwd1.focus();
+		f.userPwd.focus();
 		return;
 	}
 	f.userPwd.value = str;
@@ -48,6 +113,40 @@ function sendIt() {
 		f.userpwd1.focus();
 		return;
 	}
+	str = f.code1.value;
+	str = str.trim();
+	if(!str){
+		alert("\n주소를 입력하세요.");
+		f.code.focus();
+		return;
+	}
+	f.code1.value = str;
+	
+	str = f.addr2.value;
+	if(!str){
+		alert("\n상세주소를 입력하세요.");
+		f.addr2.focus();
+		return;
+	}
+	f.addr2.value = str;
+	
+	str = f.userTel.value;
+	str = str.trim();
+	if(!str){
+		alert("\n전화번호을 입력하세요.");
+		f.userTel.focus();
+		return;
+	}
+	f.userTel.value = str;
+	
+	str = f.userEmail.value;
+	str = str.trim();
+	if(!str){
+		alert("\nEmail을 입력하세요.");
+		f.userEmail.focus();
+		return;
+	}
+	f.userEmail.value = str;
 	
 	f.action = "<%=cp %>/write_ok.action";
 
@@ -62,17 +161,12 @@ function searchData() {
 	
 }
 
-function inPimg() {
-	
-	var popOption = "width=350, height=300,resizable=no,scrollbars=no, status=no, top=300,left=700;";
-	window.open("<%=cp %>/upload.action","popup",popOption);
-	
-}
-
 function idchk() {
 	
-	var popOption = "width=200, height=200,resizable=no,scrollbars=no, status=no, top=300,left=700;";
-	window.open("<%=cp %>/idchk.action","popup",popOption);
+	var f = document.write;
+	var popOption = "width=350, height=300,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+	window.open("<%=cp %>/idchk.action?userId="+f.userId.value,"popup",popOption);
+	
 	
 }
 
@@ -102,14 +196,14 @@ function idchk() {
 		<br/>	
 		<div align="center" style="width:650px; margin: 0 auto;">
 			<!-- 이미지 등록 추가 -->
-	 <div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
+	 <div style="border-top: 2px solid #EAEAEA; overflow: hidden; height:220px;">
 			
-				<div  style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:30px; float:left; height:30pt;">
+				<div  style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:30px; float:left; height: 220px;">
 					<font color="#8b4513" style="font-family: 나눔바른펜;"><b>프로필 사진</b></font><font color="red">*</font>
 				</div>
 				<div style="float: left;">
-					<input type="button" value="등록하기" onclick="inPimg();"/>
-					<input type="text" id="userPimg" name="userPimg" value="${userPimg}" style="margin-top:8px; float:left" readonly="readonly" class="boxTF" />
+					<div align="center"><img id="img_preview" style=" display:none;"/></div>
+					<input type="file" id="file1" name="file2" style="float: left; overflow: hidden;"/>
 				</div>
 		   </div> 
 			<div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
@@ -118,8 +212,8 @@ function idchk() {
 				</div>
 				
 				<div style="float: left; padding-left: 10px;">
-					<input type="text" name="userId"  style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF"/>
-					<input type="button" value="중복아이디" onclick="idchk();"/>
+					<input type="text" id="userId" name="userId"  style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF"/>
+					<input align="bottom" type="button" value="중복아이디" onclick="idchk();"/>
 			    </div>
 		   </div>
 			
@@ -220,7 +314,8 @@ function idchk() {
 						<font color="#8b4513" style="font-family: 나눔바른펜;">이메일주소 </font><font color="red">*</font>
 					</div>
 					<div style="float: left;padding-left: 10px;">
-						<input type="text" name="userEmail" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
+					<!-- 한글 입력 방지 코딩 추가 -->
+						<input type="text" name="userEmail" style="margin-top:8px; float:left;" size="25" maxlength="20" class="boxTF" onkeyup ="this.value=this.value.replace(/[^a-zA-Z0-9@.]/g,'')"/>
 				    </div>
 		   		</div>
 		   		<div style="border-top: 2px solid #EAEAEA; overflow: hidden;"></div>
@@ -233,7 +328,7 @@ function idchk() {
 		<!-- 버튼 위치 변경 -->
 		<div align="center" style="margin: 0 auto;">
 			<div  style="margin: 0 auto;">
-				<button type="submit" style="width: 50px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="sendIt();">가입</button>
+				<button type="button" style="width: 50px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="sendIt();">가입</button>
 				<button type="button" style="width: 50px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="/shop.action">취소</button>
 			</div>
 		</div>
