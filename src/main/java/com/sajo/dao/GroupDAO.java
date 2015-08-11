@@ -20,7 +20,7 @@ public class GroupDAO {
 			
 		int result = 0;
 					
-		result = sessionTemplate.selectOne("com.sajo.god.member.mapper.maxNum");
+		result = sessionTemplate.selectOne("com.sajo.mapper.maxNum");
 			
 		return result;
 			
@@ -29,7 +29,7 @@ public class GroupDAO {
 	//입력
 	public void insertData(GroupDTO dto){
 		
-		sessionTemplate.insert("com.sajo.god.member.mapper.insertData",dto);	
+		sessionTemplate.insert("com.sajo.mapper.insertData",dto);	
 		
 	}
 	
@@ -44,7 +44,7 @@ public class GroupDAO {
 		params.put("searchKey", searchKey);
 		params.put("searchValue", searchValue);
 		
-		List<GroupDTO> lists = sessionTemplate.selectList("com.sajo.god.member.mapper.getLists",params);
+		List<GroupDTO> lists = sessionTemplate.selectList("com.sajo.mapper.getLists",params);
 		
 		return lists;
 		
@@ -58,7 +58,7 @@ public class GroupDAO {
 		params.put("searchKey", searchKey);
 		params.put("searchValue", searchValue);
 		
-		int result = sessionTemplate.selectOne("com.sajo.god.member.mapper.getDataCount",params);
+		int result = sessionTemplate.selectOne("com.sajo.mapper.getDataCount",params);
 						
 		return result;
 		
@@ -67,7 +67,7 @@ public class GroupDAO {
 	//조회수증가
 	public void updateHitCount(int gNum){
 		
-		sessionTemplate.update("com.sajo.god.member.mapper.updateHitCount",gNum);
+		sessionTemplate.update("com.sajo.mapper.updateHitCount",gNum);
 		
 	}
 	
@@ -75,7 +75,7 @@ public class GroupDAO {
 	public GroupDTO getReadData(int gNum){
 		
 		GroupDTO dto =		
-				sessionTemplate.selectOne("com.sajo.god.member.mapper.getReadData",gNum);
+				sessionTemplate.selectOne("com.sajo.mapper.getReadData",gNum);
 		
 		return dto;
 		
@@ -84,7 +84,7 @@ public class GroupDAO {
 	//삭제
 	public void deleteData(int gNum){
 		
-		sessionTemplate.delete("com.sajo.god.member.mapper.deleteData",gNum);	
+		sessionTemplate.delete("com.sajo.mapper.deleteData",gNum);	
 		
 	}
 	
@@ -92,7 +92,7 @@ public class GroupDAO {
 	//수정
 	public void updateData(GroupDTO dto){
 		
-		sessionTemplate.update("com.sajo.god.member.mapper.updateData",dto);			
+		sessionTemplate.update("com.sajo.mapper.updateData",dto);			
 				
 	}
 }

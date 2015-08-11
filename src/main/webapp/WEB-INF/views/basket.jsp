@@ -18,13 +18,19 @@
 </style>
 
 <script type="text/javascript">
-	function minus() {
+	function minus(pri) {
 		
-		f = document.myForm;
+		var f = document.myForm;
+		
+
 		
 		if(Number(f.amount.value)>0){
 			
 			f.amount.value = Number(f.amount.value) -1;
+			
+			f.price.value = Number(f.amount.value) * Number(pri)
+			
+			
 			
 		}else if(Number(f.amount.value)<1){
 			
@@ -37,11 +43,41 @@
 		
 	}
 	
-	function plus() {
+	function plus(pri) {
 		
-		f = document.myForm;
+		var f = document.myForm;
+		for(var i=0;i< "${dataCount}";i++){
+			
+		f.amount[i].value = Number(f.amount[i].value) + 1;
+		alert(f.amount[0].value);
 		
-		f.amount.value = Number(f.amount.value) + 1;
+		
+		
+			
+			f.price.value += Number(f.amount[i].value) * Number(pri);
+			
+		}
+		
+		
+	}
+	
+	function check() {
+		
+		var f = document.myForm;
+		
+		
+		
+		
+	}
+	
+	function total() {
+		
+		
+		var f = document.myForm;
+		
+		
+		
+		
 		
 	}
 </script>
@@ -54,7 +90,7 @@
 	<form action="" method="post" name="myForm">
 	<div style="background-color: #ffd2d7;width: 1000px; height: 55px;">
 		<div align="left" style="font-size: 30pt; float:left; width: 535px; margin-left: 15px; font-family: 나눔손글씨 붓;">장바구니</div>
-		<div align="right" style="font-size: 20pt; float:left; width: 440px; height:55px; vertical-align: bottom; margin-right: 10px; font-family: 나눔손글씨 붓;">장바구니 > 주문결제 > 주문완료 </div>
+		<div align="right" style="font-size: 20pt; float:left; width: 440px; height:55px; vertical-align: bottom; margin-right: 10px; font-family: 나눔손글씨 붓;"><font style="font-size:30pt;">장바구니</font> > 주문결제 > 주문완료 </div>
 	</div>
 	<br/>
 	<div> <!-- 장바구니 메뉴 -->
@@ -65,7 +101,7 @@
 				<div style="float: left; width: 100px;"><input type="checkbox" checked="checked"></div>
 				<div style="float: left; width: 450px;">상품명</div>
 				<div style="float: left; width: 100px;">수량</div>
-				<div style="float: left; width: 100px;">가격</div>
+				<div style="float: left; width: 100px; margin-left: 15px;">가격</div>
 				<div style="width: 200px; float: left;">배송정보</div>
 			</div>
 		
@@ -73,33 +109,33 @@
 			
 			<c:if test="${dataCount != 0 }">
 			<c:forEach var="dto" items="${bklists }">
-			
-			
-				<div style="height: 60px;">
-					<div style="float: left; width: 100px;"><input type="checkbox" checked="checked"></div>
+				<c:set var="i" value="0"/>
+		
+				<div style="height: 60px; padding-top: 10px;">
+					<div style="float: left; width: 100px;"><input type="checkbox" checked="checked" onchange="check();"></div>
 					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" />${dto.bPName }</div>
-					<div style="float: left; width: 100px;">
-						<div style="float: left;"><img src="/god/resources/image/minus.png" width="20px" height="20px" onclick="minus();"></div>
-						<div style="width: 20px;" ><input type="text" value="1" name="amount" maxlength="2" size="5px" /></div>
-						<div style="float: left;"><img src="/god/resources/image/plus.png" width="20px" height="20px" onclick="plus();"></div>
+					<div style="float: left; width: 100px; margin-left: 20px;">
+						<div style="float: left;"><img src="/god/resources/image/minus.png" width="20px" height="20px" onclick="minus('${dto.bPrice}');"></div>
+						<div style="float: left; width: 12px;" ><input type="text" value="1" style="border: none;" name="amount${i}" maxlength="2" width="5px" /></div>
+						<div style="float: left;"><img src="/god/resources/image/plus.png" width="20px" height="20px" onclick="plus('${dto.bPrice}');"></div>
 					</div>
-					<div style="float: left; width: 100px;"></div>
-					<div style="width: 200px; float: left;">배송정보</div>
+					<div style="float: left; width: 90px;"><input type="text" name="bprice${i}" style="border: none;" readonly="readonly" value="${dto.bPrice }"></div>
+					<div style="width: 200px; float: left; margin-left: 5px;">배송정보</div>
 				</div>
 				
-				<div align="left" style="border-bottom: solid 2px #ff7b8a; padding-left: 50px;">
+				<div align="left" style=" padding-left: 50px;">
 					<div>
 					<button type="button" class="btn btn-link" onclick="javascript:location.href='/god/purchase.action';">즉시구매></button>&nbsp;&nbsp;
 					<button type="button" class="btn btn-link" onclick="javascript:location.href='/god/del.action';">삭제></button>&nbsp;&nbsp;
 					</div>
 				</div>
 				
-				
-				
+				<c:set var ="i" value="{i+1}"/>
 			</c:forEach>
+			
 			</c:if>
 			<c:if test="${dataCount == 0 }">
-				<div align="left" style="border-bottom: solid 2px #ff7b8a; padding-left: 50px;">
+				<div align="left" style="padding-left: 50px;">
 					장바구니에 등록된 상품이 없습니다.
 				</div>
 				</c:if>
@@ -107,33 +143,33 @@
 			
 			<br/>
 			
-			<div style="padding-left: 10px; padding-right: 10px;">
+			<div style="border-bottom: solid 2px #ff7b8a; padding-left: 10px; padding-right: 10px;">
 				<div style="float: left; width: 100px;"><input type="checkbox" checked="checked"></div>
-				<div align="left"><button type="button" class="btn btn-primary btn-xs" onclick="">삭제</button></div>
+				<div align="left" style="padding-bottom: 5px;"><button type="button" class="btn btn-primary btn-xs" onclick="">삭제</button></div>
 			</div>
 			
 			<div> <!-- 결제 예정금액 틀--> 
 			
-				<div style="height: 200px; padding-right: 30px;"> <!-- 결제예정금액 상자 -->
+				<div style="height: 200px; padding-right: 30px; padding-top: 10px;"> <!-- 결제예정금액 상자 -->
 					<div style="font-size: 15pt; border: solid 2px #8e8e8e; width: 400px; float: right;">
 						<div align="left" style="background-color: #a4a0a5; padding-left: 10px; ">
 							결제 예정금액
 						</div>
 						
 						<div align="left" style="padding-left: 20px; font-size: 13pt;">
-							<div> · 상품가격 (총 1개) &nbsp;&nbsp;&nbsp;&nbsp; 가격</div>
-							<div> · 할인금액 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 가격 </div>
-							<div> · 배송비 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 가격 </div>
+							<div style="float: left;"> · 상품가격 </div> <div align="right"><input type="text" name="price" style="border: none; width: 50px;" value="${sumPrice }" />원</div>
+							<div style="float: left;"> · 배송비 </div> <div align="right"><input type="text" name="deli" style="border: none; width: 50px;" value=" 2500"> 원 </div>
 						</div>
 						
 						<div align="right">
-							<div> 총 합계</div>
+							<div> 총 합계 </div>
 						</div>
 						
 					</div>
 				</div>
 			
 			</div>
+			<!-- 결제예정금액 끝 -->
 		
 		</div>
 		<br/>

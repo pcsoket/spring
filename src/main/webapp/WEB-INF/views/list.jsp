@@ -40,8 +40,15 @@
 
 	}
 </style>
-
-
+<script type="text/javascript">
+	function sendIt(){
+		
+		var f = document.searchForm;
+		
+		f.action = "<%=cp%>/group/list.action";
+		f.submit();
+		
+	}
 
 </script>
 
@@ -65,27 +72,21 @@
 		<td width="50px" align="left" margin-left="20px"  colspan="4">	
 			<form name="searchForm" method="post" action="">		
 			<select name="searchKey"  style="height: 40px;">
-				<option value="subject">제목</option>
-				<option value="aname">작성자</option>
-				<option value="acontent">내용</option>
+				<option value="gSubject">제목</option>
+				<option value="mId">작성자</option>
+				<option value="gContent">내용</option>
 			</select>
-<<<<<<< HEAD
+			<input type="text" name="searchValue" style="height: 40px;"/>
+			<input type="button" style="width: 50px; height: 40px;" value=" 검 색 " class="btn2" onclick="sendIt();"/>
 			</form>	
-=======
-			  </form>	
->>>>>>> 9509ab39fd6547c8ce5484014b4cd05198c9309f
-		<input type="text" name="searchValue" style="height: 40px;"/>
-			<input type="button" style="width: 50px; height: 40px;" value=" 검 색 " class="btn2" onclick="write_sendIt();"/>
+
+		
 		</td>
 		<td>
 		<input type="button" value=" 글쓰기 " margin-left="500px" 
 		class="btn1" style="height: 40px;"
-		onclick="javascript:location.href='/god/created.action';"/>
-<<<<<<< HEAD
-		  
-=======
-		
->>>>>>> 9509ab39fd6547c8ce5484014b4cd05198c9309f
+		onclick="javascript:location.href='/god/group/created.action';"/>
+
 		 </td>
 		 <tr height="10px"><td></td></tr>
 		 
@@ -97,32 +98,28 @@
 	<td width="150px"><b>작성일</b></td>
 	<td width="50px"><b>조회수</b></td>
 </tr>
-
+<c:forEach var="dto" items="${lists}">
 <tr height="30px" align="center" style="font-size: 13px" class="line5">
-	<td class="line" width="50px" class="anum">1</td>
-	<td class="line" width="300px" class="subject">
-	<a href ="#">2</a></td>
-	<td class="line" width="150px" class="aname">3</td>
-	<td class="line" width="150px" class="adate">4</td>
-	<td class="line" width="50px" class="ahitCount">5</td>
+	<td class="line" width="50px" class="gnum">${dto.gNum}</td>
+	<td class="line" width="300px" class="gsubject">
+	<a href ="${articleUrl}&gNum=${dto.gNum}">${dto.gSubject}</a></td>
+	<td class="line" width="150px" class="mid">${dto.mId}</td>
+	<td class="line" width="150px" class="gcreated">${dto.gCreated}</td>
+	<td class="line" width="50px" class="ghitCount">${dto.gHitCount}</td>
 </tr>
-
-<tr height="30px" align="center" style="font-size: 13px" class="line5">
-	<td class="line" width="50px" class="anum">1</td>
-	<td class="line" width="300px" class="subject">
-	<a href ="#">2</a></td>
-	<td class="line" width="150px" class="aname">3</td>
-	<td class="line" width="150px" class="adate">4</td>
-	<td class="line" width="50px" class="ahitCount">5</td>
-</tr>
+</c:forEach>
 
 
 <tr height="50px"></tr>
 <tr>
 <td colspan="5" align="center">			
 			<p>
-				<a href="#">1</a>
-				<a href="#">2</a>
+				<c:if test="${dataCount!=0 }">
+					${pageIndexList}
+				</c:if>
+				<c:if test="${dataCount==0 }">
+					등록된게시물이 없습니다.
+				</c:if>
 			</p>
 </td>
 		</tr>

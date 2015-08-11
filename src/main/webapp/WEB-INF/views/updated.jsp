@@ -42,7 +42,7 @@
 	alert("1")
 	f = document.myForm;
 
-	f.action = "<%=cp%>/group/created_ok.action";
+	f.action = "<%=cp%>/group/updated_ok.action";
 	f.submit();
 	
 }
@@ -54,30 +54,32 @@
 	<tr height="100px"></tr>
 	
 	<tr height="40px"> 
-		<td class="line3" colspan="2"><font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="10px"><b>글 쓰기</b></font></td>
+		<td class="line3" colspan="2"><font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="10px"><b>수정하기</b></font></td>
 	</tr>
 	<tr height="20px"></tr>
 	<form name="myForm" method="post" action="">
 	<tr height="30px">
 		<td colspan="2"><input type="text" style="height:25px;"
 		name="gSubject" size="107" maxlength="100" 
-		class="border1"/></td>
+		class="border1" value="${dto.gSubject}"/></td>
 	</tr>
 	<tr height="10px"></tr>
 	<tr>
 		<td colspan="2"><textarea name="gContent" cols="125" rows="12" 
-		class="border1"></textarea></td>
+		class="border1">${dto.gContent}</textarea></td>
 	</tr>
 	<tr height="20px">
 	</tr>	
 	<tr>
 		<td>
+		<input type="hidden" name="gNum" value="${dto.gNum}">
+		<input type="hidden" name="pageNum" value="${pageNum}">
 		<input type="button" style="width:50px; height:50px;" value="목록" class="btn1"
-        onclick="javascript:location.href='<%=cp%>/group/list.action';"/></td>
+        onclick="javascript:location.href='<%=cp%>/group/list.action?pageNum=${pageNum}';"/></td>
         <td align="center">
-        <input type="button" style="width:50px; height:50px;" value=" 등록" class="btn1" 
+        <input type="button" style="width:50px; height:50px;" value="수정" class="btn1" 
         onclick="sendIt();"/>
-		<input type="reset" style="width:70px; height:50px;" value="다시입력 " class="btn1" 
+		<input type="reset" style="width:70px; height:50px;" value="수정취소 " class="btn1" 
 		onclick="document.myForm.gSubject.focus();"/>
         </td>
        

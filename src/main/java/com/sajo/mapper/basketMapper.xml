@@ -17,5 +17,9 @@
 <select id="dataCount" resultType="int">
 	select nvl(count(*),0) from basket
 </select>
+
+<select id="sumPro"  resultType="int" parameterType="int">
+	select sum(bPrice) from basket where pNum=#{pnum}
+</select>
 	
 </mapper>
