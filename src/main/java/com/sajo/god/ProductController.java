@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.dao.ProductDAO;
@@ -161,8 +162,21 @@ public class ProductController {
 		
 	}
 	
-
+	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
 	
+	public ModelAndView shop_created (HttpServletResponse response,HttpServletRequest request) throws Exception{
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("productWrite");
+		
+		return mav;
+	}
 	
-
+	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
+	
+	public ModelAndView shop_created (MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("productWrite");
+		
+		return mav;
+	}
 }
