@@ -1,8 +1,5 @@
 package com.sajo.god;
 
-import java.util.List;
-import java.util.ListIterator;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 

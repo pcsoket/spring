@@ -100,7 +100,7 @@
 </tr>
 <c:forEach var="dto" items="${lists}">
 <tr height="30px" align="center" style="font-size: 13px" class="line5">
-	<td class="line" width="50px" class="gnum">${dto.gNum}</td>
+	<td class="line" width="50px" class="gnum">${dto.listNum}</td>
 	<td class="line" width="300px" class="gsubject">
 	<a href ="${articleUrl}&gNum=${dto.gNum}">${dto.gSubject}</a></td>
 	<td class="line" width="150px" class="mid">${dto.mId}</td>
