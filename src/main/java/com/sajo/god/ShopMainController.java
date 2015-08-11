@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sajo.dao.BasketDAO;
+import com.sajo.dto.BasketDTO;
 /*import com.sajo.dao.BasketDAO;
 import com.sajo.dto.BasketDTO;*/
 import com.sajo.util.MyUtil;
@@ -35,7 +36,7 @@ public class ShopMainController {
 		
 		
 				
-		return "shopmain";
+		return "shop";
 	}
 	
 	@RequestMapping(value="/basket.action")
@@ -47,11 +48,11 @@ public class ShopMainController {
 		
 		String cp = request.getContextPath();
 		
-		//int dataCount = dao.getDataCount();
+		int dataCount = dao.getDataCount();
 		
-		//List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(pnum);
+		List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(pnum);
 		
-		
+		int sumPrice = dao.sumPro(12);
 		
 		//String urlList = cp + "/img/list.action";
 		
@@ -59,10 +60,11 @@ public class ShopMainController {
 		
 		request.setAttribute("savePath", savePath);
 		request.setAttribute("imageUrl", imageUrl);
-		//request.setAttribute("bklists", lists);
-		//request.setAttribute("dataCount", dataCount);
+		request.setAttribute("bklists", lists);
+		request.setAttribute("dataCount", dataCount);
+		request.setAttribute("sumPrice", sumPrice);
 		
-		//System.out.println(dataCount);
+		System.out.println(dataCount);
 
 		
 		return "basket";

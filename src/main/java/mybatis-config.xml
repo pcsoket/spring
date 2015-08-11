@@ -30,6 +30,7 @@
 		<mapper resource="com/sajo/mapper/basketMapper.xml"/>
 		<mapper resource="com/sajo/mapper/purchaseMapper.xml"/>
 		<mapper resource="com/sajo/mapper/loginMapper.xml"/>
+		<mapper resource="com/sajo/mapper/productMapper.xml"/>
 		<mapper resource="com/sajo/mapper/imageMapper.xml"/>
 		<mapper resource="com/sajo/mapper/groupMapper.xml"/>
 		<mapper resource="com/sajo/mapper/commentMapper.xml"/>
