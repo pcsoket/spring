@@ -13,26 +13,13 @@
 <body>
 <div>
 	<div class="container">
-		<div>
-		
-			<ul class="nav nav-pills">
-		    	<li class=""><a href="#">Home</a></li>
-		    	<li><a href="#">Invent</a></li>
-			    <li><a href="#">Community</a></li>
-			    <li><a href="#">Complete</a></li>
-			 </ul>
-				
-		
-		</div>
-		
 	  <div class="jumbotron" align="center">
 	    <h3>Good Idea</h3>      
 	    <p>당신의 아이디어가 현실이 됩니다.</p>      
 	    <a href="/wInvent.action" class="btn btn-info btn-lg">Write</a>
 	  </div>
-	
-
 	</div>
+	
 	<div align="center">
 		<div class="border" style="width:1170px; border: solid 1px; border-color: #D5D5D5;"></div>
 	</div>

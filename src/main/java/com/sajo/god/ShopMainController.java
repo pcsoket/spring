@@ -8,48 +8,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 
 @Controller
-public class IdeaMainController {
+public class ShopMainController {
 	
-	@RequestMapping(value="/ideamain.action",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="/shopmain.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String list(HttpServletRequest req, String data) throws Exception{
 		
 		
 				
-		return "ideamain";
+		return "shopmain";
 	}
 	
-	@RequestMapping(value="/shop.action")
+	@RequestMapping(value="/basket.action")
 	public String bigDoor(){
 		
 		
-		return "shop";
+		return "basket";
 	}
+	
 	@RequestMapping(value="/purchase.action")
 	public String purchase(){
-		
 		
 		return "purchase";
 	}
 	
-	@RequestMapping(value="/signin.action")
-	public String signin(){
-		
-		
-		return "signIn";
-	}
 	
-	@RequestMapping(value="/header.action")
-	public String header(){
-		
-		
-		return "header";
-	}
-	
-	@RequestMapping(value="/invent.action")
-	public String invent(){
-		
-		
-		return "Invent";
-	}
-
 }
