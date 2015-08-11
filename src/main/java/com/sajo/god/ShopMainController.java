@@ -52,7 +52,7 @@ public class ShopMainController {
 		
 		List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(pnum);
 		
-		int sumPrice = dao.sumPro(12);
+		
 		
 		//String urlList = cp + "/img/list.action";
 		
@@ -62,7 +62,7 @@ public class ShopMainController {
 		request.setAttribute("imageUrl", imageUrl);
 		request.setAttribute("bklists", lists);
 		request.setAttribute("dataCount", dataCount);
-		request.setAttribute("sumPrice", sumPrice);
+		
 		
 		System.out.println(dataCount);
 
@@ -91,5 +91,14 @@ public class ShopMainController {
 		return "shopordercancel";
 	}
 	
+	@RequestMapping(value="/direct.action")
+	public String direct(Integer bnum, HttpServletRequest req, HttpServletResponse resp){
+		
+		BasketDTO dto = dao.readbasket(bnum);
+		
+		req.setAttribute("dto", dto);
+		
+		return "purchase";
+	}
 	
 }

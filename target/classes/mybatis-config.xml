@@ -33,5 +33,6 @@
 		<mapper resource="com/sajo/mapper/productMapper.xml"/>
 		<mapper resource="com/sajo/mapper/imageMapper.xml"/>
 		<mapper resource="com/sajo/mapper/groupMapper.xml"/>
+		<mapper resource="com/sajo/mapper/commentMapper.xml"/>
 	</mappers>
 </configuration>

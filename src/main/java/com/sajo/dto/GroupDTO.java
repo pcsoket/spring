@@ -2,7 +2,7 @@ package com.sajo.dto;
 
 public class GroupDTO {
 	
-	private int gNo,gNum,gHitCount,gRecomm ;
+	private int gNo,gNum,gHitCount,gRecomm,listNum;
 	private String mId,gSubject,gImg1,gImg2,gImg3,gImg4,gContent,gCreated,boardName;
 	
 	
@@ -83,6 +83,12 @@ public class GroupDTO {
 	}
 	public void setgRecomm(int gRecomm) {
 		this.gRecomm = gRecomm;
+	}
+	public int getListNum() {
+		return listNum;
+	}
+	public void setListNum(int listNum) {
+		this.listNum = listNum;
 	}
 	
 	

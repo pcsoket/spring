@@ -6,6 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 
 import com.sajo.dto.BasketDTO;
 
+
 public class BasketDAO {
 	
 	private SqlSessionTemplate sessionTemplate;
@@ -41,6 +42,14 @@ public class BasketDAO {
 		result = sessionTemplate.selectOne("com.sajo.mapper.basket.sumPro", pnum);
 		
 		return result ;
+	}
+	
+	public BasketDTO readbasket(int bnum){
+		
+		BasketDTO dto = sessionTemplate.selectOne("com.sajo.mapper.basket.readbasket",bnum);
+		
+		return dto;
+		
 	}
 
 }

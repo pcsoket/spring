@@ -51,13 +51,20 @@
 			</div>
 		</div>
 		</div>
-		
+		<c:if test="${dto != null }">
 		<div style="width: 390px; float: left; padding-left: 15px;">
 			<div>주문 상품 정보</div>
 			<div style="border: solid 1px #ffd2d7;">
-				주문할 상품 불러오기
+				<div>이미지 </div>
+				<div><input type="text" name="bpname" style="border: none;" value=""> </div>
+				<div><input type="text" name="bprice" style="border: none;" value=""> </div>
 			</div>
 		</div>
+		</c:if>
+		<c:if test="${lists != null }">
+			
+		
+		</c:if>
 	</div>
 	
 	<div style="width: 1000px; padding-top: 20px;">	
