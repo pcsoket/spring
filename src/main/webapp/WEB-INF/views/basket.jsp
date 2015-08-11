@@ -18,68 +18,104 @@
 </style>
 
 <script type="text/javascript">
-	function minus(pri) {
+	
+	//var r = 0;
+
+	function p(i, price, index) {
+	//	alert(index);
+		var obj = document.getElementsByName("amount");
+		var obj2 = document.getElementsByName("temp");
+		// alert( obj.length );
+	
+		
+		if(i==-1 && obj[index].value == 1){ 
+	      alert("더 이상 내릴 수 없습니다."); 
+		          return false; 
+		 } 
+	//	alert(obj[index].value);
+		obj[index].value=Number(obj[index].value) + i;
+		obj2[index].value=Number(obj[index].value) * price;
+		
+	}
+	
+	function checked() {
+		
+		
+		
+	}
+	
+	var r = 0;
+	function check(i) {
 		
 		var f = document.myForm;
 		
+		if('${bklists.size()}'== 1){
+		
+			if(f.chk.checked){
+					
+				r+=Number(f.temp.value);
+				
+			
+				
+				f.minus.disabled=true;
+				f.plus.disabled=true; 
+				
+			}else{
+				
+				r-=Number(f.temp.value);
+		
+				f.minus.disabled=false;
+				f.plus.disabled=false;
+			}
 
 		
-		if(Number(f.amount.value)>0){
+		}else if(i==0){
+	
 			
-			f.amount.value = Number(f.amount.value) -1;
+			if(f.chk[0].checked){
+				
+				r+=Number(f.temp[0].value);
+		
+				f.minus[0].disabled=true;
+				f.plus[0].disabled=true;
+				
+			}else{
+				r-=Number(f.temp[0].value);
+				
+		
+				f.minus[0].disabled=false;
+				f.plus[0].disabled=false;
+			}
+		}else {
+			alert(7);
+			if(f.chk[i].checked){
+				r+=Number(f.temp[i].value);
 			
-			f.price.value = Number(f.amount.value) * Number(pri)
-			
-			
-			
-		}else if(Number(f.amount.value)<1){
-			
-			alert("수량을 1개 이상 선택해 주세요.");
-			
+				f.minus[i].disabled=true;
+				f.plus[i].disabled=true;
+				
+			}else{
+				
+				r-=Number(f.temp[i].value);
+	
+				f.minus[i].disabled=false;
+				f.plus[i].disabled=false;
+			}
 			
 		}
-		
-		
-		
+	
+		f.price.value= r;
+	
 	}
 	
-	function plus(pri) {
-		
-		var f = document.myForm;
-		for(var i=0;i< "${dataCount}";i++){
-			
-		f.amount[i].value = Number(f.amount[i].value) + 1;
-		alert(f.amount[0].value);
-		
-		
-		
-			
-			f.price.value += Number(f.amount[i].value) * Number(pri);
-			
-		}
-		
-		
-	}
-	
-	function check() {
-		
-		var f = document.myForm;
-		
-		
-		
-		
-	}
 	
 	function total() {
 		
-		
 		var f = document.myForm;
 		
-		
-		
-		
-		
+		f.total.value = Number(f.price.value) + 2500;
 	}
+	
 </script>
 
 </head>
@@ -98,7 +134,7 @@
 		<div style="width: 1000px;"> <!-- 장바구니에 들어있는 물품 -->
 		
 			<div align="center" style="height:25px; background-color:#ffd2d7; border-top: solid 2px #ff7b8a; border-bottom: solid 2px #ffa3ad; padding-left: 10px; padding-right: 10px;"> <!-- 장바구니 물품 내역 -->
-				<div style="float: left; width: 100px;"><input type="checkbox" checked="checked"></div>
+				<div style="float: left; width: 100px;"><input type="checkbox" name="chk1" onclick="checked();"></div>
 				<div style="float: left; width: 450px;">상품명</div>
 				<div style="float: left; width: 100px;">수량</div>
 				<div style="float: left; width: 100px; margin-left: 15px;">가격</div>
@@ -108,29 +144,36 @@
 			<div style="padding-left: 10px; padding-right: 10px;">
 			
 			<c:if test="${dataCount != 0 }">
-			<c:forEach var="dto" items="${bklists }">
-				<c:set var="i" value="0"/>
-		
+			<c:forEach var="dto" items="${bklists }" varStatus="status">
+				
 				<div style="height: 60px; padding-top: 10px;">
-					<div style="float: left; width: 100px;"><input type="checkbox" checked="checked" onchange="check();"></div>
+					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" onclick="check('${status.index }');"></div>
 					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" />${dto.bPName }</div>
 					<div style="float: left; width: 100px; margin-left: 20px;">
-						<div style="float: left;"><img src="/god/resources/image/minus.png" width="20px" height="20px" onclick="minus('${dto.bPrice}');"></div>
-						<div style="float: left; width: 12px;" ><input type="text" value="1" style="border: none;" name="amount${i}" maxlength="2" width="5px" /></div>
-						<div style="float: left;"><img src="/god/resources/image/plus.png" width="20px" height="20px" onclick="plus('${dto.bPrice}');"></div>
+						<div style="float: left;"><img src="/god/resources/image/minus.png" name="minus" id="minus" width="20px" height="20px" onclick="p(-1,'${dto.bPrice}','${status.index }');"></div>
+						 
+						
+						
+						<div style="float: left; width: 12px;" ><input type="text" value="1" style="border: none;" id="amount" name="amount" maxlength="2" width="5px"  /></div>
+						
+						
+						<div style="float: left;"><img src="/god/resources/image/plus.png" name="plus" width="20px" height="20px" onclick="p(1,'${dto.bPrice}','${status.index }');" ></div>
 					</div>
-					<div style="float: left; width: 90px;"><input type="text" name="bprice${i}" style="border: none;" readonly="readonly" value="${dto.bPrice }"></div>
+					<div style="float: left; width: 90px;">
+					<input type="text" name="bprice" style="border: none;" readonly="readonly" value="${dto.bPrice }">
+					<input type="hidden" id="temp" name="temp" value="${dto.bPrice * dto.bAmount }" onchange="check('${status.index }');" >
+					</div>
 					<div style="width: 200px; float: left; margin-left: 5px;">배송정보</div>
 				</div>
 				
 				<div align="left" style=" padding-left: 50px;">
 					<div>
-					<button type="button" class="btn btn-link" onclick="javascript:location.href='/god/purchase.action';">즉시구매></button>&nbsp;&nbsp;
+					<button type="button" class="btn btn-link" onclick="javascript:location.href='/god/direct.action?bnum=${dto.bNum}';">즉시구매></button>&nbsp;&nbsp;
 					<button type="button" class="btn btn-link" onclick="javascript:location.href='/god/del.action';">삭제></button>&nbsp;&nbsp;
 					</div>
 				</div>
 				
-				<c:set var ="i" value="{i+1}"/>
+				
 			</c:forEach>
 			
 			</c:if>
@@ -144,7 +187,7 @@
 			<br/>
 			
 			<div style="border-bottom: solid 2px #ff7b8a; padding-left: 10px; padding-right: 10px;">
-				<div style="float: left; width: 100px;"><input type="checkbox" checked="checked"></div>
+				<div style="float: left; width: 100px;"><input type="checkbox" name = "chk1"></div>
 				<div align="left" style="padding-bottom: 5px;"><button type="button" class="btn btn-primary btn-xs" onclick="">삭제</button></div>
 			</div>
 			
@@ -157,12 +200,12 @@
 						</div>
 						
 						<div align="left" style="padding-left: 20px; font-size: 13pt;">
-							<div style="float: left;"> · 상품가격 </div> <div align="right"><input type="text" name="price" style="border: none; width: 50px;" value="${sumPrice }" />원</div>
-							<div style="float: left;"> · 배송비 </div> <div align="right"><input type="text" name="deli" style="border: none; width: 50px;" value=" 2500"> 원 </div>
+							<div style="float: left;"> · 상품가격 </div> <div align="right"><input type="text" name="price" readonly="readonly" style="border: none; width: 50px;" value="0" onchange="total();"/>원</div>
+							<div style="float: left;"> · 배송비 </div> <div align="right"><input type="text" name="deli" readonly="readonly" style="border: none; width: 50px;" value=" 2500"> 원 </div>
 						</div>
 						
-						<div align="right">
-							<div> 총 합계 </div>
+						<div align="left" style="padding-left: 20px; font-size: 13pt;">
+							<div style="float: left;"> 총 합계</div> <div align="right"><input type="text" name="total" value="0" readonly="readonly" style="border: none;"> 원</div>
 						</div>
 						
 					</div>
