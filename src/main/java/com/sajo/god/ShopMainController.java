@@ -88,17 +88,31 @@ public class ShopMainController {
 	public String orderCancel(){
 		
 		
+		
 		return "shopordercancel";
 	}
 	
 	@RequestMapping(value="/direct.action")
 	public String direct(Integer bnum, HttpServletRequest req, HttpServletResponse resp){
 		
+		
 		BasketDTO dto = dao.readbasket(bnum);
 		
 		req.setAttribute("dto", dto);
 		
 		return "purchase";
+	}
+	
+	@RequestMapping(value="/del.action")
+	public String del(BasketDTO dto,HttpServletRequest req, HttpServletResponse resp){
+		
+		
+		
+		dao.delbasket(dto.getbNum());
+		
+		
+		
+		return "redirect:basket";
 	}
 	
 }

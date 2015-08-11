@@ -26,7 +26,7 @@
 
 	<div style="background-color: #ffd2d7;width: 1000px; height: 55px;">
 		<div align="left" style="font-size: 30pt; float:left; width: 535px; margin-left: 15px; font-family: 나눔손글씨 붓;">장바구니</div>
-		<div align="right" style="font-size: 20pt; float:left; width: 440px; height:55px; vertical-align: bottom; margin-right: 10px; font-family: 나눔손글씨 붓;">장바구니 > 주문결제 > 주문완료 </div>
+		<div align="right" style="font-size: 20pt; float:left; width: 440px; height:55px; vertical-align: bottom; margin-right: 10px; font-family: 나눔손글씨 붓;">장바구니 > <font style="font-size:25pt;"><b>주문결제</b></font> > 주문완료 </div>
 	</div>
 	<br/>
 	
@@ -37,16 +37,15 @@
 			</div>
 		<div>
 			<div style="border-top: solid 1px #ff7b8a; background-color: #ffd2d7; ">
-				<div><input type="radio" value="새주소" name="addRadio">새주소 
-				<input type="radio" value="기본" name="addRadio">기본 
-				<input type="radio" value="배송지" name="addRadio">배송지</div>
+				<div><input type="radio" value="새주소" name="addRadio" onclick="">새주소 
+				<input type="radio" value="배송지" name="addRadio">기본배송지</div>
 			</div>
 			
 			<div>
-				<div>이름  전화번호</div>
-				<div> 주소</div>
+				<div><input type="text" style="border: none;" name="addname" value="이름"><input type="text" style="border: none;" name="tel" value="전화번호"></div>
+				<div><input type="text" style="border: none;" name="addr" value="주소"> </div>
 				
-				<div>우편번호</div>
+				<div><input type="text" style="border: none;" name="zipcode" value="우편번호"> </div>
 				<div>수정버튼</div>	
 			</div>
 		</div>
@@ -54,10 +53,12 @@
 		<c:if test="${dto != null }">
 		<div style="width: 390px; float: left; padding-left: 15px;">
 			<div>주문 상품 정보</div>
-			<div style="border: solid 1px #ffd2d7;">
-				<div>이미지 </div>
-				<div><input type="text" name="bpname" style="border: none;" value=""> </div>
-				<div><input type="text" name="bprice" style="border: none;" value=""> </div>
+			<div style="border: solid 1px #ffd2d7;" >
+				<div style="float: left; width: 150px;" >이미지 </div>
+				<div style="float: left;">
+					<div><input type="text" name="bpname" style="border: none;" value="${dto.bPName }"> </div>
+					<div><input type="text" name="bprice" style="border: none;" value="${dto.bPrice }"> </div>
+				</div>
 			</div>
 		</div>
 		</c:if>

@@ -35,21 +35,21 @@ public class BasketDAO {
 		
 	}
 	
-	public int sumPro(int pnum){
 		
-		int result = 0;
-		
-		result = sessionTemplate.selectOne("com.sajo.mapper.basket.sumPro", pnum);
-		
-		return result ;
-	}
-	
 	public BasketDTO readbasket(int bnum){
 		
 		BasketDTO dto = sessionTemplate.selectOne("com.sajo.mapper.basket.readbasket",bnum);
 		
 		return dto;
 		
+	}
+	
+	public int delbasket(int bnum){
+		
+		int result = 0;
+		result = sessionTemplate.selectOne("com.sajo.mapper.basket.delbasket", bnum);
+		
+		return result;
 	}
 
 }
