@@ -126,7 +126,7 @@
 	<form action="" method="post" name="myForm">
 	<div style="background-color: #ffd2d7;width: 1000px; height: 55px;">
 		<div align="left" style="font-size: 30pt; float:left; width: 535px; margin-left: 15px; font-family: 나눔손글씨 붓;">장바구니</div>
-		<div align="right" style="font-size: 20pt; float:left; width: 440px; height:55px; vertical-align: bottom; margin-right: 10px; font-family: 나눔손글씨 붓;"><font style="font-size:30pt;">장바구니</font> > 주문결제 > 주문완료 </div>
+		<div align="right" style="font-size: 20pt; float:left; width: 440px; height:55px; vertical-align: bottom; margin-right: 10px; font-family: 나눔손글씨 붓;"><font style="font-size:25pt;"><b>장바구니</b></font> > 주문결제 > 주문완료 </div>
 	</div>
 	<br/>
 	<div> <!-- 장바구니 메뉴 -->
@@ -138,7 +138,7 @@
 				<div style="float: left; width: 450px;">상품명</div>
 				<div style="float: left; width: 100px;">수량</div>
 				<div style="float: left; width: 100px; margin-left: 15px;">가격</div>
-				<div style="width: 200px; float: left;">배송정보</div>
+				<div style="width: 200px; float: left;">상태</div>
 			</div>
 		
 			<div style="padding-left: 10px; padding-right: 10px;">
@@ -163,7 +163,7 @@
 					<input type="text" name="bprice" style="border: none;" readonly="readonly" value="${dto.bPrice }">
 					<input type="hidden" id="temp" name="temp" value="${dto.bPrice * dto.bAmount }" onchange="check('${status.index }');" >
 					</div>
-					<div style="width: 200px; float: left; margin-left: 5px;">배송정보</div>
+					<div style="width: 200px; float: left; margin-left: 5px;">상태</div>
 				</div>
 				
 				<div align="left" style=" padding-left: 50px;">
