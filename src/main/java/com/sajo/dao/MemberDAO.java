@@ -59,11 +59,11 @@ public int getDataCount(String dong){
 		
 	}
 
-	/*public MemberDTO idchk(String userId){
+	public MemberDTO idchk(String userId){
 		
 		MemberDTO dto = sessionTemplate.selectOne("com.sajo.member.sql.idchk", userId);
 		
 		return dto;
-	}*/
+	}
 
 }
