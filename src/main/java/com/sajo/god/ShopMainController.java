@@ -13,20 +13,21 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sajo.dao.BasketDAO;
 /*import com.sajo.dao.BasketDAO;
 import com.sajo.dto.BasketDTO;*/
 import com.sajo.util.MyUtil;
 
 
-//@Controller
+@Controller
 public class ShopMainController {
 	
-	//@Autowired
+	@Autowired
 	@Qualifier("basketDAO") //중복방지
-	//BasketDAO dao;
+	BasketDAO dao;
 
-	//@Autowired
-	//MyUtil myUtil;
+	@Autowired
+	MyUtil myUtil;
 
 	
 	@RequestMapping(value="/shopmain.action",method={RequestMethod.GET,RequestMethod.POST})

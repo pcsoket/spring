@@ -37,12 +37,8 @@ public class ImageController {
 	@RequestMapping(value="/img/list.action", method={RequestMethod.GET,RequestMethod.POST})
 	public String list(HttpServletRequest request, HttpServletResponse response) throws Exception{
 
-		//HttpSession session = request.getSession();
-		//String root = session.getServletContext().getRealPath("/");
 
-		//System.out.println(root);
-		//String savePath = root + "WEB-INF" + File.separator + "imageFile";
-		String savePath = "example" + File.separator + "resources" + File.separator + "imageFile";
+		String savePath = "god" + File.separator + "resources" + File.separator + "imageFile";
 		System.out.println(savePath);
 		String cp = request.getContextPath();
 
@@ -76,7 +72,7 @@ public class ImageController {
 
 		while(it.hasNext()){
 
-			ImageDTO data = (ImageDTO)it.next(); //한개의 데이터에 대한 객체생성?
+			ImageDTO data = (ImageDTO)it.next();
 
 			listNum = totalDataCount-(start+n-1);
 			data.setListNum(listNum);
@@ -86,14 +82,12 @@ public class ImageController {
 		String param = "";
 		String urlList = "";
 
-		//사용자정의-----------------------------------------------------
 		urlList = cp + "/img/list.action";
 
 		if(!param.equals("")){
 
 		}//--------------------------------------------------------------
-		String imageUrl = "/example/resources/imageFile";
-		//String imageUrl =  request.getSession().getServletContext().getRealPath("/WEB-INF/imageFile/");
+		String imageUrl = "/god/resources/imageFile";
 		
 		request.setAttribute("savePath", savePath);
 		request.setAttribute("imageUrl", imageUrl);
@@ -126,9 +120,6 @@ public class ImageController {
 		MultipartFile file = request.getFile("upload");
 
 
-		//System.out.println(file.getOriginalFilename());
-
-		//System.out.println(file);
 		if (file != null && file.getSize() > 0) {
 
 			try {
@@ -184,11 +175,7 @@ public class ImageController {
 	@RequestMapping(value="/img/deleted.action", method={RequestMethod.GET,RequestMethod.POST})
 	public String deleted(ImageDTO dto, HttpServletRequest request, HttpServletResponse response) throws Exception{
 
-		//HttpSession session = request.getSession();
-
-		//String root = session.getServletContext().getRealPath("/");
 		String savePath = request.getSession().getServletContext().getRealPath("/resources/imageFile/");
-		//String savePath = "example" + File.separator + "resources" + File.separator + "imageFile";
 
 		int num = Integer.parseInt(request.getParameter("num"));
 
@@ -196,17 +183,12 @@ public class ImageController {
 
 		File file = null;
 		
-		//System.out.println("삭제:"+dto.getOriginalFileName());
-		//System.out.println("넘버:"+num);
 		
 		String fullFileName = savePath + "\\"+ dto.getOriginalFileName();
         
-		//System.out.println("경로"+fullFileName);
 		file = new File(fullFileName);
         if (file.exists())
            file.delete();
-        
-		//FileManager.doFileDelete(dto.getSaveFileName(), savePath);
 
 		dao.deleteData(num);
 
