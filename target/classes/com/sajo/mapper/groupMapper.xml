@@ -58,5 +58,10 @@
 	delete ideaGroup where gNum=#{gNum}
 </delete>
 
+<delete id="c_deleteData" parameterType="int">
+	delete boardcomment where gNum=#{gNum}
+</delete>
+
+
 	
 </mapper>

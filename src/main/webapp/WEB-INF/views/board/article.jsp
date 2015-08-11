@@ -62,16 +62,10 @@
 	        f.action = "<%=cp%>/comm/created.action";
 	        f.submit();
 	}
-
-              	
-
         
 </script>
 </head>
 <body>
-
-
-
 	
 <table width="1000" align="center" class="box">
 		
@@ -99,9 +93,12 @@
 	
 <tr height="40px">
 	<td	class="line5" colspan="4">
-	 <input type="button" value=" 수정 "  class="btn1" style="height:30px;" onclick="javascript:location.href='<%=cp%>/group/updated.action?gNum=${dto.gNum}&${params}';"/>
-     <input type="button" value=" 삭제 "  class="btn1" style="height:30px;" onclick="javascript:location.href='<%=cp%>/group/deleted.action?gNum=${dto.gNum}&${params}';"/>
-	 <input type="button" value=" 목록 "  class="btn1" style="height:30px;" onclick="javascript:location.href='<%=cp%>/group/list.action?${params}';"/>
+	 <input type="button" value=" 수정 "  class="btn1" style="height:30px;" 
+	 onclick="javascript:location.href='<%=cp%>/group/updated.action?gNum=${dto.gNum}&${params}';"/>
+     <input type="button" value=" 삭제 "  class="btn1" style="height:30px;" 
+     onclick="javascript:location.href='<%=cp%>/group/deleted.action?gNum=${dto.gNum}&${params}';"/>
+	 <input type="button" value=" 목록 "  class="btn1" style="height:30px;" 
+	 onclick="javascript:location.href='<%=cp%>/group/list.action?${params}';"/>
 </td>
 </tr>
 
@@ -118,6 +115,7 @@
 <input type="hidden" name="boardName" value="test">
 <input type="hidden" name="gNo" value="${dto.gNo}">
 <input type="hidden" name="cmId" value="1">
+<input type="hidden" name="params" value="${params}">
 <!-- 파람스 받아놓아야함 세션아이디 -->
 
 
@@ -138,14 +136,13 @@
 
 </table>
 
-
-
 <table width="1000" height="100px" align="center" class="line5">
 	<tr height="30px"> 
 		<td colspan="5" class="font1"><b>댓글</b></font></td>
 	</tr>
 </table>
 
+<c:forEach var="cdto" items="${lists}">	
 <table width="1000" height="100px" align="center" class="line5">
 
 
@@ -153,15 +150,14 @@
 		<td width="100px" height="50px" align="center">이름</td>
 		<td width="400px" align="right">날짜</td>
 		
-					<td></td>
+		<td></td>		
 		
-		
-					<td width="100px" align="center">
-				<input type="hidden" name="acnum">
-				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="javascript:location.href='<%=cp%>/group/list.action';"/>			
-			</td>
+		<td width="100px" align="center">
+			<input type="button" class="btn1" style="height: 30px" value=" 수정 "
+			 onclick="">			
+		</td>
 
-				<td></td>
+		<td></td>
 		
 	</tr>
 	<tr>
@@ -169,42 +165,41 @@
 		<td class="font2" width="600px">내용</td>
 		
 		
-				<td></td>
+		<td></td>
 	
-				<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" style="height: 30px"onclick=""/></td>
-			<td></td>
+		<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" style="height: 30px"
+		onclick="javascript:location.href='<%=cp%>/comm/deleted.action?gNum=${cdto.gNum}&cmNum=${cdto.cmNum}';"/></td>
 		
-		
+		<td></td>		
 		
 	</tr>
 	
 </table>
-<c:forEach var="cdto" items="${lists}">	
 
 <table width="800" height="100px" align="center" class="line4">
 
-
 	<tr>
-		<td width="100px" height="50px" align="center" class="font1">${cdto.name}</td>
-		<td width="400px" align="right">${cdto.cdate}</td>
+		<td width="100px" height="50px" align="center" class="font1">${cdto.cmId}</td>
+		<td width="400px" align="right">${cdto.cmCreated}</td>
+		
 		
 		<c:choose>
-		<c:when test="${empty sessionScope.loginInfo.id}">
+		<c:when test="${empty sessionScope.loginInfo.cmId}">
 			<td></td>
 		</c:when>
-		<c:when test="${sessionScope.loginInfo.id == cdto.id}">	
+		<c:when test="${sessionScope.loginInfo.cmId == cdto.cmId}">	
 			<td width="100px" align="center">
-				<input type="hidden" name="cnum">
-				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="c_sendIt('${cdto.cnum}');"/>			
+				<input type="hidden" name="cmNum">
+				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="b_sendIt('${cdto.cmNum}');"/>			
 			</td>
 		</c:when>
-		<c:when test="${sessionScope.loginInfo.id == 'admin'}">	
+		<c:when test="${sessionScope.loginInfo.cmId == 'admin'}">	
 			<td width="100px" align="center">
-				<input type="hidden" name="cnum">
-				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="c_sendIt('${cdto.cnum}');"/>			
+				<input type="hidden" name="cmNum">
+				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="b_sendIt('${cdto.cmNum}');"/>			
 			</td>
 		</c:when>
-		<c:when test="${sessionScope.loginInfo.id != cdto.id}">
+		<c:when test="${sessionScope.loginInfo.cmId != cdto.cmId}">
 			<td></td>
 		</c:when>
 		</c:choose>
@@ -212,24 +207,24 @@
 	</tr>
 	<tr>
 		<td></td>
-		<td class="font2" width="600px">${cdto.ccontent}</td>
+		<td class="font2" width="600px">${cdto.cmContent}</td>
 		
 		<c:choose>
-		<c:when test="${empty sessionScope.loginInfo.id}">
+		<c:when test="${empty sessionScope.loginInfo.cmId}">
 			<td></td>
 		</c:when>
-		<c:when test="${sessionScope.loginInfo.id == cdto.id}">
+		<c:when test="${sessionScope.loginInfo.cmId == cdto.cmId}">
 			<td align="center" align="top">
 			
 			<input type="button" value=" 삭제 " class="btn1" style="height: 30px" 
-			onclick="javascript:location.href='<%=cp%>/sjuno/cbg_deleted.do?qnum=${dto.qnum}&pageNum=${pageNum}&cnum=${cdto.cnum}';"/></td>
+			onclick="javascript:location.href='<%=cp%>/comm/deleted.action?gNum=${dto.gNum}&pageNum=${pageNum}&cmNum=${cdto.cmNum}';"/></td>
 		</c:when>
 		
-		<c:when test="${sessionScope.loginInfo.id == 'admin'}">
+		<c:when test="${sessionScope.loginInfo.cmId == 'admin'}">
 			<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" 
-			onclick="javascript:location.href='<%=cp%>/sjuno/cbg_deleted.do?qnum=${dto.qnum}&pageNum=${pageNum}&cnum=${cdto.cnum}';"/></td>
+			onclick="javascript:location.href='<%=cp%>/comm/deleted.action?gNum=${dto.gNum}&pageNum=${pageNum}&cmNum=${cdto.cmNum}';"/></td>
 		</c:when>
-		<c:when test="${sessionScope.loginInfo.id != cdto.id}">
+		<c:when test="${sessionScope.loginInfo.cmId != cdto.cmId}">
 			<td></td>
 		</c:when>
 		</c:choose>		
@@ -237,7 +232,24 @@
 	</tr>
 	
 </table>
-
 </c:forEach>
+
+	<!-- pageIndex -->
+<table align="center">
+	<tr height="50px"></tr>
+<tr>
+<td colspan="5" align="center">			
+			<p>
+				<c:if test="${totalDataCount!=0 }">
+					${pageIndexList}
+				</c:if>
+				<c:if test="${totalDataCount==0 }">
+					등록된게시물이 없습니다.
+				</c:if>
+			</p>
+</td>
+		</tr>
+</table>
+		<!-- pageIndex -->
 </body>
 </html>

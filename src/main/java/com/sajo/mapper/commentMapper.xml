@@ -31,7 +31,7 @@
 </select>
 
 <!-- 데이터 수정 -->
-<update id="updateData" parameterType="com.sajo.dto.GroupDTO">
+<update id="updateData" parameterType="com.sajo.dto.CommentDTO">
 	update boardcomment set cmContent=#{cmContent} where cmNum=#{cmNum}
 </update>
 

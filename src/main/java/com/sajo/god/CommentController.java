@@ -27,7 +27,7 @@ public class CommentController {
 	@Autowired
 	MyUtil myUtil;
 
-	@RequestMapping(value="/comm/created.action", method={RequestMethod.POST})
+	@RequestMapping(value="/comm/created.action", method={RequestMethod.POST,RequestMethod.GET})
 	public String created(CommentDTO dto,HttpServletRequest request, HttpServletResponse response){
 		
 		int numMax = dao.getMaxNum();
@@ -42,13 +42,12 @@ public class CommentController {
 		 BOARDNAME                                 NOT NULL VARCHAR2(10) */
 	
 		dto.setCmNum(numMax+1);
-		
 		dao.insertData(dto);
 
-		return "redirect:/comm/list.action?gNum=" + dto.getgNum();
+		return "redirect:/group/article.action?"+dto.getParams()+"&gNum=" + dto.getgNum();
 	}
 
-	@RequestMapping(value="/comm/list.action", method={RequestMethod.GET,RequestMethod.POST})
+	/*@RequestMapping(value="/comm/list.action", method={RequestMethod.GET,RequestMethod.POST})
 	public String list(CommentDTO dto, HttpServletRequest request, HttpServletResponse response) throws Exception {
 				
 		int numPerPage = 5;
@@ -108,15 +107,14 @@ public class CommentController {
 
 		return "comm/commList";
 
-	}
+	}*/
 	
 	@RequestMapping(value="/comm/deleted.action", method={RequestMethod.GET,RequestMethod.POST})
 	public String delete(CommentDTO dto, HttpServletRequest request, HttpServletResponse response) throws Exception {
-
 		
 		dao.deleteData(dto.getCmNum());
 
-		return "redirect:/comm/list.action?gNum=" + dto.getgNum();
+		return "redirect:/group/article.action?"+dto.getParams()+"&gNum=" + dto.getgNum();
 	}
 	
 	@RequestMapping(value="/comm/updated.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -129,7 +127,7 @@ public class CommentController {
 		CommentDTO dto = dao.getReadData(cmNum);
 		
 		if(dto == null){
-			return "redirect:/comm/list.action?pageNum=" + pageNum;
+			return "redirect:/group/article.action?"+dto.getParams()+"&gNum=" + dto.getgNum();
 		}
 		
 		request.setAttribute("dto", dto);
@@ -146,7 +144,7 @@ public class CommentController {
 		
 		dao.updateData(dto);
 		
-		return "redirect:/comm/list.action?pageNum=" + pageNum;
+		return "redirect:/group/article.action?"+dto.getParams()+"&gNum=" + dto.getgNum();
 		
 	}
 

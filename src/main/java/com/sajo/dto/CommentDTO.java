@@ -3,7 +3,7 @@ package com.sajo.dto;
 public class CommentDTO {
 	
 	private int cmNum,gNo,gNum,cmRecomm,listNum;
-	private String cmId,cmContent,cmCreated,boardName;
+	private String cmId,cmContent,cmCreated,boardName,params,pageNO;
 	
 	
 	public int getCmNum() {
@@ -59,6 +59,18 @@ public class CommentDTO {
 	}
 	public void setListNum(int listNum) {
 		this.listNum = listNum;
+	}
+	public String getParams() {
+		return params;
+	}
+	public void setParams(String params) {
+		this.params = params;
+	}
+	public String getPageNO() {
+		return pageNO;
+	}
+	public void setPageNO(String pageNO) {
+		this.pageNO = pageNO;
 	}
 	
     
