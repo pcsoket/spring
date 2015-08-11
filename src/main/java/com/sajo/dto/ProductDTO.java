@@ -4,6 +4,7 @@ public class ProductDTO {
 	
 	private int pNum,pPrice,pGrade,pHitcount,pStock;
 	private String pCategory,pName,pContent;
+	
 	public int getpNum() {
 		return pNum;
 	}

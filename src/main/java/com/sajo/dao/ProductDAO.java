@@ -1,5 +1,7 @@
 package com.sajo.dao;
 
+
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,14 +29,9 @@ public class ProductDAO {
 				
 		}
 		
-		//입력
-		public void p_insertData(ProductDTO dto){
-			
-			sessionTemplate.insert("com.sajo.god.product.mapper.p_insertData",dto);	
-			
-		}
+
 		
-		//전체데이터
+	//전체데이터
 		public List<ProductDTO> p_getList(int start, int end,
 				String searchKey, String searchValue){
 			
@@ -51,6 +48,11 @@ public class ProductDAO {
 			return lists;
 			
 		}
+		
+		
+	
+		
+	
 		
 		//전체 데이터수 구하기
 		public int p_getDataCount(String searchKey,String searchValue){
@@ -83,21 +85,11 @@ public class ProductDAO {
 			
 		}
 		
-		//삭제
-		public void p_deleteData(int pNum){
-			
-			sessionTemplate.delete("com.sajo.god.product.mapper.p_deleteData",pNum);	
-			
-		}
+		
+				
 		
 		
-		//수정
-		public void p_updateData(ProductDTO dto){
-			
-			sessionTemplate.update("com.sajo.god.product.mapper.p_updateData",dto);			
-					
-		}
-	
+
 	
 
 }

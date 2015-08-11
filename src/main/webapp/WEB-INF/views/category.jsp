@@ -53,33 +53,46 @@
 
 				<tr><td class="dropdown">
 						&nbsp;&nbsp;&nbsp;<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>	
-    					<a class="dropdown-toggle" data-toggle="dropdown" href="#">아이디어 상품<span class="caret"></span></a>
+    					<a class="dropdown-toggle" data-toggle="dropdown" href="#">과일<span class="caret"></span></a>
       						<ul class="dropdown-menu">
-        						<li class="category1"><a href='/god/shop_article.action'>수박ㅎ_ㅎㅎㅎ</a></li>
-       							<li class="category1"><a href="#">아이디어 상품2</a></li>
-        						<li class="category1"><a href="#">아이디어 상품3</a></li>
-        						<li class="category1"><a href="#">아이디어 상품4</a></li>  
-        						<li class="category1"><a href="#">아이디어 상품5</a></li>  
-        						<li class="category1"><a href="#">아이디어 상품6</a></li>                        
+      						<c:forEach var="dto" items="${lists}">
+								<li class="category1">
+									<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
+									<a href="${articleUrl}&pNum=${dto.pNum}">
+									${dto.pName}</a></font>
+									</li>
+									<%-- <%
+									if(i%5==0){
+										out.print("</td><td>");
+									}
+											i++;
+									%> --%>
+							</c:forEach>                      
      						 </ul>
-
     					</b></font>
 					</td>
 					
 					
 					<td rowspan="6" align="center"><img alt="" src="/god/resources/image/yy.PNG"/><br/></td>
 				</tr>
-				
+	 			
 				<tr><td class="dropdown">
 						&nbsp;&nbsp;&nbsp;<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>	
-    					<a class="dropdown-toggle" data-toggle="dropdown" href="#">패션/뷰티<span class="caret"></span></a>
+    					<a class="dropdown-toggle" data-toggle="dropdown" href="#">아이디어상품<span class="caret"></span></a>
       						<ul class="dropdown-menu">
-        						<li class="category1"><a href="#">아이디어 상품1</a></li>
-       							<li class="category1"><a href="#">아이디어 상품2</a></li>
-        						<li class="category1"><a href="#">아이디어 상품3</a></li>
-        						<li class="category1"><a href="#">아이디어 상품4</a></li>  
-        						<li class="category1"><a href="#">아이디어 상품5</a></li>  
-        						<li class="category1"><a href="#">아이디어 상품6</a></li>                        
+      						<c:forEach var="dto" items="${lists}">
+								<li class="category1">
+									<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
+									<a href="${articleUrl}&pNum=${dto.pNum}">
+									${dto.pName}</a></font>
+									</li>
+									<%-- <%
+									if(i%5==0){
+										out.print("</td><td>");
+									}
+											i++;
+									%> --%>
+							</c:forEach>                      
      						 </ul>
 
     					</b></font>
@@ -153,8 +166,8 @@
 				<td width="200px" height="100px" align="center" class="category2">
 					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-					
-						${dto.pName}<br>${dto.pPrice}원</font><img alt="" src="">
+					<a href="${articleUrl}&pNum=${dto.pNum}">
+						${dto.pName}<br>${dto.pPrice}원</a></font>
 				</td>
 							<%
 							if(i%5==0){

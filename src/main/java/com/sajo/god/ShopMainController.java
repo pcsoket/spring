@@ -36,7 +36,7 @@ public class ShopMainController {
 		
 		
 				
-		return "shopmain";
+		return "shop";
 	}
 	
 	@RequestMapping(value="/basket.action")

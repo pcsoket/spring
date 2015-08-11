@@ -22,43 +22,12 @@ import com.sajo.util.MyUtil;
 public class ProductController {
 	
 	@Autowired
-	@Qualifier("ProductDAO")
+	@Qualifier("productDAO")
 	ProductDAO dao;
 
 	@Autowired
 	MyUtil myUtil;
 	
-	/*@RequestMapping("/created.action")
-	public ModelAndView created(){
-		
-		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("group/created");
-		
-		return mav;
-		
-	}
-	
-	@RequestMapping(value="/created_ok.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String created_ok(GroupDTO dto,HttpServletRequest request,HttpServletResponse response){
-		
-		int maxNum = dao.getMaxNum();
-		
-		dto.setgNum(maxNum+1);
-				
-		dto.setgNo(1);		
-		dto.setuserId("3");
-		dto.setgImg1("4");
-		dto.setgImg2("5");
-		dto.setgImg3("6");
-		dto.setgImg4("7");
-		dto.setBoardName("8");
-		
-		dao.insertData(dto);
-		
-		return "redirect:list.action";
-		
-	}*/
 	
 	@RequestMapping(value="/category.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String category(HttpServletRequest request,HttpServletResponse response) throws Exception{
@@ -103,7 +72,11 @@ public class ProductController {
 		List<ProductDTO> lists =
 			dao.p_getList(start, end, searchKey, searchValue);
 		
-		System.out.println(lists.size());
+
+	
+		
+		
+		
 		//∆‰¿Ã¬° √≥∏Æ
 		String param = "";
 		if(!searchValue.equals("")){
@@ -141,6 +114,7 @@ public class ProductController {
 	
 	public ModelAndView shop_article (Integer pNum, HttpServletResponse response,HttpServletRequest request) throws Exception{
 	
+	
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
@@ -155,6 +129,7 @@ public class ProductController {
 		dao.p_updateHitCount(pNum);
 		
 		ProductDTO dto = dao.p_getReadData(pNum);
+		
 		
 		if(dto==null){
 			
@@ -186,50 +161,8 @@ public class ProductController {
 		
 	}
 	
-	
-	
-	/*
-	@RequestMapping(value="/updated.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String updated(Integer gNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
-		
-	
-		String pageNum = request.getParameter("pageNum");
-		
-		GroupDTO dto = dao.getReadData(gNum);
-		
-		if(dto == null){
-			
-			return "redirect:list.action?pageNum=" + pageNum;
-			
-		}
-		
-		request.setAttribute("dto", dto);
-		request.setAttribute("pageNum", pageNum);
-		
-		return "group/updated";
 
-	}
 	
-	@RequestMapping(value="/updated_ok.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String updated_ok(GroupDTO dto, HttpServletRequest request,HttpServletResponse response) throws Exception{
 	
-		String pageNum = request.getParameter("pageNum");
-		
-		dao.updateData(dto);
-		
-		return "redirect:list.action?pageNum=" + pageNum;
-		
-	}
-	
-	@RequestMapping(value="/deleted.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String deleted(Integer gNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
-		
-		String pageNum = request.getParameter("pageNum");
-				
-		dao.deleteData(gNum);
-		
-		return "redirect:list.action?pageNum=" + pageNum;
-		
-	}*/
 
 }

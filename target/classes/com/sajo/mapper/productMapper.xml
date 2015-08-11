@@ -11,11 +11,6 @@
 	select nvl(max(pNum),0) from group	
 </select>
 
-<!-- 데이터 입력 -->
-<insert id="p_insertData" parameterType="com.sajo.dto.ProductDTO">
-	insert into product(pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock) values
-	(#{pNum},#{pCategory},#{pName},#{pPrice},#{pGrade},0,#{pContent},#{pStock})
-</insert>
 
 <!-- 전체데이터 갯수 -->
 <select id="p_getDataCount" parameterType="hashMap" resultType="int">
@@ -45,17 +40,13 @@
 	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock from product where pNum=#{pNum}
 </select>
 
-<!-- 데이터 수정 -->
-<update id="p_updateData" parameterType="com.sajo.dto.ProductDTO">
-	update group set pNum=#{pNum},pCategory=#{pCategory},pName=#{pName},
-	pPrice=#{pPrice},pGrade=#{pGrade},pHitCount=#{pHitCount},
-	pContent=#{pContent},pStock=#{pStock} where pNum=#{pNum}
-</update>
+<!-- 한개의 데이터 -->
+<select id="p_getListsCategory" parameterType="arrayList" resultType="com.sajo.dto.ProductDTO">
+	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock from product where pCategory=#{pCategory}
 
-<!-- 데이터 삭제 -->
-<delete id="p_deleteData" parameterType="int">
-	delete product where pNum=#{pNum}
-</delete>
+</select>
+
+
 
 	
 </mapper>
