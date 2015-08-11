@@ -3,6 +3,7 @@ package com.sajo.god;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.List;
+import java.util.ListIterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,9 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.sajo.dto.CommentDTO;
 import com.sajo.dto.GroupDTO;
 import com.sajo.util.MyUtil;
+import com.sajo.dao.CommentDAO;
 import com.sajo.dao.GroupDAO;
 
 @Controller
@@ -27,6 +29,10 @@ public class GroupController {
 	GroupDAO dao;
 	
 	@Autowired
+	@Qualifier("commentDAO")
+	CommentDAO cdao;
+	
+	@Autowired
 	MyUtil myUtil;
 	
 	@RequestMapping(value="group/",method={RequestMethod.GET})
@@ -35,20 +41,13 @@ public class GroupController {
 		return "index";
 		
 	}
-	
-	/*@RequestMapping(value="group/created.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String created(HttpServletRequest request,HttpServletResponse response){
 		
-		return "created";
-		
-	}*/
-	
 	@RequestMapping(value="/group/created.action")
 	public ModelAndView created(){
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("created");
+		mav.setViewName("board/created");
 		
 		return mav;
 		
@@ -59,7 +58,7 @@ public class GroupController {
 		
 		int maxNum = dao.getMaxNum();
 		System.out.println(dto.getgSubject());
-		dto.setmId("1");
+		dto.setmId("흐흐흐");
 		dto.setgNum(maxNum+1);
 		dto.setgImg1("1");
 		dto.setgImg2("1");
@@ -75,6 +74,7 @@ public class GroupController {
 	
 	@RequestMapping(value="/group/list.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String list(HttpServletRequest request,HttpServletResponse response) throws Exception{
+		
 		
 		String cp = request.getContextPath();
 		
@@ -145,17 +145,18 @@ public class GroupController {
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		
-		return "list";
+		return "board/list";
 		
 	}
 	
 	@RequestMapping(value="/group/article.action",method={RequestMethod.GET,RequestMethod.POST})
 	//public String article(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
-	public ModelAndView article (int gNum, HttpServletResponse response,HttpServletRequest request) throws Exception{
+	public ModelAndView article (int gNum, CommentDTO cdto,HttpServletResponse response,HttpServletRequest request) throws Exception{
 	
 		String cp = request.getContextPath();
 		
+		System.out.println(gNum);
 		//int num = Integer.parseInt(request.getParameter("num"));
 		String pageNum = request.getParameter("pageNum");
 		
@@ -185,23 +186,79 @@ public class GroupController {
 			param += "&searchKey=" + searchKey;
 			param += "&searchValue=" 
 				+ URLEncoder.encode(searchValue, "UTF-8");
-		}
-		
-		/*request.setAttribute("dto", dto);
-		request.setAttribute("params",param);
-		request.setAttribute("lineSu",lineSu);
-		request.setAttribute("pageNum",pageNum);
-		
-		return "article";*/
+		}		
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("article");
+		mav.setViewName("board/article");
 		
 		mav.addObject("dto",dto);
 		mav.addObject("params",param);
 		mav.addObject("lineSu",lineSu);
 		mav.addObject("pageNum",pageNum);
+		
+		
+		/*=======================================*/
+		
+		int numPerPage = 5;
+		int totalPage=0;
+		int totalDataCount = 0;
+	
+		
+		String pageNO = cdto.getPageNO();
+
+		int currentPage = 1;
+		
+		if(pageNO  != null){
+			currentPage = Integer.parseInt(cdto.getPageNO());
+		}
+		else
+			pageNO="1";
+	
+		
+		totalDataCount = cdao.getDataCount(dto.getgNum());
+		
+		
+		//전체 페이지수 구하기
+		if(totalDataCount!=0)
+			totalPage = myUtil.getPageCount(numPerPage, totalDataCount);
+
+		//삭제에 의해서 이럴 경우
+		if(currentPage > totalPage){
+			currentPage = totalPage;
+		}
+
+		int start = (currentPage-1)* numPerPage+1;
+		int end = currentPage * numPerPage;
+
+
+		List<CommentDTO> lists = cdao.getList(start, end, dto.getgNum());
+
+		ListIterator<CommentDTO> it = lists.listIterator();
+
+		int listNum, n=0;
+
+		while(it.hasNext()){
+			
+			cdto = (CommentDTO)it.next();
+			listNum = totalDataCount - (start+n-1);
+			cdto.setListNum(listNum);
+			cdto.setCmContent(cdto.getCmContent().replaceAll("\n", "<br/>"));
+			n++;			
+
+		}					
+		
+		String listUrl = cp + "/group/article.action";
+		if(!param.equals("")){
+			listUrl = listUrl + "?" + param+"&gNum="+gNum;
+		}
+		
+		String pageIndexList = myUtil.c_pageIndexList(currentPage, totalPage,listUrl);
+
+		mav.addObject("lists", lists);
+		mav.addObject("totalDataCount", totalDataCount);
+		mav.addObject("pageIndexList", pageIndexList);
+		mav.addObject("pageNO", currentPage);
 		
 		return mav;
 		
@@ -212,21 +269,18 @@ public class GroupController {
 		
 		String cp = request.getContextPath();
 	
-	//	int num = Integer.parseInt(request.getParameter("num"));
 		String pageNum = request.getParameter("pageNum");
 		
 		GroupDTO dto = dao.getReadData(gNum);
 		
-		if(dto == null){/*
-			String url = cp + "/list.action";
-			response.sendRedirect(url);*/
+		if(dto == null){
 			return "redirect:/group/list.action?pageNum=" + pageNum;
 		}
 		
 		request.setAttribute("dto", dto);
 		request.setAttribute("pageNum", pageNum);
 		
-		return "updated";
+		return "board/updated";
 
 	}
 	
@@ -235,15 +289,6 @@ public class GroupController {
 	
 		String pageNum = request.getParameter("pageNum");
 		
-		/*GroupDTO dto = new GroupDTO();
-		
-		dto.setNum(Integer.parseInt(request.getParameter("num")));
-		dto.setSubject(request.getParameter("subject"));
-		dto.setName(request.getParameter("name"));
-		dto.setEmail(request.getParameter("email"));
-		dto.setPwd(request.getParameter("pwd"));
-		dto.setContent(request.getParameter("content"));
-		*/
 		dao.updateData(dto);
 		
 		return "redirect:/group/list.action?pageNum=" + pageNum;
@@ -254,8 +299,7 @@ public class GroupController {
 	public String deleted(int gNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 		String pageNum = request.getParameter("pageNum");
-		//int num =Integer.parseInt(request.getParameter("num"));
-		
+				
 		dao.deleteData(gNum);
 		
 		return "redirect:/group/list.action?pageNum=" + pageNum;

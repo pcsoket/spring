@@ -17,5 +17,23 @@
 <select id="dataCount" resultType="int">
 	select nvl(count(*),0) from basket
 </select>
+
+
+
+<!-- 즉시구매에 따른 bnum으로 정보 불러오기 -->
+
+<select id="readbasket" resultType="com.sajo.dto.BasketDTO" parameterType="int">
+
+	select bNum,bAmount,bPName,bPrice,pNum from basket where bNum=#{bnum}
+	
+</select>
+
+<!-- 장바구니에서 삭제 -->
+
+<delete id="delbasket" parameterType="int">
+	
+	delete from basket where bnum=#{bNum}
+
+</delete>
 	
 </mapper>
