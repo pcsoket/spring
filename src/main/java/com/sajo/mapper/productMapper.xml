@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.sajo.god.product.mapper">
+	
+<!-- pNum의 최대값 -->
+<select id="p_maxNum" resultType="int">
+	select nvl(max(pNum),0) from product	
+</select>
+
+
+<!-- 전체데이터 갯수 -->
+<select id="p_getDataCount" parameterType="hashMap" resultType="int">
+	select nvl(count(*),0) from product
+	where ${searchKey} like '%' || #{searchValue} || '%'
+</select>
+
+<!-- 모든 데이터 -->
+<select id="p_getLists" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">
+	select * from (
+	select rownum rnum, data.* from(
+	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock
+	from product where ${searchKey} like '%' || #{searchValue} || '%'
+	order by pNum desc) data)
+<![CDATA[
+	where rnum>=#{start} and rnum<=#{end}
+]]>
+</select>
+
+<!-- 조회수 수정 -->
+<update id="p_updateHitCount" parameterType="int">
+	update product set pHitCount=pHitCount+1 where pNum=#{pNum}
+</update>
+
+<!-- 한개의 데이터 -->
+<select id="p_getReadData" parameterType="int" resultType="com.sajo.dto.ProductDTO">
+	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock from product where pNum=#{pNum}
+</select>
+
+<!-- 한개의 데이터 -->
+<select id="p_getListsCategory" parameterType="arrayList" resultType="com.sajo.dto.ProductDTO">
+	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock from product where pCategory=#{pCategory}
+
+</select>
+
+
+
+	
+</mapper>

@@ -6,10 +6,16 @@
 	
 <mapper namespace="com.sajo.member.sql">
 	<insert id="insertData" parameterType="com.sajo.dto.MemberDTO">
-	insert into member (mid,mName,mPwd,mAddr,mTel,mEmail,mCreated)
+	insert into member (mid,mname,mpwd,maddr,mtel,memail,mcreated)
 	values (#{userId},#{userName},#{userPwd},#{userAddr},#{userTel},#{userEmail},sysdate)
 	</insert>
-	<delete id="deleteData" parameterType="String">
-		delete member where mid=#{userId}
-	</delete>
+	<select id="getAddrList" parameterType="String" resultType="com.sajo.dto.AddrDTO">
+	select zipcode,sido,gugun,dong,bunji from post where dong like #{dong} || '%'
+	</select>
+	<select id="getDataCount" parameterType="String" resultType="int">
+	select nvl(count(*),0) from post where dong like #{dong} ||'%'
+	</select>	
+	<select id="idchk" parameterType="String" resultType="com.sajo.dto.MemberDTO">
+		select mid as userId from member where mid=#{userId}
+	</select>
 </mapper>

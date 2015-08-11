@@ -2,8 +2,8 @@ package com.sajo.dto;
 
 public class GroupDTO {
 	
-	private int gNo,gNum,gHitCount ;
-	private String mId,gSubject,gImg1,gImg2,gImg3,gImg4,gCount,gCreated,boardName;
+	private int gNo,gNum,gHitCount,gRecomm,listNum;
+	private String mId,gSubject,gImg1,gImg2,gImg3,gImg4,gContent,gCreated,boardName;
 	
 	
 	public int getgNo() {
@@ -60,12 +60,6 @@ public class GroupDTO {
 	public void setgImg4(String gImg4) {
 		this.gImg4 = gImg4;
 	}
-	public String getgCount() {
-		return gCount;
-	}
-	public void setgCount(String gCount) {
-		this.gCount = gCount;
-	}
 	public String getgCreated() {
 		return gCreated;
 	}
@@ -77,6 +71,24 @@ public class GroupDTO {
 	}
 	public void setBoardName(String boardName) {
 		this.boardName = boardName;
+	}
+	public String getgContent() {
+		return gContent;
+	}
+	public void setgContent(String gContent) {
+		this.gContent = gContent;
+	}
+	public int getgRecomm() {
+		return gRecomm;
+	}
+	public void setgRecomm(int gRecomm) {
+		this.gRecomm = gRecomm;
+	}
+	public int getListNum() {
+		return listNum;
+	}
+	public void setListNum(int listNum) {
+		this.listNum = listNum;
 	}
 	
 	
