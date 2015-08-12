@@ -35,6 +35,10 @@
 	<beans:bean id="purchaseDAO" class="com.sajo.dao.PurchaseDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
+	<!-- basket DAO 추가 -->
+	<beans:bean id="basketDAO" class="com.sajo.dao.BasketDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
 
 	<!-- Image DAO 추가 -->
 	<beans:bean id="imageDAO" class="com.sajo.dao.ImageDAO">
