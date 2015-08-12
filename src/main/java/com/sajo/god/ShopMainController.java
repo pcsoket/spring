@@ -104,11 +104,15 @@ public class ShopMainController {
 	}
 	
 	@RequestMapping(value="/del.action")
-	public String del(BasketDTO dto,HttpServletRequest req, HttpServletResponse resp){
+	public String del(HttpServletRequest req, HttpServletResponse resp){
+		
+		int bnum = Integer.parseInt(req.getParameter("bnum"));
+		int amount = Integer.parseInt(req.getParameter("amount"));
 		
 		
+		dao.delbasket(bnum);
 		
-		dao.delbasket(dto.getbNum());
+		req.setAttribute("amount", amount);
 		
 		
 		
