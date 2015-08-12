@@ -52,7 +52,7 @@ public class ShopMainController {
 		
 		List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(pnum);
 		
-		int sumPrice = dao.sumPro(12);
+		
 		
 		//String urlList = cp + "/img/list.action";
 		
@@ -62,20 +62,13 @@ public class ShopMainController {
 		request.setAttribute("imageUrl", imageUrl);
 		request.setAttribute("bklists", lists);
 		request.setAttribute("dataCount", dataCount);
-		request.setAttribute("sumPrice", sumPrice);
+		
 		
 		System.out.println(dataCount);
 
 		
 		return "basket";
 	}
-	
-	/*@RequestMapping(value="/myPage.action")
-	public String myPage(){
-		
-		
-		return "shopMyPage";
-	}*/
 	
 /*	@RequestMapping(value="/orderList.action")             테스트중
 	public String orderList(){
@@ -88,8 +81,35 @@ public class ShopMainController {
 	public String orderCancel(){
 		
 		
+		
 		return "shopordercancel";
 	}
 	
+	@RequestMapping(value="/direct.action")
+	public String direct(Integer bnum, HttpServletRequest req, HttpServletResponse resp){
+		
+		
+		BasketDTO dto = dao.readbasket(bnum);
+		
+		req.setAttribute("dto", dto);
+		
+		return "purchase";
+	}
+	
+	@RequestMapping(value="/del.action")
+	public String del(HttpServletRequest req, HttpServletResponse resp){
+		
+		int bnum = Integer.parseInt(req.getParameter("bnum"));
+		int amount = Integer.parseInt(req.getParameter("amount"));
+		
+		
+		dao.delbasket(bnum);
+		
+		req.setAttribute("amount", amount);
+		
+		
+		
+		return "redirect:basket";
+	}
 	
 }

@@ -56,7 +56,7 @@
 			<%-- <a href="<%=cp%>/imageTest/down.action?saveFileName=${dto.saveFileName}&originalFileName=${dto.originalFileName}"> --%>
    		 		<img src="${imageUrl}/${dto.originalFileName}" width="180" height="180" border="0" />
   			<!-- </a> -->
- 			<br/>${dto.subject} &nbsp;<a href="<%=cp%>/img/deleted.action?num=${dto.imgNum}">삭제</a>
+ 			<br/>${dto.userId} &nbsp;<a href="<%=cp%>/img/deleted.action?num=${dto.imgNum}">삭제</a>
 		</td>
 <%
 if(i%3==0){

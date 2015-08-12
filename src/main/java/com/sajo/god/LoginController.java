@@ -58,5 +58,14 @@ public class LoginController {
 		return "shop";
 		
 	}
+	
+	@RequestMapping(value="/logout.action")
+	public String logout(HttpServletRequest req,HttpServletResponse resp,HttpSession session,LoginDTO dto){
+		
+		session.removeAttribute("userId");
+		session.removeAttribute("userPwd");
+		
+		return "shop";
+	}
 
 }

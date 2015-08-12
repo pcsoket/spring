@@ -65,5 +65,18 @@ public int getDataCount(String dong){
 		
 		return dto;
 	}
+	
+	public MemberDTO getReadData(String userId){
+		
+		MemberDTO dto = sessionTemplate.selectOne("com.sajo.member.sql.getReadData", userId);
+		
+		return dto;
+	}
+	
+	public void updated(MemberDTO dto){
+		
+		sessionTemplate.update("com.sajo.member.sql.memberUpdate", dto);
+		
+	}
 
 }
