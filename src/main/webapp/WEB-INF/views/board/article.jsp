@@ -15,8 +15,6 @@
 	border-collapse: collapse;
 	}
 
-
-
 .line2{
 		border-bottom: 2px solid #ffd2d7;
 		
@@ -32,7 +30,6 @@
 	}
 .line5{
 	border-bottom: 1px solid  #EAEAEA;
-
 	}
 	
 .btn1{
@@ -93,18 +90,16 @@
 	
 <tr height="40px">
 	<td	class="line5" colspan="4">
-	 <input type="button" value=" 수정 "  class="btn1" style="height:30px;" 
+	 <input type="button" value=" 수정 "  class="btn1" style="height:30px; color: #8b4513; font-family: 나눔바른펜;"" 
 	 onclick="javascript:location.href='<%=cp%>/group/updated.action?gNum=${dto.gNum}&${params}';"/>
-     <input type="button" value=" 삭제 "  class="btn1" style="height:30px;" 
+     <input type="button" value=" 삭제 "  class="btn1" style="height:30px; color: #8b4513; font-family: 나눔바른펜;"" 
      onclick="javascript:location.href='<%=cp%>/group/deleted.action?gNum=${dto.gNum}&${params}';"/>
-	 <input type="button" value=" 목록 "  class="btn1" style="height:30px;" 
+	 <input type="button" value=" 목록 "  class="btn1" style="height:30px; color: #8b4513; font-family: 나눔바른펜;"" 
 	 onclick="javascript:location.href='<%=cp%>/group/list.action?${params}';"/>
 </td>
 </tr>
 
-
 </table> 
-
 
 <form action="" method="post" name="myForm">
 
@@ -126,13 +121,12 @@
 		<td class="line5"><b>${dto.mId}</b></td>
 		<td>
 		<textarea rows="7" cols="80" name="cmContent" class="line5"></textarea>
-		</td></tr>
-	<tr>
+		</td>
 		<td height="30px" colspan="4" align="right">
-		<input type="button" value="등록" class="btn1" style="height:30px; width: 50px" 
+		<input type="button" value="등록" class="btn1" style="height:100px; width: 100px; font-size: 30px; color: #8b4513; font-family: 나눔바른펜;"
 		onclick="a_sendIt();"/>
 		</td>
-	</tr>
+	</tr>	
 
 </table>
 
@@ -145,45 +139,24 @@
 <c:forEach var="cdto" items="${lists}">	
 <table width="1000" height="100px" align="center" class="line5">
 
-
 	<tr>
-		<td width="100px" height="50px" align="center">이름</td>
-		<td width="400px" align="right">날짜</td>
-		
-		<td></td>		
-		
+	
+		<td width="100px" height="50px" align="center" class="font1">${cdto.cmId}</td>		
+		<td class="font2" width="600px">${cdto.cmContent}</td>
+		<td width="400px" align="right">${cdto.cmCreated}</td>		
+				
 		<td width="100px" align="center">
-			<input type="button" class="btn1" style="height: 30px" value=" 수정 "
-			 onclick="">			
-		</td>
-
-		<td></td>
-		
+			<input type="button" class="btn1" style="height: 30px; color: #8b4513; font-family: 나눔바른펜"; value=" 수정 "
+			 onclick="javascript:location.href='<%=cp%>/comm/updated.action?${params}&gNum=${cdto.gNum}&cmNum=${cdto.cmNum}';"/></td>
+			 
+		<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" style="height: 30px; color: #8b4513; font-family: 나눔바른펜";
+		onclick="javascript:location.href='<%=cp%>/comm/deleted.action?params=${params}&gNum=${cdto.gNum}&cmNum=${cdto.cmNum}';"/></td>
+		</td>		
 	</tr>
-	<tr>
-		<td></td>
-		<td class="font2" width="600px">내용</td>
-		
-		
-		<td></td>
-	
-		<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" style="height: 30px"
-		onclick="javascript:location.href='<%=cp%>/comm/deleted.action?gNum=${cdto.gNum}&cmNum=${cdto.cmNum}';"/></td>
-		
-		<td></td>		
-		
-	</tr>
-	
-</table>
 
-<table width="800" height="100px" align="center" class="line4">
-
-	<tr>
-		<td width="100px" height="50px" align="center" class="font1">${cdto.cmId}</td>
-		<td width="400px" align="right">${cdto.cmCreated}</td>
+	<tr>		
 		
-		
-		<c:choose>
+	<c:choose>
 		<c:when test="${empty sessionScope.loginInfo.cmId}">
 			<td></td>
 		</c:when>
@@ -198,35 +171,29 @@
 				<input type="hidden" name="cmNum">
 				<input type="button" class="btn1" style="height: 30px" value=" 수정 " onclick="b_sendIt('${cdto.cmNum}');"/>			
 			</td>
-		</c:when>
-		<c:when test="${sessionScope.loginInfo.cmId != cdto.cmId}">
-			<td></td>
-		</c:when>
-		</c:choose>
-		
+		</c:when>		
+	</c:choose>		
 	</tr>
-	<tr>
-		<td></td>
-		<td class="font2" width="600px">${cdto.cmContent}</td>
-		
+	
+	<tr>				
 		<c:choose>
-		<c:when test="${empty sessionScope.loginInfo.cmId}">
-			<td></td>
-		</c:when>
-		<c:when test="${sessionScope.loginInfo.cmId == cdto.cmId}">
-			<td align="center" align="top">
+			<c:when test="${empty sessionScope.loginInfo.cmId}">
+				<td></td>
+			</c:when>
+			<c:when test="${sessionScope.loginInfo.cmId == cdto.cmId}">
+				<td align="center" align="top">
+				
+				<input type="button" value=" 삭제 " class="btn1" style="height: 30px" 
+				onclick="javascript:location.href='<%=cp%>/comm/deleted.action?gNum=${dto.gNum}&pageNum=${pageNum}&cmNum=${cdto.cmNum}';"/></td>
+			</c:when>
 			
-			<input type="button" value=" 삭제 " class="btn1" style="height: 30px" 
-			onclick="javascript:location.href='<%=cp%>/comm/deleted.action?gNum=${dto.gNum}&pageNum=${pageNum}&cmNum=${cdto.cmNum}';"/></td>
-		</c:when>
-		
-		<c:when test="${sessionScope.loginInfo.cmId == 'admin'}">
-			<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" 
-			onclick="javascript:location.href='<%=cp%>/comm/deleted.action?gNum=${dto.gNum}&pageNum=${pageNum}&cmNum=${cdto.cmNum}';"/></td>
-		</c:when>
-		<c:when test="${sessionScope.loginInfo.cmId != cdto.cmId}">
-			<td></td>
-		</c:when>
+			<c:when test="${sessionScope.loginInfo.cmId == 'admin'}">
+				<td align="center" align="top"><input type="button" value=" 삭제 " class="btn1" 
+				onclick="javascript:location.href='<%=cp%>/comm/deleted.action?gNum=${dto.gNum}&pageNum=${pageNum}&cmNum=${cdto.cmNum}';"/></td>
+			</c:when>
+			<c:when test="${sessionScope.loginInfo.cmId != cdto.cmId}">
+				<td></td>
+			</c:when>
 		</c:choose>		
 		
 	</tr>
@@ -236,7 +203,7 @@
 
 	<!-- pageIndex -->
 <table align="center">
-	<tr height="50px"></tr>
+	<!-- <tr height="50px"></tr> -->
 <tr>
 <td colspan="5" align="center">			
 			<p>
