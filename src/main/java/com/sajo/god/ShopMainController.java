@@ -42,15 +42,15 @@ public class ShopMainController {
 	@RequestMapping(value="/basket.action")
 	public String basket(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
-		int pnum = 12;
+		String mid = "3";
 		
 		String savePath = "example" + File.separator + "resources" + File.separator + "imageFile";
 		
 		String cp = request.getContextPath();
 		
-		int dataCount = dao.getDataCount();
+		int dataCount = dao.getDataCount(mid);
 		
-		List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(pnum);
+		List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(mid);
 		
 		
 		
@@ -93,30 +93,27 @@ public class ShopMainController {
 	}
 	
 	@RequestMapping(value="/direct.action")
-	public String direct(Integer bnum, HttpServletRequest req, HttpServletResponse resp){
-		
-		
+	public String direct(Integer bnum, Integer amount,HttpServletRequest req, HttpServletResponse resp){
+				
 		BasketDTO dto = dao.readbasket(bnum);
 		
+		int total = dto.getbPrice() * amount;
+						
 		req.setAttribute("dto", dto);
+		req.setAttribute("amount", amount);
+		req.setAttribute("total", total);
 		
 		return "purchase";
 	}
 	
 	@RequestMapping(value="/del.action")
-	public String del(HttpServletRequest req, HttpServletResponse resp){
-		
-		int bnum = Integer.parseInt(req.getParameter("bnum"));
-		int amount = Integer.parseInt(req.getParameter("amount"));
-		
+	public String del(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
 		
 		dao.delbasket(bnum);
-		
-		req.setAttribute("amount", amount);
-		
+				
 		
 		
-		return "redirect:basket";
+		return "redirect:basket.action";
 	}
 	
 }

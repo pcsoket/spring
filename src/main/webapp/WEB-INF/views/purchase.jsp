@@ -62,10 +62,7 @@
 			</div>
 		</div>
 		</c:if>
-		<c:if test="${lists != null }">
-			
 		
-		</c:if>
 	</div>
 	
 	<div style="width: 1000px; padding-top: 20px;">	
@@ -92,12 +89,12 @@
 						</div>
 						
 						<div align="left" style="padding-left: 20px; font-size: 13pt;">
-							<div style="float: left;"> · 상품가격 </div> <div align="right"><input type="text" name="pPrice" readonly="readonly" style="border: none; width: 50px;" value="${dto.bprice * amount }"/>원</div>
+							<div style="float: left;"> · 상품가격 </div> <div align="right"><input type="text" name="pPrice" readonly="readonly" style="border: none; width: 50px;" value="${dto.bPrice * amount }"/>원</div>
 							<div style="float: left;"> · 배송비 </div> <div align="right"><input type="text" name="pDeli" readonly="readonly" style="border: none; width: 50px;" value=" 2500"> 원 </div>
 						</div>
 						
 						<div align="left" style="padding-left: 20px; font-size: 13pt;">
-							<div style="float: left;"> 총 합계</div> <div align="right"><input type="text" name="total" value="0" readonly="readonly" style="border: none;"> 원</div>
+							<div style="float: left;"> 총 합계</div> <div align="right"><input type="text" name="total" readonly="readonly" style="border: none; width: 50px;" value="${total }"> 원</div>
 						</div>
 						
 					</div>
