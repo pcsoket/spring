@@ -8,7 +8,30 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.8.0.min.js'></script>
+<script type="text/javascript">
+
+//selected 속성 부여
+$(document).ready(function()
+ 
+{
+ 
+	$("#phn1 > option[value='${phn1}']").attr("selected",true);
+ 
+});
+
+function sendIt() {
+	
+	
+	
+	f=document.update;
+	f.action="<%=cp%>/mupdated.action";
+	f.submit();
+	
+}
+
+</script>
+<title> 회 원 정 보 변 경 </title>
 
 <style type="text/css">
 
@@ -130,7 +153,7 @@ float: right;
 		<div class="topShortcut">
 			<div id="loginfoBox">
 			<c:choose>
-			<c:when test="${empty loginfo}">
+			<c:when test="${empty userId}">
 			<a href="">Login</a>
 			</c:when>
 			<c:otherwise>
@@ -176,13 +199,13 @@ float: right;
 
 <!-- 마이페이지내용 -->
 		<div id="bodyContent">
-		<form name="" method="post">
+		<form name="update" method="post">
 			<div class="bodytitle">
 			회원정보변경
 			</div>
 			<div class="notice1">
 				<ul class="notice_list1">
-					<li>???는 회원님의 개인정보를 신중히 취급하며, 회원님의 동의 없이는 기재하신 회원정보가 공개되지 않습니다.</li>
+					<li>${dto.userId}는 회원님의 개인정보를 신중히 취급하며, 회원님의 동의 없이는 기재하신 회원정보가 공개되지 않습니다.</li>
 					<li>보다 다양한 서비스를 받으시려면 정확한 정보를 항상 유지해 주셔야합니다.</li>
 					<li>타인의 개인정보를 도용한 피해방지 및 개인 셀러의 개인정보보호를 위해 범용 공인 인증서를 통한 본인확인 과정을 실시하고 있습니다.<br>범용 공인 인증서를 통한 본인 인증이 되어야 판매활동이 가능합니다.</li>
 					<li>행정구역이 변경되어 사용할 수 없는 주소는 회원정보에서 삭제됩니다.</li>
@@ -191,61 +214,63 @@ float: right;
 			
 			<div id="basicInfo">
 				<div class="basicInfo_boxtitle">
-				???님의 기본정보
+				${dto.userId}님의 기본정보
 				</div>
 				<div class="basicInfo_contentWrap">
-					<div class="basicInfo_title">이름</div><div class="basicInfo_content">이름{dto.name}</div>
+					<div class="basicInfo_title">아이디</div>
+					<div class="basicInfo_content"><input type="text" name="userId" value="${dto.userId}" readonly="readonly"/></div>
 				</div>
 				<div class="basicInfo_contentWrap">
-					<div class="basicInfo_title">아이디</div><div class="basicInfo_content">이름{dto.name}</div>
+					<div class="basicInfo_title">이름</div>
+					<div class="basicInfo_content"><input type="text" name="userName" value="${dto.userName}" readonly="readonly"/></div>
 				</div>
 				<div class="basicInfo_contentWrap">
-					<div class="basicInfo_title">비밀번호</div><div class="basicInfo_content">이름{dto.name}</div>
+					<div class="basicInfo_title">비밀번호</div><div class="basicInfo_content"><input name="userPwd" type="password" value="${dto.userPwd}"></div>
+				</div>
+				<!-- <div class="basicInfo_contentWrap">
+					<div class="basicInfo_title">생년월일</div><div class="basicInfo_content">{dto.name}</div>
+				</div> -->
+				<%-- <div class="basicInfo_contentWrap">
+					<div class="basicInfo_title">연락처</div><div class="basicInfo_content"><input name="userTel" type="text" value="${dto.userTel}"></div>
+				</div> --%>
+				<div class="basicInfo_contentWrap">
+					<div class="basicInfo_title">이메일주소</div><div class="basicInfo_content"><input name="userEmail" type="text" value="${dto.userEmail}"></div>
 				</div>
 				<div class="basicInfo_contentWrap">
-					<div class="basicInfo_title">생년월일</div><div class="basicInfo_content">이름{dto.name}</div>
-				</div>
-				<div class="basicInfo_contentWrap">
-					<div class="basicInfo_title">연락처</div><div class="basicInfo_content">이름{dto.name}</div>
-				</div>
-				<div class="basicInfo_contentWrap">
-					<div class="basicInfo_title">이메일주소</div><div class="basicInfo_content">이름{dto.name}</div>
+					<div class="basicInfo_title">자기소개</div><div class="basicInfo_content"><textarea name="userSelf" rows="10" cols="50">${dto.userSelf}</textarea></div>
 				</div>
 			</div>
 				
 			<div id="purchaseInfo">
 				<div class="purchaseInfo_boxtitle">
-				???님의 기본정보
+				${dto.userId}님의 배송 정보
 				</div>
-				<div class="purchaseInfo_contentWrap">
+				<div class="purchaseInfo_contentWrap" style="height: 100px;">
 					<div class="purchaseInfo_title">주소</div><div class="purchaseInfo_content">
-					<input type="text" name="zipcode" class="" readonly="readonly" style="width:55px" value="${dto.zipcode}">
+					<input type="text" name="userAddr1" class="" readonly="readonly" style="width:55px" value="${dto.userAddr1}">
 					<a href="" class="btnAddr"><span>주소 찾기</span></a>
 				</div>
-				</div>
-				<div class="purchaseInfo_contentWrap">
-					<div class="purchaseInfo_title">주소</div><div class="purchaseInfo_content"><input type="text" name="addr" class="" readonly="readonly" style="width:265px; value="${dto.addr}"></div>
+					<div class="purchaseInfo_content" style="float: right; margin-right: 100px;">
+					<input type="text" name="userAddr2" class="" readonly="readonly" style="width:265px;" value="${dto.userAddr2}"/><br/>
+					<input type="text" name="userAddr3" class=""  style="width:265px;" value="${dto.userAddr3}"/>
+					</div>
 				</div>
 				<div class="purchaseInfo_contentWrap">
 					<div class="purchaseInfo_title">전화번호</div>
-					
 					<div class="purchaseInfo_content">
 					<select id="phn1" name="phn1" title="국번선택" style="width:55px;">
 					<option value="">선택</option>
-						<option value='010' selected="selected">010</option>
+						<option value='010'>010</option>
 						<option value='011'>011</option>
 						<option value='016'>016</option>
 						<option value='017'>017</option>
 						<option value='018'>018</option>
 						<option value='019'>019</option>
 						<option value='070'>070</option>
-
 				</select>
-					- <input name="phn2" type="text" value="" maxlength="4" class="text" style="width:55px;">
-					- <input name="phn3" type="text" value="" maxlength="4" class="text" style="width:55px;">
+					- <input name="phn2" type="text" value="${phn2}" maxlength="4" class="text" style="width:55px;">
+					- <input name="phn3" type="text" value="${phn3}" maxlength="4" class="text" style="width:55px;">
 				</div>
-					
-					
 				</div>
 				<div class="purchaseInfo_contentWrap">
 					<div class="purchaseInfo_title">이메일수신여부</div>
@@ -284,10 +309,10 @@ float: right;
 	</div><!-- bodyWrap끝 -->
 <!-- 마이페이지끝 -->
 	<div id="footer">
-		<div class="footerNotice">
-		
+		<div align="center" class="footerNotice">
+		<button type="button" style="width: 90px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="sendIt();"> 수 정 완 료 </button>
 		</div>
-		<div class="copyright">
+		<div align="center" class="copyright">
 			<p>Copyright SK planet. All rights reserved.</p>
 		</div>
 	</div>

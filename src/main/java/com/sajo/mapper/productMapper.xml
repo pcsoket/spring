@@ -5,16 +5,10 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.sajo.god.product.mapper">
-
-<!-- insert -->
-<insert id="p_insertData" parameterType="com.sajo.dto.ProductDTO">
-	insert into product (pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock)
-	values (#{pNum},#{pCategory},#{pName},#{pPrice},0,0,#{pContent},#{pStock})
-</insert>
 	
 <!-- pNum의 최대값 -->
 <select id="p_maxNum" resultType="int">
-	select nvl(max(pNum),0) from product
+	select nvl(max(pNum),0) from product	
 </select>
 
 
@@ -46,10 +40,21 @@
 	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock from product where pNum=#{pNum}
 </select>
 
-<!-- 한개의 데이터 -->
-<select id="p_getListsCategory" parameterType="arrayList" resultType="com.sajo.dto.ProductDTO">
-	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock from product where pCategory=#{pCategory}
+<!-- 카테고리 데이터 -->
+<select id="p_getListsCategory" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">	
+	select * from(
+	select rownum rnum, data.* from (
+	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock from product
+	where pCategory=#{pCategory} order by pCategory desc) data)
+	<![CDATA[
+	where rnum>=#{start} and rnum<=#{end}
+	]]>
 
 </select>
 
+
+
+
+
+	
 </mapper>

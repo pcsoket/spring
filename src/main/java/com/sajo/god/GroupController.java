@@ -73,7 +73,7 @@ public class GroupController {
 	}
 	
 	@RequestMapping(value="/group/list.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String list(HttpServletRequest request,HttpServletResponse response) throws Exception{
+	public String list(GroupDTO dto,HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 		
 		String cp = request.getContextPath();
@@ -101,11 +101,13 @@ public class GroupController {
 		}
 		
 		//전체데이터갯수
-		int dataCount = dao.getDataCount(searchKey, searchValue);
+		int dataCount = 0;
+		dataCount = dao.getDataCount(searchKey, searchValue);
 		
 		//전체페이지수
 		int numPerPage = 10;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+		
 		
 		if(currentPage > totalPage)
 			currentPage = totalPage;
@@ -115,6 +117,18 @@ public class GroupController {
 		
 		List<GroupDTO> lists =
 			dao.getList(start, end, searchKey, searchValue);
+		
+		ListIterator<GroupDTO> it = lists.listIterator();
+
+		int listNum, n=0;
+
+		while(it.hasNext()){
+			
+			dto = (GroupDTO)it.next();
+			listNum = dataCount - (start+n-1);
+			dto.setListNum(listNum);
+			n++;			
+		}
 		
 		//페이징 처리
 		String param = "";

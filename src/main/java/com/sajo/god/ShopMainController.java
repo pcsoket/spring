@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sajo.dao.BasketDAO;
 import com.sajo.dto.BasketDTO;
-/*import com.sajo.dao.BasketDAO;
-import com.sajo.dto.BasketDTO;*/
 import com.sajo.util.MyUtil;
 
 
@@ -70,13 +68,6 @@ public class ShopMainController {
 		return "basket";
 	}
 	
-	/*@RequestMapping(value="/myPage.action")
-	public String myPage(){
-		
-		
-		return "shopMyPage";
-	}*/
-	
 /*	@RequestMapping(value="/orderList.action")             테스트중
 	public String orderList(){
 		
@@ -104,11 +95,15 @@ public class ShopMainController {
 	}
 	
 	@RequestMapping(value="/del.action")
-	public String del(BasketDTO dto,HttpServletRequest req, HttpServletResponse resp){
+	public String del(HttpServletRequest req, HttpServletResponse resp){
+		
+		int bnum = Integer.parseInt(req.getParameter("bnum"));
+		int amount = Integer.parseInt(req.getParameter("amount"));
 		
 		
+		dao.delbasket(bnum);
 		
-		dao.delbasket(dto.getbNum());
+		req.setAttribute("amount", amount);
 		
 		
 		

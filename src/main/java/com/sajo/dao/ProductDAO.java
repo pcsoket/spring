@@ -4,6 +4,7 @@ package com.sajo.dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 
@@ -84,6 +85,27 @@ public class ProductDAO {
 			return dto;
 			
 		}
+		
+		public List<ProductDTO> p_getListsCategory(int start, int end, String pCategory){
+			
+			
+			Map<String, Object> hMap = new HashMap<String, Object>();
+					
+			hMap.put("pCategory", pCategory);
+			hMap.put("start", start);
+			hMap.put("end", end);
+			
+			List<ProductDTO> categorylists = 		
+					sessionTemplate.selectList("com.sajo.god.product.mapper.p_getListsCategory",hMap);
+			
+			return categorylists;
+			
+			
+	
+			
+		}
+		
+		
 		
 		
 		//ªÛ«∞ insertData

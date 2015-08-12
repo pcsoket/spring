@@ -36,7 +36,7 @@ function sendIt(str1,str2,str3,str4) {
 
 	opener.document.getElementById("code1").value=a1;
 	opener.document.getElementById("code2").value=a2;
-	opener.document.getElementById("addr1").value=str2+str3+str4;
+	opener.document.getElementById("userAddr1").value=str2+str3+str4;
 	
 	self.close();
 
