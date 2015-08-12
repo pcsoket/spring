@@ -145,7 +145,7 @@
 			
 			<c:if test="${dataCount != 0 }">
 			<c:forEach var="dto" items="${bklists }" varStatus="status">
-				
+				<input type="hidden" name="bnum" value="${dto.getbNum }">		
 				<div style="height: 60px; padding-top: 10px;">
 					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" onclick="check('${status.index }');"></div>
 					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" />${dto.bPName }</div>
