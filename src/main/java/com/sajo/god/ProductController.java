@@ -182,11 +182,11 @@ public class ProductController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="/shop_created_ok.action",method={RequestMethod.GET,RequestMethod.POST})
 	
-	public ModelAndView shop_created (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
+	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/shop_article.action");
+		
 		
 		//==========================================================================이미지 insert
 		
@@ -246,7 +246,7 @@ public class ProductController {
 		pdto.setpNum(dao.p_maxNum()+1);
 		pdto.setpCategory("product");     ///-------------임시로 카테고리지정
 		
-		
+		mav.setViewName("shop_article");
 		mav.addObject("pdto",pdto);
 		return mav;
 	}
