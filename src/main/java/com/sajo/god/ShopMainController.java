@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sajo.dao.BasketDAO;
 import com.sajo.dto.BasketDTO;
-/*import com.sajo.dao.BasketDAO;
-import com.sajo.dto.BasketDTO;*/
 import com.sajo.util.MyUtil;
 
 
@@ -69,13 +67,6 @@ public class ShopMainController {
 		
 		return "basket";
 	}
-	
-	/*@RequestMapping(value="/myPage.action")
-	public String myPage(){
-		
-		
-		return "shopMyPage";
-	}*/
 	
 /*	@RequestMapping(value="/orderList.action")             테스트중
 	public String orderList(){

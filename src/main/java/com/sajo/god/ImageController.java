@@ -108,7 +108,7 @@ public class ImageController {
 		
 	}
 	
-	@RequestMapping(value="/img/created.action", method={RequestMethod.POST})
+	/*@RequestMapping(value="/img/created.action", method={RequestMethod.POST})
 	public String created(ImageDTO dto,MultipartHttpServletRequest request) throws Exception{
 		
 		String path = request.getSession().getServletContext().getRealPath("/resources/imageFile/");
@@ -117,18 +117,18 @@ public class ImageController {
 		if (!dir.exists())
 			dir.mkdirs();
 
-		MultipartFile file = request.getFile("upload");
+		List<MultipartFile> file = (List<MultipartFile>) request.getFile("upload");
 
-
-		if (file != null && file.getSize() > 0) {
+		fi
+		if (file != null && file.getSize() > 0) {//한우 한우 한우
 
 			try {
 				String newFileName = null;
 
 				
-				/*String fileExt = dto.getUploadFileName().substring(dto.getUploadFileName().lastIndexOf("."));
+				String fileExt = dto.getUploadFileName().substring(dto.getUploadFileName().lastIndexOf("."));
 				if(fileExt == null || fileExt.equals(""))
-					return null;*/
+					return null;
 
 				newFileName = String.format("%1$tY%1$tm%1$td%1$tH%1$tM%1$tS", Calendar.getInstance());
 				newFileName += System.nanoTime();
@@ -193,6 +193,5 @@ public class ImageController {
 		dao.deleteData(num);
 
 		return "redirect:/img/list.action";
-	}
-
+	}*/
 }

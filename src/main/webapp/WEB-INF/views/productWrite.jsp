@@ -94,9 +94,37 @@
   <tr><td colspan="2" height="3" bgcolor="#DBDBDB" align="center"></td></tr>
 
   <tr> 
-      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">제&nbsp;&nbsp;&nbsp;&nbsp;목</td>
+      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">상&nbsp;품&nbsp;이&nbsp;름</td>
       <td width="480" style="padding-left:10px;"> 
-        <input type="text" name="userId" size="74" maxlength="100" class="boxTF" id="123"/>
+        <input type="text" name="pName" size="74" maxlength="100" class="boxTF"/>
+      </td>
+  </tr>
+  
+  <tr> 
+      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">카&nbsp;테&nbsp;고&nbsp;리</td>
+      <td width="480" style="padding-left:10px;">
+      	<select name="pCategory" class="boxTF" id="123">
+      		<option value="11">11</option>
+      		<option value="11">22</option>
+      		<option value="11">33</option>
+      		<option value="11">44</option>
+      		<option value="11">55</option>
+      		<option value="11">66</option>
+      	</select>
+      </td>
+  </tr>
+  
+  <tr> 
+      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">가&nbsp;&nbsp;&nbsp;&nbsp;격</td>
+      <td width="480" style="padding-left:10px;"> 
+        <input type="text" name="pPrice" size="74" maxlength="100" class="boxTF"/>
+      </td>
+  </tr>
+  
+  <tr> 
+      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">재&nbsp;&nbsp;&nbsp;&nbsp;고</td>
+      <td width="480" style="padding-left:10px;"> 
+        <input type="text" name="pStock" size="74" maxlength="100" class="boxTF"/>
       </td>
   </tr>
 
@@ -107,7 +135,10 @@
       <td width="480" style="padding-left:10px;"> 
       <!--  file upload input-->
       
-        <input type="file" id="upup" name="upload" size="58" maxlength="100" class="boxTF" onchange="fileUpload();"/>
+        <input type="file" id="upup" name="upload[0]" size="58" maxlength="100" class="boxTF" onchange=""/>
+        <input type="file" id="upup" name="upload[1]" size="58" maxlength="100" class="boxTF" onchange=""/>
+        <input type="file" id="upup" name="upload[2]" size="58" maxlength="100" class="boxTF" onchange=""/>
+        <input type="file" id="upup" name="upload[3]" size="58" maxlength="100" class="boxTF" onchange=""/>
       <div id="fileList">
       </div>
       </td>
@@ -121,8 +152,8 @@
   <table width="560" border="0" cellspacing="0" cellpadding="3" align="center">
     <tr align="center"  height="30"> 
       <td>
-        <textarea name="description" cols="20" rows="20"></textarea>
-        <script>CKEDITOR.replace('description' ,
+        <textarea name="pContent" cols="20" rows="20"></textarea>
+        <script>CKEDITOR.replace('pContent' ,
         		
         		 {width : '620px', // 입력창의 넓이
         	      height : '200px',  // 입력창의 높이

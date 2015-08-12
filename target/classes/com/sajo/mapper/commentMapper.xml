@@ -30,6 +30,12 @@
 ]]>
 </select>
 
+<!-- 한개의 데이터 -->
+<select id="getReadData" parameterType="int" resultType="com.sajo.dto.CommentDTO">
+	select cmNum,gNo,gNum,cmRecomm,cmId,
+	cmContent,cmCreated,boardName from boardcomment where cmNum=#{cmNum}
+</select>
+
 <!-- 데이터 수정 -->
 <update id="updateData" parameterType="com.sajo.dto.CommentDTO">
 	update boardcomment set cmContent=#{cmContent} where cmNum=#{cmNum}

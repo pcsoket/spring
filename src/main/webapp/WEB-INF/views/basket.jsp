@@ -47,6 +47,10 @@
 		
 	}
 	
+<<<<<<< HEAD
+=======
+	
+>>>>>>> d32a66e02f5ad4f31e8c491e3ef53c1a82cc12dd
 		
 	var r = 0;
 	function check(i) {
@@ -191,7 +195,11 @@
 		<div style="width: 1000px;"> <!-- 장바구니에 들어있는 물품 -->
 		
 			<div align="center" style="height:25px; background-color:#ffd2d7; border-top: solid 2px #ff7b8a; border-bottom: solid 2px #ffa3ad; padding-left: 10px; padding-right: 10px;"> <!-- 장바구니 물품 내역 -->
+<<<<<<< HEAD
 				<div style="float: left; width: 100px;"><input type="checkbox" name="chk1" onclick="allchk(${dataCount});"></div>
+=======
+				<div style="float: left; width: 100px;"><input type="checkbox" name="chk1"></div>
+>>>>>>> d32a66e02f5ad4f31e8c491e3ef53c1a82cc12dd
 				<div style="float: left; width: 450px;">상품명</div>
 				<div style="float: left; width: 100px;">수량</div>
 				<div style="float: left; width: 100px; margin-left: 15px;">가격</div>
@@ -202,10 +210,16 @@
 			
 			<c:if test="${dataCount != 0 }">
 			<c:forEach var="dto" items="${bklists }" varStatus="status">
+<<<<<<< HEAD
 			
 				<input type="hidden" name="bnum" value="${dto.bNum }">		
 				<div style="height: 60px; padding-top: 10px;">
 					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" id="chk" onclick="check('${status.index }');" onchange="check('${status.index }');"></div>
+=======
+				<input type="hidden" name="bnum" value="${dto.bNum }">		
+				<div style="height: 60px; padding-top: 10px;">
+					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" id="chk" onclick="check('${status.index }');"></div>
+>>>>>>> d32a66e02f5ad4f31e8c491e3ef53c1a82cc12dd
 					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" />${dto.bPName }</div>
 					<div style="float: left; width: 100px; margin-left: 20px;">
 						<div style="float: left;"><img src="/god/resources/image/minus.png" name="minus" id="minus"  width="20px" height="20px" onclick="p(-1,'${dto.bPrice}','${status.index }');"></div>
@@ -219,7 +233,11 @@
 					</div>
 					<div style="float: left; width: 90px;">
 					<input type="text" name="bprice" style="border: none; margin-left: 25px;" readonly="readonly" value="${dto.bPrice }">
+<<<<<<< HEAD
 					<input type="text" id="temp" name="temp" value="${dto.bPrice * dto.bAmount }" onchange="check('${status.index }');" >
+=======
+					<input type="hidden" id="temp" name="temp" value="${dto.bPrice * dto.bAmount }" onchange="check('${status.index }');" >
+>>>>>>> d32a66e02f5ad4f31e8c491e3ef53c1a82cc12dd
 					</div>
 					<div align="center" style="width: 200px; float: left; margin-left: 5px;"><input type="text" style="border: none; width: 100px; height: 30px;" value="착불·선결제"></div>
 				</div>

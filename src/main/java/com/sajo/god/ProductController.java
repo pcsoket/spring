@@ -1,11 +1,7 @@
 package com.sajo.god;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,13 +12,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sajo.dao.ImageDAO;
 import com.sajo.dao.ProductDAO;
-import com.sajo.dto.ImageDTO;
 import com.sajo.dto.ProductDTO;
 import com.sajo.util.MyUtil;
 
@@ -32,17 +24,13 @@ public class ProductController {
 	@Autowired
 	@Qualifier("productDAO")
 	ProductDAO dao;
-	
-	@Autowired
-	@Qualifier("imageDAO")
-	ImageDAO idao;
 
 	@Autowired
 	MyUtil myUtil;
 	
 	
 	@RequestMapping(value="/category.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String category(HttpServletRequest request,HttpServletResponse response) throws Exception{
+	public String category(String pCategory,HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 		String cp = request.getContextPath();
 		
@@ -67,6 +55,11 @@ public class ProductController {
 					URLDecoder.decode(searchValue, "UTF-8");
 			
 		}
+		//pCategory가 null일시 처리
+		if(pCategory == null)
+			pCategory = "과일";
+		
+		
 		//전체데이터갯수
 		int dataCount = dao.p_getDataCount(searchKey, searchValue);
 		
@@ -83,6 +76,9 @@ public class ProductController {
 		
 		List<ProductDTO> lists =
 			dao.p_getList(start, end, searchKey, searchValue);
+		
+		List<ProductDTO> categorylists = 
+				dao.p_getListsCategory(start,end,pCategory);
 		
 
 	
@@ -114,9 +110,12 @@ public class ProductController {
 		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);
+		request.setAttribute("categorylists", categorylists);
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
+		
+		
 		
 		return "category";		
 		
@@ -173,6 +172,10 @@ public class ProductController {
 		
 	}
 	
+<<<<<<< HEAD
+	
+	
+	// ============================================================= productcreated
 	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
 	
 	public ModelAndView shop_created (HttpServletResponse response,HttpServletRequest request) throws Exception{
@@ -181,24 +184,25 @@ public class ProductController {
 		
 		return mav;
 	}
+=======
+
+>>>>>>> 8f374293925eb1efd0f3dfda4653efb692cb3ff4
 	
-	@RequestMapping(value="/shop_created_ok.action",method={RequestMethod.GET,RequestMethod.POST})
 	
+<<<<<<< HEAD
 	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		
-		
 		//==========================================================================이미지 insert
-		
 		
 		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/");
 
 		File dir = new File(path);
-		if (!dir.exists())
+		if (!dir.exists()){
 			dir.mkdirs();
+		}
 
 		MultipartFile file = req.getFile("upload");
-
 
 		if (file != null && file.getSize() > 0) {
 
@@ -248,6 +252,10 @@ public class ProductController {
 		
 		mav.setViewName("shop_article");
 		mav.addObject("pdto",pdto);
+		
 		return mav;
 	}
+=======
+
+>>>>>>> 8f374293925eb1efd0f3dfda4653efb692cb3ff4
 }
