@@ -8,7 +8,7 @@
 	
 <!-- pNum의 최대값 -->
 <select id="p_maxNum" resultType="int">
-	select nvl(max(pNum),0) from group	
+	select nvl(max(pNum),0) from product	
 </select>
 
 
