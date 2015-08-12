@@ -173,6 +173,9 @@ public class ProductController {
 		
 	}
 	
+	
+	
+	// ============================================================= productcreated
 	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
 	
 	public ModelAndView shop_created (HttpServletResponse response,HttpServletRequest request) throws Exception{
@@ -187,18 +190,16 @@ public class ProductController {
 	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		
-		
 		//==========================================================================ÀÌ¹ÌÁö insert
-		
 		
 		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/");
 
 		File dir = new File(path);
-		if (!dir.exists())
+		if (!dir.exists()){
 			dir.mkdirs();
+		}
 
 		MultipartFile file = req.getFile("upload");
-
 
 		if (file != null && file.getSize() > 0) {
 
@@ -248,6 +249,7 @@ public class ProductController {
 		
 		mav.setViewName("shop_article");
 		mav.addObject("pdto",pdto);
+		
 		return mav;
 	}
 }

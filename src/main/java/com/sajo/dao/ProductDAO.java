@@ -86,6 +86,13 @@ public class ProductDAO {
 		}
 		
 		
+		//ªÛ«∞ insertData
+		public void p_insertData(ProductDTO dto){
+			
+			sessionTemplate.insert("com.sajo.god.product.mapper.p_insertData",dto);
+		}
+		
+		
 				
 		
 		

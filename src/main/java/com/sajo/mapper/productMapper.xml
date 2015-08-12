@@ -5,10 +5,16 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper namespace="com.sajo.god.product.mapper">
+
+<!-- insert -->
+<insert id="p_insertData" parameterType="com.sajo.dto.ProductDTO">
+	insert into product (pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock)
+	values (#{pNum},#{pCategory},#{pName},#{pPrice},0,0,#{pContent},#{pStock})
+</insert>
 	
 <!-- pNum의 최대값 -->
 <select id="p_maxNum" resultType="int">
-	select nvl(max(pNum),0) from product	
+	select nvl(max(pNum),0) from product
 </select>
 
 
@@ -46,7 +52,4 @@
 
 </select>
 
-
-
-	
 </mapper>
