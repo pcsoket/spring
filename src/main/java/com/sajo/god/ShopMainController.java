@@ -68,13 +68,6 @@ public class ShopMainController {
 		return "basket";
 	}
 	
-	/*@RequestMapping(value="/myPage.action")
-	public String myPage(){
-		
-		
-		return "shopMyPage";
-	}*/
-	
 /*	@RequestMapping(value="/orderList.action")             테스트중
 	public String orderList(){
 		
