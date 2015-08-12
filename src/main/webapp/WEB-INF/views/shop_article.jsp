@@ -157,7 +157,8 @@
 				<table>
 					<tr>
 					<td width="250px" height="70px" align="right">
-					<input type="button" style="width:100px; height:50px;" value="장바구니" class="btn1"></td>
+					<a href="${articleUrl}/god/basket.action">
+					<input type="button" style="width:100px; height:50px;" value="장바구니" class="btn1"></a></td>
 					<td width="250px" height="70px" colspan="2">
 				 	<input type="button" style="width:100px; height:50px;" value="바로 구매" class="btn1"></td>
 				</table>

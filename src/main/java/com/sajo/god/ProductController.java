@@ -30,7 +30,7 @@ public class ProductController {
 	
 	
 	@RequestMapping(value="/category.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String category(HttpServletRequest request,HttpServletResponse response) throws Exception{
+	public String category(String pCategory,HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 		String cp = request.getContextPath();
 		
@@ -55,6 +55,11 @@ public class ProductController {
 					URLDecoder.decode(searchValue, "UTF-8");
 			
 		}
+		//pCategory가 null일시 처리
+		if(pCategory == null)
+			pCategory = "과일";
+		
+		
 		//전체데이터갯수
 		int dataCount = dao.p_getDataCount(searchKey, searchValue);
 		
@@ -71,6 +76,9 @@ public class ProductController {
 		
 		List<ProductDTO> lists =
 			dao.p_getList(start, end, searchKey, searchValue);
+		
+		List<ProductDTO> categorylists = 
+				dao.p_getListsCategory(start,end,pCategory);
 		
 
 	
@@ -102,9 +110,12 @@ public class ProductController {
 		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);
+		request.setAttribute("categorylists", categorylists);
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
+		
+		
 		
 		return "category";		
 		

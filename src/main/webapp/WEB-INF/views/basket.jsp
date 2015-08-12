@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>장바구니</title>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -22,28 +22,33 @@
 	//var r = 0;
 
 	function p(i, price, index) {
+		
+		var f = document.myForm;
 	//	alert(index);
 		var obj = document.getElementsByName("amount");
 		var obj2 = document.getElementsByName("temp");
 		// alert( obj.length );
-	
 		
-		if(i==-1 && obj[index].value == 1){ 
-	      alert("더 이상 내릴 수 없습니다."); 
-		          return false; 
-		 } 
-	//	alert(obj[index].value);
-		obj[index].value=Number(obj[index].value) + i;
-		obj2[index].value=Number(obj[index].value) * price;
+		
+		if(f.chk[index].checked){
+			
+			alert("체크를 풀고 수량을 선택해 주세요.");
+			
+		}else{
+		
+			if(i==-1 && obj[index].value == 1){ 
+		      alert("더 이상 내릴 수 없습니다."); 
+			          return false; 
+			 } 
+		
+			obj[index].value=Number(obj[index].value) + i;
+			obj2[index].value=Number(obj[index].value) * price;
+		}
 		
 	}
 	
-	function checked() {
-		
-		
-		
-	}
 	
+		
 	var r = 0;
 	function check(i) {
 		
@@ -87,7 +92,7 @@
 				f.plus[0].disabled=false;
 			}
 		}else {
-			alert(7);
+			
 			if(f.chk[i].checked){
 				r+=Number(f.temp[i].value);
 			
@@ -134,7 +139,7 @@
 		<div style="width: 1000px;"> <!-- 장바구니에 들어있는 물품 -->
 		
 			<div align="center" style="height:25px; background-color:#ffd2d7; border-top: solid 2px #ff7b8a; border-bottom: solid 2px #ffa3ad; padding-left: 10px; padding-right: 10px;"> <!-- 장바구니 물품 내역 -->
-				<div style="float: left; width: 100px;"><input type="checkbox" name="chk1" onclick="checked();"></div>
+				<div style="float: left; width: 100px;"><input type="checkbox" name="chk1"></div>
 				<div style="float: left; width: 450px;">상품명</div>
 				<div style="float: left; width: 100px;">수량</div>
 				<div style="float: left; width: 100px; margin-left: 15px;">가격</div>
@@ -145,25 +150,25 @@
 			
 			<c:if test="${dataCount != 0 }">
 			<c:forEach var="dto" items="${bklists }" varStatus="status">
-				<input type="hidden" name="bnum" value="${dto.getbNum }">		
+				<input type="hidden" name="bnum" value="${dto.bNum }">		
 				<div style="height: 60px; padding-top: 10px;">
-					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" onclick="check('${status.index }');"></div>
+					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" id="chk" onclick="check('${status.index }');"></div>
 					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" />${dto.bPName }</div>
 					<div style="float: left; width: 100px; margin-left: 20px;">
-						<div style="float: left;"><img src="/god/resources/image/minus.png" name="minus" id="minus" width="20px" height="20px" onclick="p(-1,'${dto.bPrice}','${status.index }');"></div>
+						<div style="float: left;"><img src="/god/resources/image/minus.png" name="minus" id="minus"  width="20px" height="20px" onclick="p(-1,'${dto.bPrice}','${status.index }');"></div>
 						 
 						
 						
-						<div style="float: left; width: 12px;" ><input type="text" value="1" style="border: none;" id="amount" name="amount" maxlength="2" width="5px"  /></div>
+						<div style="float: left; width: 30px;" ><input type="text" value="1" style="border: none; width: 20px;" id="amount" name="amount" maxlength="2" /></div>
 						
 						
 						<div style="float: left;"><img src="/god/resources/image/plus.png" name="plus" width="20px" height="20px" onclick="p(1,'${dto.bPrice}','${status.index }');" ></div>
 					</div>
 					<div style="float: left; width: 90px;">
-					<input type="text" name="bprice" style="border: none;" readonly="readonly" value="${dto.bPrice }">
+					<input type="text" name="bprice" style="border: none; margin-left: 25px;" readonly="readonly" value="${dto.bPrice }">
 					<input type="hidden" id="temp" name="temp" value="${dto.bPrice * dto.bAmount }" onchange="check('${status.index }');" >
 					</div>
-					<div style="width: 200px; float: left; margin-left: 5px;">상태</div>
+					<div align="center" style="width: 200px; float: left; margin-left: 5px;"><input type="text" style="border: none; width: 100px; height: 30px;" value="착불·선결제"></div>
 				</div>
 				
 				<div align="left" style=" padding-left: 50px;">
