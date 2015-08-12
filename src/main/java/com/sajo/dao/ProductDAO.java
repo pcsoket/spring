@@ -85,6 +85,15 @@ public class ProductDAO {
 			
 		}
 		
+		public ProductDTO p_getListsCategory(int pCategory){
+			
+			ProductDTO dto =		
+					sessionTemplate.selectOne("com.sajo.god.product.mapper.p_getReadData",pCategory);
+			
+			return dto;
+			
+		}
+		
 		
 				
 		

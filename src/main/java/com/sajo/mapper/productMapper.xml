@@ -40,8 +40,8 @@
 	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock from product where pNum=#{pNum}
 </select>
 
-<!-- 한개의 데이터 -->
-<select id="p_getListsCategory" parameterType="arrayList" resultType="com.sajo.dto.ProductDTO">
+<!-- 카테고리 데이터 -->
+<select id="p_getListsCategory" parameterType="int" resultType="com.sajo.dto.ProductDTO">
 	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock from product where pCategory=#{pCategory}
 
 </select>

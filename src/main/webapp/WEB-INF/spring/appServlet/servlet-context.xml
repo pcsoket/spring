@@ -35,10 +35,7 @@
 	<beans:bean id="purchaseDAO" class="com.sajo.dao.PurchaseDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
-	<!-- Basket DAO 추가 -->
-	<beans:bean id="basketDAO" class="com.sajo.dao.BasketDAO">
-		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
-	</beans:bean>
+
 	<!-- Image DAO 추가 -->
 	<beans:bean id="imageDAO" class="com.sajo.dao.ImageDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
@@ -47,10 +44,7 @@
 	<beans:bean id="groupDAO" class="com.sajo.dao.GroupDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
-	<!-- Comment DAO 추가 -->
-	<beans:bean id="commentDAO" class="com.sajo.dao.CommentDAO">
-		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
-	</beans:bean>
+
 	<!-- Product DAO 추가 -->
 	<beans:bean id="productDAO" class="com.sajo.dao.ProductDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
