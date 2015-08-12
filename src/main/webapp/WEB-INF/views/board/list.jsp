@@ -39,7 +39,15 @@
 	font-family : 나눔바른펜";
 
 	}
+
+/* 하이퍼링크 밑줄 지우기 */
+A:link {text-decoration:none}
+A:visited {text-decoration:none}
+A:hover {text-decoration:none}
+
 </style>
+	
+
 <script type="text/javascript">
 	function sendIt(){
 		
@@ -63,7 +71,7 @@
 	<tr height="30px"> 
 		<td class="line3" height="80px" colspan="5">
 					&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="10px"><b>
-					상품평</b></font></td>
+					흐헤헤</b></font></td>
 		</tr>
 	<tr height="30px">
 	</tr>
@@ -76,7 +84,7 @@
 				<option value="mId">작성자</option>
 				<option value="gContent">내용</option>
 			</select>
-			<input type="text" name="searchValue" style="height: 40px;"/>
+			<input type="text" name="searchValue" style="height: 34px;"/>
 			<input type="button" style="width: 50px; height: 40px;" value=" 검 색 " class="btn2" onclick="sendIt();"/>
 			</form>	
 
@@ -84,14 +92,14 @@
 		</td>
 		<td>
 		<input type="button" value=" 글쓰기 " margin-left="500px" 
-		class="btn1" style="height: 40px;"
+		class="btn1" style="height: 40px; color: #8b4513; font-family: 나눔바른펜";"
 		onclick="javascript:location.href='/god/group/created.action';"/>
 
 		 </td>
 		 <tr height="10px"><td></td></tr>
 		 
 
-<tr height="40px" class="line4" bordercolor="#EAEAEA" align="center" style="font-size: 15px;">
+<tr height="40px" class="line4" bordercolor="#EAEAEA" align="center" style="font-size: 15px; color: #8b4513; font-family: 나눔바른펜";">
 	<td width="50px"><b>이름</b></td>
 	<td width="300px"><b>제목</b></td>
 	<td width="150px"><b>글쓴이</b></td>
