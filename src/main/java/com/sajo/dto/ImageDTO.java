@@ -1,13 +1,14 @@
 package com.sajo.dto;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
 
 public class ImageDTO {
 
-	private MultipartFile upload;
+	private List<MultipartFile> upload;
 	private String uploadFileName;
 	
 	private String tableName;
@@ -42,14 +43,6 @@ public class ImageDTO {
 
 	public void setOriginalFileName(String originalFileName) {
 		this.originalFileName = originalFileName;
-	}
-
-	public MultipartFile getUpload() {
-		return upload;
-	}
-
-	public void setUpload(MultipartFile upload) {
-		this.upload = upload;
 	}
 
 	public String getUploadFileName() {
@@ -90,5 +83,13 @@ public class ImageDTO {
 
 	public void setTableName(String tableName) {
 		this.tableName = tableName;
+	}
+
+	public List<MultipartFile> getUpload() {
+		return upload;
+	}
+
+	public void setUpload(List<MultipartFile> upload) {
+		this.upload = upload;
 	}
 }

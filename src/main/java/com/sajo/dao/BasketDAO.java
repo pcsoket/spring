@@ -17,19 +17,19 @@ public class BasketDAO {
 		
 	}
 	
-	public List<BasketDTO> readPro(int pnum){
+	public List<BasketDTO> readPro(String mid){
 		
-		List<BasketDTO> lists = sessionTemplate.selectList("com.sajo.mapper.basket.readPro", pnum);
+		List<BasketDTO> lists = sessionTemplate.selectList("com.sajo.mapper.basket.readPro", mid);
 
 		return lists;
 		
 	}
 	
-	public int getDataCount(){
+	public int getDataCount(String mid){
 		
 		int result = 0;
 		
-		result = sessionTemplate.selectOne("com.sajo.mapper.basket.dataCount");
+		result = sessionTemplate.selectOne("com.sajo.mapper.basket.dataCount",mid);
 		
 		return result;
 		
@@ -47,7 +47,7 @@ public class BasketDAO {
 	public int delbasket(int bnum){
 		
 		int result = 0;
-		result = sessionTemplate.selectOne("com.sajo.mapper.basket.delbasket", bnum);
+		result = sessionTemplate.delete("com.sajo.mapper.basket.delbasket", bnum);
 		
 		return result;
 	}

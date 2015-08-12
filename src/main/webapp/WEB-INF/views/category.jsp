@@ -49,13 +49,13 @@
 
 <table width="1020px" class="box" align="center">
 	<tr><td>
-			<table class="box">
+			<table class="box" width="200px">
 
 				<tr><td class="dropdown">
 						&nbsp;&nbsp;&nbsp;<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>	
     					<a class="dropdown-toggle" data-toggle="dropdown" href="#">과일<span class="caret"></span></a>
       						<ul class="dropdown-menu">
-      						<c:forEach var="dto" items="${lists}">
+      						<c:forEach var="dto" items="${categorylists}">
 								<li class="category1">
 									<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 									<a href="${articleUrl}&pNum=${dto.pNum}">
@@ -67,13 +67,11 @@
 									}
 											i++;
 									%> --%>
-							</c:forEach>                      
+							     </c:forEach>                
      						 </ul>
     					</b></font>
 					</td>
 					
-					
-					<td rowspan="6" align="center"><img alt="" src="/god/resources/image/yy.PNG"/><br/></td>
 				</tr>
 	 			
 				<tr><td class="dropdown">
@@ -159,7 +157,7 @@
 					</td>
 				
 			</table>
-			<table class="box">
+			<%-- <table class="box">
 				<tr>
 				
 				<c:forEach var="dto" items="${lists}">
@@ -191,8 +189,12 @@
 					</td>
 				</tr>
 
-			</table>
+			</table> --%>
 	</td></tr>
+	<table width="800px" border="1px" bordercolor="black">
+	<tr><td></td></tr>
+	
+	</table>
 
 
 

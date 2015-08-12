@@ -4,7 +4,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class MemberDTO {
 	
-	private String userId,userName,userPwd,userAddr,userTel,userEmail,userCreated,userPimg,userSelf;
+	private String userId,userName,userPwd,userAddr1,userAddr2,userAddr3,userTel,userEmail,userCreated,userPimg,userSelf;
 	private MultipartFile file2;
 	private int gno,userAuth;
 	
@@ -34,11 +34,24 @@ public class MemberDTO {
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
 	}
-	public String getUserAddr() {
-		return userAddr;
+	
+	public String getUserAddr1() {
+		return userAddr1;
 	}
-	public void setUserAddr(String userAddr) {
-		this.userAddr = userAddr;
+	public void setUserAddr1(String userAddr1) {
+		this.userAddr1 = userAddr1;
+	}
+	public String getUserAddr2() {
+		return userAddr2;
+	}
+	public void setUserAddr2(String userAddr2) {
+		this.userAddr2 = userAddr2;
+	}
+	public String getUserAddr3() {
+		return userAddr3;
+	}
+	public void setUserAddr3(String userAddr3) {
+		this.userAddr3 = userAddr3;
 	}
 	public String getUserTel() {
 		return userTel;
