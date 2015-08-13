@@ -13,8 +13,18 @@
     color: #8b4513;
     background-color: #ffd2d7;
     border-color: #ffd2d7;
+    
+    padding-top: 10px;
+   
 }
+
 </style>
+<script type="text/javascript">
+
+	
+
+
+</script>
 
 </head>
 
@@ -29,27 +39,31 @@
 		<div align="right" style="font-size: 20pt; float:left; width: 440px; height:55px; vertical-align: bottom; margin-right: 10px; font-family: 나눔손글씨 붓;">장바구니 > <font style="font-size:25pt;"><b>주문결제</b></font> > 주문완료 </div>
 	</div>
 	<br/>
-	
+	<form action="" method="post" name="myForm">
 	<div style="width: 1000px;">
+	
+	
 		<div style="width: 550px; float: left;">
 			<div align="left" style="font-size: 15pt; padding-left: 10px;">
 				배송지 선택
 			</div>
 		<div>
 			<div style="border-top: solid 1px #ff7b8a; background-color: #ffd2d7; ">
-				<div><input type="radio" value="새주소" name="addRadio" onclick="">새주소 
-				<input type="radio" value="배송지" name="addRadio">기본배송지</div>
+				<div><input type="radio" value="새주소" name="addRadio"  onclick="click();">새주소 
+				<input type="radio" value="배송지" name="addRadio" checked="checked">기본배송지</div>
 			</div>
 			
 			<div>
-				<div><input type="text" style="border: none;" name="addname" value="이름"><input type="text" style="border: none;" name="tel" value="전화번호"></div>
-				<div><input type="text" style="border: none;" name="addr" value="주소"> </div>
+				<div><input type="text" style="border: none; border: " name="addname" value="${mdto.userName }"><input type="text" style="border: none;" name="tel" value="${mdto.userTel }"></div>
+				<div><input type="text" style="border: none;" name="addr" value="${mdto.userAddr2 }"> <input type="text" style="border: none;" name="addr" value="${mdto.userAddr3 }"> </div>
 				
-				<div><input type="text" style="border: none;" name="zipcode" value="우편번호"> </div>
-				<div>수정버튼</div>	
+				<div><input type="text" style="border: none;" name="zipcode" value="${mdto.userAddr1 }"> </div>
+				
 			</div>
 		</div>
 		</div>
+		
+		
 		<c:if test="${dto != null }">
 		<div style="width: 390px; float: left; padding-left: 15px;">
 			<div>주문 상품 정보</div>
@@ -65,6 +79,7 @@
 		
 	</div>
 	
+	</form>
 	<div style="width: 1000px; padding-top: 20px;">	
 	
 		<div style="width: 500px; float: left;"> <!-- 결제 수단 선택 -->
@@ -76,6 +91,9 @@
 				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">국민카드</button>
 				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">현대카드</button>
 				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">삼성카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">비씨카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">우리카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">농협카드</button>
 			</div>
 		
 		
