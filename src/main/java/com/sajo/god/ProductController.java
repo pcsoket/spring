@@ -1,7 +1,11 @@
 package com.sajo.god;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,9 +16,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sajo.dao.ImageDAO;
 import com.sajo.dao.ProductDAO;
+import com.sajo.dto.ImageDTO;
 import com.sajo.dto.ProductDTO;
 import com.sajo.util.MyUtil;
 
@@ -24,6 +32,10 @@ public class ProductController {
 	@Autowired
 	@Qualifier("productDAO")
 	ProductDAO dao;
+	
+	@Autowired
+	@Qualifier("imageDAO")
+	ImageDAO idao;
 
 	@Autowired
 	MyUtil myUtil;
@@ -172,8 +184,6 @@ public class ProductController {
 		
 	}
 	
-<<<<<<< HEAD
-	
 	
 	// ============================================================= productcreated
 	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -184,12 +194,7 @@ public class ProductController {
 		
 		return mav;
 	}
-=======
 
->>>>>>> 8f374293925eb1efd0f3dfda4653efb692cb3ff4
-	
-	
-<<<<<<< HEAD
 	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		
@@ -255,7 +260,4 @@ public class ProductController {
 		
 		return mav;
 	}
-=======
-
->>>>>>> 8f374293925eb1efd0f3dfda4653efb692cb3ff4
 }

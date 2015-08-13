@@ -47,14 +47,10 @@
 		
 	}
 	
-<<<<<<< HEAD
-=======
-	
->>>>>>> d32a66e02f5ad4f31e8c491e3ef53c1a82cc12dd
+
 		
 	var r = 0;
-	function check(i) {
-		
+	function check(i) {		
 		var f = document.myForm;
 		
 		if('${bklists.size()}'== 1){
