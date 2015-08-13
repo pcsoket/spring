@@ -62,15 +62,14 @@ public class ProductController {
 						
 		}else{
 			
-			if(request.getMethod().equalsIgnoreCase("GET"))
-				searchValue =
-					URLDecoder.decode(searchValue, "UTF-8");
+			if(request.getMethod().equalsIgnoreCase("GET")){
+				searchValue = URLDecoder.decode(searchValue, "UTF-8");
+			}
 			
 		}
 		//pCategory가 null일시 처리
 		if(pCategory == null)
 			pCategory = "과일";
-		
 		
 		//전체데이터갯수
 		int dataCount = dao.p_getDataCount(searchKey, searchValue);
@@ -91,11 +90,6 @@ public class ProductController {
 		
 		List<ProductDTO> categorylists = 
 				dao.p_getListsCategory(start,end,pCategory);
-		
-
-	
-		
-		
 		
 		//페이징 처리
 		String param = "";
@@ -194,66 +188,23 @@ public class ProductController {
 		
 		return mav;
 	}
-
-	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
+	
+	@RequestMapping(value="/shop_created_ok.action",method={RequestMethod.GET,RequestMethod.POST})
+	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		
-		//==========================================================================이미지 insert
+		//========================================================================== 이미지 insert
+		String uploadPath = request.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장경로+
 		
-		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/");
+		String imageNum = idao.writeFile(idto, uploadPath);
+		System.out.println(uploadPath+":uploadPath");
+		System.out.println(imageNum+":imgNO");
+		
 
-		File dir = new File(path);
-		if (!dir.exists()){
-			dir.mkdirs();
-		}
-
-		MultipartFile file = req.getFile("upload");
-
-		if (file != null && file.getSize() > 0) {
-
-			try {
-				String newFileName = null;
-
-				newFileName = String.format("%1$tY%1$tm%1$td%1$tH%1$tM%1$tS", Calendar.getInstance());
-				newFileName += System.nanoTime();
-
-				FileOutputStream ostream = new FileOutputStream(path + "/" + file.getOriginalFilename());
-
-				InputStream istream = file.getInputStream();
-
-				byte[] buffer = new byte[512];
-
-				while (true) {
-
-					int count = istream.read(buffer, 0, buffer.length);
-
-					if (count == -1)
-						break;
-
-					ostream.write(buffer, 0, count);
-
-				}
-
-				istream.close();
-				ostream.close();
-				idto.setSaveFileName(newFileName);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		}
-
-		int maxNum = idao.getMaxNum();
-
-		idto.setImgNum(maxNum + 1);
-		idto.setUploadFileName("product"); ///-----안씀
-		idto.setOriginalFileName(file.getOriginalFilename());
-		idao.insertData(idto);
 		//==========================================================================이미지 insert
 		
 		pdto.setpNum(dao.p_maxNum()+1);
-		pdto.setpCategory("product");     ///-------------임시로 카테고리지정
+		pdto.setpCategory("product");     //-------------임시로 카테고리지정
 		
 		mav.setViewName("shop_article");
 		mav.addObject("pdto",pdto);
