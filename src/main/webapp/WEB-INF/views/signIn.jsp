@@ -76,7 +76,7 @@ $.fn.setPreview = function(opt){
 });
 
 function sendIt() {
-	
+	alert(1);
 	f = document.write;
 	
 	str = f.userId.value;
@@ -87,7 +87,7 @@ function sendIt() {
 		return;
 	}
 	f.userId.value = str;
-	
+	alert(2);
 	str = f.userName.value;
 	str = str.trim();
 	if(!str){
@@ -96,7 +96,7 @@ function sendIt() {
 		return;
 	}
 	f.userName.value = str;
-	
+	alert(3);
 	str = f.userPwd.value;
 	str = str.trim();
 	if(!str){
@@ -105,7 +105,7 @@ function sendIt() {
 		return;
 	}
 	f.userPwd.value = str;
-	
+	alert(4);
 	str1 = f.userPwd1.value;
 	str1 = str1.trim();
 	if(str!=str1){
@@ -113,6 +113,7 @@ function sendIt() {
 		f.userpwd1.focus();
 		return;
 	}
+	alert(5);
 	str = f.code1.value;
 	str = str.trim();
 	if(!str){
@@ -121,15 +122,16 @@ function sendIt() {
 		return;
 	}
 	f.code1.value = str;
-	
-	str = f.addr2.value;
+	alert(6);
+	str = f.userAddr3.value;
+	str = str.trim();
 	if(!str){
 		alert("\n상세주소를 입력하세요.");
-		f.addr2.focus();
+		f.userAddr3.focus();
 		return;
 	}
-	f.addr2.value = str;
-	
+	f.userAddr3.value = str;
+	alert(7);
 	str = f.userTel.value;
 	str = str.trim();
 	if(!str){
@@ -138,7 +140,7 @@ function sendIt() {
 		return;
 	}
 	f.userTel.value = str;
-	
+	alert(8);
 	str = f.userEmail.value;
 	str = str.trim();
 	if(!str){
@@ -147,11 +149,11 @@ function sendIt() {
 		return;
 	}
 	f.userEmail.value = str;
-	
+	alert(9);
 	f.action = "<%=cp %>/write_ok.action";
-
+	alert(10);
 	f.submit();
-	
+	alert(11);
 }
 //주소 검색 팝업창 추가-> jsp도 같이 추가
 function searchData() {
@@ -213,7 +215,7 @@ function idchk() {
 				
 				<div style="float: left; padding-left: 10px;">
 					<input type="text" id="userId" name="userId"  style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF"/>
-					<input align="bottom" type="button" value="중복아이디" onclick="idchk();"/>
+					<div style="float: left; padding-left: 3px;"><input style="margin-top: 8px;" type="button" value="중복아이디" onclick="idchk();"/></div>
 			    </div>
 		   </div>
 			
@@ -270,14 +272,14 @@ function idchk() {
 				    </div>
 				    <div style="float: left; height: 30px; width: 450px;">
 					    <div style="padding-left: 5px; float:left; overflow: hidden;">
-							<input type="text" name="addr1" id="addr1" style="margin-top:8px;" size="40" maxlength="40" class="boxTF" />
+							<input type="text" name="userAddr2" id="userAddr1" style="margin-top:8px;" size="40" maxlength="40" class="boxTF" />
 					    </div>
 		
 				    </div>
 				    
 				    <div style="float: left; height: 30px; width: 450px;">
 				    	<div style=" padding-left: 5px; float: left; " >
-							<input type="text" name="addr2" style="margin-top:8px;" size="40" maxlength="40" class="boxTF" />
+							<input type="text" name="userAddr3" style="margin-top:8px;" size="40" maxlength="40" class="boxTF" />
 					    </div>
 				    </div>
 			
@@ -289,11 +291,11 @@ function idchk() {
 				    </div>
 				    
 				    <!-- style 변경 -->
-				    	<div style="padding-left:5px; margin-top:10px; padding-top: 80px; height: 50px; width: 450px;">
+				    	<!-- <div style="padding-left:5px; margin-top:10px; padding-top: 80px; height: 50px; width: 450px;">
 				    		<div style="font-size: 9pt; float: left;">&nbsp;우편물 수령지</div>
 				    		<div style="font-size: 9pt; float: left;"><input type="radio" name="radio" value="자택" checked="checked" />자택</div>
 				    		<div style="font-size: 9pt; float: left;"><input type="radio" name="radio" value="직장"/>직장</div>
-				    	</div>
+				    	</div> -->
 				    
 				</div>
 				
@@ -316,6 +318,16 @@ function idchk() {
 					<div style="float: left;padding-left: 10px;">
 					<!-- 한글 입력 방지 코딩 추가 -->
 						<input type="text" name="userEmail" style="margin-top:8px; float:left;" size="25" maxlength="20" class="boxTF" onkeyup ="this.value=this.value.replace(/[^a-zA-Z0-9@.]/g,'')"/>
+				    </div>
+		   		</div>
+		   		<div style="border-top: 2px solid #EAEAEA; overflow: hidden;">
+			
+					<div style="vertical-align:middle; background-color:#ffd2d7; width: 200px; line-height:50px; float:left; height:160px;">
+						<font color="#8b4513" style="font-family: 나눔바른펜;">자기소개</font>
+					</div>
+					
+					<div align="center" style="float: left;padding-left: 10px;">
+						<textarea name="userSelf" rows="10" cols="50"></textarea>
 				    </div>
 		   		</div>
 		   		<div style="border-top: 2px solid #EAEAEA; overflow: hidden;"></div>

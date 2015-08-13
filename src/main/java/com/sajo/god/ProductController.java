@@ -42,7 +42,7 @@ public class ProductController {
 	
 	
 	@RequestMapping(value="/category.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String category(HttpServletRequest request,HttpServletResponse response) throws Exception{
+	public String category(String pCategory,HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 		String cp = request.getContextPath();
 		
@@ -67,6 +67,11 @@ public class ProductController {
 					URLDecoder.decode(searchValue, "UTF-8");
 			
 		}
+		//pCategory가 null일시 처리
+		if(pCategory == null)
+			pCategory = "아이디어상품";
+		
+		
 		//전체데이터갯수
 		int dataCount = dao.p_getDataCount(searchKey, searchValue);
 		
@@ -84,6 +89,15 @@ public class ProductController {
 		List<ProductDTO> lists =
 			dao.p_getList(start, end, searchKey, searchValue);
 		
+		List<ProductDTO> categorylists = 
+				dao.p_getListsCategory(start,end,pCategory);
+		
+		List<ProductDTO> hitcountlists = 
+				dao.p_getListsHitCount(start,end);
+		
+		List<ProductDTO> ideahitcountlists = 
+				dao.p_getListsIdeaHitCount(start,end,pCategory);
+
 
 	
 		
@@ -114,11 +128,100 @@ public class ProductController {
 		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);
+		request.setAttribute("categorylists", categorylists);
+		request.setAttribute("hitcountlists", hitcountlists);
+		request.setAttribute("ideahitcountlists", ideahitcountlists);
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		
+		
+		
 		return "category";		
+		
+	}
+	
+	@RequestMapping(value="/idea_category.action",method={RequestMethod.GET,RequestMethod.POST})
+	public String idea_category(String pCategory,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		
+		String cp = request.getContextPath();
+		
+		String pageNum = request.getParameter("pageNum");
+		int currentPage = 1;
+		
+		if(pageNum != null)
+			currentPage = Integer.parseInt(pageNum);
+		
+		String searchKey = request.getParameter("searchKey");
+		String searchValue = request.getParameter("searchValue");
+		
+		if(searchKey == null){
+			
+			searchKey = "pName";
+			searchValue = "";
+						
+		}else{
+			
+			if(request.getMethod().equalsIgnoreCase("GET"))
+				searchValue =
+					URLDecoder.decode(searchValue, "UTF-8");
+			
+		}
+		//pCategory가 null일시 처리
+		if(pCategory == null)
+			pCategory = "아이디어상품";
+		
+		
+		//전체데이터갯수
+		int dataCount = dao.p_getDataCount(searchKey, searchValue);
+		
+		System.out.println(dataCount);
+		//전체페이지수
+		int numPerPage = 10;
+		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+		
+		if(currentPage > totalPage)
+			currentPage = totalPage;
+		
+		int start = (currentPage-1)*numPerPage+1;
+		int end = currentPage*numPerPage;
+		
+		List<ProductDTO> categorylists = 
+				dao.p_getListsCategory(start,end,pCategory);
+		
+		
+		//페이징 처리
+		String param = "";
+		if(!searchValue.equals("")){
+			param = "searchKey=" + searchKey;
+			param+= "&searchValue=" 
+				+ URLEncoder.encode(searchValue, "UTF-8");
+		}
+		
+		String listUrl = cp + "/category.action";
+		if(!param.equals("")){
+			listUrl = listUrl + "?" + param;				
+		}
+		
+		String pageIndexList =
+			myUtil.pageIndexList(currentPage, totalPage, listUrl);
+		
+		//글보기 주소 정리
+		String articleUrl = 
+			cp + "/shop_article.action?pageNum=" + currentPage;
+			
+		if(!param.equals(""))
+			articleUrl = articleUrl + "&" + param;
+		
+		//포워딩 될 페이지에 데이터를 넘긴다
+		request.setAttribute("categorylists", categorylists);
+		request.setAttribute("pageIndexList",pageIndexList);
+		request.setAttribute("dataCount",dataCount);
+		request.setAttribute("articleUrl",articleUrl);
+		
+		
+		
+		return "idea_category";		
 		
 	}
 	
@@ -173,6 +276,8 @@ public class ProductController {
 		
 	}
 	
+	
+	// ============================================================= productcreated
 	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
 	
 	public ModelAndView shop_created (HttpServletResponse response,HttpServletRequest request) throws Exception{
@@ -181,24 +286,20 @@ public class ProductController {
 		
 		return mav;
 	}
-	
-	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
-	
-	public ModelAndView shop_created (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
+
+	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/shop_article.action");
 		
 		//==========================================================================이미지 insert
-		
 		
 		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/");
 
 		File dir = new File(path);
-		if (!dir.exists())
+		if (!dir.exists()){
 			dir.mkdirs();
+		}
 
 		MultipartFile file = req.getFile("upload");
-
 
 		if (file != null && file.getSize() > 0) {
 
@@ -246,8 +347,9 @@ public class ProductController {
 		pdto.setpNum(dao.p_maxNum()+1);
 		pdto.setpCategory("product");     ///-------------임시로 카테고리지정
 		
-		
+		mav.setViewName("shop_article");
 		mav.addObject("pdto",pdto);
+		
 		return mav;
 	}
 }

@@ -1,18 +1,20 @@
 package com.sajo.dto;
 
 import java.io.InputStream;
+import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 
 public class ImageDTO {
 
-	private MultipartFile upload;
-	private String uploadFileName;
-	
-	private String tableName;
-	
 	private int imgNum, listNum;
+	
+	private CommonsMultipartFile[] upload;
+	private MultipartFile file1;
+	private String uploadFileName;
+	private String tableName;
 	private String userId;
 	private String saveFileName;
 	private String originalFileName;
@@ -42,14 +44,6 @@ public class ImageDTO {
 
 	public void setOriginalFileName(String originalFileName) {
 		this.originalFileName = originalFileName;
-	}
-
-	public MultipartFile getUpload() {
-		return upload;
-	}
-
-	public void setUpload(MultipartFile upload) {
-		this.upload = upload;
 	}
 
 	public String getUploadFileName() {
@@ -90,5 +84,21 @@ public class ImageDTO {
 
 	public void setTableName(String tableName) {
 		this.tableName = tableName;
+	}
+
+	public CommonsMultipartFile[] getUpload() {
+		return upload;
+	}
+
+	public void setUpload(CommonsMultipartFile[] upload) {
+		this.upload = upload;
+	}
+
+	public MultipartFile getFile1() {
+		return file1;
+	}
+
+	public void setFile1(MultipartFile file1) {
+		this.file1 = file1;
 	}
 }
