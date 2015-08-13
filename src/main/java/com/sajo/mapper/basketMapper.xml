@@ -8,14 +8,15 @@
 
 <!-- product테이블에서 pNum에 따른 정보 가져오기 -->
 
-<select id="readPro" resultType="com.sajo.dto.BasketDTO" parameterType="int">
+<select id="readPro" resultType="com.sajo.dto.BasketDTO" parameterType="String">
 	
-	select bNum,bAmount,bPName,bPrice,pNum from basket where pNum=#{pnum}
+	select bNum,bAmount,bPName,bPrice,pNum from basket where mid=#{mid}
 
 </select>
 
-<select id="dataCount" resultType="int">
-	select nvl(count(*),0) from basket
+<!-- 아이디 별로 데이터 세기 -->
+<select id="dataCount" resultType="int" parameterType="String">
+	select nvl(count(*),0) from basket where mid=#{mid}
 </select>
 
 
@@ -24,7 +25,7 @@
 
 <select id="readbasket" resultType="com.sajo.dto.BasketDTO" parameterType="int">
 
-	select bNum,bAmount,bPName,bPrice,pNum from basket where bNum=#{bnum}
+	select bNum,bAmount,bPName,bPrice,pNum from basket where bnum=#{bNum}
 	
 </select>
 
