@@ -53,8 +53,7 @@
 
 				<tr><td class="dropdown">
 						&nbsp;&nbsp;&nbsp;<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>	
-    					<a class="dropdown-toggle" data-toggle="dropdown" href="${articleUrl}/god/idea_category.action">
-    					이디어상품<span class="caret"></span></a>
+    					<a class="dropdown-toggle" data-toggle="dropdown" href="#">과일<span class="caret"></span></a>
       						<ul class="dropdown-menu">
       						<c:forEach var="dto" items="${categorylists}">
 								<li class="category1">
@@ -77,7 +76,7 @@
 	 			
 				<tr><td class="dropdown">
 						&nbsp;&nbsp;&nbsp;<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>	
-    					<a class="dropdown-toggle" data-toggle="dropdown" href="#">과일이다<span class="caret"></span></a>
+    					<a class="dropdown-toggle" data-toggle="dropdown" href="#">아이디어상품<span class="caret"></span></a>
       						<ul class="dropdown-menu">
       						<c:forEach var="dto" items="${lists}">
 								<li class="category1">
@@ -168,7 +167,7 @@
 	&nbsp;&nbsp;&nbsp;판매 인기순</b></font></td></tr>
 	<tr>
 	
-		<c:forEach var="dto" items="${hitcountlists}">	
+		<c:forEach var="dto" items="${categorylists}">	
 			<td width="200px" height="100px" align="center" class="category2">
 			
 					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
@@ -176,44 +175,16 @@
 					<a href="${articleUrl}&pNum=${dto.pNum}">
 						${dto.pName}<br>${dto.pPrice}원</a></font></td>
 						
-						
-						</c:forEach>
-		
+					<%
+									if(i%4==0){
+										out.print("</td><td>");
+									}
+											i++;
+									%>
+									
+		</c:forEach>	
 							
 	</tr>
-	
-	<tr><td height="50px" colspan="4"><font color="#8b4513 " style="font-family: 나눔바른펜;" size="4pt"><b>
-	&nbsp;&nbsp;&nbsp;아이디어 인기순</b></font></td></tr>
-	<tr>
-		<c:forEach var="dto" items="${ideahitcountlists}">	
-			<td width="200px" height="100px" align="center" class="category2">
-			
-					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
-					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-					<a href="${articleUrl}&pNum=${dto.pNum}">
-						${dto.pName}<br>${dto.pPrice}원</a></font></td>
-						
-						
-						</c:forEach>						
-	</tr>
-	
-	
-	<tr><td height="50px" colspan="4"><font color="#8b4513 " style="font-family: 나눔바른펜;" size="4pt"><b>
-	&nbsp;&nbsp;&nbsp;추천 순</b></font></td></tr>
-	<tr>
-	
-		<c:forEach var="dto" items="${ideahitcountlists}">	
-			<td width="200px" height="100px" align="center" class="category2">
-			
-					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
-					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-					<a href="${articleUrl}&pNum=${dto.pNum}">
-						${dto.pName}<br>${dto.pPrice}원</a></font></td>
-						
-						
-						</c:forEach>					
-	</tr>
-
 	</table>
 
 

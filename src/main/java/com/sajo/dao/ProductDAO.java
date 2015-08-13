@@ -86,6 +86,7 @@ public class ProductDAO {
 			
 		}
 		
+		//카테고리 데이터 출력
 		public List<ProductDTO> p_getListsCategory(int start, int end, String pCategory){
 			
 			
@@ -99,11 +100,45 @@ public class ProductDAO {
 					sessionTemplate.selectList("com.sajo.god.product.mapper.p_getListsCategory",hMap);
 			
 			return categorylists;
-			
-			
-	
-			
+
 		}
+		
+		//조회수 데이터 출력
+		public List<ProductDTO> p_getListsHitCount(int start, int end){
+					
+					
+			Map<String, Object> hMap = new HashMap<String, Object>();
+							
+			hMap.put("start", start);
+			hMap.put("end", 4);
+					
+				List<ProductDTO> hitcountlists = 		
+					sessionTemplate.selectList("com.sajo.god.product.mapper.p_getListsHitCount",hMap);
+					
+				return hitcountlists;
+
+				
+		}
+
+		//아이디어상품 조회수 데이터 출력
+		public List<ProductDTO> p_getListsIdeaHitCount(int start, int end,String pCategory){
+							
+							
+			Map<String, Object> hMap = new HashMap<String, Object>();
+									
+			hMap.put("start", start);
+			hMap.put("end", 4);
+			hMap.put("pCategory", pCategory);
+							
+			List<ProductDTO> ideahitcountlists = 		
+					sessionTemplate.selectList("com.sajo.god.product.mapper.p_getListsIdeaHitCount",hMap);
+							
+				return ideahitcountlists;
+
+						
+				}
+						
+				
 		
 		
 		

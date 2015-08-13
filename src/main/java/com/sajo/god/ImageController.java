@@ -1,24 +1,36 @@
 package com.sajo.god;
 
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ListIterator;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 //import javax.servlet.http.HttpSession;
 
+import org.apache.commons.fileupload.UploadContext;
+import org.apache.commons.io.IOUtils;
+import org.apache.commons.logging.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.MultipartRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.util.MyUtil;
 import com.sajo.dao.ImageDAO;
@@ -34,12 +46,11 @@ public class ImageController {
 	@Autowired
 	MyUtil myUtil;
 
+
 	@RequestMapping(value="/img/list.action", method={RequestMethod.GET,RequestMethod.POST})
 	public String list(HttpServletRequest request, HttpServletResponse response) throws Exception{
 
 
-		String savePath = "god" + File.separator + "resources" + File.separator + "imageFile";
-		System.out.println(savePath);
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
@@ -89,7 +100,6 @@ public class ImageController {
 		}//--------------------------------------------------------------
 		String imageUrl = "/god/resources/imageFile";
 		
-		request.setAttribute("savePath", savePath);
 		request.setAttribute("imageUrl", imageUrl);
 		request.setAttribute("lists", lists);
 		request.setAttribute("totalPage", totalPage);
@@ -108,32 +118,31 @@ public class ImageController {
 		
 	}
 	
-	/*@RequestMapping(value="/img/created.action", method={RequestMethod.POST})
+	@RequestMapping(value="/img/created.action", method={RequestMethod.POST})
 	public String created(ImageDTO dto,MultipartHttpServletRequest request) throws Exception{
 		
 		String path = request.getSession().getServletContext().getRealPath("/resources/imageFile/");
-
+		System.out.println(path);
 		File dir = new File(path);
 		if (!dir.exists())
 			dir.mkdirs();
 
-		List<MultipartFile> file = (List<MultipartFile>) request.getFile("upload");
+		MultipartFile file = request.getFile("file1");
 
-		fi
-		if (file != null && file.getSize() > 0) {//한우 한우 한우
+		
+		if (file != null && file.getSize() > 0) {
 
 			try {
 				String newFileName = null;
-
 				
-				String fileExt = dto.getUploadFileName().substring(dto.getUploadFileName().lastIndexOf("."));
+				
+/*				String fileExt = dto.getUploadFileName().substring(dto.getUploadFileName().lastIndexOf("."));
 				if(fileExt == null || fileExt.equals(""))
-					return null;
+					return null;*/
 
 				newFileName = String.format("%1$tY%1$tm%1$td%1$tH%1$tM%1$tS", Calendar.getInstance());
 				newFileName += System.nanoTime();
 				//newFileName += fileExt;
-
 				FileOutputStream ostream = new FileOutputStream(path + "/" + file.getOriginalFilename());
 
 				InputStream istream = file.getInputStream();
@@ -165,9 +174,13 @@ public class ImageController {
 		int maxNum = dao.getMaxNum();
 
 		dto.setImgNum(maxNum + 1);
-		dto.setUploadFileName("test");
+		dto.setUploadFileName("test");//임시
 		dto.setOriginalFileName(file.getOriginalFilename());
+		dto.setUserId("1"); //임시
+		dto.setTableName("1"); //임시
+		dto.setSaveFileName("1");
 		dao.insertData(dto);
+		
 
 		return "redirect:/img/list.action";
 	}
@@ -183,7 +196,6 @@ public class ImageController {
 
 		File file = null;
 		
-		
 		String fullFileName = savePath + "\\"+ dto.getOriginalFileName();
         
 		file = new File(fullFileName);
@@ -193,5 +205,6 @@ public class ImageController {
 		dao.deleteData(num);
 
 		return "redirect:/img/list.action";
-	}*/
+	}
+
 }
