@@ -196,6 +196,26 @@
 		
 	}
 	
+	function account(count) {
+		
+		var f = document.value;
+		
+		if(f.chk[i].checked){
+			
+			return;
+			
+		}else{
+			
+			f.bnum[i].value=0;
+			
+		}
+		
+		f.action="/god/purchase.action";
+		f.submit();
+		
+		
+	}
+	
 </script>
 
 </head>
@@ -303,7 +323,7 @@
 	</div>
 		
 		<div style="width: 100%;height: 60px;">
-			<div><button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/purchase.action';">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
+			<div><button type="button" class="btn btn-primary btn-lg" onclick="account('${dataCount}');">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
 		</div>
 	</form>
 	

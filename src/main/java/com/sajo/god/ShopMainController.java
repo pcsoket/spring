@@ -94,7 +94,7 @@ public class ShopMainController {
 		
 		MemberDTO mdto = mdao.getReadData("3");
 		
-		System.out.println(mdto.getUserName());
+		//System.out.println(mdto.getUserName());
 		
 		BasketDTO dto = dao.readbasket(bnum);
 		
@@ -109,7 +109,8 @@ public class ShopMainController {
 	}
 	
 	@RequestMapping(value="/purchase.action")
-	public String purchase(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
+	public String purchase(HttpServletRequest req, HttpServletResponse resp){
+		
 		
 			
 		
