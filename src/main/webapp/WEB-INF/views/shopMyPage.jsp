@@ -85,7 +85,6 @@ $(document).ready(function()
 
 function sendIt() {
 	
-	alert("1");
 	var f=document.update;
 	f.action="<%=cp%>/mupdated.action";
 	f.submit();
@@ -285,13 +284,12 @@ float: right;
 				<div class="basicInfo_boxtitle">
 				${dto.userId}님의 기본정보
 				</div>
-			 <%-- <div class="basicInfo_contentWrap">
+			<div class="basicInfo_contentWrap">
  					<div class="basicInfo_title">프로필 사진</div> 
-					<div class="basicInfo_content"> 
-					<img id="img_preview" style="width: 200px; height: 200px;" src="${dto.userPimg}"/> 
+					<div style="width: 150px; height: 100px;" class="basicInfo_content"> 
+					<img id="img_preview" src="${dto.userPimg}"/> 
  					<font style="color: black;"><input type="file" id="file1"  name="file2"/></font></div>
-					<input type="text" value="${dto.userPimg}"/>
-				</div>  --%>
+				</div> 
 				<div class="basicInfo_contentWrap">
 					<div class="basicInfo_title">아이디</div>
 					<div class="basicInfo_content"><input type="text" name="userId" value="${dto.userId}" readonly="readonly"/></div>
