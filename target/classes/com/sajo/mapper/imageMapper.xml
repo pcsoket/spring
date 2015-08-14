@@ -30,7 +30,7 @@
 </select>
 
 <select id="readData" resultType="com.sajo.dto.ImageDTO" parameterType="int">
-	select imgNum,userId,saveFileName,originalFileName 
+	select imgNum,userId,saveFileName,originalFileName,tableName
 	from image where imgNum=#{imgNum}
 </select>
 

@@ -287,69 +287,26 @@ public class ProductController {
 		return mav;
 	}
 
+	@RequestMapping(value="/shop_created_ok.action",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		
 		//==========================================================================이미지 insert
 		
-		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/");
+		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정
 
-		File dir = new File(path);
-		if (!dir.exists()){
-			dir.mkdirs();
-		}
-
-		MultipartFile file = req.getFile("upload");
-
-		if (file != null && file.getSize() > 0) {
-
-			try {
-				String newFileName = null;
-
-				newFileName = String.format("%1$tY%1$tm%1$td%1$tH%1$tM%1$tS", Calendar.getInstance());
-				newFileName += System.nanoTime();
-
-				FileOutputStream ostream = new FileOutputStream(path + "/" + file.getOriginalFilename());
-
-				InputStream istream = file.getInputStream();
-
-				byte[] buffer = new byte[512];
-
-				while (true) {
-
-					int count = istream.read(buffer, 0, buffer.length);
-
-					if (count == -1)
-						break;
-
-					ostream.write(buffer, 0, count);
-
-				}
-
-				istream.close();
-				ostream.close();
-				idto.setSaveFileName(newFileName);
-
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-
-		}
-
-		int maxNum = idao.getMaxNum();
-
-		idto.setImgNum(maxNum + 1);
-		idto.setUploadFileName("product"); ///-----안씀
-		idto.setOriginalFileName(file.getOriginalFilename());
-		idao.insertData(idto);
+		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환, 이것을 각 게시판 테이블컬럼에 저장하면됨.
+		String imglistnum = idao.writeFile(idto, path);  
+		
 		//==========================================================================이미지 insert
 		
-		pdto.setpNum(dao.p_maxNum()+1);
-		pdto.setpCategory("product");     ///-------------임시로 카테고리지정
+		//pdto.setpNum(dao.p_maxNum()+1);
+		//pdto.setpCategory("product");     ///-------------임시로 카테고리지정
 		
-		mav.setViewName("shop_article");
-		mav.addObject("pdto",pdto);
+		mav.setViewName("productWrite");
+		//mav.addObject("pdto",pdto);
 		
 		return mav;
+		
 	}
 }
