@@ -25,7 +25,6 @@
 	
 	function sendIt() {
 		
-		alert("1");
 		f = document.myForm;
 
 		str = f.pName.value;

@@ -116,6 +116,14 @@ public class ShopMainController {
 		return "redirect:basket.action";
 	}
 	
+	@RequestMapping(value="/card.action")
+	public String card(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
+		
+			
+		
+		return "card";
+	}
+	
 	@RequestMapping(value="/del.action")
 	public String del(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
 		
