@@ -65,7 +65,6 @@
 			});
 		};
 		$(document).ready(function(){
-			
 			var opt = {
 					img: $('#img_preview'),
 					w: 200,
@@ -73,7 +72,7 @@
 					};
 			$('#file1').setPreview(opt);
 			
-		});
+});
 
 //selected 속성 부여
 $(document).ready(function()
@@ -86,8 +85,7 @@ $(document).ready(function()
 
 function sendIt() {
 	
-	alert("1");
-	var f=document.myForm;
+	var f=document.update;
 	f.action="<%=cp%>/mupdated.action";
 	f.submit();
 	
@@ -219,7 +217,6 @@ float: right;
 
 </head>
 <body>
-<form name="myForm" method="post" action="" enctype="multipart/form-data" >
 <div id = "wrapBody"><!-- 전체묶음 -->
 <!-- 헤더시작 -->
 	<div id="headWrap">
@@ -270,7 +267,7 @@ float: right;
 
 <!-- 마이페이지내용 -->
 		<div id="bodyContent">
-		
+		<form name="update" method="post" action="" enctype="multipart/form-data" >
 			<div class="bodytitle">
 			회원정보변경
 			</div>
@@ -287,12 +284,11 @@ float: right;
 				<div class="basicInfo_boxtitle">
 				${dto.userId}님의 기본정보
 				</div>
-			 	<div class="basicInfo_contentWrap">
+			<div class="basicInfo_contentWrap">
  					<div class="basicInfo_title">프로필 사진</div> 
-					<div class="basicInfo_content"> 
-					<img id="img_preview"  src="${dto.userPimg}"/>
+					<div style="width: 150px; height: 100px;" class="basicInfo_content"> 
+					<img id="img_preview" src="${dto.userPimg}"/> 
  					<font style="color: black;"><input type="file" id="file1"  name="file2"/></font></div>
-					<%-- <input type="text" value="${dto.userPimg}"/> --%>
 				</div> 
 				<div class="basicInfo_contentWrap">
 					<div class="basicInfo_title">아이디</div>
@@ -390,18 +386,17 @@ float: right;
 									<input type="radio" name="SMSRcvYN" id="SMSN"  value="N">
 									수신안함
 								</label>
-								<input type="submit" value="수정완료" onclick="sendIt();"/>
 							</div>
 						</div>
 					</div>
 				</div>
-		
+		</form>
 		<div style="margin-top: 50px;">
 		<div style="border-top: 2px solid #EAEAEA; "></div>
 		</div>
 		<div align="center" style="margin-top: 10px;">
 		<!-- <button type="button" style="width: 90px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="sendIt();"> 수 정 완 료 </button> -->
-		
+		<input type="submit" value="수정완료" onclick="sendIt();"/>
 		</div>	
 		</div>
 	</div><!-- bodyWrap끝 -->
@@ -415,6 +410,5 @@ float: right;
 		</div>
 	</div>
 </div><!-- 전체박스끝 -->
-</form>
 </body>
 </html>
