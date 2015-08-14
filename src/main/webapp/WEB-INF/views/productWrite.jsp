@@ -21,55 +21,27 @@
 		return this.replace(TRIM_PATTERN, "");
 
 	}
-	
-	var i = 0;
-	var str = "";
+
 	
 	function sendIt() {
 		
+		alert("1");
 		f = document.myForm;
 
-		str = f.userId.value;
+		str = f.pName.value;
 		str = str.trim();
 		if (!str) {
 			alert("제목을 입력하세요 !!!");
-			f.userId.focus();
+			f.pName.focus();
 			return;
 		}
-		f.userId.value = str;
+		f.pName.value = str;
 		
-		str = f.upload.value;
-		if (!str) {
-			alert("이미지 파일을 선택 하세요 !!!");
-			f.upload.focus();
-			return;
-		}
-		
-		f.action = "<%=cp%>/img/created.action";
+		f.action = "<%=cp%>/shop_created_ok.action";
 		f.submit();
 		
 	}
 	
-	
-	function fileUpload(){
-		
-		
-		f = document.myForm;
-
-		
-
-		document.getElementById('fileList').innerHTML= "<div id=file"+i+">"+f.upup.value+"</div>";
-		//document.getElementById('fileList').append= "<div id=file"+i+">"+f.upup.value+"</div>";
-		
-		str+="<div id=file"+i+">"+f.upup.value+"</div>";
-		alert(str+"1");
-		i++;
-	}
-	
-	function fileDelete(){
-		f = document.myForm;
-		document.getElementById('fileList').innerHTML= f.upup.value;
-	}
 
 </script>
 </head>
@@ -135,10 +107,10 @@
       <td width="480" style="padding-left:10px;"> 
       <!--  file upload input-->
       
-        <input type="file" id="upup" name="upload[0]" size="58" maxlength="100" class="boxTF" onchange=""/>
-        <input type="file" id="upup" name="upload[1]" size="58" maxlength="100" class="boxTF" onchange=""/>
-        <input type="file" id="upup" name="upload[2]" size="58" maxlength="100" class="boxTF" onchange=""/>
-        <input type="file" id="upup" name="upload[3]" size="58" maxlength="100" class="boxTF" onchange=""/>
+        <input type="file"  name="upload" size="58" maxlength="100" class="boxTF" onchange=""/>
+        <input type="file"  name="upload" size="58" maxlength="100" class="boxTF" onchange=""/>
+        <input type="file"  name="upload" size="58" maxlength="100" class="boxTF" onchange=""/>
+        <input type="file"  name="upload" size="58" maxlength="100" class="boxTF" onchange=""/>
       <div id="fileList">
       </div>
       </td>
@@ -167,13 +139,15 @@
     </tr>
   </table>
 </form>
-
+<!-- //------------------------- // -->
 <div style="display: none;">
+
+
 <table>
   <tr> 
       <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">파&nbsp;&nbsp;&nbsp;&nbsp;일</td>
       <td width="480" style="padding-left:10px;"> 
-        <input type="file" id="up" name="upload" size="58" maxlength="100" class="boxTF"/>
+     
       </td>
   </tr>
 </table>

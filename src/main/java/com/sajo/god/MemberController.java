@@ -39,7 +39,7 @@ public class MemberController {
 	
 	//회원가입 page 열기
 	@RequestMapping(value="/write.action")
-	public ModelAndView created(String userPimg, String userPimgUrl){
+	public ModelAndView created(){
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -115,7 +115,7 @@ public class MemberController {
 		
 		String userId = (String)session.getAttribute("userId");
 		
-		//dao.deleteData(userId);
+		dao.deleteData(userId);
 		
 		return"redirect:/shopMain.action";
 	}
@@ -197,7 +197,6 @@ public class MemberController {
 		dto= dao.getReadData(userId);
 		
 		String savepath = "/god/resources/testimg/";
-		String pname = dto.getUserPimg();
 		String pimg = savepath + dto.getUserPimg();
 		dto.setUserPimg(pimg);
 		System.out.println(dto.getUserPimg());
@@ -211,7 +210,6 @@ public class MemberController {
 		String phn2 = phn[1];
 		String phn3 = phn[2];
 			
-		req.setAttribute("pname", pname);
 		req.setAttribute("code1", code1);
 		req.setAttribute("code2", code2);
 		req.setAttribute("phn1", phn1);
@@ -271,13 +269,15 @@ public class MemberController {
 				istream.close();
 				ostream.close();
 				
-				dto.setUserPimg(path+"\\"+userpimg);
+				
 				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		
 		}
+		
+		dto.setUserPimg(userpimg);
 		
 		dao.updated(dto);
 		

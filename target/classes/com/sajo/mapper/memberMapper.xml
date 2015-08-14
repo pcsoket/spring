@@ -26,4 +26,7 @@
 	update member set mname=#{userName},mpwd=#{userPwd},maddr1=#{userAddr1},maddr2=#{userAddr2},maddr3=#{userAddr3},mtel=#{userTel},memail=#{userEmail}
 	,mself=#{userSelf},mpimg=#{userPimg} where mid=#{userId}
 	</update>
+	<delete id="deleteData" parameterType="String">
+	 delete member where mid=#{userId}
+	</delete>
 </mapper>
