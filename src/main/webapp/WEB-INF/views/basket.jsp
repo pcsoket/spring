@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>장바구니</title>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -22,98 +22,178 @@
 	//var r = 0;
 
 	function p(i, price, index) {
+		
+		var f = document.myForm;
 	//	alert(index);
 		var obj = document.getElementsByName("amount");
 		var obj2 = document.getElementsByName("temp");
 		// alert( obj.length );
-	
-		
-		if(i==-1 && obj[index].value == 1){ 
-	      alert("더 이상 내릴 수 없습니다."); 
-		          return false; 
-		 } 
-	//	alert(obj[index].value);
-		obj[index].value=Number(obj[index].value) + i;
-		obj2[index].value=Number(obj[index].value) * price;
-		
-	}
-	
-	function checked() {
 		
 		
+		if(f.chk[index].checked){
+			
+			alert("체크를 풀고 수량을 선택해 주세요.");
+			
+		}else{
+		
+			if(i==-1 && obj[index].value == 1){ 
+		      alert("더 이상 내릴 수 없습니다."); 
+			          return false; 
+			 } 
+		
+			obj[index].value=Number(obj[index].value) + i;
+			obj2[index].value=Number(obj[index].value) * price;
+		}
 		
 	}
 	
 	var r = 0;
-	function check(i) {
-		
+	function check(i) {		
 		var f = document.myForm;
 		
-		if('${bklists.size()}'== 1){
-		
-			if(f.chk.checked){
-					
-				r+=Number(f.temp.value);
-				
+		if(f.chk1.checked){
 			
-				
-				f.minus.disabled=true;
-				f.plus.disabled=true; 
-				
-			}else{
-				
-				r-=Number(f.temp.value);
-		
-				f.minus.disabled=false;
-				f.plus.disabled=false;
-			}
-
-		
-		}else if(i==0){
-	
+			var p = Number(f.price.value);
 			
-			if(f.chk[0].checked){
-				
-				r+=Number(f.temp[0].value);
-		
-				f.minus[0].disabled=true;
-				f.plus[0].disabled=true;
-				
-			}else{
-				r-=Number(f.temp[0].value);
-				
-		
-				f.minus[0].disabled=false;
-				f.plus[0].disabled=false;
-			}
-		}else {
-			alert(7);
 			if(f.chk[i].checked){
-				r+=Number(f.temp[i].value);
-			
-				f.minus[i].disabled=true;
-				f.plus[i].disabled=true;
 				
+				p+=Number(f.temp[i].value);
+			
+				f.price.value=p;
 			}else{
 				
-				r-=Number(f.temp[i].value);
-	
-				f.minus[i].disabled=false;
-				f.plus[i].disabled=false;
+				p-=Number(f.temp[i].value);
+				f.price.value=p;
+				
 			}
 			
-		}
+			
+			
+		}else{
+		
+		
+		
+			if('${bklists.size()}'== 1){
+			
+				if(f.chk.checked){
+						
+					r+=Number(f.temp.value);
+					
+				
+					
+				}else{
+					
+					r-=Number(f.temp.value);
+			
+				}
 	
-		f.price.value= r;
+			
+			}else if(i==0){
+		
+				
+				if(f.chk[0].checked){
+					
+					r+=Number(f.temp[0].value);
+			
+					
+				}else{
+					r-=Number(f.temp[0].value);
+					
+				}
+			}else {
+				
+				if(f.chk[i].checked){
+					r+=Number(f.temp[i].value);
+				
+					
+				}else{
+					
+					r-=Number(f.temp[i].value);
+		
+					
+				}
+				
+			}
+		
+			f.price.value= r;
+			f.total.value= r+2500;
+		}
 	
 	}
 	
 	
-	function total() {
+	function senddirect(bnum,index) {
 		
 		var f = document.myForm;
 		
-		f.total.value = Number(f.price.value) + 2500;
+		amt = Number(f.amount[index].value);
+		
+		
+		location.href="/god/direct.action?bnum=" + bnum + "&amount=" + amt ;
+		
+		
+	}
+	
+	
+	function allchk(count) {
+		
+		var f = document.myForm;
+		var p=0;
+		
+		if(f.chk1.checked){
+			for(var i=0;i<count;i++){
+				
+				f.chk[i].checked = true;
+				
+				p+=Number(f.temp[i].value);
+				
+				
+			}
+			
+			f.price.value= p;
+			f.total.value= p+2500;
+			
+		
+			
+		}else{
+			
+			for(var i=0;i<count;i++){
+				
+				f.chk[i].checked = false;
+				
+				f.temp[i].value = f.bprice[i].value;
+			}
+			
+			
+			f.price.value= 0;
+			f.total.value= 0;
+			
+		}
+		
+	}
+	
+	function del(bnum) {
+		
+		var f = document.myForm;
+		
+		location.href="/god/del.action?bnum=" + bnum;
+		
+		
+		
+	}
+	
+	function deleted(count) {
+		
+		var f = document.myForm;
+		
+		for(var i = 0;i<count;i++){
+			if(f.chk[i].checked){
+			
+				
+			
+			}
+		}
+		
 	}
 	
 </script>
@@ -134,10 +214,12 @@
 		<div style="width: 1000px;"> <!-- 장바구니에 들어있는 물품 -->
 		
 			<div align="center" style="height:25px; background-color:#ffd2d7; border-top: solid 2px #ff7b8a; border-bottom: solid 2px #ffa3ad; padding-left: 10px; padding-right: 10px;"> <!-- 장바구니 물품 내역 -->
-				<div style="float: left; width: 100px;"><input type="checkbox" name="chk1" onclick="checked();"></div>
+
+				<div style="float: left; width: 100px;"><input type="checkbox" name="chk1" onclick="allchk(${dataCount});"></div>
+
 				<div style="float: left; width: 450px;">상품명</div>
 				<div style="float: left; width: 100px;">수량</div>
-				<div style="float: left; width: 100px; margin-left: 15px;">가격</div>
+				<div style="float: left; width: 100px; margin-left: 15px;">가격</div>				
 				<div style="width: 200px; float: left;">상태</div>
 			</div>
 		
@@ -145,31 +227,33 @@
 			
 			<c:if test="${dataCount != 0 }">
 			<c:forEach var="dto" items="${bklists }" varStatus="status">
-				<input type="hidden" name="bnum" value="${dto.getbNum }">		
+
+				<input type="hidden" name="bnum" value="${dto.bNum }">		
 				<div style="height: 60px; padding-top: 10px;">
-					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" onclick="check('${status.index }');"></div>
+					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" id="chk" onclick="check('${status.index }');" ></div>
 					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" />${dto.bPName }</div>
 					<div style="float: left; width: 100px; margin-left: 20px;">
-						<div style="float: left;"><img src="/god/resources/image/minus.png" name="minus" id="minus" width="20px" height="20px" onclick="p(-1,'${dto.bPrice}','${status.index }');"></div>
+						<div style="float: left;"><img src="/god/resources/image/minus.png" name="minus" id="minus"  width="20px" height="20px" onclick="p(-1,'${dto.bPrice}','${status.index }');"></div>
 						 
 						
 						
-						<div style="float: left; width: 12px;" ><input type="text" value="1" style="border: none;" id="amount" name="amount" maxlength="2" width="5px"  /></div>
+						<div style="float: left; width: 30px;" ><input type="text" value="1" style="border: none; width: 20px;" id="amount" name="amount" maxlength="2" /></div>
 						
 						
 						<div style="float: left;"><img src="/god/resources/image/plus.png" name="plus" width="20px" height="20px" onclick="p(1,'${dto.bPrice}','${status.index }');" ></div>
 					</div>
 					<div style="float: left; width: 90px;">
-					<input type="text" name="bprice" style="border: none;" readonly="readonly" value="${dto.bPrice }">
-					<input type="hidden" id="temp" name="temp" value="${dto.bPrice * dto.bAmount }" onchange="check('${status.index }');" >
+					<input type="text" name="bprice" style="border: none; margin-left: 25px;" readonly="readonly" value="${dto.bPrice }">
+					<input type="hidden" id="temp" name="temp" value="${dto.bPrice * dto.bAmount }" >
+
 					</div>
-					<div style="width: 200px; float: left; margin-left: 5px;">상태</div>
+					<div align="center" style="width: 200px; float: left; margin-left: 5px;"><input type="text" style="border: none; width: 100px; height: 30px;" value="착불·선결제"></div>
 				</div>
 				
 				<div align="left" style=" padding-left: 50px;">
 					<div>
-					<button type="button" class="btn btn-link" onclick="javascript:location.href='/god/direct.action?bnum=${dto.bNum}';">즉시구매></button>&nbsp;&nbsp;
-					<button type="button" class="btn btn-link" onclick="javascript:location.href='/god/del.action';">삭제></button>&nbsp;&nbsp;
+					<button type="button" class="btn btn-link" onclick="senddirect('${dto.bNum}','${status.index }');">즉시구매></button>&nbsp;&nbsp;
+					<button type="button" class="btn btn-link" onclick="del('${dto.bNum}');">삭제></button>&nbsp;&nbsp;
 					</div>
 				</div>
 				
@@ -186,9 +270,10 @@
 			
 			<br/>
 			
-			<div style="border-bottom: solid 2px #ff7b8a; padding-left: 10px; padding-right: 10px;">
-				<div style="float: left; width: 100px;"><input type="checkbox" name = "chk1"></div>
-				<div align="left" style="padding-bottom: 5px;"><button type="button" class="btn btn-primary btn-xs" onclick="">삭제</button></div>
+			<div style="border-top: solid 2px #ff7b8a; padding-top: 10px; padding-left: 10px; padding-right: 10px;">
+				<div align="left" style="padding-bottom: 5px; padding-left: 40px;">
+				<button type="button" class="btn btn-primary btn-xs" onclick="deleted(${dataCount});">삭제</button>
+				</div>
 			</div>
 			
 			<div> <!-- 결제 예정금액 틀--> 
@@ -200,14 +285,13 @@
 						</div>
 						
 						<div align="left" style="padding-left: 20px; font-size: 13pt;">
-							<div style="float: left;"> · 상품가격 </div> <div align="right"><input type="text" name="price" readonly="readonly" style="border: none; width: 50px;" value="0" onchange="total();"/>원</div>
+							<div style="float: left;"> · 상품가격 </div> <div align="right"><input type="text" name="price" readonly="readonly" style="border: none; width: 50px;" value="0" />원</div>
 							<div style="float: left;"> · 배송비 </div> <div align="right"><input type="text" name="deli" readonly="readonly" style="border: none; width: 50px;" value=" 2500"> 원 </div>
-						</div>
-						
+						</div>		
+										
 						<div align="left" style="padding-left: 20px; font-size: 13pt;">
-							<div style="float: left;"> 총 합계</div> <div align="right"><input type="text" name="total" value="0" readonly="readonly" style="border: none;"> 원</div>
-						</div>
-						
+							<div style="float: left;"> 총 합계</div> <div align="right"><input type="text" name="total" value="0" readonly="readonly" style="border: none; width: 50px;"> 원</div>
+						</div>						
 					</div>
 				</div>
 			

@@ -91,8 +91,8 @@
 <body>
 
 <table width="1020px" class="box" align="center">
-	<tr><td rowspan="3" valign="top" bgcolor="#ffd2d7">
-			<table class="box" width="200px">
+	<tr><td width="200px">
+			<table class="box">
 			
 			<tr><td class="menu1">
 				
@@ -171,49 +171,24 @@
 	<tr>
 	
 		<c:forEach var="dto" items="${hitcountlists}">	
-			<td width="200px" height="300px" align="center" class="category2">
+			<td width="200px" height="200px" align="center" class="category2">
 			
 					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href="${articleUrl}&pNum=${dto.pNum}">
 						${dto.pName}<br>${dto.pPrice}원</a></font></td>
+						
+						<%
+									if(i%4==0){
+										out.print("</tr><tr>");
+									}
+											i++;
+									%>
 						
 						
 						</c:forEach>
 		
 							
-	</tr>
-	
-	<tr><td height="50px" colspan="4"><font color="#8b4513 " style="font-family: 나눔바른펜;" size="4pt"><b>
-	&nbsp;&nbsp;&nbsp;아이디어 인기순</b></font></td></tr>
-	<tr>
-		<c:forEach var="dto" items="${ideahitcountlists}">	
-			<td width="200px" height="100px" align="center" class="category2">
-			
-					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
-					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-					<a href="${articleUrl}&pNum=${dto.pNum}">
-						${dto.pName}<br>${dto.pPrice}원</a></font></td>
-						
-						
-						</c:forEach>						
-	</tr>
-	
-	
-	<tr><td height="50px" colspan="4"><font color="#8b4513 " style="font-family: 나눔바른펜;" size="4pt"><b>
-	&nbsp;&nbsp;&nbsp;추천 순</b></font></td></tr>
-	<tr>
-	
-		<c:forEach var="dto" items="${ideahitcountlists}">	
-			<td width="200px" height="100px" align="center" class="category2">
-			
-					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
-					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-					<a href="${articleUrl}&pNum=${dto.pNum}">
-						${dto.pName}<br>${dto.pPrice}원</a></font></td>
-						
-						
-						</c:forEach>					
 	</tr>
 
 	</table>

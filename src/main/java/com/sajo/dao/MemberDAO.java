@@ -30,9 +30,9 @@ public class MemberDAO {
 		
 	}
 	
-	public void deleteData(String mid){
+	public void deleteData(String userId){
 		
-		sessionTemplate.delete("com.sajo.member.sql.deleteData",mid);
+		sessionTemplate.delete("com.sajo.member.sql.deleteData",userId);
 		
 	}
 	
