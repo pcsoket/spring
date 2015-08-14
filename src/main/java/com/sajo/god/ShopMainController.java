@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sajo.dao.BasketDAO;
 import com.sajo.dao.MemberDAO;
+import com.sajo.dao.PurchaseDAO;
 import com.sajo.dto.BasketDTO;
 import com.sajo.dto.MemberDTO;
+import com.sajo.dto.PurchaseDTO;
 import com.sajo.util.MyUtil;
 
 
@@ -30,6 +32,9 @@ public class ShopMainController {
 	
 	@Autowired
 	MemberDAO mdao;
+	
+	@Autowired
+	PurchaseDAO pdao;
 
 	@Autowired
 	MyUtil myUtil;
@@ -109,12 +114,14 @@ public class ShopMainController {
 	}
 	
 	@RequestMapping(value="/purchase.action")
-	public String purchase(HttpServletRequest req, HttpServletResponse resp){
+	public String purchase(BasketDTO dto,HttpServletRequest req, HttpServletResponse resp,HttpSession session){
+		
+		String id = (String)session.getAttribute("userId");
 		
 		
-			
 		
-		return "redirect:basket.action";
+		
+		return "redirect:purchase.action";
 	}
 	
 	@RequestMapping(value="/card.action")
