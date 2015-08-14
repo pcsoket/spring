@@ -12,34 +12,46 @@
 </head>
 <body>
 
-<div> <!-- 큰 틀 -->
+<div style="width: 500px; padding: 5px;" align="center"> <!-- 큰 틀 -->
 
-	<div>
+	<div align="left" style="padding-bottom: 10px; font-size: 13pt;">
 		일반결제(ISP)
 	</div>
-	
-	<div>
-	고객님의 신용카드번호 16자리와 이메일 주소를 정확하게 입력해주세요.
+	<div style="padding-bottom: solid 2px #5D5D5D; "></div>
+	<div align="left" style="font-size: 10pt; padding-bottom: 10px;">
+	·고객님의 <span style="font-weight: bold;">신용카드번호 16자리</span>와 <span style="font-weight: bold;">이메일 주소</span>를 정확하게 입력해주세요.
 	</div>
 	
-	<div>
-		<div>카드번호</div>
-		<div><input type="text" style="border: solid 1px;">-<input type="text" style="border: solid 1px;">-<input type="text" style="border: solid 1px;">-<input type="text" style="border: solid 1px;"></div>
-		<div>이메일</div><div><input type="text" name="email1">@<input type="text" name="email2"> </div>
+	<div style="border: solid 2px #005766; width: 490px; ">
+		
+			<div style="background-color: #C7D3ED; float: left; padding: 5px; width: 100px; border-right: solid 1px #005766; border-bottom: solid 1px #005766; " >
+				<div >카드번호</div>
+				<div style="font-size: 7pt;">/ Credit Card No. </div>
+			</div>
+			<div  align="left" style="padding: 10px; padding-left: 110px; border-bottom: solid 1px #005766;"><input type="text" style="border: solid 1px; width: 50px;">-<input type="text" style="border: solid 1px;width: 50px;">-<input type="text" style="border: solid 1px; width: 50px;">-<input type="text" style="border: solid 1px; width: 50px;"></div>
+	
+		<div style="background-color: #C7D3ED; float: left; padding: 5px; width: 100px; border-right: solid 1px #005766; border-bottom: solid 1px #005766;">
+			<div>이메일</div>
+			<div style="font-size: 7pt;">/ E-mail address </div>
+		</div>
+		<div align="left" style="padding:  9px; padding-left: 110px;"><input type="text" style="width: 70px;" name="email1">@<input type="text" style="width: 100px;" name="email2"> </div>
 	</div>
 	
+	<br/>
+	<br/>
 	<div>
-		<div>
+		<div align="left" style="padding-left: 10px; padding-bottom: 10px; font-size: 16px; color: #4948FF;">
 		 ※ 신종전자 금융사기 주의안내
 		</div>
-		<div>
+		<div style="border: solid 1px #B2CCFF; padding: 8px;">
 		일반결제(ISP) 창에서는 별도의 팝업을 통해 개인정보를 요구하지 않습니다.
 		개인정보를 요구하는 창이 뜨거나 메세지가 보이면 절대 입력하지 마세요.
 		</div>
 	</div>
 	
-	<div>
-		<button>결제</button><button>취소</button>
+	<div style="padding: 10px;">
+		<input type="button" value="결제" style="padding: 10px;">
+		<input type="button" value="취소" style="padding: 10px;">
 	</div>
 	
 </div>
