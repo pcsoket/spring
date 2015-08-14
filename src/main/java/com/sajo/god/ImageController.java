@@ -112,7 +112,7 @@ public class ImageController {
 	public String created(ImageDTO dto,MultipartHttpServletRequest request) throws Exception{
 		
 		String path = request.getSession().getServletContext().getRealPath("/resources/imageFile/");
-
+		System.out.println(path);
 		File dir = new File(path);
 		if (!dir.exists())
 			dir.mkdirs();
