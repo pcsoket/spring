@@ -11,6 +11,69 @@
 <script type='text/javascript' src='http://code.jquery.com/jquery-1.8.0.min.js'></script>
 <script type="text/javascript">
 
+//이미지 preview 추가
+$.fn.setPreview = function(opt){
+	"use strict"
+	var defaultOpt = {
+			inputFile: $(this),
+			img: null,
+			w: 200,
+			h: 200
+			};
+	$.extend(defaultOpt, opt);
+	var previewImage = function(){
+		if (!defaultOpt.inputFile || !defaultOpt.img)
+			return;
+		var inputFile = defaultOpt.inputFile.get(0);
+		var img       = defaultOpt.img.get(0);
+		
+		// FileReader
+		if (window.FileReader) {
+			// image 파일만
+			if (!inputFile.files[0].type.match(/image\//))
+				return;
+			// preview
+			try {
+				var reader = new FileReader();
+				reader.onload = function(e){
+					img.src = e.target.result;
+					img.style.width  = defaultOpt.w+'px';
+					img.style.height = defaultOpt.h+'px';
+					img.style.display = '';
+					}
+				reader.readAsDataURL(inputFile.files[0]);
+				} catch (e) {
+					// exception...
+					}
+				// img.filters (MSIE)
+				} else if (img.filters) {
+					inputFile.select();
+					inputFile.blur();
+					var imgSrc = document.selection.createRange().text;
+					img.style.width  = defaultOpt.w+'px';
+					img.style.height = defaultOpt.h+'px';
+					img.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(enable='true',sizingMethod='scale',src=\""+imgSrc+"\")";
+					img.style.display = '';
+					// no support
+					} else {
+						// Safari5, ...
+						}
+		};
+		// onchange
+		$(this).change(function(){
+			previewImage();
+			});
+		};
+		$(document).ready(function(){
+			var opt = {
+					img: $('#img_preview'),
+					w: 200,
+					h: 200
+					};
+			$('#file1').setPreview(opt);
+			
+});
+
 //selected 속성 부여
 $(document).ready(function()
  
@@ -22,11 +85,18 @@ $(document).ready(function()
 
 function sendIt() {
 	
-	
-	
-	f=document.update;
+	alert(1);
+	var f=document.update;
 	f.action="<%=cp%>/mupdated.action";
 	f.submit();
+	
+}
+
+//주소 검색 팝업창 추가-> jsp도 같이 추가
+function searchData() {
+	
+	var popOption = "width=500, height=500,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+	window.open("<%=cp %>/zipcode.action","popup",popOption);
 	
 }
 
@@ -74,7 +144,7 @@ margin: 0 auto;
 
 #bodyContent{
 width: 700px;
-height: 800px;
+height: 700px;
 float: left;
 }
 
@@ -103,6 +173,7 @@ background-color:#ffd2d7;
 .basicInfo_title{
 padding-left: 20px;
 float: left;
+overflow:hidden;
 width: 300px;
 }
 
@@ -154,10 +225,10 @@ float: right;
 			<div id="loginfoBox">
 			<c:choose>
 			<c:when test="${empty userId}">
-			<a href="">Login</a>
+			<a href="<%=cp%>/login.action">Login</a>
 			</c:when>
 			<c:otherwise>
-			<a href="">Logout</a>  <a href="">myPage</a>  
+			<a href="<%=cp%>/logout.action">Logout</a>  <a href="">myPage</a>  
 			</c:otherwise>
 			</c:choose>
 			</div>
@@ -175,8 +246,8 @@ float: right;
 		
 			<dl class="leftFirst">
 	   			<dt><strong>나의 쇼핑 내역</strong></dt>
-				<dd><a href="">회원정보수정</a></dd>
-	            <dd><a href="">탈퇴</a></dd>
+				<dd><a href="<%=cp%>/myPage.action">회원정보수정</a></dd>
+	            <dd><a href="<%=cp%>/deleted.action">탈퇴</a></dd>
 	        </dl>
 	
 			<dl class="leftSecond">
@@ -191,15 +262,13 @@ float: right;
 	            
 	   		</dl>
 	   		
-
-	   		
 		</div>
 <!-- 왼쪽메뉴끝 -->
 
 
 <!-- 마이페이지내용 -->
 		<div id="bodyContent">
-		<form name="update" method="post">
+		<form name="update" method="post" enctype="multipart/form-data">
 			<div class="bodytitle">
 			회원정보변경
 			</div>
@@ -215,6 +284,15 @@ float: right;
 			<div id="basicInfo">
 				<div class="basicInfo_boxtitle">
 				${dto.userId}님의 기본정보
+				</div>
+				<div class="basicInfo_contentWrap">
+					<div class="basicInfo_title">프로필 사진</div>
+					<div class="basicInfo_content">
+					<img id="img_preview" style="width: 100px; height: 110px;"  src="${dto.userPimg}"/>
+					<font style="color: white;"><input type="file" id="file1"  name="file2"  readonly="readonly"/></font></div>
+					<div style="float: right;">
+					<input type="text" name="pname" value="${pname}" size="20" readonly="readonly"/>
+					</div>
 				</div>
 				<div class="basicInfo_contentWrap">
 					<div class="basicInfo_title">아이디</div>
@@ -246,13 +324,25 @@ float: right;
 				${dto.userId}님의 배송 정보
 				</div>
 				<div class="purchaseInfo_contentWrap" style="height: 100px;">
-					<div class="purchaseInfo_title">주소</div><div class="purchaseInfo_content">
-					<input type="text" name="userAddr1" class="" readonly="readonly" style="width:55px" value="${dto.userAddr1}">
-					<a href="" class="btnAddr"><span>주소 찾기</span></a>
+					<div class="purchaseInfo_title">주소</div>
+					<div class="purchaseInfo_content">
+					<div style="float: left; padding-left: 10px;">
+							<input type="text" name="code1" id="code1" value="${code1}" style="margin-top:8px; float:left" size="10" maxlength="3" class="boxTF" />
+					    </div>
+					    
+					    <div style="float: left; width: 10px; margin-top:8px;" > - </div>
+					    
+						<div style="float: left;"><input type="text" name="code2" id="code2" value="${code2}"  style="margin-top:8px; float:left;" size="10" maxlength="3" class="boxTF" /></div>
+					<div style="float: left; padding-left: 3px;"><input type="button" style="margin-top:8px;" value="주소 검색 " onclick="searchData();"/></div>
 				</div>
+				<br/>
 					<div class="purchaseInfo_content" style="float: right; margin-right: 100px;">
-					<input type="text" name="userAddr2" class="" readonly="readonly" style="width:265px;" value="${dto.userAddr2}"/><br/>
+					<div>
+					<input type="text" id="userAddr2" name="userAddr2" class="" readonly="readonly" style="width:265px;" value="${dto.userAddr2}"/>
+					</div>
+					<div>
 					<input type="text" name="userAddr3" class=""  style="width:265px;" value="${dto.userAddr3}"/>
+					</div>
 					</div>
 				</div>
 				<div class="purchaseInfo_contentWrap">
@@ -304,13 +394,19 @@ float: right;
 						</div>
 					</div>
 				</div>
-		</form>	
+		</form>
+		<div style="margin-top: 50px;">
+		<div style="border-top: 2px solid #EAEAEA; "></div>
+		</div>
+		<div align="center" style="margin-top: 10px;">
+		<button type="button" style="width: 90px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="sendIt();"> 수 정 완 료 </button>
+		</div>	
 		</div>
 	</div><!-- bodyWrap끝 -->
 <!-- 마이페이지끝 -->
 	<div id="footer">
 		<div align="center" class="footerNotice">
-		<button type="button" style="width: 90px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="sendIt();"> 수 정 완 료 </button>
+		
 		</div>
 		<div align="center" class="copyright">
 			<p>Copyright SK planet. All rights reserved.</p>
