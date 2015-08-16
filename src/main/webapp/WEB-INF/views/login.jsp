@@ -39,6 +39,13 @@ function sendIt() {
 	
 	f.submit();
 }
+
+function findId() {
+	
+	var popOption = "width=400, height=200,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+	window.open("<%=cp %>/findId.action","popup",popOption);
+	
+}
 </script>
 <title>로 그 인</title>
 
@@ -89,7 +96,7 @@ function sendIt() {
                    </div>
                    <div class="login_support_pannel">
                         <label for="keep_id" class="keep_id"><input type="checkbox" id="keep_id" name="keep_id" title="아이디 저장" class="checkbox" /> 아이디 저장</label>
-                        <a href="#" class="find_profile">아이디/비밀번호 찾기</a>
+                        <a onclick="findId();" class="find_profile">아이디/비밀번호 찾기</a>
                     </div>
                    
                 </fieldset>
@@ -104,7 +111,7 @@ function sendIt() {
                    	</div>
                     <div class="bn_ar" style="width: 30%;" >
                     	<div>
-                        	<a class="bn xsmall color1 join" href="javascript:Location.href='/write.action'">
+                        	<a class="bn xsmall color1 join" href="<%=cp%>/write.action">
                         	<span style="color: #8b4513;">회원가입</span></a>                        
                     	</div>                    
                     </div>         

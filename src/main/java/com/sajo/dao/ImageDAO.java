@@ -5,8 +5,10 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
@@ -79,9 +81,7 @@ public class ImageDAO {
 	//============================================================이미지 배열 저장 및 insert
     public String writeFile(ImageDTO dto,String uploadPath) {
     	
-   
-
-   
+ 
 		File dir = new File(uploadPath);//경로가 없으면 만듬
 		if (!dir.exists()){
 			dir.mkdirs();
@@ -94,7 +94,7 @@ public class ImageDAO {
 	        OutputStream out = null;
 	        CommonsMultipartFile[] multipartFiles = dto.getUpload();
 	        try {
-	        	ImageDTO idto = null;
+	        	ImageDTO idto = new ImageDTO();
 	            for (CommonsMultipartFile multipartFile : multipartFiles) {
 	            	if(multipartFile !=null){
 	            		
@@ -114,10 +114,23 @@ public class ImageDAO {
 		        		int maxNum = getMaxNum();
 		        		System.out.println(maxNum);
 		        		idto.setImgNum(maxNum + 1);
-		        		imageList+=idto.getImgNum()+"!@#$";  //문제의 여지가 있음.
+		        		idto.setUserId("111");               //임시로 넣어줌 나중에 DTO로 넘어올 부분
+		        		
+		        		
+		        		if(!imageList.equals("")){                  //imgNum ,구분하여 합치기
+		        		imageList+=","+idto.getImgNum();
+		        		}else {
+		        			imageList+=idto.getImgNum();	
+						}
+		        		
+		        		
 		        		idto.setUploadFileName("product"); //-----아직쓰는 부분 없음
 		        		idto.setOriginalFileName(multipartFile.getOriginalFilename());
+		        		idto.setSaveFileName("11");  //임시로 넣어줌.
+		        		idto.setTableName("test");  //임시로 넣어줌.
 		        		insertData(idto);
+		        		bis.close();
+						out.close();
 	            	}
 	            }
 	        } catch (IOException ioe) {
@@ -130,5 +143,19 @@ public class ImageDAO {
         }
 		return imageList;
     }
-	
+    
+    public List<ImageDTO> getImageList(String imgnumlist) {   //배열로 넣은 이미지 파일 가져오기
+    	
+    	 String[] imgNum = imgnumlist.split(",");
+    	 List<ImageDTO> lists = new ArrayList<ImageDTO>();
+    	 ListIterator<ImageDTO> it = lists.listIterator();
+
+    	 for (String imgNO : imgNum) {              //그룹넘버 지정해서 한번에 검색도 가능
+    		 
+    		 it = sessionTemplate.selectOne("com.sajo.image.readData",imgNO);
+    	 }
+    	 
+    	 return lists;
+    }
+    //=====================================================임시
 }

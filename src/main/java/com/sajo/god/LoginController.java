@@ -38,6 +38,8 @@ public class LoginController {
 		String userId = req.getParameter("userId");
 		String userPwd = req.getParameter("userPwd");
 		
+		session.removeAttribute("message");
+		
 		dto = dao.getList(userId);
 		
 		if(dto==null){
@@ -55,7 +57,7 @@ public class LoginController {
 		session.setAttribute("userId", userId);
 		session.setAttribute("userPwd", userPwd);
 		
-		return "shop";
+		return "redirect:/shopmain.action";
 		
 	}
 	
@@ -65,7 +67,39 @@ public class LoginController {
 		session.removeAttribute("userId");
 		session.removeAttribute("userPwd");
 		
-		return "shop";
+		return "redirect:/shopmain.action";
+	}
+	
+	@RequestMapping(value="/findId.action")
+	public String findId(){
+		
+		
+		return "findId";
+	}
+	
+	@RequestMapping(value="/findId_ok.action")
+	public String findId_ok(HttpServletRequest req,HttpServletResponse resp,HttpSession session,LoginDTO dto){
+		
+		String userName = req.getParameter("userName");
+		String userEmail = req.getParameter("userEmail");
+		
+		req.removeAttribute("message");
+		req.removeAttribute("message1");
+		
+		dto = dao.getListId(userName,userEmail);
+		
+		if(userName!=null){
+			
+			
+			
+		req.setAttribute("message","찾으신 ID는 [" + dto.getUserId() + "] 입니다.");
+		req.setAttribute("message1","찾으신 Password는 [" + dto.getUserPwd() + "] 입니다.");
+		
+		return "findId";
+		}
+		
+		return "findId";
+
 	}
 
 }

@@ -6,8 +6,8 @@
 	
 <mapper namespace="com.sajo.member.sql">
 	<insert id="insertData" parameterType="com.sajo.dto.MemberDTO">
-	insert into member (mid,mname,mpwd,maddr1,maddr2,maddr3,mtel,memail,mcreated,mself)
-	values (#{userId},#{userName},#{userPwd},#{userAddr1},#{userAddr2},#{userAddr3},#{userTel},#{userEmail},sysdate,#{userSelf})
+	insert into member (mid,mname,mpwd,maddr1,maddr2,maddr3,mtel,memail,mcreated,mself,mpimg)
+	values (#{userId},#{userName},#{userPwd},#{userAddr1},#{userAddr2},#{userAddr3},#{userTel},#{userEmail},sysdate,#{userSelf},#{userPimg})
 	</insert>
 	<select id="getAddrList" parameterType="String" resultType="com.sajo.dto.AddrDTO">
 	select zipcode,sido,gugun,dong,bunji from post where dong like #{dong} || '%'
@@ -20,10 +20,13 @@
 	</select>
 	<select id="getReadData" parameterType="String" resultType="com.sajo.dto.MemberDTO">
 		select mid as userId,mName as userName, mPwd as userPwd,mTel as userTel,maddr1 as userAddr1,maddr2 as userAddr2,maddr3 as userAddr3,
-		mEmail as userEmail,mCreated as userCreated,mSelf as userSelf from member where mid=#{userId}
+		mEmail as userEmail,mCreated as userCreated,mSelf as userSelf, mpimg as userPimg from member where mid=#{userId}
 	</select>
 	<update id="memberUpdate" parameterType="com.sajo.dto.MemberDTO">
 	update member set mname=#{userName},mpwd=#{userPwd},maddr1=#{userAddr1},maddr2=#{userAddr2},maddr3=#{userAddr3},mtel=#{userTel},memail=#{userEmail}
-	,mself=#{userSelf} where mid=#{userId}
+	,mself=#{userSelf},mpimg=#{userPimg} where mid=#{userId}
 	</update>
+	<delete id="deleteData" parameterType="String">
+	 delete member where mid=#{userId}
+	</delete>
 </mapper>

@@ -39,7 +39,7 @@ public class MemberController {
 	
 	//회원가입 page 열기
 	@RequestMapping(value="/write.action")
-	public ModelAndView created(String userPimg, String userPimgUrl){
+	public ModelAndView created(){
 		
 		ModelAndView mav = new ModelAndView();
 		
@@ -65,11 +65,10 @@ public class MemberController {
 		String code1 = request.getParameter("code1");
 		String code2 = request.getParameter("code2");
 		MultipartFile pimg = req.getFile("file2");
-		String userpimg = pimg.getOriginalFilename();
-		
+		String userpimg = (String)pimg.getOriginalFilename();
 		String maddr = code1 + "-" + code2;
 
-		dto.setUserPimg(path+"/"+userpimg);
+		dto.setUserPimg(userpimg);
 		dto.setUserAddr1(maddr);
 		
 		if(pimg!=null && pimg.getSize()>0){
@@ -116,7 +115,7 @@ public class MemberController {
 		
 		String userId = (String)session.getAttribute("userId");
 		
-		//dao.deleteData(userId);
+		dao.deleteData(userId);
 		
 		return"redirect:/shopMain.action";
 	}
@@ -185,18 +184,34 @@ public class MemberController {
 	//회원정보 수정 page 열기
 	@RequestMapping(value="/myPage.action")
 	public String myPage(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
+		
 	
-		//String userId= (String)session.getAttribute("userId");
-		String userId = "admin";
+		String userId= (String)session.getAttribute("userId");
+		
+		if(userId==null||userId.equals("")){
+			
+			return "shopMyPage";
+			
+		}
+		
 		dto= dao.getReadData(userId);
+		
+		String savepath = "/god/resources/testimg/";
+		String pimg = savepath + dto.getUserPimg();
+		dto.setUserPimg(pimg);
+		System.out.println(dto.getUserPimg());
+		String[] addr = dto.getUserAddr1().split("-");
+		
+		String code1 = addr[0];
+		String code2 = addr[1];
 		
 		String[] phn = dto.getUserTel().split("-");
 		String phn1 = phn[0];
 		String phn2 = phn[1];
 		String phn3 = phn[2];
-		
-		
-		
+			
+		req.setAttribute("code1", code1);
+		req.setAttribute("code2", code2);
 		req.setAttribute("phn1", phn1);
 		req.setAttribute("phn2", phn2);
 		req.setAttribute("phn3", phn3);
@@ -206,7 +221,7 @@ public class MemberController {
 	
 	//회원정보 수정 코딩
 	@RequestMapping(value="/mupdated.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String updated(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
+	public String updated(MultipartHttpServletRequest request,HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
 		
 		String phn1 = req.getParameter("phn1");
 		String phn2 = req.getParameter("phn2");
@@ -214,9 +229,60 @@ public class MemberController {
 		String phn = phn1+"-"+phn2+"-"+phn3;
 		dto.setUserTel(phn);
 		
+		String code1 = req.getParameter("code1");
+		String code2 = req.getParameter("code2");
+		String addr1 = code1 +"-" + code2;
+		
+		dto.setUserAddr1(addr1);
+		
+		String path = 
+				request.getSession().getServletContext().getRealPath("/resources/testimg/");
+		
+		MultipartFile pimg = request.getFile("file2");
+		String userpimg = (String)pimg.getOriginalFilename();
+		
+		if(pimg!=null && pimg.getSize()>0){
+			
+			
+			try {
+				
+				FileOutputStream ostream = 
+						new FileOutputStream(path + "/" + pimg.getOriginalFilename());
+				
+				InputStream istream = pimg.getInputStream();
+				
+				byte[] buffer = new byte[512];
+				
+				while(true){
+					
+					int count = istream.read(buffer, 0, buffer.length);
+					if(count==-1){
+						
+						break;
+						
+					}
+					
+					ostream.write(buffer,0,count);
+					
+				}
+				
+				istream.close();
+				ostream.close();
+				
+				
+				
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+		}
+		
+		dto.setUserPimg(userpimg);
+		
 		dao.updated(dto);
 		
+	
 		return "redirect:/myPage.action";
 	}
-	
+
 }
