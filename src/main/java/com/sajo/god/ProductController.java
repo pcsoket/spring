@@ -287,6 +287,7 @@ public class ProductController {
 		return mav;
 	}
 
+	@RequestMapping(value="/shop_created_ok.action",method={RequestMethod.GET,RequestMethod.POST})
 	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		
@@ -336,15 +337,15 @@ public class ProductController {
 
 		}
 
-		int maxNum = idao.getMaxNum();
+		//int maxNum = idao.getMaxNum();
 
-		idto.setImgNum(maxNum + 1);
+		//idto.setImgNum(maxNum + 1);
 		idto.setUploadFileName("product"); ///-----안씀
 		idto.setOriginalFileName(file.getOriginalFilename());
-		idao.insertData(idto);
+		//idao.insertData(idto);
 		//==========================================================================이미지 insert
 		
-		pdto.setpNum(dao.p_maxNum()+1);
+		//pdto.setpNum(dao.p_maxNum()+1);
 		pdto.setpCategory("product");     ///-------------임시로 카테고리지정
 		
 		mav.setViewName("shop_article");

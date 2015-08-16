@@ -61,8 +61,9 @@ pname VARCHAR2(100) NOT NULL,
 pprice NUMBER(8) NOT NULL,
 pgrade NUMBER(2),
 phitCount NUMBER,
-pcontent VARCHAR2(5000) NOT NULL,
-pstock NUMBER(4) NOT NULL);
+pcontent VARCHAR2(4000) NOT NULL,
+pstock NUMBER(4) NOT NULL,
+pimg varchar2(1000) not null);
 
 CREATE TABLE after
 (cmnum NUMBER PRIMARY KEY,
