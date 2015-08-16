@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sajo.dao.BasketDAO;
 import com.sajo.dao.MemberDAO;
+import com.sajo.dao.PurchaseDAO;
 import com.sajo.dto.BasketDTO;
 import com.sajo.dto.MemberDTO;
+import com.sajo.dto.PurchaseDTO;
 import com.sajo.util.MyUtil;
 
 
@@ -30,6 +32,9 @@ public class ShopMainController {
 	
 	@Autowired
 	MemberDAO mdao;
+	
+	@Autowired
+	PurchaseDAO pdao;
 
 	@Autowired
 	MyUtil myUtil;
@@ -94,7 +99,7 @@ public class ShopMainController {
 		
 		MemberDTO mdto = mdao.getReadData("3");
 		
-		System.out.println(mdto.getUserName());
+		//System.out.println(mdto.getUserName());
 		
 		BasketDTO dto = dao.readbasket(bnum);
 		
@@ -108,13 +113,89 @@ public class ShopMainController {
 		return "purchase";
 	}
 	
+	@RequestMapping(value="/basket_ok.action")
+	public String basket_ok(String bnums, String amt,HttpServletRequest req, HttpServletResponse resp,HttpSession session){
+		
+		String id = (String)session.getAttribute("userId");
+		
+		MemberDTO mdto = mdao.getReadData(id);
+		
+		if(bnums != null){
+			
+			String[] nums= bnums.split("-");
+			String[] amts= amt.split("-");
+			
+			PurchaseDTO pdto;
+			for(int i=0;i<nums.length;i++){
+				
+				BasketDTO dto = dao.readbasket(Integer.parseInt(nums[i]));
+				
+				
+				pdto = new PurchaseDTO();
+				
+				pdto.setBnum(dto.getbNum());
+				pdto.setPamount(Integer.parseInt(amts[i]));
+				pdto.setPname(dto.getbPName());
+				pdto.setPprice(Integer.parseInt(amts[i])* dto.getbPrice());
+				pdto.setMid(id);
+				pdto.setMaddr(mdto.getUserAddr2());
+				pdto.setBdate("");
+				pdto.setState("결제전");
+				pdto.setRetake(0);
+				pdto.setPnum(dto.getpNum());
+				
+				pdao.insertData(pdto);
+				
+				if (pdto!=null) {
+						
+						pdao.deleteData(Integer.parseInt(nums[i]));
+						
+					}
+					
+			}
+			
+			req.setAttribute("pdto", pdto);
+			
+			
+			
+		}else{
+			
+			BasketDTO dto = dao.readbasket(Integer.parseInt(bnums));
+			
+			PurchaseDTO pdto = new PurchaseDTO();
+			
+			
+			pdto.setBnum(dto.getbNum());
+			pdto.setPamount(dto.getbAmount());
+			pdto.setPname(dto.getbPName());
+			pdto.setPprice(dto.getbPrice());
+			pdto.setMid(id);
+			pdto.setMaddr(mdto.getUserAddr2());
+			pdto.setBdate("");
+			pdto.setState("결제전");
+			pdto.setRetake(0);
+			pdto.setPnum(dto.getpNum());
+			
+			pdao.insertData(pdto);
+			
+		}
+		
+		
+		req.setAttribute("mdto", mdto);
+		
+		
+		return "redirect:purchase.action";
+	}
+	
 	@RequestMapping(value="/purchase.action")
 	public String purchase(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
+	
+	
 		
-			
-		
-		return "redirect:basket.action";
+		return "purchase";
 	}
+	
+	
 	
 	@RequestMapping(value="/card.action")
 	public String card(Integer bnum,HttpServletRequest req, HttpServletResponse resp){

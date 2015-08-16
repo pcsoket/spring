@@ -196,6 +196,43 @@
 		
 	}
 	
+	function account(size) {
+		
+		alert("1");
+		
+		var f = document.myForm;
+	
+		var str = "";
+		var amt="";
+		
+		if(val==1){
+			if(f.chk.checked){
+				str = f.bnum.value;
+				amt = f.amount.value;
+				
+			}
+			
+		}else{
+			
+			 for(var i=0; i<size; i++){
+				if(f.chk[i].checked){
+					
+					 str += f.bnum[i].value + "-";
+					 amt += f.amount[i].value + "-";
+				}
+			}
+		}
+	//	alert(str);
+		f.bnums.value=str;
+		f.amt.value=amt;
+					
+		alert("3");
+		f.action="/god/purchase.action";
+		f.submit();
+		
+		
+	}
+	
 </script>
 
 </head>
@@ -231,7 +268,7 @@
 				<input type="hidden" name="bnum" value="${dto.bNum }">		
 				<div style="height: 60px; padding-top: 10px;">
 					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" id="chk" onclick="check('${status.index }');" ></div>
-					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" />${dto.bPName }</div>
+					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" name="bpname"/>${dto.bPName }</div>
 					<div style="float: left; width: 100px; margin-left: 20px;">
 						<div style="float: left;"><img src="/god/resources/image/minus.png" name="minus" id="minus"  width="20px" height="20px" onclick="p(-1,'${dto.bPrice}','${status.index }');"></div>
 						 
@@ -301,9 +338,9 @@
 		</div>
 		<br/>
 	</div>
-		
+		<input type="hidden" name="bnums"><input type="hidden" name="amt">
 		<div style="width: 100%;height: 60px;">
-			<div><button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/purchase.action';">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
+			<div><button type="button" class="btn btn-primary btn-lg" onclick="account('${bklists.size}');">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
 		</div>
 	</form>
 	
