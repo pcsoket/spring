@@ -198,14 +198,14 @@
 	
 	function account(size) {
 		
-		alert("1");
+		
 		
 		var f = document.myForm;
 	
 		var str = "";
 		var amt="";
 		
-		if(val==1){
+		if(size==1){
 			if(f.chk.checked){
 				str = f.bnum.value;
 				amt = f.amount.value;
@@ -222,12 +222,14 @@
 				}
 			}
 		}
-	//	alert(str);
+		alert(str);
+		alert(amt);
 		f.bnums.value=str;
 		f.amt.value=amt;
-					
-		alert("3");
-		f.action="/god/purchase.action";
+		
+		
+		
+		f.action="/god/basket_ok.action";
 		f.submit();
 		
 		
@@ -253,7 +255,7 @@
 			<div align="center" style="height:25px; background-color:#ffd2d7; border-top: solid 2px #ff7b8a; border-bottom: solid 2px #ffa3ad; padding-left: 10px; padding-right: 10px;"> <!-- 장바구니 물품 내역 -->
 
 				<div style="float: left; width: 100px;"><input type="checkbox" name="chk1" onclick="allchk(${dataCount});"></div>
-
+				
 				<div style="float: left; width: 450px;">상품명</div>
 				<div style="float: left; width: 100px;">수량</div>
 				<div style="float: left; width: 100px; margin-left: 15px;">가격</div>				
@@ -309,7 +311,7 @@
 			
 			<div style="border-top: solid 2px #ff7b8a; padding-top: 10px; padding-left: 10px; padding-right: 10px;">
 				<div align="left" style="padding-bottom: 5px; padding-left: 40px;">
-				<button type="button" class="btn btn-primary btn-xs" onclick="deleted(${dataCount});">삭제</button>
+				<button type="button" class="btn btn-primary btn-xs" onclick="deleted('${dataCount}');">삭제</button>
 				</div>
 			</div>
 			
@@ -338,9 +340,10 @@
 		</div>
 		<br/>
 	</div>
-		<input type="hidden" name="bnums"><input type="hidden" name="amt">
+		
 		<div style="width: 100%;height: 60px;">
-			<div><button type="button" class="btn btn-primary btn-lg" onclick="account('${bklists.size}');">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
+		<input type="hidden" name="bnums" value=""><input type="hidden" name="amt" value="">
+			<div><button type="button" class="btn btn-primary btn-lg" onclick="account('${bklists.size()}');">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
 		</div>
 	</form>
 	
