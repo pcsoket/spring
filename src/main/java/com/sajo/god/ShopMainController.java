@@ -51,7 +51,7 @@ public class ShopMainController {
 	@RequestMapping(value="/basket.action")
 	public String basket(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
-		String userId = "3";
+		String userId = "5";
 		
 		String savePath = "example" + File.separator + "resources" + File.separator + "imageFile";
 		
@@ -118,9 +118,9 @@ public class ShopMainController {
 		
 		//String id = (String)session.getAttribute("userId"); //session에서 id받아오기
 		
-		String id = "3";
+		String mid = "5";
 		
-		MemberDTO mdto = mdao.getReadData(id);
+		MemberDTO mdto = mdao.getReadData(mid);
 		
 		if(bnums != null){
 			
@@ -141,15 +141,18 @@ public class ShopMainController {
 				pdto = new PurchaseDTO();
 				
 				pdto.setBnum(dto.getbNum());
+				
+				System.out.println(3 +  dto.getbNum());
 				pdto.setPamount(Integer.parseInt(amts[i]));
 				pdto.setPname(dto.getbPName());
 				pdto.setPprice(Integer.parseInt(amts[i]) * dto.getbPrice());
-				pdto.setMid(id);
+				pdto.setMid(mid);
 				pdto.setMaddr(mdto.getUserAddr2());
 				pdto.setState("결제전");
 				pdto.setRetake(0);
 				pdto.setPnum(dto.getpNum());
 				
+
 				int result = pdao.insertData(pdto);
 				
 				if (result!=0) {
@@ -157,6 +160,7 @@ public class ShopMainController {
 						dao.delbasket(Integer.parseInt(nums[i]));
 						
 					}
+					
 					
 			}
 			
@@ -175,7 +179,7 @@ public class ShopMainController {
 			pdto.setPamount(dto.getbAmount());
 			pdto.setPname(dto.getbPName());
 			pdto.setPprice(dto.getbPrice());
-			pdto.setMid(id);
+			pdto.setMid(mid);
 			pdto.setMaddr(mdto.getUserAddr2());
 			pdto.setBdate("");
 			pdto.setState("결제전");
@@ -187,17 +191,33 @@ public class ShopMainController {
 		}
 		
 		
+	
+		
+		PurchaseDTO pdto = pdao.getBnums(mid);
+		System.out.println("11" + pdto.getBnum());
+		System.out.println("12"+pdto.getMid());
+		
 		req.setAttribute("mdto", mdto);
+		req.setAttribute("pdto", pdto);
+	
 		
-		
-		return "redirect:purchase.action";
+		return "purchase";
 	}
 	
 	@RequestMapping(value="/purchase.action")
-	public String purchase(PurchaseDTO pdto, Integer bnum,HttpServletRequest req, HttpServletResponse resp){
-	
+	public String purchase(HttpServletRequest req, HttpServletResponse resp,HttpSession session){
 		
+		//String id = (String)session.getAttribute("userId"); //session에서 id받아오기
 		
+		String mid = "5";
+				
+		MemberDTO mdto = mdao.getReadData(mid);
+		
+		PurchaseDTO pdto = pdao.getBnums(mid);
+		System.out.println("11" + pdto.getBnum());
+		System.out.println("12"+pdto.getMid());
+		
+		req.setAttribute("mdto", mdto);
 		req.setAttribute("pdto", pdto);
 		
 		
@@ -210,9 +230,37 @@ public class ShopMainController {
 	@RequestMapping(value="/card.action")
 	public String card(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
 		
+		
+		
+		
+	
 			
 		
 		return "card";
+	}
+	
+	@RequestMapping(value="/card_ok.action")
+	public String card_ok(PurchaseDTO pdto,Integer bnum,HttpServletRequest req, HttpServletResponse resp){
+		
+		
+		
+		pdto.setState("결제완료");
+		
+		pdao.updateData(pdto);
+		
+		
+		
+		
+		
+		return "shopmain";
+	}
+	
+	@RequestMapping(value="/card_cancle.action")
+	public String card_cancel(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
+		
+		
+	
+		return "basket.action";
 	}
 	
 	@RequestMapping(value="/del.action")

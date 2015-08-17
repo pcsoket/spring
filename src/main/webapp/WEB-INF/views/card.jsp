@@ -1,5 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String cp = request.getContextPath();
+	
+ %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -71,7 +76,7 @@
 		
 		f.status.value = "complete";
 
-		f.action= "god/shopmain.action";
+		//f.action= "god/shopmain.action";
 		f.submit();
 		
 		
@@ -79,9 +84,23 @@
 		
 		
 		
-		opener.top.location.href="god/basket.action";
+		opener.parent.location.href="<%=cp%>/basket.action";
 		
 		self.close();
+		
+	}
+	
+	function cancel() {
+		
+		var f = document.MyForm;
+		
+
+		f.submit();
+		
+		opener.parent.location.href="<%=cp%>/basket.action";
+		self.close();
+		
+		
 		
 	}
 	
@@ -131,7 +150,7 @@
 	
 	<div style="padding: 10px;">
 		<input type="button" value="결제" style="padding: 10px;" onclick="charge();">
-		<input type="button" value="취소" style="padding: 10px;" onclick="javascript:location.href='/god/purchase.action';">
+		<input type="button" value="취소" style="padding: 10px;" onclick="cancel();">
 	</div>
 	<input type="hidden" name="status" value="">
 </div>
