@@ -39,7 +39,7 @@
 </style>
 <script type="text/javascript">
 	function sendIt(){
-	alert("1")
+	
 	f = document.myForm;
 
 	f.action = "<%=cp%>/group/created_ok.action";

@@ -2,9 +2,6 @@
 <%
 	String cp = request.getContextPath();
 
-	String userPimg = (String)request.getAttribute("userPimg");
-	String userPimgUrl = (String)request.getAttribute("userPimgUrl");
-
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -76,7 +73,7 @@ $.fn.setPreview = function(opt){
 });
 
 function sendIt() {
-	alert(1);
+	
 	f = document.write;
 	
 	str = f.userId.value;
@@ -87,7 +84,7 @@ function sendIt() {
 		return;
 	}
 	f.userId.value = str;
-	alert(2);
+	
 	str = f.userName.value;
 	str = str.trim();
 	if(!str){
@@ -96,7 +93,7 @@ function sendIt() {
 		return;
 	}
 	f.userName.value = str;
-	alert(3);
+	
 	str = f.userPwd.value;
 	str = str.trim();
 	if(!str){
@@ -105,7 +102,7 @@ function sendIt() {
 		return;
 	}
 	f.userPwd.value = str;
-	alert(4);
+	
 	str1 = f.userPwd1.value;
 	str1 = str1.trim();
 	if(str!=str1){
@@ -113,7 +110,7 @@ function sendIt() {
 		f.userpwd1.focus();
 		return;
 	}
-	alert(5);
+	
 	str = f.code1.value;
 	str = str.trim();
 	if(!str){
@@ -122,7 +119,7 @@ function sendIt() {
 		return;
 	}
 	f.code1.value = str;
-	alert(6);
+	
 	str = f.userAddr3.value;
 	str = str.trim();
 	if(!str){
@@ -131,7 +128,7 @@ function sendIt() {
 		return;
 	}
 	f.userAddr3.value = str;
-	alert(7);
+	
 	str = f.userTel.value;
 	str = str.trim();
 	if(!str){
@@ -140,7 +137,7 @@ function sendIt() {
 		return;
 	}
 	f.userTel.value = str;
-	alert(8);
+	
 	str = f.userEmail.value;
 	str = str.trim();
 	if(!str){
@@ -149,11 +146,11 @@ function sendIt() {
 		return;
 	}
 	f.userEmail.value = str;
-	alert(9);
+	
 	f.action = "<%=cp %>/write_ok.action";
-	alert(10);
+	
 	f.submit();
-	alert(11);
+	
 }
 //주소 검색 팝업창 추가-> jsp도 같이 추가
 function searchData() {

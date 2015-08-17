@@ -206,5 +206,9 @@ public class ImageController {
 
 		return "redirect:/img/list.action";
 	}
-
+	
+	//Å×½ºÆ®
+	public String test() {
+		return "22";
+	}
 }

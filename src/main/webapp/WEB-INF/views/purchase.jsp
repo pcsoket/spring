@@ -74,7 +74,7 @@
 			<div style="border: solid 1px #ffd2d7;" >
 				<div style="float: left; width: 150px;" >이미지 </div>
 				<div style="float: left;">
-					<div><input type="text" name="bpname" style="border: none;" value="${dto.bPName }"> </div>
+					<div><input type="text" name="bpname" style="border: none;" value="${pdto.bPName }"> </div>
 					<div><input type="text" name="bprice" style="border: none;" value="${dto.bPrice }"> </div>
 				</div>
 			</div>
