@@ -11,7 +11,7 @@ public class PurchaseDAO {
 	
 	//dataSource D.I
 	private SqlSessionTemplate sessionTemplate;
-	private Connection conn = null;
+	//private Connection conn = null;
 	
 
 	public void setSessionTemplate(SqlSessionTemplate asd) throws Exception{
@@ -74,6 +74,14 @@ public class PurchaseDAO {
 		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getReadData",num);
 		
 		return dto;
+	}
+	
+	public PurchaseDTO getBnums(String mid){
+		
+		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getBnums", mid);
+		
+		return dto;
+		
 	}
 	
 	//

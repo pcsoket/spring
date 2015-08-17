@@ -31,13 +31,21 @@
 		where pname like '%' || #{searchValue} || '%'
 	</select>
 	
+	<!-- id로 purchase테이블에첫번째 데이터 읽어오기 -->
+	<select id="getBnums" parameterType="String" resultType="com.sajo.dto.PurchaseDTO">
+		select * from (
+		select rownum rnum, data.* from(
+		select bnum,pnum,pprice,pamount,pname,mid,maddr,state,retake,to_char(bdate,'YYYY-MM-DD') bdate
+		from purchase where mid = #{mid} order by bnum desc) data) where rnum = 1
+	</select>
+	
 	<select id="getReadData" parameterType="int" resultType="com.sajo.dto.PurchaseDTO">
 		select bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake
 		from purchase where bnum=#{bnum}
 	</select>
 	
 	<update id="updateData" parameterType="com.sajo.dto.PurchaseDTO">
-		update purchase set state=#{state},retake=#{retake} where bnum=#{bnum}
+		update purchase set state=#{state} where bnum=#{bnum}
 	</update>
 	
 	<delete id="deleteData" parameterType="int">
