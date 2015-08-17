@@ -138,62 +138,6 @@ A:hover {text-decoration:none}
 
 </table>
 
-<!-- 하단 시작 -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td align="center" bgcolor="444444">
-    <table width="1000" border="0" cellspacing="0" cellpadding="0">
-      <tr><td height="40" colspan="3"></td></tr>
-      <tr>
-        <td width="100" height="60" background="<%=cp%>/resources/image/로고.png"></td><!-- 로고 -->
-        <td width="34" valign="top">
-        <td width="856" valign="top" >
-        <table width="856" border="0" cellspacing="0" cellpadding="0">
-          <tr>
-            <td align="left">
-            <table width="856" border="0" cellspacing="0" cellpadding="0">
-              <tr>
-                <td width="746" height="30" valign="middle" align="left" style="padding-top:2px;">
-               <a href="http://www.maque.co.kr/provision.php" onfocus='this.blur()' onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('ft_bt1','','http://www.maque.co.kr/img/ft/bt1_on.png',0)">
-              <img src="http://www.maque.co.kr/img/ft/bt1_off.png" name="ft_bt1" border="0" id="ft_bt1" /></a>
-              <img src="http://www.maque.co.kr/img/ft/line.png" alt="" border="0">
-              
-              <a href="http://www.maque.co.kr/privacy.php" onfocus='this.blur()' onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('ft_bt2','','http://www.maque.co.kr/img/ft/bt2_on.png',0)">
-              <img src="http://www.maque.co.kr/img/ft/bt2_off.png" name="ft_bt2" border="0" id="ft_bt2" /></a>
-              <img src="http://www.maque.co.kr/img/ft/line.png" alt="" border="0">
-              
-              <a href="http://www.maque.co.kr/bbs/write.php?bo_table=partners" onfocus='this.blur()' onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('ft_bt3','','http://www.maque.co.kr/img/ft/bt3_on.png',0)">
-              <img src="http://www.maque.co.kr/img/ft/bt3_off.png" name="ft_bt3" border="0" id="ft_bt3" /></a>
-              <img src="http://www.maque.co.kr/img/ft/line.png" alt="" border="0">
-              
-              <a href="http://www.maque.co.kr/bbs/write.php?bo_table=invest" onfocus='this.blur()' onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('ft_bt4','','http://www.maque.co.kr/img/ft/bt4_on.png',0)">
-              <img src="http://www.maque.co.kr/img/ft/bt4_off.png" name="ft_bt4" border="0" id="ft_bt4" /></a>
-              <img src="http://www.maque.co.kr/img/ft/line.png" alt="" border="0">
-              
-              <a href="http://www.maque.co.kr/bbs/write.php?bo_table=register" onfocus='this.blur()' onmouseout="MM_swapImgRestore()" onmouseover="MM_swapImage('ft_bt5','','http://www.maque.co.kr/img/ft/bt5_on.png',0)">
-              <img src="http://www.maque.co.kr/img/ft/bt5_off.png" name="ft_bt5" border="0" id="ft_bt5" /></a>
-              	</td>
-                
-              </tr>
-            </table>
-           </td>
-          </tr>
-          <tr>
-            <td>&nbsp;</td>
-          </tr>
-          <tr>
-            <td width="900" class="ft_catch_text">
-        <font color="#ffffff"><b>(주)종우갓코리아</b></font>&nbsp;&nbsp;대표이사 : 종우갓&nbsp;&nbsp;&nbsp;사업자등록번호 : 220-88-77149&nbsp;&nbsp;&nbsp;개인정보담당자 : 임종우<br />
-        서울특별시 강남&nbsp;&nbsp;<font color="#ffffff"><b>전화 : 02-123-1234</b></font> (이용시간 : 월~금 09:00~18:00)&nbsp;&nbsp;팩스 : 02-111-2222&nbsp;&nbsp;이메일 : jw@god.com            </td>
-          </tr>
-        </table>        </td>
-      </tr>
-      <tr>
-        <td height="57"></td>
-        <td valign="top">      
-        <td valign="top" class="ft_catch_text" style="padding-bottom:30px; padding-top:20px;">Copyright ⓒ God Korea. All Rights Reserved.</td>
-      </tr>
-</table>
 
 </body>
 </html>
