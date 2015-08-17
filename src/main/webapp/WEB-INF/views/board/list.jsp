@@ -193,7 +193,7 @@ A:hover {text-decoration:none}
         <td valign="top">      
         <td valign="top" class="ft_catch_text" style="padding-bottom:30px; padding-top:20px;">Copyright ⓒ God Korea. All Rights Reserved.</td>
       </tr>
-    </table>
+</table>
 
 </body>
 </html>
