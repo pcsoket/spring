@@ -38,12 +38,17 @@
 		select bnum,pnum,pprice,pamount,pname,mid,maddr,state,retake,to_char(bdate,'YYYY-MM-DD') bdate
 		from purchase where mid = #{mid} order by bnum desc) data) where rnum = 1
 	</select>
+	<!-- id로 구매테이블에 있는 데이터 모두 읽어오기 -->
+	<select id="getReadId" parameterType="">
+	
+	</select>
 	
 	<select id="getReadData" parameterType="int" resultType="com.sajo.dto.PurchaseDTO">
 		select bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake
 		from purchase where bnum=#{bnum}
 	</select>
-	
+
+
 	<update id="updateData" parameterType="com.sajo.dto.PurchaseDTO">
 		update purchase set state=#{state} where bnum=#{bnum}
 	</update>

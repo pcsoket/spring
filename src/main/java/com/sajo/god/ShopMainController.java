@@ -1,6 +1,8 @@
 package com.sajo.god;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -256,7 +258,28 @@ public class ShopMainController {
 	}
 	
 	@RequestMapping(value="/card_cancle.action")
-	public String card_cancel(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
+	public String card_cancel(HttpServletRequest req, HttpServletResponse resp,HttpSession session){
+		
+		//String id = (String)session.getAttribute("userId"); //session에서 id받아오기
+		
+		String mid = "5";
+		BasketDTO dto;
+		
+		List<PurchaseDTO> lists = (List<PurchaseDTO>)pdao.getReadId(mid);
+		
+		Iterator<PurchaseDTO> reinst = lists.iterator();
+		
+		
+		while(reinst.hasNext()){
+			
+			dto = new BasketDTO();
+			
+			
+			
+		}
+		
+		
+		  
 		
 		
 	

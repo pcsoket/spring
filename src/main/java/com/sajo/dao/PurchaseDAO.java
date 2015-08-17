@@ -55,6 +55,16 @@ public class PurchaseDAO {
 		return lists;
 	}
 	
+	
+	//id로 구매테이블에서 모든 데이터 불러오기(취소시에 장바구니에 정보 입력하기
+	
+	public List<PurchaseDTO> getReadId(String mId){
+		
+		List<PurchaseDTO> lists = sessionTemplate.selectList("com.sajo.purchase.getLists",mId);
+		
+		return lists;
+	}
+
 	public int getDataCount(String searchValue){
 		
 		int result = 0;
@@ -69,12 +79,22 @@ public class PurchaseDAO {
 		return result;
 	}
 	
+	/*bnum으로 데이터 읽어오기*/
 	public PurchaseDTO getReadData(int num){
 		
 		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getReadData",num);
 		
 		return dto;
 	}
+	
+	//mid로 구매테이블에 있는 데이터 읽어오기
+	public PurchaseDTO getReadbnums(String mid){
+		
+		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getReadData",mid);
+		
+		return dto;
+	}
+	
 	
 	public PurchaseDTO getBnums(String mid){
 		
