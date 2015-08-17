@@ -19,6 +19,7 @@
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2" />
 	</beans:bean>
 
 
@@ -63,8 +64,23 @@
  		<beans:property value="utf-8" name="defaultEncoding"/>
  	</beans:bean>
  	
+ 	
+ 	<!-- tilesView -->
+	<beans:bean id="viewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView"></beans:property>
+		<beans:property name="order" value="1" />
+	</beans:bean> 
+	 
+	<beans:bean id="tileConfigurer" class="org.springframework.web.servlet.view.tiles2.TilesConfigurer">
+		<beans:property name="definitions">
+		<beans:list>
+		<beans:value>/WEB-INF/views/tiles/tiles.xml</beans:value>
+		</beans:list>
+		</beans:property>
+	</beans:bean>
+ 	
 	
-
+	<!-- transation -->
 	<beans:bean id="sessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
 		<beans:constructor-arg ref="sessionFactory"/>
 	</beans:bean>
@@ -75,7 +91,7 @@
 	</beans:bean>
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<beans:property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
-		<beans:property name="url" value="jdbc:oracle:thin:@192.168.16.15:1521:testDB"/>
+		<beans:property name="url" value="jdbc:oracle:thin:@192.168.16.15:1521:testdb"/>
 		<beans:property name="username" value="god"/>
 		<beans:property name="password" value="god"/>
 	</beans:bean>

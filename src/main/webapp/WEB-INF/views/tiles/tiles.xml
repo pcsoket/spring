@@ -1,0 +1,51 @@
+<!DOCTYPE tiles-definitions PUBLIC
+      "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+      "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+  
+<tiles-definitions>
+<!--<start id="tile_template"/>-->
+   <definition name="template" 
+               template="/WEB-INF/views/tiles/tiles-layout/layout.jsp">
+     <put-attribute name="header" 
+                    value="/WEB-INF/views/tiles/tiles-layout/header.jsp" />
+     <put-attribute name="footer" 
+                    value="/WEB-INF/views/tiles/tiles-layout/footer.jsp" />
+   </definition>
+<!--<end id="tile_template"/>-->
+ 
+<!--<타일즈 적용할 JSP설정/>-->
+   <definition name="productWrite" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/productWrite.jsp" />
+   </definition>
+   <definition name="shop" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/shop.jsp" />
+   </definition>
+   <definition name="basket" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/basket.jsp" />
+   </definition>
+   <definition name="shopordercancel" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/shopordercancel.jsp" />
+   </definition>
+   <definition name="purchase" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/purchase.jsp" />
+   </definition>
+   <definition name="card" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/card.jsp" />
+   </definition>
+   <definition name="category" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/category.jsp" />
+   </definition>
+   <definition name="shop_article" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/shop_article.jsp" />
+   </definition>
+   
+   
+<!--<definition-name:컨트롤러에서 반환한 String값과 일치시켜야함.
+	servlet-context에 적용시켜놓은 viewResolver가 가져옴
+	
+	put-attribute name:jsp에 적용할 attribute name, layout.jsp의 해당insertAttribute에적용됨
+	
+	extends: 적용시킬 타일즈 정의의 네임을 적어놓아야함.
+	>-->
+        
+</tiles-definitions>

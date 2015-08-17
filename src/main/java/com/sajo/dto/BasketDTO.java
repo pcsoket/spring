@@ -2,9 +2,11 @@ package com.sajo.dto;
 
 public class BasketDTO {
 	
+	
 	private int bNum, bAmount, bPrice,pNum;
 	private String bPName,userId;
-	//private int bnum[];
+	
+	
 	public int getbNum() {
 		return bNum;
 	}
