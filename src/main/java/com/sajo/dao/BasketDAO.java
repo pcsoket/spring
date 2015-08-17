@@ -5,6 +5,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.sajo.dto.BasketDTO;
+import com.sajo.dto.PurchaseDTO;
 
 
 public class BasketDAO {
@@ -33,6 +34,11 @@ public class BasketDAO {
 		
 		return result;
 		
+	}
+	
+	public void updateData(BasketDTO dto){
+		
+		sessionTemplate.update("com.sajo.mapper.basket.updateData",dto);
 	}
 	
 		
