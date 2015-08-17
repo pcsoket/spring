@@ -40,7 +40,7 @@
 		update purchase set state=#{state},retake=#{retake} where bnum=#{bnum}
 	</update>
 	
-	<delete id="deleteData">
-		delete purchse where bnum=#{bnum}
+	<delete id="deleteData" parameterType="int">
+		delete purchase where bnum=#{bnum}
 	</delete>
 </mapper>

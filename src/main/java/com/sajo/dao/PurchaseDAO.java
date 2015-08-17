@@ -31,9 +31,13 @@ public class PurchaseDAO {
 	}
 	
 	//(created.jsp->created_ok.jsp)
-	public void insertData(PurchaseDTO dto){
+	public int insertData(PurchaseDTO dto){
 		
-		sessionTemplate.insert("com.sajo.purchase.insertData",dto);
+		int result=0;
+		
+		result = sessionTemplate.insert("com.sajo.purchase.insertData",dto);
+		
+		return result;
 	}
 	
 
@@ -75,7 +79,7 @@ public class PurchaseDAO {
 	//
 	public void deleteData(int num){
 		
-		sessionTemplate.delete("com.sajo.purchase.deleteData");
+		sessionTemplate.delete("com.sajo.purchase.deleteData",num);
 	}
 	
 	

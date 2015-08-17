@@ -21,7 +21,11 @@
 </style>
 <script type="text/javascript">
 
-	
+	function sendcard() {
+		
+		window.open('/god/card.action','card','width=400,height=300');
+		
+	}
 
 
 </script>
@@ -70,7 +74,7 @@
 			<div style="border: solid 1px #ffd2d7;" >
 				<div style="float: left; width: 150px;" >이미지 </div>
 				<div style="float: left;">
-					<div><input type="text" name="bpname" style="border: none;" value="${dto.bPName }"> </div>
+					<div><input type="text" name="bpname" style="border: none;" value="${pdto.bPName }"> </div>
 					<div><input type="text" name="bprice" style="border: none;" value="${dto.bPrice }"> </div>
 				</div>
 			</div>
@@ -86,7 +90,7 @@
 		
 			<div align="left" style="font-size: 15pt; border-bottom: solid 1px #ff7b8a;">결제 수단 선택 </div>
 			<div align="center" style="padding-top: 5px;">
-				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">신한카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="sendcard();">신한카드</button>
 				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">롯데카드</button>
 				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">국민카드</button>
 				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">현대카드</button>

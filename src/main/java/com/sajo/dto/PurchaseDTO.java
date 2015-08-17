@@ -10,9 +10,15 @@ public class PurchaseDTO {
 	private String state;
 	
 	private int bnum,pnum;
-	private int  pamount, pprice;
+	private int  pamount, pprice,retake;
 	
 	
+	public int getRetake() {
+		return retake;
+	}
+	public void setRetake(int retake) {
+		this.retake = retake;
+	}
 	public String getMid() {
 		return mid;
 	}
