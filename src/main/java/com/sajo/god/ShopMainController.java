@@ -43,7 +43,7 @@ public class ShopMainController {
 	@RequestMapping(value="/shopmain.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String list(HttpServletRequest req, String data) throws Exception{
 		
-		
+		 
 				
 		return "shop";
 	}
