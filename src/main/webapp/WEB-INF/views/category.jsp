@@ -99,7 +99,7 @@
 			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
     					&nbsp;&nbsp;&nbsp;&nbsp;아이디어상품</b></font>
     					
-    					<a href="/god/idea_category.action">전체보기</a>
+    					<a href="/god/idea_category.action">▼</a>
     					<c:forEach var="dto" items="${categorylists}">
 								<div class="category1">
 								

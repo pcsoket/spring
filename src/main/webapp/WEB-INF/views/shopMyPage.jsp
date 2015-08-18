@@ -99,6 +99,19 @@ function searchData() {
 	
 }
 
+function deleted() {
+	
+	f=document.update;
+	
+	if(!confirm("탈퇴 하시겠습니까?")){
+		  return; 
+		 }
+	  f.action = "<%=cp%>/deleted.action";
+	  f.submit();
+		  
+}
+
+
 </script>
 <title> 회 원 정 보 변 경 </title>
 
@@ -246,7 +259,7 @@ float: right;
 			<dl class="leftFirst">
 	   			<dt><strong>나의 쇼핑 내역</strong></dt>
 				<dd><a href="<%=cp%>/myPage.action">회원정보수정</a></dd>
-	            <dd><a href="<%=cp%>/deleted.action">탈퇴</a></dd>
+	            <dd><a onclick="deleted();">탈퇴</a></dd>
 	        </dl>
 	
 			<dl class="leftSecond">
@@ -287,7 +300,7 @@ float: right;
 			<div class="basicInfo_contentWrap">
  					<div class="basicInfo_title">프로필 사진</div> 
 					<div style="width: 150px; height: 100px;" class="basicInfo_content"> 
-					<img id="img_preview" src="${dto.userPimg}"/> 
+					<img style=" width: 100px; height: 110px;" id="img_preview" src="${dto.userPimg}"/> 
  					<font style="color: black;"><input type="file" id="file1"  name="file2"/></font></div>
 				</div> 
 				<div class="basicInfo_contentWrap">
@@ -395,7 +408,6 @@ float: right;
 		<div style="border-top: 2px solid #EAEAEA; "></div>
 		</div>
 		<div align="center" style="margin-top: 10px;">
-		<!-- <button type="button" style="width: 90px; height: 40px; background-color:#ffd2d7; border: 1px solid;" onclick="sendIt();"> 수 정 완 료 </button> -->
 		<input type="submit" value="수정완료" onclick="sendIt();"/>
 		</div>	
 		</div>

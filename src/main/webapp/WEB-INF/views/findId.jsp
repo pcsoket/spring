@@ -9,18 +9,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 
-function name() {
-	alert("1");
-	
-	var f = document.findId;
-	
-	f.action="<%=cp%>/findId_ok.action";
-	
-	f.submit();
-}
-
 function sendIt() {
-	alert("!");
+
 	
 	var f = document.findId;
 	

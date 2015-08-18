@@ -186,8 +186,21 @@ public class ProductController {
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
 		
+		List<ProductDTO> lists =
+			dao.p_getList(start, end, searchKey, searchValue);
+		
 		List<ProductDTO> categorylists = 
 				dao.p_getListsCategory(start,end,pCategory);
+		
+		List<ProductDTO> hitcountlists = 
+				dao.p_getListsHitCount(start,end);
+		
+		List<ProductDTO> ideahitcountlists = 
+				dao.p_getListsIdeaHitCount(start,end,pCategory);
+
+
+	
+		
 		
 		
 		//페이징 처리
@@ -214,7 +227,10 @@ public class ProductController {
 			articleUrl = articleUrl + "&" + param;
 		
 		//포워딩 될 페이지에 데이터를 넘긴다
+		request.setAttribute("lists", lists);
 		request.setAttribute("categorylists", categorylists);
+		request.setAttribute("hitcountlists", hitcountlists);
+		request.setAttribute("ideahitcountlists", ideahitcountlists);
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
@@ -224,6 +240,7 @@ public class ProductController {
 		return "idea_category";		
 		
 	}
+
 	
 	@RequestMapping(value="/shop_article.action",method={RequestMethod.GET,RequestMethod.POST})
 	
@@ -291,20 +308,18 @@ public class ProductController {
 	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		
-		//==========================================================================이미지 insert
-		
 		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정
-
-		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환, 이것을 각 게시판 테이블컬럼에 저장하면됨.
-		String imglistnum = idao.writeFile(idto, path);  
+		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
+		String imglistnum = idao.writeFile(idto, path);  //ex "3,4,5"반환
 		
-		//==========================================================================이미지 insert
 		
-		//pdto.setpNum(dao.p_maxNum()+1);
-		//pdto.setpCategory("product");     ///-------------임시로 카테고리지정
+		System.out.println(imglistnum);
 		
-		mav.setViewName("productWrite");
-		//mav.addObject("pdto",pdto);
+		pdto.setpNum(dao.p_maxNum()+1); //product번호지정
+		pdto.setpImg(imglistnum);        //product 에서 뿌려줄 이미지들의 번호
+		dao.p_insertData(pdto);          //product 테이블에 insert
+		mav.setViewName("productWrite"); //나갈곳
+		//mav.addObject("pdto",pdto); 가져감?
 		
 		return mav;
 		

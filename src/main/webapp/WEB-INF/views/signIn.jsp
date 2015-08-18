@@ -72,6 +72,7 @@ $.fn.setPreview = function(opt){
 			$('#file1').setPreview(opt);
 });
 
+
 function sendIt() {
 	
 	f = document.write;
@@ -101,6 +102,20 @@ function sendIt() {
 		f.userPwd.focus();
 		return;
 	}
+	
+	f.userPwd.value = str;
+	
+	str = f.userPwd.value;
+	str = str.trim();
+	
+	alert(str.length);
+	
+	if(str.length<=5){
+		alert("\n 비밀번호6자리이상 입력하세요.");
+		f.userPwd.focus();
+		return;
+	}
+	
 	f.userPwd.value = str;
 	
 	str1 = f.userPwd1.value;
@@ -129,14 +144,31 @@ function sendIt() {
 	}
 	f.userAddr3.value = str;
 	
-	str = f.userTel.value;
-	str = str.trim();
+	str = f.phn1.value;
+	
 	if(!str){
-		alert("\n전화번호을 입력하세요.");
-		f.userTel.focus();
+		alert("\n국번을 선택해주세요.");
+		f.phn1.focus();
 		return;
 	}
-	f.userTel.value = str;
+	
+	str=f.phn2.value;
+	str=str.trim();
+	if(!str){
+		alert("\n전화번호를 입력해주세요.");
+		f.phn2.focus();
+		return;
+	}
+	f.phn2.value=str;
+	
+	str=f.phn3.value;
+	str=str.trim();
+	if(!str){
+		alert("\n전화번호를 입력해주세요.");
+		f.phn3.focus();
+		return;
+	}
+	f.phn3.value=str;
 	
 	str = f.userEmail.value;
 	str = str.trim();
@@ -147,6 +179,14 @@ function sendIt() {
 	}
 	f.userEmail.value = str;
 	
+	 var exptext = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+	  if (exptext.test(str)!=true){
+	  alert('이메일 형식이 올바르지 않습니다.');
+	  f.userEmail.focus();
+	  return;
+	  }
+	  f.userEmail.value = str;
+	  
 	f.action = "<%=cp %>/write_ok.action";
 	
 	f.submit();
@@ -303,7 +343,18 @@ function idchk() {
 					</div>
 					
 					<div style="float: left;padding-left: 10px;">
-						<input type="text" name="userTel" style="margin-top:8px; float:left" size="25" maxlength="20" class="boxTF" />
+						<select id="phn1" name="phn1" title="국번선택" style="width:55px;">
+					<option value="">선택</option>
+						<option value='010'>010</option>
+						<option value='011'>011</option>
+						<option value='016'>016</option>
+						<option value='017'>017</option>
+						<option value='018'>018</option>
+						<option value='019'>019</option>
+						<option value='070'>070</option>
+				</select>
+					- <input name="phn2" type="text"  maxlength="4" class="text" style="width:55px;">
+					- <input name="phn3" type="text"  maxlength="4" class="text" style="width:55px;">
 				    </div>
 		   		</div>
 		   		
@@ -314,7 +365,7 @@ function idchk() {
 					</div>
 					<div style="float: left;padding-left: 10px;">
 					<!-- 한글 입력 방지 코딩 추가 -->
-						<input type="text" name="userEmail" style="margin-top:8px; float:left;" size="25" maxlength="20" class="boxTF" onkeyup ="this.value=this.value.replace(/[^a-zA-Z0-9@.]/g,'')"/>
+						<input type="text" id="userEmail" name="userEmail" style=" margin-top:8px; float:left;" size="25" maxlength="20" class="boxTF" onkeyup ="this.value=this.value.replace(/[^a-zA-Z0-9@.]/g,'')"/>
 				    </div>
 		   		</div>
 		   		<div style="border-top: 2px solid #EAEAEA; overflow: hidden;">

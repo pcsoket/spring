@@ -157,5 +157,12 @@ public class ImageDAO {
     	 
     	 return lists;
     }
-    //=====================================================임시
+    public String getImage(String imgnumlist) {   //배열로 넣은 이미지 파일 중 첫번째 가져오기
+    	
+   	 String[] imgNum = imgnumlist.split(",");
+
+   		 String img = sessionTemplate.selectOne("com.sajo.image.readData",imgNum[0]);
+   	 
+   	 return img;
+   }
 }

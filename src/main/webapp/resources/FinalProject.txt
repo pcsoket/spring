@@ -118,3 +118,4 @@ userId VARCHAR2(12) NOT NULL,
 uploadFileName VARCHAR2(200) NOT NULL,
 saveFileName VARCHAR2(200) NOT NULL,
 originalFileName VARCHAR2(200) NOT NULL);
+
