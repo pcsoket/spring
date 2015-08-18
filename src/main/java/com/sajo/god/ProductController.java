@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
 import java.util.Calendar;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -75,7 +76,6 @@ public class ProductController {
 		//전체데이터갯수
 		int dataCount = dao.p_getDataCount(searchKey, searchValue);
 		
-		System.out.println(dataCount);
 		//전체페이지수
 		int numPerPage = 10;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
@@ -97,12 +97,14 @@ public class ProductController {
 		
 		List<ProductDTO> ideahitcountlists = 
 				dao.p_getListsIdeaHitCount(start,end,pCategory);
+		
+		//첫번째 이미지만 골라서 넣어줌.
+		lists = idao.imageForList(lists);
+		categorylists = idao.imageForList(categorylists);
+		hitcountlists = idao.imageForList(hitcountlists);
+		ideahitcountlists = idao.imageForList(ideahitcountlists);
 
 
-	
-		
-		
-		
 		//페이징 처리
 		String param = "";
 		if(!searchValue.equals("")){
@@ -126,6 +128,8 @@ public class ProductController {
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
 		
+		//
+		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);
 		request.setAttribute("categorylists", categorylists);
@@ -134,6 +138,7 @@ public class ProductController {
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
+		
 		
 		
 		
@@ -198,7 +203,12 @@ public class ProductController {
 		List<ProductDTO> ideahitcountlists = 
 				dao.p_getListsIdeaHitCount(start,end,pCategory);
 
-
+		
+		//첫번째 이미지만 골라서 넣어줌.
+		lists = idao.imageForList(lists);
+		categorylists = idao.imageForList(categorylists);
+		hitcountlists = idao.imageForList(hitcountlists);
+		ideahitcountlists = idao.imageForList(ideahitcountlists);
 	
 		
 		
@@ -262,12 +272,12 @@ public class ProductController {
 		
 		ProductDTO dto = dao.p_getReadData(pNum);
 		
-		
 		if(dto==null){
 			
 			String url = cp + "/category.action";
 			response.sendRedirect(url);
 		}
+		List<ImageDTO> ilists = idao.getImageList(dto.getpImg());
 		
 		int lineSu = dto.getpContent().split("\n").length;
 		
@@ -284,6 +294,58 @@ public class ProductController {
 		
 		mav.setViewName("shop_article");
 		
+		mav.addObject("ilists",ilists);
+		mav.addObject("dto",dto);
+		mav.addObject("params",param);
+		mav.addObject("lineSu",lineSu);
+		mav.addObject("pageNum",pageNum);
+		
+		return mav;
+		
+	}
+	
+@RequestMapping(value="/shop_update.action",method={RequestMethod.GET,RequestMethod.POST})
+	
+	public ModelAndView shop_update (ProductDTO dto, HttpServletResponse response,HttpServletRequest request) throws Exception{
+	
+	
+		String cp = request.getContextPath();
+
+		String pageNum = request.getParameter("pageNum");
+		
+		String searchKey = request.getParameter("searchKey");
+		String searchValue = request.getParameter("searchValue");
+		
+		if(searchKey != null)
+			searchValue = URLDecoder.decode(searchValue, "UTF-8");
+		
+		dto = dao.p_getReadData(dto.getpNum());    //넘어온 pnum으로 dto읽어옴.
+		
+		if(dto==null){
+			
+			String url = cp + "/category.action";
+			response.sendRedirect(url);
+		}
+		
+		List<ImageDTO> ilists = idao.getImageList(dto.getpImg());
+		
+		
+		int lineSu = dto.getpContent().split("\n").length;
+		
+		dto.setpContent(dto.getpContent().replaceAll("\n", "<br/>"));
+		
+		String param = "pageNum=" + pageNum;
+		if(searchKey!=null){
+			param += "&searchKey=" + searchKey;
+			param += "&searchValue=" 
+				+ URLEncoder.encode(searchValue, "UTF-8");
+		}
+				
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("productUpdate");
+		
+		mav.addObject("ilists",ilists);
 		mav.addObject("dto",dto);
 		mav.addObject("params",param);
 		mav.addObject("lineSu",lineSu);
@@ -324,4 +386,5 @@ public class ProductController {
 		return mav;
 		
 	}
+	
 }
