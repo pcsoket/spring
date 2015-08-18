@@ -3,10 +3,10 @@ package com.sajo.dto;
 public class BasketDTO {
 	
 	
-	private int bNum, bAmount, bPrice,pNum;
+	private int bNum, bAmount, bPrice,pNum,imgnum;
 	private String bPName,userId;
 	
-	
+
 	public int getbNum() {
 		return bNum;
 	}
@@ -44,6 +44,12 @@ public class BasketDTO {
 	}
 	public void setbPName(String bPName) {
 		this.bPName = bPName;
+	}
+	public int getImgnum() {
+		return imgnum;
+	}
+	public void setImgnum(int imgnum) {
+		this.imgnum = imgnum;
 	}
 	
 	

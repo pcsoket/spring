@@ -39,13 +39,20 @@
 		from purchase where mid = #{mid} order by bnum desc) data) where rnum = 1
 	</select>
 	
+	<!-- id로 구매테이블에 있는 모든 데이터 읽어오기 -->
+	<select id="getReadId" parameterType="String" resultType="com.sajo.dto.PurchaseDTO">
+		select bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake
+		from purchase where mid=#{mid}
+	
+	</select>
+	
 	<select id="getReadData" parameterType="int" resultType="com.sajo.dto.PurchaseDTO">
 		select bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake
 		from purchase where bnum=#{bnum}
 	</select>
 	
-	<update id="updateData" parameterType="com.sajo.dto.PurchaseDTO">
-		update purchase set state=#{state} where bnum=#{bnum}
+	<update id="updateData" parameterType="int" >
+		update purchase set state='결제완료' where bnum=#{bnum}
 	</update>
 	
 	<delete id="deleteData" parameterType="int">

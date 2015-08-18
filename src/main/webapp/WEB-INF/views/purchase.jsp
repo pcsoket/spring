@@ -23,7 +23,13 @@
 
 	function sendcard() {
 		
-		window.open('/god/card.action','card','width=400,height=300');
+		var f = document.myForm;
+		
+		var bnums = f.bnums.value
+	
+		
+		window.open('/god/card.action?bnums='+ bnums,'card','width=400,height=300');
+		
 		
 	}
 
@@ -74,6 +80,7 @@
 			<div style="border: solid 1px #ffd2d7;" >
 				<div style="float: left; width: 150px;" >이미지 </div>
 				<div style="float: left;">
+					<input type="hidden" name="bnums" value="${bnums }"><input type="hidden" name="amt" value="${amt }">
 					<div><input type="text" name="bpname" style="border: none;" value="${pdto.pname }"> </div>
 					<div><input type="text" name="bprice" style="border: none;" value="${pdto.pprice }"> </div>
 				</div>

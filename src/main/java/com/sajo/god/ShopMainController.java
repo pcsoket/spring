@@ -1,6 +1,7 @@
 package com.sajo.god;
 
 import java.io.File;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -199,68 +200,91 @@ public class ShopMainController {
 		
 		req.setAttribute("mdto", mdto);
 		req.setAttribute("pdto", pdto);
-	
-		
-		return "purchase";
-	}
-	
-	@RequestMapping(value="/purchase.action")
-	public String purchase(HttpServletRequest req, HttpServletResponse resp,HttpSession session){
-		
-		//String id = (String)session.getAttribute("userId"); //session에서 id받아오기
-		
-		String mid = "5";
-				
-		MemberDTO mdto = mdao.getReadData(mid);
-		
-		PurchaseDTO pdto = pdao.getBnums(mid);
-		System.out.println("11" + pdto.getBnum());
-		System.out.println("12"+pdto.getMid());
-		
-		req.setAttribute("mdto", mdto);
-		req.setAttribute("pdto", pdto);
-		
+		req.setAttribute("bnums", bnums);
 		
 		
 		return "purchase";
 	}
-	
 	
 	
 	@RequestMapping(value="/card.action")
-	public String card(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
+	public String card(String bnums,HttpServletRequest req, HttpServletResponse resp){
 		
+		System.out.println("여기는" + bnums);
 		
-		
-		
-	
-			
-		
+		req.setAttribute("bnums", bnums);
+				
 		return "card";
 	}
 	
 	@RequestMapping(value="/card_ok.action")
-	public String card_ok(PurchaseDTO pdto,Integer bnum,HttpServletRequest req, HttpServletResponse resp){
+	public String card_ok(String bnums,HttpServletRequest req, HttpServletResponse resp){
 		
+		System.out.println("널인가!!" + bnums);
 		
+		if(bnums != null){
+			
+			System.out.println("널인가" + bnums);
+			String[] nums= bnums.split("-");
+			
+			
+			for(int i = 0;i<nums.length;i++){
+				
+				pdao.updateData(Integer.parseInt(nums[i]));
+			
+			}
+			
+		}
 		
-		pdto.setState("결제완료");
-		
-		pdao.updateData(pdto);
-		
-		
-		
-		
-		
-		return "shopmain";
+		return "redirect:shopmain.action";
 	}
 	
-	@RequestMapping(value="/card_cancle.action")
-	public String card_cancel(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
+	@RequestMapping(value="/card_cancel.action")
+	public String card_cancel(String bnums,HttpServletRequest req, HttpServletResponse resp,HttpSession session){
+		
+		//String id = (String)session.getAttribute("userId"); //session에서 id받아오기
+		
+		String mid = "5";
 		
 		
+		
+		
+		if(bnums != null){
+			
+			System.out.println("널인가" + bnums);
+			String[] nums= bnums.split("-");
+			
+			PurchaseDTO pdto;
+			for(int i = 0;i<nums.length;i++){
+				
+				pdto = pdao.getReadData(Integer.parseInt(nums[i]));
+				
+				BasketDTO dto = new BasketDTO();
+				
+				System.out.println(nums[i]);
+				dto.setbNum(Integer.parseInt(nums[i]));
+				dto.setbAmount(1);
+				dto.setbPName(pdto.getPname());
+				dto.setbPrice(pdto.getPamount()/pdto.getPprice());
+				dto.setUserId(mid);
+				dto.setbNum(pdto.getPnum());
+				dto.setImgnum(33);
+				
+				
+				int result = dao.insertBK(dto);
+				
+				if (result!=0) {
+						
+						pdao.deleteData(Integer.parseInt(nums[i]));
+						
+					}
+				
+				
+			}
+
+		}
 	
-		return "basket.action";
+		return "redirect: basket.action";
 	}
 	
 	@RequestMapping(value="/del.action")
