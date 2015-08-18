@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -16,11 +17,16 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.sajo.dto.ImageDTO;
+import com.sajo.dto.ProductDTO;
 
 
 public class ImageDAO {
 	
+	
+	
 	private SqlSessionTemplate sessionTemplate;
+	
+	private String imageUrl = "/god/resources/imageFile/";
 
 	public void setSessionTemplate(SqlSessionTemplate sessionTemplate) throws Exception{
 		this.sessionTemplate = sessionTemplate;
@@ -148,21 +154,40 @@ public class ImageDAO {
     	
     	 String[] imgNum = imgnumlist.split(",");
     	 List<ImageDTO> lists = new ArrayList<ImageDTO>();
-    	 ListIterator<ImageDTO> it = lists.listIterator();
 
     	 for (String imgNO : imgNum) {              //그룹넘버 지정해서 한번에 검색도 가능
     		 
-    		 it = sessionTemplate.selectOne("com.sajo.image.readData",imgNO);
+    		 ImageDTO dto = sessionTemplate.selectOne("com.sajo.image.readImage",Integer.parseInt(imgNO));
+			 String img = imageUrl+dto.getOriginalFileName();
+			 dto.setOriginalFileName(img);
+			 lists.add(dto);
     	 }
     	 
     	 return lists;
     }
-    public String getImage(String imgnumlist) {   //배열로 넣은 이미지 파일 중 첫번째 가져오기
+	public String getImage(String imgnumlist) {   //배열로 넣은 이미지 파일 중 첫번째 가져오기
     	
-   	 String[] imgNum = imgnumlist.split(",");
-
-   		 String img = sessionTemplate.selectOne("com.sajo.image.readData",imgNum[0]);
+	   	String[] imgNum = imgnumlist.split(",");
+	   	int imgNo = Integer.parseInt(imgNum[0]);
+	
+	   	String img = sessionTemplate.selectOne("com.sajo.image.readImage",imgNo);
    	 
-   	 return img;
+   	return img;
    }
+    
+	public List<ProductDTO> imageForList (List<ProductDTO> plists){
+		System.out.println("???");
+		if(plists!=null){
+			ProductDTO dto = new ProductDTO();
+			Iterator<ProductDTO> it = plists.iterator();
+			while(it.hasNext()){
+				
+				dto = it.next();
+				String img = imageUrl+getImage(dto.getpImg());
+				dto.setpImg(img);
+				System.out.println(dto.getpImg()+":"+img);
+			}
+		}
+		return plists;
+	}
 }

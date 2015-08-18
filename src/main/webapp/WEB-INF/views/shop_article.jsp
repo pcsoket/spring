@@ -56,6 +56,7 @@
 </style>
 </head>
 <body>
+
 <table width="1000px" height="700px" align="center">
 	<tr>
 		<td>
@@ -71,21 +72,13 @@
 				<td width="330px" height="150px" class="line2" colspan="2">
 
 				<table><tr>
+				<c:forEach var="dto" items="${ilists}">	
     					<td width="90px" height="100px" class="line1">
-    						<img alt="" src="/god/resources/image/ww.PNG" 
-    						width="90px" height="100px" border="1"
-								style="cursor: hand" onmouseover="fimg('/god/resources/image/ww.PNG')"/>
-    					</td>
-      					<td width="90px" height="100px" class="line1">
-      						<img alt="" src="/god/resources/image/qq.PNG"
-      						width="90px" height="100px" border="1"
-								style="cursor: hand" onmouseover="fimg('/god/resources/image/qq.PNG')"/>
-      					</td>
-    					<td width="90px" height="100px" class="line1">
-    						<img alt="" src="/god/resources/image/ee.PNG" 
+    						<img alt="" src="${dto.originalFileName}" 
     						width="90px" height="100px" border="1"
 								style="cursor: hand" onmouseover="fimg(this.src)"/>
     					</td>
+				</c:forEach>		
    						</tr>
    				</table>
 				</td>
