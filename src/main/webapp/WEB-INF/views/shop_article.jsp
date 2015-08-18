@@ -12,6 +12,16 @@
 	function fimg(csrc){
 		window.document.images["img01"].src = csrc;		
 	}
+	
+	function imgResize(){  //이미지 크기조절
+		
+		
+		 var myImg = document.getElementById("img01");
+
+		  myImg.width = 350;
+		  myImg.height = 350;     
+	}
+
 
 </script>
 
@@ -52,6 +62,8 @@
 	font-family : 나눔바른펜";
 
 	}
+	
+	
 
 </style>
 </head>
@@ -64,14 +76,16 @@
 			<tr>
 				<td width="350px" height="400px" class="box" colspan="2">
 
-				<img alt="" src="/god/resources/image/ww.PNG" name="img01"/><br/>
+				<img alt="" src="/god/resources/image/ww.PNG" name="img01"/><br/>  <!-- 큰사진 -->
 
 				</td>
         	</tr>
 			<tr>
 				<td width="330px" height="150px" class="line2" colspan="2">
 
-				<table><tr>
+
+				<table>
+				<tr>
 				<c:forEach var="dto" items="${ilists}">	
     					<td width="90px" height="100px" class="line1">
     						<img alt="" src="${dto.originalFileName}" 

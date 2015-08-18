@@ -308,7 +308,7 @@ public class ProductController {
 	
 	public ModelAndView shop_update (ProductDTO dto, HttpServletResponse response,HttpServletRequest request) throws Exception{
 	
-	
+	///만들다 말음.
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
