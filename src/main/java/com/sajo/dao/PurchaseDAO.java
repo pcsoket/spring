@@ -84,6 +84,14 @@ public class PurchaseDAO {
 		
 	}
 	
+	public List<PurchaseDTO> getReadId(String mid){
+		
+		List<PurchaseDTO> lists = sessionTemplate.selectList("com.sajo.purchase.getReadId", mid);
+		
+		return lists;
+		
+	}
+	
 	//
 	public void deleteData(int num){
 		
@@ -92,9 +100,9 @@ public class PurchaseDAO {
 	
 	
 	//
-	public void updateData(PurchaseDTO dto){
+	public void updateData(int bnum){
 		
-		sessionTemplate.update("com.sajo.purchase.updateData",dto);
+		sessionTemplate.update("com.sajo.purchase.updateData",bnum);
 	}
 }
 
