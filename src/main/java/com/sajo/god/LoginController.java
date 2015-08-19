@@ -56,7 +56,7 @@ public class LoginController {
 		
 		session.setAttribute("logInfo", dto);
 		
-		return "redirect:/shopmain.action";
+		return "redirect:/category.action";
 		
 	}
 	
@@ -88,9 +88,7 @@ public class LoginController {
 		dto = dao.getListId(userName,userEmail);
 		
 		if(userName!=null){
-			
-			
-			
+		
 		req.setAttribute("message","찾으신 ID는 [" + dto.getUserId() + "] 입니다.");
 		req.setAttribute("message1","찾으신 Password는 [" + dto.getUserPwd() + "] 입니다.");
 		

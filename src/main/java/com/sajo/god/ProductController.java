@@ -243,7 +243,6 @@ public class ProductController {
 
 	
 	@RequestMapping(value="/shop_article.action",method={RequestMethod.GET,RequestMethod.POST})
-	
 	public ModelAndView shop_article (Integer pNum, HttpServletResponse response,HttpServletRequest request) throws Exception{
 	
 	
@@ -294,7 +293,7 @@ public class ProductController {
 		
 	}
 	
-	@RequestMapping(value="/shop_update.action",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="/shop_update.action",method={RequestMethod.GET,RequestMethod.POST})  ///만들다 말음.
 	
 	public ModelAndView shop_update (ProductDTO dto, HttpServletResponse response,HttpServletRequest request) throws Exception{
 	
@@ -369,7 +368,7 @@ public class ProductController {
 		pdto.setpNum(dao.p_maxNum()+1); //product번호지정
 		pdto.setpImg(imglistnum);        //product 에서 뿌려줄 이미지들의 번호
 		dao.p_insertData(pdto);          //product 테이블에 insert
-		mav.setViewName("productWrite"); //나갈곳
+		mav.setViewName("redirect:shop_article.action?pNum="+pdto.getpNum()); //나갈곳
 		//mav.addObject("pdto",pdto); 가져감?
 		
 		return mav;

@@ -1,8 +1,16 @@
+<%@page import="java.util.Calendar"%>
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
 	request.setCharacterEncoding("utf-8");
 	String cp = request.getContextPath();
+	
+	Calendar cal = Calendar.getInstance();
+	int year = cal.get(Calendar.DAY_OF_YEAR);
+	int month = cal.get(Calendar.DAY_OF_YEAR);
+	int day = cal.get(Calendar.DAY_OF_YEAR);
+	
+	
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>

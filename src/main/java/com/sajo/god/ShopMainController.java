@@ -241,6 +241,13 @@ public class ShopMainController {
 	@RequestMapping(value="/card.action")
 	public String card(String bnums,HttpServletRequest req, HttpServletResponse resp){
 		
+		HttpSession session = req.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
+		
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			return "login";
+		}
+		
 		System.out.println("여기는" + bnums);
 		
 		req.setAttribute("bnums", bnums);
@@ -250,6 +257,13 @@ public class ShopMainController {
 	
 	@RequestMapping(value="/card_ok.action")
 	public String card_ok(String bnums,HttpServletRequest req, HttpServletResponse resp){
+		
+		HttpSession session = req.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
+		
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			return "login";
+		}
 		
 		System.out.println("널인가!!" + bnums);
 		
@@ -267,7 +281,7 @@ public class ShopMainController {
 			
 		}
 		
-		return "redirect:shopmain.action";
+		return "redirect:orderList.action";
 	}
 	
 	@RequestMapping(value="/card_cancel.action")
