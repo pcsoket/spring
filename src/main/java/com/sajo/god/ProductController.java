@@ -237,8 +237,6 @@ public class ProductController {
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		
-		
-		
 		return "idea_category";		
 		
 	}

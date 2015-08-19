@@ -38,14 +38,16 @@
    <definition name="shopOrderList" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/shopOrderList.jsp" />
    </definition>
+   <definition name="board/list" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
+   </definition>
    
-   
-<!--<definition-name:컨트롤러에서 반환한 String값과 일치시켜야함.
+	<!--<definition-name:컨트롤러에서 반환한 String값과 일치시켜야함.
 	servlet-context에 적용시켜놓은 viewResolver가 가져옴
 	
 	put-attribute name:jsp에 적용할 attribute name, layout.jsp의 해당insertAttribute에적용됨
 	
 	extends: 적용시킬 타일즈 정의의 네임을 적어놓아야함.
 	>-->
-        
+
 </tiles-definitions>
