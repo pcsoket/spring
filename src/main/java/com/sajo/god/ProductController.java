@@ -1,12 +1,7 @@
 package com.sajo.god;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +12,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -138,8 +132,6 @@ public class ProductController {
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
-		
-		
 		
 		
 		return "category";		
@@ -304,7 +296,7 @@ public class ProductController {
 		
 	}
 	
-@RequestMapping(value="/shop_update.action",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="/shop_update.action",method={RequestMethod.GET,RequestMethod.POST})
 	
 	public ModelAndView shop_update (ProductDTO dto, HttpServletResponse response,HttpServletRequest request) throws Exception{
 	
@@ -354,7 +346,6 @@ public class ProductController {
 		return mav;
 		
 	}
-	
 	
 	// ============================================================= productcreated
 	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})

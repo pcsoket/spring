@@ -29,14 +29,14 @@
    <definition name="purchase" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/purchase.jsp" />
    </definition>
-   <definition name="card" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/card.jsp" />
-   </definition>
    <definition name="category" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/category.jsp" />
    </definition>
    <definition name="shop_article" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/shop_article.jsp" />
+   </definition>
+   <definition name="shopOrderList" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/shopOrderList.jsp" />
    </definition>
    
    

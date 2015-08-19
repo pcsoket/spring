@@ -54,8 +54,7 @@ public class LoginController {
 			return "redirect:/login.action";
 		}
 		
-		session.setAttribute("userId", userId);
-		session.setAttribute("userPwd", userPwd);
+		session.setAttribute("logInfo", dto);
 		
 		return "redirect:/shopmain.action";
 		

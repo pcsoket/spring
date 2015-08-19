@@ -6,6 +6,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.sajo.dao.PurchaseDAO;
+import com.sajo.dto.LoginDTO;
 import com.sajo.dto.PurchaseDTO;
 import com.sajo.util.MyUtil;
 
@@ -29,8 +31,12 @@ public class Orderlisttest {
 	@RequestMapping("/orderList.action")
 	public String orderList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
+		HttpSession session = request.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
 		
-		String userId = "1";// 테스트 아이디. 로그인포세션으로 교체해야함
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			return "login";
+		}
 		
 		String cp = request.getContextPath();
 		
@@ -64,7 +70,7 @@ public class Orderlisttest {
 		int end = currentPage*numPerPage;
 		
 		List<PurchaseDTO> lists =
-				dao.getList(start, end, searchValue, userId);
+				dao.getList(start, end, searchValue, logInfo.getUserId());
 			
 		//페이징 처리
 		String param = "";

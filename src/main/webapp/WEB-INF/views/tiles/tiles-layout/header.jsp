@@ -31,11 +31,11 @@
 	<div class="topShortcut" style="float: right;">
 		<div id="loginfoBox">
 		<c:choose>
-		<c:when test="${empty userId}">
+		<c:when test="${empty logInfo}">
 		<a href="<%=cp%>/login.action">Login</a>
 		</c:when>
 		<c:otherwise>
-		<a href="<%=cp%>/logout.action">Logout</a>  <a href="/god/myPage.action">myPage</a>
+		${logInfo.userId}//<a href="<%=cp%>/logout.action">Logout</a>//<a href="/god/myPage.action">myPage</a>
 		</c:otherwise>
 		</c:choose>
 		</div>
@@ -45,7 +45,7 @@
 		<li><a href="/god/shopmain.action">/god/shopmain.action</a></li>
 		<li><a href="/god/basket.action">basket</a></li>
 		<li><a href="/god/cancel.action">cancel</a></li>
-		<li><a href="/god/purchase.action">purchase</a></li>
+		<li><a href="/god/orderList.action">구매목록</a></li>
 		<li><a href="/god/card.action">card</a></li>
 		<li><a href="/god/category.action">category</a></li>
 		<li><a href="/god/shop_created.action">/shop_created</a></li>

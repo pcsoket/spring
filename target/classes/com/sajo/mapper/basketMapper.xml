@@ -8,10 +8,14 @@
 
 <!-- 장바구니테이블에 저장하기 -->
 
+<select id="maxNum" resultType="int">
+	select nvl(max(bNum),0) from basket
+</select>
+
 <insert id="insertBK" parameterType="com.sajo.dto.BasketDTO">
 
 	insert into basket (bnum,bamount,bpname,bprice,mid,pnum,imgnum) 
-	values (#{bNum},#{bAmount},#{bPName},#{bPrice},#{userId},#{pNum},#{imgnum})
+	values (#{bNum},#{bAmount},#{bPName},#{bPrice},#{userId},#{pNum},#{imgNum})
 
 </insert>
 
