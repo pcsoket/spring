@@ -23,7 +23,13 @@
 
 	function sendcard() {
 		
-		window.open('/god/card.action','card','width=400,height=300');
+		var f = document.myForm;
+		
+		var bnums = f.bnums.value
+	
+		
+		window.open('/god/card.action?bnums='+ bnums,'card','width=400,height=300');
+		
 		
 	}
 
@@ -68,14 +74,15 @@
 		</div>
 		
 		
-		<c:if test="${dto != null }">
+		<c:if test="${pdto != null }">
 		<div style="width: 390px; float: left; padding-left: 15px;">
 			<div>주문 상품 정보</div>
 			<div style="border: solid 1px #ffd2d7;" >
 				<div style="float: left; width: 150px;" >이미지 </div>
 				<div style="float: left;">
-					<div><input type="text" name="bpname" style="border: none;" value="${pdto.bPName }"> </div>
-					<div><input type="text" name="bprice" style="border: none;" value="${dto.bPrice }"> </div>
+					<input type="hidden" name="bnums" value="${bnums }"><input type="hidden" name="amt" value="${amt }">
+					<div><input type="text" name="bpname" style="border: none;" value="${pdto.pname }"> </div>
+					<div><input type="text" name="bprice" style="border: none;" value="${pdto.pprice }"> </div>
 				</div>
 			</div>
 		</div>
@@ -111,7 +118,7 @@
 						</div>
 						
 						<div align="left" style="padding-left: 20px; font-size: 13pt;">
-							<div style="float: left;"> · 상품가격 </div> <div align="right"><input type="text" name="pPrice" readonly="readonly" style="border: none; width: 50px;" value="${dto.bPrice * amount }"/>원</div>
+							<div style="float: left;"> · 상품가격 </div> <div align="right"><input type="text" name="pPrice" readonly="readonly" style="border: none; width: 50px;" value="${ptotal }"/>원</div>
 							<div style="float: left;"> · 배송비 </div> <div align="right"><input type="text" name="pDeli" readonly="readonly" style="border: none; width: 50px;" value=" 2500"> 원 </div>
 						</div>
 						

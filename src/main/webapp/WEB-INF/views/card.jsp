@@ -1,5 +1,10 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+	String cp = request.getContextPath();
+	
+ %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -70,18 +75,30 @@
 		f.email2.value = str;
 		
 		f.status.value = "complete";
-
-		f.action= "god/shopmain.action";
-		f.submit();
 		
+		var bnums = f.bnums.value;
+		//f.action= "god/shopmain.action";
+				
 		
 		alert("결제가 완료되었습니다.");
 		
-		
-		
-		opener.top.location.href="god/basket.action";
+	
+		opener.parent.location.href='<%=cp%>/card_ok.action?bnums=' + bnums;
 		
 		self.close();
+		
+	}
+	
+	function cancel() {
+		
+		var f = document.MyForm;
+		var bnums = f.bnums.value;
+
+				
+		opener.parent.location.href='<%=cp%>/card_cancel.action?bnums=' + bnums;
+		self.close();
+		
+		
 		
 	}
 	
@@ -131,9 +148,9 @@
 	
 	<div style="padding: 10px;">
 		<input type="button" value="결제" style="padding: 10px;" onclick="charge();">
-		<input type="button" value="취소" style="padding: 10px;" onclick="javascript:location.href='/god/purchase.action';">
+		<input type="button" value="취소" style="padding: 10px;" onclick="cancel();">
 	</div>
-	<input type="hidden" name="status" value="">
+	<input type="hidden" name="status" value=""><input type="text" name="bnums" value="${bnums }">
 </div>
 
 

@@ -99,7 +99,7 @@
 			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
     					&nbsp;&nbsp;&nbsp;&nbsp;아이디어상품</b></font>
     					
-    					<a href="/god/idea_category.action">전체보기</a>
+    					<a href="/god/idea_category.action">▼</a>
     					<c:forEach var="dto" items="${categorylists}">
 								<div class="category1">
 								
@@ -173,7 +173,7 @@
 		<c:forEach var="dto" items="${hitcountlists}">	
 			<td width="200px" height="300px" align="center" class="category2">
 			
-					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
+					<img alt="" src="${dto.pImg}" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href="${articleUrl}&pNum=${dto.pNum}">
 						${dto.pName}<br>${dto.pPrice}원</a></font></td>
@@ -190,7 +190,7 @@
 		<c:forEach var="dto" items="${ideahitcountlists}">	
 			<td width="200px" height="100px" align="center" class="category2">
 			
-					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
+					<img alt="" src="${dto.pImg}" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href="${articleUrl}&pNum=${dto.pNum}">
 						${dto.pName}<br>${dto.pPrice}원</a></font></td>
@@ -207,7 +207,7 @@
 		<c:forEach var="dto" items="${ideahitcountlists}">	
 			<td width="200px" height="100px" align="center" class="category2">
 			
-					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
+					<img alt="" src="${dto.pImg}" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href="${articleUrl}&pNum=${dto.pNum}">
 						${dto.pName}<br>${dto.pPrice}원</a></font></td>

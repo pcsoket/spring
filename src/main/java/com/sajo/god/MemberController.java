@@ -67,7 +67,13 @@ public class MemberController {
 		MultipartFile pimg = req.getFile("file2");
 		String userpimg = (String)pimg.getOriginalFilename();
 		String maddr = code1 + "-" + code2;
-
+		
+		String phn1 = request.getParameter("phn1");
+		String phn2 = request.getParameter("phn2");
+		String phn3 = request.getParameter("phn3");
+		String userTel = phn1 + "-" + phn2 + "-" + phn3; 
+		
+		dto.setUserTel(userTel);
 		dto.setUserPimg(userpimg);
 		dto.setUserAddr1(maddr);
 		
@@ -110,14 +116,18 @@ public class MemberController {
 	}
 	
 	//È¸¿ø Å»Åð ÄÚµù
-	@RequestMapping(value="/deleted.action",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="/deleted.action")
 	public String deleted(HttpServletRequest req,HttpServletResponse resp,HttpSession session){
 		
 		String userId = (String)session.getAttribute("userId");
+		String userPwd = (String)session.getAttribute("userPwd");
 		
 		dao.deleteData(userId);
 		
-		return"redirect:/shopMain.action";
+		session.removeAttribute("userId");
+		session.removeAttribute("userPwd");
+		
+		return"redirect:/shopmain.action";
 	}
 	
 	//ÁÖ¼Ò °Ë»ö
