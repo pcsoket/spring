@@ -295,4 +295,17 @@ public class MemberController {
 		return "redirect:/myPage.action";
 	}
 
+	@RequestMapping(value="/memberList.action")
+	public String memberList(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
+		
+		List<MemberDTO> lists = dao.getTotalReadData();
+		
+		
+		
+		req.setAttribute("lists", lists);
+		
+		return "/invent/memberList";
+		
+	}
+	
 }

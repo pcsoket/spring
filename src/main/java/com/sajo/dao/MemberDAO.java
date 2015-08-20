@@ -78,5 +78,15 @@ public int getDataCount(String dong){
 		sessionTemplate.update("com.sajo.member.sql.memberUpdate", dto);
 		
 	}
+	
+public List<MemberDTO> getTotalReadData(){
+		
+	List<MemberDTO> lists = 
+			sessionTemplate.selectList("com.sajo.member.sql.getTotalReadData");
+	
+	return lists;
+			
+		
+	}
 
 }

@@ -29,4 +29,8 @@
 	<delete id="deleteData" parameterType="String">
 	 delete member where mid=#{userId}
 	</delete>
+	<select id="getTotalReadData" parameterType="String" resultType="com.sajo.dto.MemberDTO">
+		select mid as userId,mName as userName, mPwd as userPwd,mTel as userTel,maddr1 as userAddr1,maddr2 as userAddr2,maddr3 as userAddr3,
+		mEmail as userEmail,mCreated as userCreated,mSelf as userSelf, mpimg as userPimg from member order by mcreated desc
+	</select>
 </mapper>
