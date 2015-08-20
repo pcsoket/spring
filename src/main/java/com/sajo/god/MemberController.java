@@ -227,7 +227,7 @@ public class MemberController {
 		req.setAttribute("phn2", phn2);
 		req.setAttribute("phn3", phn3);
 		req.setAttribute("dto", dto);
-		return "shopMyPage";
+		return "myPage";
 	}
 	
 	//회원정보 수정 코딩
