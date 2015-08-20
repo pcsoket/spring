@@ -12,6 +12,14 @@
                     value="/WEB-INF/views/tiles/tiles-layout/footer.jsp" />
    </definition>
 <!--<end id="tile_template"/>-->
+
+   <definition name="invent" 
+               template="/WEB-INF/views/tiles/invent-layout/layout.jsp">
+     <put-attribute name="header" 
+                    value="/WEB-INF/views/tiles/invent-layout/header.jsp" />
+     <put-attribute name="footer" 
+                    value="/WEB-INF/views/tiles/invent-layout/footer.jsp" />
+   </definition>
  
 <!--<타일즈 적용할 JSP설정/>-->
    <definition name="productWrite" extends="template">
@@ -25,6 +33,9 @@
    </definition>
    <definition name="shopordercancel" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/shopordercancel.jsp" />
+   </definition>
+   <definition name="myPage" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/shopMyPage.jsp" />
    </definition>
    <definition name="purchase" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/purchase.jsp" />

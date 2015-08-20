@@ -231,7 +231,7 @@ float: right;
 </head>
 <body>
 <div id = "wrapBody"><!-- 전체묶음 -->
-<!-- 헤더시작 -->
+<!-- 헤더시작 
 	<div id="headWrap">
 		<div class="topShortcut">
 			<div id="loginfoBox">
@@ -249,7 +249,7 @@ float: right;
 		<div class="headMain"></div>
 		<div class="headMenu"></div>
 	</div>
-<!-- 헤더끝 -->	
+ 헤더끝 -->	
 
 
 	<div id="bodyWrap"><!-- leftMenu 와 bodyContent묶음 -->
