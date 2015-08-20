@@ -172,17 +172,17 @@ public class ShopMainController {
 				System.out.println(nums.length);
 				pdto = new PurchaseDTO();
 				
-				pdto.setBnum(dto.getbNum());
+				pdto.setbNum(dto.getbNum());
 				
 				System.out.println(3 +  dto.getbNum());
-				pdto.setPamount(Integer.parseInt(amts[i]));
-				pdto.setPname(dto.getbPName());
-				pdto.setPprice(Integer.parseInt(amts[i]) * dto.getbPrice());
-				pdto.setMid(mid);
-				pdto.setMaddr(mdto.getUserAddr2());
+				pdto.setpAmount(Integer.parseInt(amts[i]));
+				pdto.setpName(dto.getbPName());
+				pdto.setpPrice(Integer.parseInt(amts[i]) * dto.getbPrice());
+				pdto.setmId(mid);
+				pdto.setmAddr(mdto.getUserAddr2());
 				pdto.setState("결제전");
 				pdto.setRetake(0);
-				pdto.setPnum(dto.getpNum());
+				pdto.setpNum(dto.getpNum());
 				
 
 				int result = pdao.insertData(pdto);
@@ -207,16 +207,16 @@ public class ShopMainController {
 			PurchaseDTO pdto = new PurchaseDTO();
 			System.out.println(4);
 			
-			pdto.setBnum(dto.getbNum());
-			pdto.setPamount(dto.getbAmount());
-			pdto.setPname(dto.getbPName());
-			pdto.setPprice(dto.getbPrice());
-			pdto.setMid(mid);
-			pdto.setMaddr(mdto.getUserAddr2());
-			pdto.setBdate("");
+			pdto.setbNum(dto.getbNum());
+			pdto.setpAmount(dto.getbAmount());
+			pdto.setpName(dto.getbPName());
+			pdto.setpPrice(dto.getbPrice());
+			pdto.setmId(mid);
+			pdto.setmAddr(mdto.getUserAddr2());
+			pdto.setbDate("");
 			pdto.setState("결제전");
 			pdto.setRetake(0);
-			pdto.setPnum(dto.getpNum());
+			pdto.setpNum(dto.getpNum());
 			
 			pdao.insertData(pdto);
 			
@@ -226,8 +226,8 @@ public class ShopMainController {
 	
 		
 		PurchaseDTO pdto = pdao.getBnums(mid);
-		System.out.println("11" + pdto.getBnum());
-		System.out.println("12"+pdto.getMid());
+		System.out.println("11" + pdto.getbNum());
+		System.out.println("12"+pdto.getmId());
 		
 		req.setAttribute("mdto", mdto);
 		req.setAttribute("pdto", pdto);
@@ -309,10 +309,10 @@ public class ShopMainController {
 				System.out.println(nums[i]);
 				dto.setbNum(Integer.parseInt(nums[i]));
 				dto.setbAmount(1);
-				dto.setbPName(pdto.getPname());
-				dto.setbPrice(pdto.getPamount()/pdto.getPprice());
+				dto.setbPName(pdto.getpName());
+				dto.setbPrice(pdto.getpAmount()/pdto.getpPrice());
 				dto.setUserId(mid);
-				dto.setbNum(pdto.getPnum());
+				dto.setbNum(pdto.getpNum());
 				dto.setImgNum(pdto.getImgNum());
 				
 				

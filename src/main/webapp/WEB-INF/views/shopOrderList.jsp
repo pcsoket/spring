@@ -6,9 +6,9 @@
 	String cp = request.getContextPath();
 	
 	Calendar cal = Calendar.getInstance();
-	int year = cal.get(Calendar.DAY_OF_YEAR);
-	int month = cal.get(Calendar.DAY_OF_YEAR);
-	int day = cal.get(Calendar.DAY_OF_YEAR);
+	int year = cal.get(Calendar.YEAR);
+	int month = cal.get(Calendar.MONTH);
+	int day = cal.get(Calendar.DATE);
 	
 	
 %>
@@ -175,8 +175,17 @@ height: 110px;
 border-top: 2px solid #EAEAEA
 }
 
-
 </style>
+<script type="text/javascript">
+$(document).ready(function()
+	 
+	{
+	 
+		$("#phn1 > option[value='<%=month%>']").attr("selected",true);
+	 
+	});
+	
+</script>
 </head>
 <body>
 <div id="bodyWrap">
@@ -195,15 +204,37 @@ border-top: 2px solid #EAEAEA
 				</div>
 				<div class="datesearchBox">
 					<select name="startYY" id="startYY"  onchange="setDD('start', 'form1');">
-						<option value='2015'  selected>2015</option>
+						<option value='<%=year%>' selected><%=year%></option>
 					</select>
 					<label for="startYY">년</label>
 					<select name="startMM" id="startMM"  onchange="setDD('start', 'form1');">
 						<option value='01' >1</option>
+						<option value='02' >2</option>
+						<option value='03' >3</option>
+						<option value='04' >4</option>
+						<option value='05' >5</option>
+						<option value='06' >6</option>
+						<option value='07' >7</option>
+						<option value='08' >8</option>
+						<option value='09' >9</option>
+						<option value='10' >10</option>
+						<option value='11' >11</option>
+						<option value='12' >12</option>
 					</select>
 					<label for="startMM">월</label>
 					<select name="startDD" id="startDD">
 						<option value='01' >1</option>
+						<option value='02' >2</option>
+						<option value='03' >3</option>
+						<option value='04' >4</option>
+						<option value='05' >5</option>
+						<option value='06' >6</option>
+						<option value='07' >7</option>
+						<option value='08' >8</option>
+						<option value='09' >9</option>
+						<option value='10' >10</option>
+						<option value='11' >11</option>
+						<option value='12' >12</option>
 					</select>
 					<label for="startDD">일</label>&nbsp;~&nbsp;
 					<select name="endYY" id="endYY" onchange="setDD('end', 'form1');">
@@ -212,10 +243,32 @@ border-top: 2px solid #EAEAEA
 					<label for="endYY">년</label>
 					<select name="endMM" id="endMM" onchange="setDD('end', 'form1');">
 						<option value='01' >1</option>
+						<option value='02' >2</option>
+						<option value='03' >3</option>
+						<option value='04' >4</option>
+						<option value='05' >5</option>
+						<option value='06' >6</option>
+						<option value='07' >7</option>
+						<option value='08' >8</option>
+						<option value='09' >9</option>
+						<option value='10' >10</option>
+						<option value='11' >11</option>
+						<option value='12' >12</option>
 					</select>
 					<label for="endMM">월</label>
-						<select name="endDD" id="endDD" >
-					<option value='01' >1</option>
+					<select name="endDD" id="endDD" >
+						<option value='01' >1</option>
+						<option value='02' >2</option>
+						<option value='03' >3</option>
+						<option value='04' >4</option>
+						<option value='05' >5</option>
+						<option value='06' >6</option>
+						<option value='07' >7</option>
+						<option value='08' >8</option>
+						<option value='09' >9</option>
+						<option value='10' >10</option>
+						<option value='11' >11</option>
+						<option value='12' >12</option>
 					</select>
 					<label for="endDD">일&nbsp;</label>
 				</div>
@@ -241,18 +294,18 @@ border-top: 2px solid #EAEAEA
 			<div id="lists">
 			<c:forEach var="dto" items="${lists}">
 				<dl>
-					<dd class="date" style="font-size: 7px;">${dto.bdate}</dd>
+					<dd class="date" style="font-size: 7px;">${dto.bDate}</dd>
 					<dd class="orderinfo">
-					<a href="${articleUrl}&gnum=${dto.pnum}">
-					${dto.pname}</a></dd>
-					<dd class="price">${dto.pprice}(${dto.pamount})</dd>
+					<a href="${articleUrl}&pNum=${dto.pNum}">
+					${dto.pName}</a></dd>
+					<dd class="price">${dto.pPrice}(${dto.pAmount})</dd>
 					<dd class="tax">구매자</dd>
 					<dd class="state">${dto.state}</dd>
 				</dl>
 			</c:forEach>
 			</div>
 			
-			<div id="footer">
+			<div id="pageIndex">
 				<p>
 					<c:if test="${dataCount!=0 }">
 						${pageIndexList }
