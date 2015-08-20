@@ -39,8 +39,11 @@
 		from purchase where mid = #{mid} order by bnum desc) data) where rnum = 1
 	</select>
 	<!-- id로 구매테이블에 있는 데이터 모두 읽어오기 -->
-	<select id="getReadId" parameterType="">
+	<select id="getReadId" parameterType="String" resultType="com.sajo.dto.PurchaseDTO">
 	
+		select bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake
+		from purchase where mid=#{mid}
+		
 	</select>
 	
 	<select id="getReadData" parameterType="int" resultType="com.sajo.dto.PurchaseDTO">

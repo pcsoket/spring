@@ -18,6 +18,11 @@ public class BasketDAO {
 		
 	}
 	
+	public void insertBK(BasketDTO dto){
+		
+		sessionTemplate.update("com.sajo.mapper.basket.updateData",dto);
+	}
+	
 	public List<BasketDTO> readPro(String mid){
 		
 		List<BasketDTO> lists = sessionTemplate.selectList("com.sajo.mapper.basket.readPro", mid);

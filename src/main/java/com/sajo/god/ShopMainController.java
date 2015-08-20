@@ -263,8 +263,8 @@ public class ShopMainController {
 		//String id = (String)session.getAttribute("userId"); //session에서 id받아오기
 		
 		String mid = "5";
-		BasketDTO dto;
-		
+		BasketDTO dto = null;
+		PurchaseDTO pdto;
 		List<PurchaseDTO> lists = (List<PurchaseDTO>)pdao.getReadId(mid);
 		
 		Iterator<PurchaseDTO> reinst = lists.iterator();
@@ -272,18 +272,26 @@ public class ShopMainController {
 		
 		while(reinst.hasNext()){
 			
-			dto = new BasketDTO();
+			pdto = (PurchaseDTO)reinst.next();
 			
+			
+			dto.setbNum(pdto.getBnum());
+			dto.setbAmount(1);
+			dto.setbPName(pdto.getPname());
+			dto.setbPrice(pdto.getPprice()/pdto.getPamount());
+			dto.setUserId(mid);
+			dto.setbNum(pdto.getPnum());
+			
+			dao.insertBK(dto);
 			
 			
 		}
 		
 		
-		  
 		
 		
 	
-		return "basket.action";
+		return "redirect:basket.action";
 	}
 	
 	@RequestMapping(value="/del.action")
