@@ -22,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.dao.MemberDAO;
 import com.sajo.dto.AddrDTO;
+import com.sajo.dto.LoginDTO;
 import com.sajo.dto.MemberDTO;
 import com.sajo.util.MyUtil;
 
@@ -115,15 +116,14 @@ public class MemberController {
 	
 	//È¸¿ø Å»Åð ÄÚµù
 	@RequestMapping(value="/deleted.action")
-	public String deleted(HttpServletRequest req,HttpServletResponse resp,HttpSession session){
+	public String deleted(HttpServletRequest req,HttpServletResponse resp,HttpSession session,LoginDTO dto){
 		
-		String userId = (String)session.getAttribute("userId");
-		String userPwd = (String)session.getAttribute("userPwd");
+		dto  = (LoginDTO)session.getAttribute("logInfo");
 		
-		dao.deleteData(userId);
+		dao.deleteData(dto.getUserId());
 		
-		session.removeAttribute("userId");
-		session.removeAttribute("userPwd");
+		session.removeAttribute("logInfo");
+		session.invalidate();
 		
 		return"redirect:/shopmain.action";
 	}
@@ -194,15 +194,18 @@ public class MemberController {
 	public String myPage(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
 		
 	
-		String userId= (String)session.getAttribute("userId");
+		//String userId= (String)session.getAttribute("userId");
 		
-		if(userId==null||userId.equals("")){
+		LoginDTO dto1 = (LoginDTO)session.getAttribute("logInfo");
+		
+		
+		if(dto1==null){
 			
-			return "shopMyPage";
+			return "redirect:/login.action";
 			
 		}
 		
-		dto= dao.getReadData(userId);
+		dto= dao.getReadData(dto1.getUserId());
 		
 		String savepath = "/god/resources/testimg/";
 		String pimg = savepath + dto.getUserPimg();

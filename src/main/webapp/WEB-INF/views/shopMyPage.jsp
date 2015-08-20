@@ -236,7 +236,7 @@ float: right;
 		<div class="topShortcut">
 			<div id="loginfoBox">
 			<c:choose>
-			<c:when test="${empty userId}">
+			<c:when test="${empty logInfo}">
 			<a href="<%=cp%>/login.action">Login</a>
 			</c:when>
 			<c:otherwise>

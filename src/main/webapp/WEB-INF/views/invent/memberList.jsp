@@ -43,10 +43,10 @@ function searchId() {
 	<div style="border:1px solid; border-color: #8C8C8C; margin-top: 1px;">
 	</div>
 		<div>	
-			<div align="center" style="width: 800px; height: 800px;">
+			<div align="center" style="width: 800px; height: 800px; margin-left:30%;">
 				<dl>
 				<c:forEach var="dto" items="${lists}">
-					<dd style="float: left; margin-top: 2px;">
+					<dd style="float:left; margin-top: 2px;">
 						<img style="border-radius:50%; width: 200px; height: 200px;"
 						 src="/god/resources/testimg/${dto.userPimg}"/><br/>
 						${dto.userId}

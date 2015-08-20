@@ -39,6 +39,8 @@ public class LoginController {
 		String userPwd = req.getParameter("userPwd");
 		
 		session.removeAttribute("message");
+		session.invalidate();
+		
 		
 		dto = dao.getList(userId);
 		
@@ -63,8 +65,8 @@ public class LoginController {
 	@RequestMapping(value="/logout.action")
 	public String logout(HttpServletRequest req,HttpServletResponse resp,HttpSession session,LoginDTO dto){
 		
-		session.removeAttribute("userId");
-		session.removeAttribute("userPwd");
+		session.removeAttribute("logInfo");
+		session.invalidate();
 		
 		return "redirect:/shopmain.action";
 	}
