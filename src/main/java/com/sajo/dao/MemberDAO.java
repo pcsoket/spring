@@ -79,13 +79,44 @@ public int getDataCount(String dong){
 		
 	}
 	
-public List<MemberDTO> getTotalReadData(){
+public List<MemberDTO> getTotalReadData(int start,int end,String searchKey,String searchValue){
 		
+	HashMap<String, Object> params = new HashMap<String, Object>();
+	
+	params.put("start",start);
+	params.put("end",end);
+	params.put("searchKey",searchKey);
+	params.put("searchValue",searchValue);
+	
 	List<MemberDTO> lists = 
-			sessionTemplate.selectList("com.sajo.member.sql.getTotalReadData");
+			sessionTemplate.selectList("com.sajo.member.sql.getTotalReadData",params);
 	
 	return lists;
 			
+		
+	}
+
+	public int getmaxNum(){
+		
+		int result = 0;
+		
+		result = sessionTemplate.selectOne("com.sajo.member.sql.maxNum");
+		
+		return result;
+		
+	}
+	
+	public int getListDataCount(String searchKey,String searchValue){
+		
+
+		HashMap<String, Object>params = new HashMap<String, Object>();
+		
+		params.put("searchKey", searchKey);
+		params.put("searchValue", searchValue);
+		
+		int result = sessionTemplate.selectOne("com.sajo.member.sql.getListDataCount", params);
+		
+		return result;
 		
 	}
 

@@ -18,8 +18,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-/*import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;*/
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.dao.MemberDAO;
@@ -298,11 +296,66 @@ public class MemberController {
 	@RequestMapping(value="/memberList.action")
 	public String memberList(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
 		
-		List<MemberDTO> lists = dao.getTotalReadData();
+	
 		
+		String cp = req.getContextPath();
+		String pageNum = req.getParameter("pageNum");
+		String searchKey = req.getParameter("searchKey");
+		String searchValue = req.getParameter("searchValue");
 		
+		int currentPage = 1;
+		
+		if(pageNum != null)
+			currentPage = Integer.parseInt(pageNum);
+		
+		if(searchKey == null){
+			
+			searchKey = "mid";
+			searchValue = "";
+			
+		}
+		
+		//전체데이터갯수
+				int dataCount = dao.getListDataCount(searchKey, searchValue);
+				
+				//전체페이지수
+				int numPerPage = 9;
+				int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+				
+				if(currentPage > totalPage)
+					currentPage = totalPage;
+				
+				int start = (currentPage-1)*numPerPage+1;
+				int end = currentPage*numPerPage;
+				
+				List<MemberDTO> lists = dao.getTotalReadData(start,end,searchKey,searchValue);
+				
+				//페이징 처리
+				String param = "";
+				if(!searchValue.equals("")){
+					param = "searchKey=" + searchKey;
+					param+= "&searchValue=" + searchValue;
+					
+				}
+				
+				String listUrl = cp + "/memberList.action";
+				if(!param.equals("")){
+					listUrl = listUrl + "?" + param;				
+				}
+				
+				String pageIndexList =
+					myUtil.pageIndexList(currentPage, totalPage, listUrl);
+				
+				//글보기 주소 정리
+		//		String articleUrl = 
+			//		cp + "/article.action?pageNum=" + currentPage;
+					
+		//		if(!param.equals(""))
+				//	articleUrl = articleUrl + "&" + param;
 		
 		req.setAttribute("lists", lists);
+		req.setAttribute("pageIndexList",pageIndexList);
+		req.setAttribute("dataCount",dataCount);
 		
 		return "/invent/memberList";
 		
