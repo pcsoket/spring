@@ -8,6 +8,7 @@ public class PurchaseDTO {
 	private String maddr;
 	private String bdate;
 	private String state;
+	private String imgNum;
 	
 	private int bnum,pnum;
 	private int  pamount, pprice,retake;
@@ -72,6 +73,12 @@ public class PurchaseDTO {
 	}
 	public void setPprice(int pprice) {
 		this.pprice = pprice;
+	}
+	public String getImgNum() {
+		return imgNum;
+	}
+	public void setImgNum(String imgNum) {
+		this.imgNum = imgNum;
 	}
 		
 	

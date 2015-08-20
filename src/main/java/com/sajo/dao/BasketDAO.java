@@ -18,12 +18,20 @@ public class BasketDAO {
 		
 	}
 	
+	public int maxNum(){
+		
+		int maxNum = sessionTemplate.selectOne("com.sajo.mapper.basket.maxNum");
+		
+		return maxNum;
+	}
+	
+	
 	public int insertBK(BasketDTO dto){
 		
 		int result = 0;
 		
 		result = sessionTemplate.insert("com.sajo.mapper.basket.insertBK",dto);
-		
+
 		return result;
 	}
 	

@@ -19,6 +19,7 @@ import com.sajo.dao.BasketDAO;
 import com.sajo.dao.MemberDAO;
 import com.sajo.dao.PurchaseDAO;
 import com.sajo.dto.BasketDTO;
+import com.sajo.dto.LoginDTO;
 import com.sajo.dto.MemberDTO;
 import com.sajo.dto.PurchaseDTO;
 import com.sajo.util.MyUtil;
@@ -52,17 +53,20 @@ public class ShopMainController {
 	@RequestMapping(value="/basket.action")
 	public String basket(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
-		String userId = "5";
+		HttpSession session = request.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
+		
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			return "login";
+		}
 		
 		String savePath = "example" + File.separator + "resources" + File.separator + "imageFile";
 		
 		String cp = request.getContextPath();
 		
-		int dataCount = dao.getDataCount(userId);
+		int dataCount = dao.getDataCount(logInfo.getUserId());
 		
-		List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(userId);
-		
-		
+		List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(logInfo.getUserId());
 		
 		//String urlList = cp + "/img/list.action";
 		
@@ -73,32 +77,54 @@ public class ShopMainController {
 		request.setAttribute("bklists", lists);
 		request.setAttribute("dataCount", dataCount);
 		
-
-		
 		return "basket";
 	}
 	
-/*	@RequestMapping(value="/orderList.action")             테스트중
+/*	@RequestMapping(value="/orderList.action")
 	public String orderList(){
 		
 		
 		return "shopOrderList";
-	}*/
-	
-	@RequestMapping(value="/cancel.action")
+	}
+	*/
+/*	@RequestMapping(value="/cancel.action")
 	public String orderCancel(){
 		
 		
 		
 		return "shopordercancel";
+	}*/
+	
+	
+	@RequestMapping(value="/toBasket.action")
+	public String toBasket(BasketDTO dto ,HttpServletRequest req, HttpServletResponse resp){
+		
+		HttpSession session = req.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
+		
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			return "login";
+		}
+		
+		dto.setUserId(logInfo.getUserId());            //아이디 추가
+		dto.setbNum(dao.maxNum()+1);            //bnum생성
+		
+		dao.insertBK(dto);
+		
+		return "redirect:basket.action";
 	}
 	
 	@RequestMapping(value="/direct.action")
-	public String direct(Integer bnum, Integer amount,HttpServletRequest req, HttpServletResponse resp,HttpSession session){
+	public String direct(Integer bnum, Integer amount,HttpServletRequest req, HttpServletResponse resp){
 		
-		//String id = (String)session.getAttribute("userId");
+		HttpSession session = req.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
 		
-		MemberDTO mdto = mdao.getReadData("3");
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			return "login";
+		}
+		
+		MemberDTO mdto = mdao.getReadData(logInfo.getUserId());
 		
 		//System.out.println(mdto.getUserName());
 		
@@ -115,11 +141,16 @@ public class ShopMainController {
 	}
 	
 	@RequestMapping(value="/basket_ok.action")
-	public String basket_ok(String bnums, String amt,HttpServletRequest req, HttpServletResponse resp,HttpSession session){
+	public String basket_ok(String bnums, String amt,HttpServletRequest req, HttpServletResponse resp){
 		
-		//String id = (String)session.getAttribute("userId"); //session에서 id받아오기
+		HttpSession session = req.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
 		
-		String mid = "5";
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			return "login";
+		}
+		
+		String mid = logInfo.getUserId();
 		
 		MemberDTO mdto = mdao.getReadData(mid);
 		
@@ -210,6 +241,13 @@ public class ShopMainController {
 	@RequestMapping(value="/card.action")
 	public String card(String bnums,HttpServletRequest req, HttpServletResponse resp){
 		
+		HttpSession session = req.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
+		
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			return "login";
+		}
+		
 		System.out.println("여기는" + bnums);
 		
 		req.setAttribute("bnums", bnums);
@@ -219,6 +257,13 @@ public class ShopMainController {
 	
 	@RequestMapping(value="/card_ok.action")
 	public String card_ok(String bnums,HttpServletRequest req, HttpServletResponse resp){
+		
+		HttpSession session = req.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
+		
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			return "login";
+		}
 		
 		System.out.println("널인가!!" + bnums);
 		
@@ -236,7 +281,7 @@ public class ShopMainController {
 			
 		}
 		
-		return "redirect:shopmain.action";
+		return "redirect:orderList.action";
 	}
 	
 	@RequestMapping(value="/card_cancel.action")
@@ -268,7 +313,7 @@ public class ShopMainController {
 				dto.setbPrice(pdto.getPamount()/pdto.getPprice());
 				dto.setUserId(mid);
 				dto.setbNum(pdto.getPnum());
-				dto.setImgnum(33);
+				dto.setImgNum(pdto.getImgNum());
 				
 				
 				int result = dao.insertBK(dto);

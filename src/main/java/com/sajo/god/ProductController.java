@@ -1,12 +1,7 @@
 package com.sajo.god;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +12,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -140,8 +134,6 @@ public class ProductController {
 		request.setAttribute("articleUrl",articleUrl);
 		
 		
-		
-		
 		return "category";		
 		
 	}
@@ -245,15 +237,12 @@ public class ProductController {
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		
-		
-		
 		return "idea_category";		
 		
 	}
 
 	
 	@RequestMapping(value="/shop_article.action",method={RequestMethod.GET,RequestMethod.POST})
-	
 	public ModelAndView shop_article (Integer pNum, HttpServletResponse response,HttpServletRequest request) throws Exception{
 	
 	
@@ -304,11 +293,11 @@ public class ProductController {
 		
 	}
 	
-@RequestMapping(value="/shop_update.action",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="/shop_update.action",method={RequestMethod.GET,RequestMethod.POST})  ///만들다 말음.
 	
 	public ModelAndView shop_update (ProductDTO dto, HttpServletResponse response,HttpServletRequest request) throws Exception{
 	
-	
+	///만들다 말음.
 		String cp = request.getContextPath();
 
 		String pageNum = request.getParameter("pageNum");
@@ -355,7 +344,6 @@ public class ProductController {
 		
 	}
 	
-	
 	// ============================================================= productcreated
 	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
 	
@@ -380,7 +368,7 @@ public class ProductController {
 		pdto.setpNum(dao.p_maxNum()+1); //product번호지정
 		pdto.setpImg(imglistnum);        //product 에서 뿌려줄 이미지들의 번호
 		dao.p_insertData(pdto);          //product 테이블에 insert
-		mav.setViewName("productWrite"); //나갈곳
+		mav.setViewName("redirect:shop_article.action?pNum="+pdto.getpNum()); //나갈곳
 		//mav.addObject("pdto",pdto); 가져감?
 		
 		return mav;

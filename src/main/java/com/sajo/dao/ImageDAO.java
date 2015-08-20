@@ -157,8 +157,9 @@ public class ImageDAO {
 
     	 for (String imgNO : imgNum) {              //그룹넘버 지정해서 한번에 검색도 가능
     		 
-    		 ImageDTO dto = sessionTemplate.selectOne("com.sajo.image.readImage",Integer.parseInt(imgNO));
-			 String img = imageUrl+dto.getOriginalFileName();
+    		 
+    		 String img = imageUrl+sessionTemplate.selectOne("com.sajo.image.readImage",Integer.parseInt(imgNO));
+			 ImageDTO dto = new ImageDTO();
 			 dto.setOriginalFileName(img);
 			 lists.add(dto);
     	 }

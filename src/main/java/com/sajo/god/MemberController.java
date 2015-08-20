@@ -18,12 +18,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-/*import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;*/
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.dao.MemberDAO;
 import com.sajo.dto.AddrDTO;
+import com.sajo.dto.LoginDTO;
 import com.sajo.dto.MemberDTO;
 import com.sajo.util.MyUtil;
 
@@ -117,15 +116,14 @@ public class MemberController {
 	
 	//회원 탈퇴 코딩
 	@RequestMapping(value="/deleted.action")
-	public String deleted(HttpServletRequest req,HttpServletResponse resp,HttpSession session){
+	public String deleted(HttpServletRequest req,HttpServletResponse resp,HttpSession session,LoginDTO dto){
 		
-		String userId = (String)session.getAttribute("userId");
-		String userPwd = (String)session.getAttribute("userPwd");
+		dto  = (LoginDTO)session.getAttribute("logInfo");
 		
-		dao.deleteData(userId);
+		dao.deleteData(dto.getUserId());
 		
-		session.removeAttribute("userId");
-		session.removeAttribute("userPwd");
+		session.removeAttribute("logInfo");
+		session.invalidate();
 		
 		return"redirect:/shopmain.action";
 	}
@@ -196,15 +194,18 @@ public class MemberController {
 	public String myPage(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
 		
 	
-		String userId= (String)session.getAttribute("userId");
+		//String userId= (String)session.getAttribute("userId");
 		
-		if(userId==null||userId.equals("")){
+		LoginDTO dto1 = (LoginDTO)session.getAttribute("logInfo");
+		
+		
+		if(dto1==null){
 			
-			return "shopMyPage";
+			return "redirect:/login.action";
 			
 		}
 		
-		dto= dao.getReadData(userId);
+		dto= dao.getReadData(dto1.getUserId());
 		
 		String savepath = "/god/resources/testimg/";
 		String pimg = savepath + dto.getUserPimg();
@@ -295,4 +296,65 @@ public class MemberController {
 		return "redirect:/myPage.action";
 	}
 
+	@RequestMapping(value="/memberList.action")
+	public String memberList(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
+		
+	
+		
+		String cp = req.getContextPath();
+		String pageNum = req.getParameter("pageNum");
+		String searchKey = req.getParameter("searchKey");
+		String searchValue = req.getParameter("searchValue");
+		
+		int currentPage = 1;
+		
+		if(pageNum != null)
+			currentPage = Integer.parseInt(pageNum);
+		
+		if(searchKey == null){
+			
+			searchKey = "mid";
+			searchValue = "";
+			
+		}
+		
+		//전체데이터갯수
+				int dataCount = dao.getListDataCount(searchKey, searchValue);
+				
+				//전체페이지수
+				int numPerPage = 9;
+				int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+				
+				if(currentPage > totalPage)
+					currentPage = totalPage;
+				
+				int start = (currentPage-1)*numPerPage+1;
+				int end = currentPage*numPerPage;
+				
+				List<MemberDTO> lists = dao.getTotalReadData(start,end,searchKey,searchValue);
+				
+				//페이징 처리
+				String param = "";
+				if(!searchValue.equals("")){
+					param = "searchKey=" + searchKey;
+					param+= "&searchValue=" + searchValue;
+					
+				}
+				
+				String listUrl = cp + "/memberList.action";
+				if(!param.equals("")){
+					listUrl = listUrl + "?" + param;				
+				}
+				
+				String pageIndexList =
+					myUtil.pageIndexList(currentPage, totalPage, listUrl);
+		
+		req.setAttribute("lists", lists);
+		req.setAttribute("pageIndexList",pageIndexList);
+		req.setAttribute("dataCount",dataCount);
+		
+		return "/invent/memberList";
+		
+	}
+	
 }

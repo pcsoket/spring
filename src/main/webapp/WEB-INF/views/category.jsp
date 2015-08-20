@@ -19,21 +19,29 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  
-  <script>
-		$(document).ready(function(){
-    		$(".menu1").click(function(){
-        		$(".category1").toggle(200);
-    		});
-		});
+<script>
+	$(document).ready(function(){
+   		$(".menu1").click(function(){
+       		$(".category1").toggle(200);
+   		});
+	});
+	
+	$(document).ready(function(){
+   		$(".menu2").click(function(){
+       		$(".category3").toggle(200);
+   		});
+	});
+	
+	
+	function sendIt() {
 		
-		$(document).ready(function(){
-    		$(".menu2").click(function(){
-        		$(".category3").toggle(200);
-    		});
-		});
-		
+		f = document.myForm;
 
-	</script>
+		f.action = "<%=cp%>/toBasket.action";
+		f.submit();
+	}
+
+</script>
 	
 <style type="text/css">
 
@@ -89,7 +97,7 @@
 
 </head>
 <body>
-
+<form action="" name="myForm">
 <table width="1020px" class="box" align="center">
 	<tr><td rowspan="3" valign="top" bgcolor="#ffd2d7">
 			<table class="box" width="200px">
@@ -220,6 +228,6 @@
 	</td></tr></table>
 
 
-
+</form>
 </body>
 </html>

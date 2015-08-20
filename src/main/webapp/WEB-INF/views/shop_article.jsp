@@ -1,5 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+	request.setCharacterEncoding("UTF-8");
+	String cp = request.getContextPath();
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,6 +15,25 @@
 
 	function fimg(csrc){
 		window.document.images["img01"].src = csrc;		
+	}
+	
+	function imgResize(){  //이미지 크기조절 안됨.
+		
+		
+		 var myImg = document.getElementById("img01");
+
+		  myImg.width = 350;
+		  myImg.height = 350;     
+	}
+
+	
+	function sendIt() {
+		
+		f = document.myForm;
+		
+		f.action = "<%=cp%>/toBasket.action";
+		f.submit();
+		
 	}
 
 </script>
@@ -52,11 +75,13 @@
 	font-family : 나눔바른펜";
 
 	}
+	
+	
 
 </style>
 </head>
 <body>
-
+<form name="myForm">
 <table width="1000px" height="700px" align="center">
 	<tr>
 		<td>
@@ -64,14 +89,16 @@
 			<tr>
 				<td width="350px" height="400px" class="box" colspan="2">
 
-				<img alt="" src="/god/resources/image/ww.PNG" name="img01"/><br/>
+				<img alt="" src="/god/resources/image/ww.PNG" name="img01"/><br/>  <!-- 큰사진 -->
 
 				</td>
         	</tr>
 			<tr>
 				<td width="330px" height="150px" class="line2" colspan="2">
 
-				<table><tr>
+
+				<table>
+				<tr>
 				<c:forEach var="dto" items="${ilists}">	
     					<td width="90px" height="100px" class="line1">
     						<img alt="" src="${dto.originalFileName}" 
@@ -150,12 +177,15 @@
 				<table>
 					<tr>
 					<td width="250px" height="70px" align="right">
-					<a href="${articleUrl}/god/basket.action">
-					<input type="button" style="width:100px; height:50px;" value="장바구니" class="btn1"></a></td>
+					<input type="button" style="width:100px; height:50px;" value="장바구니" class="btn1" onclick="sendIt();"></td>
 					<td width="250px" height="70px" colspan="2">
 				 	<input type="button" style="width:100px; height:50px;" value="바로 구매" class="btn1"></td>
 				</table>
-				 	
+				 	<input type="hidden" name="bAmount" value=1><!-- 임시로. 고를수있게 해놓아야됨 -->
+				 	<input type="hidden" name="bPName" value="${dto.pName}">
+				 	<input type="hidden" name="bPrice" value="${dto.pPrice}">
+				 	<input type="hidden" name="pNum" value="${dto.pNum}">
+				 	<input type="hidden" name="imgNum" value="${dto.pImg}">
 				</td>
 			</tr>
 			
@@ -163,7 +193,7 @@
 		</td>
 	</tr>
 </table>
-
+</form>
 
 </body>
 </html>
