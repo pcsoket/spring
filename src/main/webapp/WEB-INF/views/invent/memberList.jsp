@@ -32,6 +32,7 @@ function searchId() {
 		<div align="left">
 		<select name="searchKey">
 			<option value="mid"> I D </option>
+			<option value="mSelf"> mySelf </option>
 		</select>
 		<input type="text" name="searchValue"/>
 		<input type="button" value="검색" onclick="searchId();"/>
@@ -49,9 +50,9 @@ function searchId() {
 					<dd style="float:left; margin-top: 2px;">
 						<img style="border-radius:50%; width: 200px; height: 200px;"
 						 src="/god/resources/testimg/${dto.userPimg}"/><br/>
-						${dto.userId}
+						ID : ${dto.userId}
 						<br/>
-						${dto.userSelf}
+						MySelf : ${dto.userSelf}
 					<%if(i%3==0){
 					out.print("</dd><dd style='margin-top: 2px;'>");
 					}i++; %>

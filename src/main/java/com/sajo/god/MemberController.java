@@ -348,13 +348,6 @@ public class MemberController {
 				
 				String pageIndexList =
 					myUtil.pageIndexList(currentPage, totalPage, listUrl);
-				
-				//글보기 주소 정리
-		//		String articleUrl = 
-			//		cp + "/article.action?pageNum=" + currentPage;
-					
-		//		if(!param.equals(""))
-				//	articleUrl = articleUrl + "&" + param;
 		
 		req.setAttribute("lists", lists);
 		req.setAttribute("pageIndexList",pageIndexList);
