@@ -79,14 +79,19 @@ public class PurchaseDAO {
 		return result;
 	}
 	
+<<<<<<< HEAD
 	/*bnum으로 데이터 읽어오기*/
 	public PurchaseDTO getReadData(int num){
+=======
+	public PurchaseDTO getReadData(int bNum){
+>>>>>>> a429b6adedb5af7bc69f9744ebb2d8dfef29a513
 		
-		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getReadData",num);
+		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getReadData",bNum);
 		
 		return dto;
 	}
 	
+<<<<<<< HEAD
 	//mid로 구매테이블에 있는 데이터 읽어오기
 	public PurchaseDTO getReadbnums(String mid){
 		
@@ -97,24 +102,35 @@ public class PurchaseDAO {
 	
 	
 	public PurchaseDTO getBnums(String mid){
+=======
+	public PurchaseDTO getBnums(String mId){
+>>>>>>> a429b6adedb5af7bc69f9744ebb2d8dfef29a513
 		
-		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getBnums", mid);
+		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getBnums", mId);
 		
 		return dto;
 		
 	}
 	
-	//
-	public void deleteData(int num){
+	public List<PurchaseDTO> getReadId(String mId){
 		
-		sessionTemplate.delete("com.sajo.purchase.deleteData",num);
+		List<PurchaseDTO> lists = sessionTemplate.selectList("com.sajo.purchase.getReadId", mId);
+		
+		return lists;
+		
+	}
+	
+	//
+	public void deleteData(int bNum){
+		
+		sessionTemplate.delete("com.sajo.purchase.deleteData",bNum);
 	}
 	
 	
 	//
-	public void updateData(PurchaseDTO dto){
+	public void updateData(int bNum){
 		
-		sessionTemplate.update("com.sajo.purchase.updateData",dto);
+		sessionTemplate.update("com.sajo.purchase.updateData",bNum);
 	}
 }
 

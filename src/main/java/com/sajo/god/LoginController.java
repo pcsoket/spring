@@ -39,6 +39,8 @@ public class LoginController {
 		String userPwd = req.getParameter("userPwd");
 		
 		session.removeAttribute("message");
+		//session.invalidate();  세션날라가버림.
+		
 		
 		dto = dao.getList(userId);
 		
@@ -54,18 +56,17 @@ public class LoginController {
 			return "redirect:/login.action";
 		}
 		
-		session.setAttribute("userId", userId);
-		session.setAttribute("userPwd", userPwd);
+		session.setAttribute("logInfo", dto);
 		
-		return "redirect:/shopmain.action";
+		return "redirect:/category.action";
 		
 	}
 	
 	@RequestMapping(value="/logout.action")
 	public String logout(HttpServletRequest req,HttpServletResponse resp,HttpSession session,LoginDTO dto){
 		
-		session.removeAttribute("userId");
-		session.removeAttribute("userPwd");
+		session.removeAttribute("logInfo");
+		session.invalidate();
 		
 		return "redirect:/shopmain.action";
 	}
@@ -89,9 +90,7 @@ public class LoginController {
 		dto = dao.getListId(userName,userEmail);
 		
 		if(userName!=null){
-			
-			
-			
+		
 		req.setAttribute("message","찾으신 ID는 [" + dto.getUserId() + "] 입니다.");
 		req.setAttribute("message1","찾으신 Password는 [" + dto.getUserPwd() + "] 입니다.");
 		

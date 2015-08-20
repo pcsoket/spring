@@ -34,6 +34,11 @@
 	from image where imgNum=#{imgNum}
 </select>
 
+<select id="readImage" resultType="String" parameterType="int">
+	select originalFileName
+	from image where imgNum=#{imgNum}
+</select>
+
 <delete id="deleteData" parameterType="int">
 	delete image where imgNum=#{imgNum}
 </delete>

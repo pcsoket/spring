@@ -18,11 +18,33 @@ public class BasketDAO {
 		
 	}
 	
+<<<<<<< HEAD
 	public void insertBK(BasketDTO dto){
 		
 		sessionTemplate.update("com.sajo.mapper.basket.updateData",dto);
 	}
 	
+=======
+	public int maxNum(){
+		
+		int maxNum = sessionTemplate.selectOne("com.sajo.mapper.basket.maxNum");
+		
+		return maxNum;
+	}
+	
+	
+	public int insertBK(BasketDTO dto){
+		
+		int result = 0;
+		
+		result = sessionTemplate.insert("com.sajo.mapper.basket.insertBK",dto);
+
+		return result;
+	}
+	
+	
+	
+>>>>>>> a429b6adedb5af7bc69f9744ebb2d8dfef29a513
 	public List<BasketDTO> readPro(String mid){
 		
 		List<BasketDTO> lists = sessionTemplate.selectList("com.sajo.mapper.basket.readPro", mid);
@@ -43,7 +65,7 @@ public class BasketDAO {
 	
 	public void updateData(BasketDTO dto){
 		
-		sessionTemplate.update("com.sajo.mapper.basket.updateData",dto);
+		sessionTemplate.update("com.sajo.mapper.basket.updatebk",dto);
 	}
 	
 		

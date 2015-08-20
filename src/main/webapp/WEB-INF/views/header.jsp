@@ -16,7 +16,6 @@
 			<ul class="nav nav-tabs">
 			    <li class="active"><a href="/god/shop.action">Shop</a></li>
 			    <li><a href="/god/invent.action">Invent</a></li>
-			  
 		  	</ul>
 		</div>
 		

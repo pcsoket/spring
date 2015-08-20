@@ -75,16 +75,15 @@
 		f.email2.value = str;
 		
 		f.status.value = "complete";
-
-		//f.action= "god/shopmain.action";
-		f.submit();
 		
+		var bnums = f.bnums.value;
+		//f.action= "god/shopmain.action";
+				
 		
 		alert("결제가 완료되었습니다.");
 		
-		
-		
-		opener.parent.location.href="<%=cp%>/basket.action";
+	
+		opener.parent.location.href='<%=cp%>/card_ok.action?bnums=' + bnums;
 		
 		self.close();
 		
@@ -93,11 +92,10 @@
 	function cancel() {
 		
 		var f = document.MyForm;
-		
+		var bnums = f.bnums.value;
 
-		f.submit();
-		
-		opener.parent.location.href="<%=cp%>/basket.action";
+				
+		opener.parent.location.href='<%=cp%>/card_cancel.action?bnums=' + bnums;
 		self.close();
 		
 		
@@ -152,7 +150,7 @@
 		<input type="button" value="결제" style="padding: 10px;" onclick="charge();">
 		<input type="button" value="취소" style="padding: 10px;" onclick="cancel();">
 	</div>
-	<input type="hidden" name="status" value="">
+	<input type="hidden" name="status" value=""><input type="text" name="bnums" value="${bnums }">
 </div>
 
 
