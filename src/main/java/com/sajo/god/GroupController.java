@@ -105,7 +105,7 @@ public class GroupController {
 		dataCount = dao.getDataCount(searchKey, searchValue);
 		
 		//전체페이지수
-		int numPerPage = 10;
+		int numPerPage = 9;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 		
 		

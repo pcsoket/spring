@@ -49,10 +49,10 @@
 	}
 	
 .category2{
-	border: 1px solid #EAEAEA;
+	/* border: 1px solid #EAEAEA; */
 	height: 300px;
 	width: 300px;
-	padding-right: 30px;
+	padding-left: 30px;
 	}
 
 /* 하이퍼링크 밑줄 지우기 */
@@ -128,7 +128,7 @@ A:hover {text-decoration:none}
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href ="${articleUrl}&gNum=${dto.gNum}">
 					${dto.gSubject}</a></font>
-					<br>${dto.mId}&nbsp;&nbsp;&nbsp;&nbsp;별점☆
+					<br>${dto.mId}&nbsp;&nbsp;&nbsp;&nbsp;별점☆<br>.
 					</td>
 
 						
@@ -144,27 +144,10 @@ A:hover {text-decoration:none}
 						
 						<tr height="50px"></tr>
 
-	<tr height="40px" class="line4" bordercolor="#EAEAEA" align="center" style="font-size: 15px; color: #8b4513; font-family: 나눔바른펜";">
-		<td width="50px"><b>이름</b></td>
-		<td width="300px"><b>제목</b></td>
-		<td width="150px"><b>글쓴이</b></td>
-		<td width="150px"><b>작성일</b></td>
-		<td width="50px"><b>조회수</b></td>
-	</tr>
-	<c:forEach var="dto" items="${lists}">
-	<tr height="30px" align="center" style="font-size: 13px" class="line5">
-		<td class="line" width="50px" class="gnum">${dto.listNum}</td>
-		<td class="line" width="300px" class="gsubject">
-		<a href ="${articleUrl}&gNum=${dto.gNum}">${dto.gSubject}</a></td>
-		<td class="line" width="150px" class="mid">${dto.mId}</td>
-		<td class="line" width="150px" class="gcreated">${dto.gCreated}</td>
-		<td class="line" width="50px" class="ghitCount">${dto.gHitCount}</td>	
-	</tr>
-			
-	</c:forEach>
+	
 	
 	<tr height="50px"></tr>
->>>>>>> a429b6adedb5af7bc69f9744ebb2d8dfef29a513
+
 	<tr>
 		<td colspan="5" align="center">			
 				<p>
