@@ -20,19 +20,30 @@
 
 <div style="width: 100% ;text-align: center;">
 	<div class="container">
-		<div style="padding-top: 5px; float: left;">
-			<ul class="nav nav-tabs">
+		<div style="padding-top: 5px; float: left; width: 1000px;">
+			<ul class="nav nav-tabs" style="float: left;">
 			    <li class="active"><a href="<%=cp %>/shop.action">Shop</a></li>
-			    <li><a href="<%=cp %>/invent.action">Invent</a></li>
-			  
+			    <li><a href="<%=cp %>/ideamain.action">Invent</a></li>
 		  	</ul>
+	<div align="right">
+    	<ul id="nav navbar-nav navbar-right" style="width: 200px; padding-top: 20px; margin-bottom: 0px; margin-right: 100px;">
+			<c:choose>
+			<c:when test="${empty logInfo}">
+			 	<div style="width: 100px; float: left;"><a href="<%=cp %>/write.action"><span class="glyphicon glyphicon-user"></span> Sign Up</a></div>
+		        <div style="width: 100px;"><a href="<%=cp %>/login.action"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
+			</c:when>
+			<c:otherwise>
+			<a href="<%=cp%>/logout.action">Logout</a> &nbsp;<a href="/god/myPage.action">myPage</a>
+			</c:otherwise>
+			</c:choose>
+		</ul>
+   	 </div>
 		</div>
-		
 	</div>
 </div>
 
 <nav class="navbar navbar-inverse" style="background-color: #ffffff; border-color: #ddd;">
-  <div class="container-fluid" style="padding-left: 100px; padding-right: 100px;">
+  <div class="container-fluid" style="padding-left: 10px; padding-right: 10px; width: 1020px; margin-left: 370px; margin-right: 150px;">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
@@ -56,19 +67,6 @@
         <li><a href="<%=cp %>/category.action">베스트상품</a></li>
         <li><a href="#">고객의 소리</a></li>
       </ul>
-      <div align="right">
-    	<ul id="nav navbar-nav navbar-right" >
-			<c:choose>
-			<c:when test="${empty userId}">
-			 	<li style="width: 100px;"><a href="<%=cp %>/write.action"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-		        <li style="width: 100px;"><a href="<%=cp %>/login.action"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-			</c:when>
-			<c:otherwise>
-			<a href="<%=cp%>/logout.action">Logout</a> &nbsp;<a href="/god/myPage.action">myPage</a>
-			</c:otherwise>
-			</c:choose>
-		</ul>
-   	 </div>
     </div>
   </div>
 </nav>

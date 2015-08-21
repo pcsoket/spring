@@ -28,7 +28,7 @@
 	<div align="right">
     	<ul id="nav navbar-nav navbar-right" style="width: 200px; padding-top: 20px; margin-bottom: 0px; margin-right: 100px;">
 			<c:choose>
-			<c:when test="${empty userId}">
+			<c:when test="${empty logInfo}">
 			 	<div style="width: 100px; float: left;"><a href="<%=cp %>/write.action"><span class="glyphicon glyphicon-user"></span> Sign Up</a></div>
 		        <div style="width: 100px;"><a href="<%=cp %>/login.action"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
 			</c:when>
@@ -54,9 +54,8 @@
     </div>
     <div>
       <ul class="nav nav-pills nav-justified" style="padding-top: 10px; padding-bottom: 10px;" >
-	    <li ><a href="<%=cp %>/invent.action">Invent</a></li>
-	    <li><a href="#">Sketch</a></li>
-	    <li><a href="#">3D</a></li>
+	    <li ><a href="<%=cp %>/group/list.action">Invent</a></li>
+	    <li><a href="#">Community</a></li>
 	    <li><a href="#">Completed</a></li>
  	  </ul>
  	 </div>
