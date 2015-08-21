@@ -3,12 +3,10 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
-<<<<<<< HEAD
+
 	
 	int i=1;
 	
-=======
->>>>>>> a429b6adedb5af7bc69f9744ebb2d8dfef29a513
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -120,7 +118,7 @@ A:hover {text-decoration:none}
 
 	<tr height="10px"><td></td></tr>
 
-<<<<<<< HEAD
+
 	<tr>
 	
 		<c:forEach var="dto" items="${lists}">	
@@ -145,7 +143,7 @@ A:hover {text-decoration:none}
 						</c:forEach>
 						
 						<tr height="50px"></tr>
-=======
+
 	<tr height="40px" class="line4" bordercolor="#EAEAEA" align="center" style="font-size: 15px; color: #8b4513; font-family: 나눔바른펜";">
 		<td width="50px"><b>이름</b></td>
 		<td width="300px"><b>제목</b></td>
