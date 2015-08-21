@@ -357,4 +357,44 @@ public class MemberController {
 		
 	}
 	
+	@RequestMapping(value="/gnoInsert.action")
+	public String gnoInsert(HttpServletRequest req,HttpServletResponse resp,LoginDTO dto,HttpSession session){
+		
+		 dto = (LoginDTO)session.getAttribute("logInfo");
+		
+//		int gno = Integer.parseInt(req.getParameter("gno"));
+		 int gno=1;
+		 
+		if(dto==null){
+			
+			return "redirect:/login.action";
+			
+		}
+		
+		 System.out.println(dto.getUserId());
+		dao.insertGno(dto.getUserId(), gno);		
+		
+		dto.setGno(gno);
+
+		session.setAttribute("logInfo", dto);
+		
+		return "redirect:/ideaArticle.action";
+	}
+	
+	@RequestMapping(value="/gnoDelete.action")
+	public String gnoDelete(HttpServletRequest req,HttpServletResponse resp,LoginDTO dto,HttpSession session){
+		
+		dto = (LoginDTO)session.getAttribute("logInfo");
+		//dto.setGno(Integer.parseInt((String)session.getAttribute("logInfo.gno")));	
+		dao.deleteGno(dto.getUserId());
+		
+		dto.setGno(0);
+		
+		session.setAttribute("logInfo", dto);
+		
+		
+		return "redirect:/ideaArticle.action";
+		
+	}
+	
 }
