@@ -63,9 +63,6 @@ function gnoDelete() {
 			<input type="button" value="그룹탈퇴" onclick="gnoDelete();"/>
 			</c:if>
 		</div>
-		${logInfo.userId}
-		${logInfo.gno}
-		<%-- <input type="hidden" name="gno" value="${gno}"/> --%>
 		</form>
 	</div>
 	<!-- 댓글 등록 -->
