@@ -227,7 +227,7 @@ public class MemberController {
 		req.setAttribute("phn2", phn2);
 		req.setAttribute("phn3", phn3);
 		req.setAttribute("dto", dto);
-		return "shopMyPage";
+		return "myPage";
 	}
 	
 	//회원정보 수정 코딩
@@ -354,6 +354,34 @@ public class MemberController {
 		req.setAttribute("dataCount",dataCount);
 		
 		return "/invent/memberList";
+		
+	}
+	
+	@RequestMapping(value="/gnoInsert.action")
+	public String gnoInsert(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
+		
+		 dto = (MemberDTO)session.getAttribute("logInfo");
+		int gno = Integer.parseInt(req.getParameter("gno"));
+		 
+		if(dto==null){
+			
+			return "<%=cp%>/login.action";
+			
+		}
+		
+		dao.insertGno(dto.getUserId(), gno);		
+		
+		return "redirect:/ideaArticle.action";
+	}
+	
+	@RequestMapping(value="/gnoDelete.action")
+	public String gnoDelete(HttpServletRequest req,HttpServletResponse resp,LoginDTO dto,HttpSession session){
+		
+		dto = (LoginDTO)session.getAttribute("logInfo");
+		dto.setGno(Integer.parseInt((String) session.getAttribute("logInfo.gno")));	
+		dao.deleteGno(dto.getUserId());
+		
+		return "redirect:/ideaArticle.action";
 		
 	}
 	

@@ -52,4 +52,10 @@
 		select nvl(count(*),0) from member
 		where ${searchKey} like '%' || #{searchValue} || '%'
 	</select>
+	<update id="insertGno" parameterType="hashmap">
+	update member set gno=#{gno} where mid=#{userId}
+	</update>
+	<update id="deleteGno" parameterType="String">
+	update member set gno=0 where mid=#{userId}
+	</update>
 </mapper>

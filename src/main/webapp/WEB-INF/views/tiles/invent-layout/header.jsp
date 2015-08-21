@@ -74,7 +74,6 @@
 </nav>
 
 
-<<<<<<< HEAD
 </body>
 </html>
 
@@ -88,35 +87,9 @@
 			    <li><a href="<%=cp %>/invent.action">Invent</a></li>
 			  
 		  	</ul>
-=======
-	<div class="topShortcut" style="float: right;">
-		<div id="loginfoBox">
-		<c:choose>
-		<c:when test="${empty logInfo}">
-		<a href="<%=cp%>/login.action">Login</a>
-		</c:when>
-		<c:otherwise>
-		${logInfo.userId}//<a href="<%=cp%>/logout.action">Logout</a>//<a href="/god/myPage.action">myPage</a>
-		</c:otherwise>
-		</c:choose>
->>>>>>> 928cc315723a5774fd1f6bec723802763afebabd
 		</div>
 		
 	</div>
-<<<<<<< HEAD
-=======
-	<div class="nav nav-pills" style="">
-		<li><a href="/god/login.action">login</a></li>
-		<li><a href="/god/shopmain.action">/god/shopmain.action</a></li>
-		<li><a href="/god/basket.action">basket</a></li>
-		<li><a href="/god/cancel.action">cancel</a></li>
-		<li><a href="/god/orderList.action">구매목록</a></li>
-		<li><a href="/god/card.action">card</a></li>
-		<li><a href="/god/category.action">category</a></li>
-		<li><a href="/god/shop_created.action">/shop_created</a></li>
-	</div>
-	
->>>>>>> 928cc315723a5774fd1f6bec723802763afebabd
 </div>
 
 <nav class="navbar navbar-inverse" style="padding-left: 100px; padding-right: 100px;">
