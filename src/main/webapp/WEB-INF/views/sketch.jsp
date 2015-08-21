@@ -20,8 +20,15 @@
 	<div class="container">
 	  <div class="jumbotron" align="center">
 	    <h3>Good Idea</h3>      
-	    <p>당신의 아이디어가 현실이 됩니다.</p>      
-	    <a href="/wInvent.action" class="btn btn-info btn-lg">Write</a>
+	    <p>당신의 아이디어가 현실이 됩니다.</p>
+	    <c:choose>
+			<c:when test="${empty gno}">
+			 	<a href="/wInvent.action" class="btn btn-info btn-lg">Start Invent</a>
+			</c:when>
+			<c:otherwise>
+			 	<a href="/wInvent.action" class="btn btn-info btn-lg">Write</a>
+			</c:otherwise>
+		</c:choose>      
 	  </div>
 	</div>
 	

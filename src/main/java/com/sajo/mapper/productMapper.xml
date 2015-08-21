@@ -49,7 +49,7 @@
 	select * from(
 	select rownum rnum, data.* from (
 	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock,pImg from product
-	where pCategory=#{pCategory} order by pCategory desc) data)
+	where pCategory='%' || #{pCategory} || '%' order by pCategory desc) data)
 	<![CDATA[
 	where rnum>=#{start} and rnum<=#{end}
 	]]>
@@ -75,6 +75,18 @@
 	select rownum rnum, data.* from (
 	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock,pImg from product
 	where pCategory=#{pCategory} order by pHitCount desc) data)	
+	<![CDATA[
+	where rnum>=#{start} and rnum<=#{end}
+	]]>
+	
+</select>
+
+<!-- 추천순 데이터 -->
+<select id="p_getListsRecommand" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">	
+	select * from(
+	select rownum rnum, data.* from (
+	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock,pImg from product
+	order by pGrade desc) data)	
 	<![CDATA[
 	where rnum>=#{start} and rnum<=#{end}
 	]]>
