@@ -39,12 +39,7 @@ public class LoginController {
 		String userPwd = req.getParameter("userPwd");
 		
 		session.removeAttribute("message");
-<<<<<<< HEAD
-				
-=======
-		//session.invalidate();  세션날라가버림.
-		
->>>>>>> b69e1269d11ee8b9a8845a5c9832c200e3d4e72d
+
 		
 		dto = dao.getList(userId);
 		
