@@ -59,7 +59,7 @@
       <div align="right">
     	<ul id="nav navbar-nav navbar-right" >
 			<c:choose>
-			<c:when test="${empty userId}">
+			<c:when test="${empty logInfo}">
 			 	<li style="width: 100px;"><a href="<%=cp %>/write.action"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 		        <li style="width: 100px;"><a href="<%=cp %>/login.action"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 			</c:when>

@@ -3,12 +3,9 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
-<<<<<<< HEAD
-	
+
 	int i=1;
-	
-=======
->>>>>>> a429b6adedb5af7bc69f9744ebb2d8dfef29a513
+
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
