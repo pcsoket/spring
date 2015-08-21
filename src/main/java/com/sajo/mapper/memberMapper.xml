@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.sajo.member.sql">
+	<insert id="insertData" parameterType="com.sajo.dto.MemberDTO">
+	insert into member (mid,mname,mpwd,maddr1,maddr2,maddr3,mtel,memail,gno,mcreated,mself,mpimg)
+	values (#{userId},#{userName},#{userPwd},#{userAddr1},#{userAddr2},#{userAddr3},#{userTel},#{userEmail},0,sysdate,#{userSelf},#{userPimg})
+	</insert>
+	<!-- addrlist -->
+	<select id="getAddrList" parameterType="String" resultType="com.sajo.dto.AddrDTO">
+	select zipcode,sido,gugun,dong,bunji from post where dong like #{dong} || '%'
+	</select>
+	<select id="getDataCount" parameterType="String" resultType="int">
+	select nvl(count(*),0) from post where dong like #{dong} ||'%'
+	</select>	
+	<select id="idchk" parameterType="String" resultType="com.sajo.dto.MemberDTO">
+		select mid as userId from member where mid=#{userId}
+	</select>
+	<select id="getReadData" parameterType="String" resultType="com.sajo.dto.MemberDTO">
+		select mid as userId,mName as userName, mPwd as userPwd,mTel as userTel,maddr1 as userAddr1,maddr2 as userAddr2,maddr3 as userAddr3,
+		mEmail as userEmail,mCreated as userCreated,mSelf as userSelf, mpimg as userPimg from member where mid=#{userId}
+	</select>
+	<update id="memberUpdate" parameterType="com.sajo.dto.MemberDTO">
+	update member set mname=#{userName},mpwd=#{userPwd},maddr1=#{userAddr1},maddr2=#{userAddr2},maddr3=#{userAddr3},mtel=#{userTel},memail=#{userEmail}
+	,mself=#{userSelf},mpimg=#{userPimg} where mid=#{userId}
+	</update>
+	<delete id="deleteData" parameterType="String">
+	 delete member where mid=#{userId}
+	</delete>
+	<!-- memberList -->
+	<select id="getTotalReadData" parameterType="hashmap" resultType="com.sajo.dto.MemberDTO">
+		select * from (
+		select rownum rnum, data.* from (
+		select mid as userId,mName as userName,
+		 mPwd as userPwd,mTel as userTel,maddr1 as userAddr1,
+		 maddr2 as userAddr2,maddr3 as userAddr3,
+		mEmail as userEmail,mCreated as userCreated,
+		mSelf as userSelf, mpimg as userPimg from member 
+		where ${searchKey} like '%' || #{searchValue} || '%'
+		 order by mcreated desc) data)
+		 <![CDATA[
+		where rnum>=#{start} and rnum<=#{end}
+		]]>
+	</select>
+	<select id="maxNum">
+		select nvl(max(mid),0) from member
+	</select>
+	<select id="getListDataCount" parameterType="hashMap" resultType="int">
+		select nvl(count(*),0) from member
+		where ${searchKey} like '%' || #{searchValue} || '%'
+	</select>
+	<update id="insertGno" parameterType="hashmap">
+	update member set gno=#{gno} where mid=#{userId}
+	</update>
+	<update id="deleteGno" parameterType="String">
+	update member set gno=0 where mid=#{userId}
+	</update>
+</mapper>
