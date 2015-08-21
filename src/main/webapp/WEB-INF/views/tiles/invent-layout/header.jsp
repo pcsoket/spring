@@ -54,9 +54,8 @@
     </div>
     <div>
       <ul class="nav nav-pills nav-justified" style="padding-top: 10px; padding-bottom: 10px;" >
-	    <li ><a href="<%=cp %>/invent.action">Invent</a></li>
-	    <li><a href="#">Sketch</a></li>
-	    <li><a href="#">3D</a></li>
+	    <li ><a href="<%=cp %>/group/list.action">Invent</a></li>
+	    <li><a href="#">Community</a></li>
 	    <li><a href="#">Completed</a></li>
  	  </ul>
  	 </div>
