@@ -101,7 +101,7 @@ grecomm NUMBER not null
 );
 
 
-CREATE TABLE comment
+CREATE TABLE boardcomment
 (cmnum NUMBER PRIMARY KEY,
 gno NUMBER NOT NULL,
 gnum NUMBER,
