@@ -73,16 +73,18 @@
 		</div>
 		</div>
 		
-		
+		<c:if test="${pdto == null }">
+		?????????????
+		</c:if>
 		<c:if test="${pdto != null }">
 		<div style="width: 390px; float: left; padding-left: 15px;">
 			<div>주문 상품 정보</div>
 			<div style="border: solid 1px #ffd2d7;" >
 				<div style="float: left; width: 150px;" >이미지 </div>
 				<div style="float: left;">
-					<input type="hidden" name="bnums" value="${bnums }"><input type="hidden" name="amt" value="${amt }">
-					<div><input type="text" name="bpname" style="border: none;" value="${pdto.pname }"> </div>
-					<div><input type="text" name="bprice" style="border: none;" value="${pdto.pprice }"> </div>
+					<input type="hidden" name="bnums" value="${bnums}"><input type="hidden" name="amt" value="${amt }">
+					<div><input type="text" name="bPname" style="border: none;" value="${pdto.pName }"> </div>
+					<div><input type="text" name="bPrice" style="border: none;" value="${pdto.pPrice }"> </div>
 				</div>
 			</div>
 		</div>
@@ -90,7 +92,7 @@
 		
 	</div>
 	
-	</form>
+	
 	<div style="width: 1000px; padding-top: 20px;">	
 	
 		<div style="width: 500px; float: left;"> <!-- 결제 수단 선택 -->
@@ -98,16 +100,15 @@
 			<div align="left" style="font-size: 15pt; border-bottom: solid 1px #ff7b8a;">결제 수단 선택 </div>
 			<div align="center" style="padding-top: 5px;">
 				<button type="button" class="btn btn-primary btn-lg" onclick="sendcard();">신한카드</button>
-				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">롯데카드</button>
-				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">국민카드</button>
-				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">현대카드</button>
-				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">삼성카드</button>
-				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">비씨카드</button>
-				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">우리카드</button>
-				<button type="button" class="btn btn-primary btn-lg" onclick="javascript:location.href='/god/card.action';">농협카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="sendcard();">롯데카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="sendcard();">국민카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="sendcard();">현대카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="sendcard();">삼성카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="sendcard();">비씨카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="sendcard();">우리카드</button>
+				<button type="button" class="btn btn-primary btn-lg" onclick="sendcard();">농협카드</button>
 			</div>
-		
-		
+
 		</div>
 		<div style="width: 500px; float: left; padding-top: 20px;"> <!-- 결제 예정금액 틀--> 
 			
@@ -138,7 +139,7 @@
 		<div style="width: 490px; float: left; overflow: hidden;"><img src="/god/resources/image/card2.jpg"></div>
 	</div>
 
-
+		</form>
 </div>
 </body>
 </html>
