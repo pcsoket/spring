@@ -4,9 +4,9 @@ public class BasketDTO {
 	
 	
 	private int bNum, bAmount, bPrice,pNum;
-	private String bPName,userId;
+	private String bPName,userId,imgNum;
 	
-	
+
 	public int getbNum() {
 		return bNum;
 	}
@@ -44,6 +44,12 @@ public class BasketDTO {
 	}
 	public void setbPName(String bPName) {
 		this.bPName = bPName;
+	}
+	public String getImgNum() {
+		return imgNum;
+	}
+	public void setImgNum(String imgNum) {
+		this.imgNum = imgNum;
 	}
 	
 	

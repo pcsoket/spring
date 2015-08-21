@@ -3,7 +3,8 @@ package com.sajo.dto;
 public class ProductDTO {
 	
 	private int pNum,pPrice,pGrade,pHitcount,pStock;
-	private String pCategory,pName,pContent;
+	private String pCategory,pName,pContent,pImg;
+	
 	
 	public int getpNum() {
 		return pNum;
@@ -53,6 +54,12 @@ public class ProductDTO {
 	}
 	public void setpContent(String pContent) {
 		this.pContent = pContent;
+	}
+	public String getpImg() {
+		return pImg;
+	}
+	public void setpImg(String pImg) {
+		this.pImg = pImg;
 	}
 	
 	

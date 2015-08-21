@@ -33,7 +33,7 @@ function endChk(str) {
 }
 
 </script>
-<title>Insert title here</title>
+<title>중복 아이디 체크</title>
 </head>
 <body>
 <form name="idchk" method="post">

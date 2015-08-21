@@ -69,32 +69,40 @@ public class PurchaseDAO {
 		return result;
 	}
 	
-	public PurchaseDTO getReadData(int num){
+	public PurchaseDTO getReadData(int bNum){
 		
-		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getReadData",num);
+		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getReadData",bNum);
 		
 		return dto;
 	}
 	
-	public PurchaseDTO getBnums(String mid){
+	public PurchaseDTO getBnums(String mId){
 		
-		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getBnums", mid);
+		PurchaseDTO dto = sessionTemplate.selectOne("com.sajo.purchase.getBnums", mId);
 		
 		return dto;
+		
+	}
+	
+	public List<PurchaseDTO> getReadId(String mId){
+		
+		List<PurchaseDTO> lists = sessionTemplate.selectList("com.sajo.purchase.getReadId", mId);
+		
+		return lists;
 		
 	}
 	
 	//
-	public void deleteData(int num){
+	public void deleteData(int bNum){
 		
-		sessionTemplate.delete("com.sajo.purchase.deleteData",num);
+		sessionTemplate.delete("com.sajo.purchase.deleteData",bNum);
 	}
 	
 	
 	//
-	public void updateData(PurchaseDTO dto){
+	public void updateData(int bNum){
 		
-		sessionTemplate.update("com.sajo.purchase.updateData",dto);
+		sessionTemplate.update("com.sajo.purchase.updateData",bNum);
 	}
 }
 

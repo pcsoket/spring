@@ -8,17 +8,21 @@
 
 <!-- 장바구니테이블에 저장하기 -->
 
+<select id="maxNum" resultType="int">
+	select nvl(max(bNum),0) from basket
+</select>
+
 <insert id="insertBK" parameterType="com.sajo.dto.BasketDTO">
 
-	insert into basket(bnum,bamount,bpname,bprice,mid,pnum,imgnum) 
-	values(#{bnum},#{bamount},#{bpname},#{bprice},#{mid},#{pnum},#{imgnum})
+	insert into basket (bnum,bamount,bpname,bprice,mid,pnum,imgnum) 
+	values (#{bNum},#{bAmount},#{bPName},#{bPrice},#{userId},#{pNum},#{imgNum})
 
 </insert>
 
 <!-- 장바구니테이블 아이디와 bnum으로 업데이트 하기 -->
 
 <update id="updatebk" parameterType="com.sajo.dto.BasketDTO">
-	update basket set bamount=#{amount}, bprice=#{bprice} where mid=#{mid} and bnum=#{bnum}
+	update basket set bamount=#{bAmount}, bprice=#{bPrice} where mid=#{mId} and bnum=#{bNum}
 </update>
 
 <!-- product테이블에서 pNum에 따른 정보 가져오기 -->
@@ -40,7 +44,7 @@
 
 <select id="readbasket" resultType="com.sajo.dto.BasketDTO" parameterType="int">
 
-	select bNum,bAmount,bPName,bPrice,pNum from basket where bnum=#{bNum}
+	select bNum,bAmount,bPName,bPrice,pNum from basket where bnum=#{bnum}
 	
 </select>
 
@@ -48,7 +52,7 @@
 
 <delete id="delbasket" parameterType="int">
 	
-	delete from basket where bnum=#{bNum}
+	delete from basket where bnum=#{bnum}
 
 </delete>
 	

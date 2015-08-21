@@ -3,45 +3,39 @@ package com.sajo.dto;
 
 public class PurchaseDTO {
 
-	private String mid;
-	private String pname;
-	private String maddr;
-	private String bdate;
+	private String mId;
+	private String pName;
+	private String mAddr;
+	private String bDate;
 	private String state;
+	private String imgNum;
 	
-	private int bnum,pnum;
-	private int  pamount, pprice,retake;
+	private int bNum,pNum;
+	private int  pAmount, pPrice,retake;
 	
-	
-	public int getRetake() {
-		return retake;
+	public String getmId() {
+		return mId;
 	}
-	public void setRetake(int retake) {
-		this.retake = retake;
+	public void setmId(String mId) {
+		this.mId = mId;
 	}
-	public String getMid() {
-		return mid;
+	public String getpName() {
+		return pName;
 	}
-	public void setMid(String mid) {
-		this.mid = mid;
+	public void setpName(String pName) {
+		this.pName = pName;
 	}
-	public String getPname() {
-		return pname;
+	public String getmAddr() {
+		return mAddr;
 	}
-	public void setPname(String pname) {
-		this.pname = pname;
+	public void setmAddr(String mAddr) {
+		this.mAddr = mAddr;
 	}
-	public String getMaddr() {
-		return maddr;
+	public String getbDate() {
+		return bDate;
 	}
-	public void setMaddr(String maddr) {
-		this.maddr = maddr;
-	}
-	public String getBdate() {
-		return bdate;
-	}
-	public void setBdate(String bdate) {
-		this.bdate = bdate;
+	public void setbDate(String bDate) {
+		this.bDate = bDate;
 	}
 	public String getState() {
 		return state;
@@ -49,30 +43,40 @@ public class PurchaseDTO {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public int getBnum() {
-		return bnum;
+	public String getImgNum() {
+		return imgNum;
 	}
-	public void setBnum(int bnum) {
-		this.bnum = bnum;
+	public void setImgNum(String imgNum) {
+		this.imgNum = imgNum;
 	}
-	public int getPnum() {
-		return pnum;
+	public int getbNum() {
+		return bNum;
 	}
-	public void setPnum(int pnum) {
-		this.pnum = pnum;
+	public void setbNum(int bNum) {
+		this.bNum = bNum;
 	}
-	public int getPamount() {
-		return pamount;
+	public int getpNum() {
+		return pNum;
 	}
-	public void setPamount(int pamount) {
-		this.pamount = pamount;
+	public void setpNum(int pNum) {
+		this.pNum = pNum;
 	}
-	public int getPprice() {
-		return pprice;
+	public int getpAmount() {
+		return pAmount;
 	}
-	public void setPprice(int pprice) {
-		this.pprice = pprice;
+	public void setpAmount(int pAmount) {
+		this.pAmount = pAmount;
 	}
-		
-	
+	public int getpPrice() {
+		return pPrice;
+	}
+	public void setpPrice(int pPrice) {
+		this.pPrice = pPrice;
+	}
+	public int getRetake() {
+		return retake;
+	}
+	public void setRetake(int retake) {
+		this.retake = retake;
+	}
 }

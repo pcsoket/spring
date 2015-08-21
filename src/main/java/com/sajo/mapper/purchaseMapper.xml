@@ -8,7 +8,7 @@
 
 	<insert id="insertData" parameterType="com.sajo.dto.PurchaseDTO">
 	insert into purchase (bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake)
-	values (#{bnum},#{pnum},#{pprice},#{pamount},#{pname},#{mid},#{maddr},sysdate,#{state},#{retake})
+	values (#{bNum},#{pNum},#{pPrice},#{pAmount},#{pName},#{mId},#{mAddr},sysdate,#{state},#{retake})
 	</insert>
 	
 	<select id="getLists"  parameterType="hashMap" resultType="com.sajo.dto.PurchaseDTO">
@@ -23,7 +23,7 @@
 	</select>
 	
 	<select id="maxNum" resultType="int">
-		select nvl(max(bnum),0) from purchase
+		select nvl(max(bNum),0) from purchase
 	</select>
 	
 	<select id="getDataCount" parameterType="hashMap" resultType="int">
@@ -36,19 +36,26 @@
 		select * from (
 		select rownum rnum, data.* from(
 		select bnum,pnum,pprice,pamount,pname,mid,maddr,state,retake,to_char(bdate,'YYYY-MM-DD') bdate
-		from purchase where mid = #{mid} order by bnum desc) data) where rnum = 1
+		from purchase where mid = #{mId} order by bnum desc) data) where rnum = 1
+	</select>
+	
+	<!-- id로 구매테이블에 있는 모든 데이터 읽어오기 -->
+	<select id="getReadId" parameterType="String" resultType="com.sajo.dto.PurchaseDTO">
+		select bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake
+		from purchase where mid=#{mId}
+	
 	</select>
 	
 	<select id="getReadData" parameterType="int" resultType="com.sajo.dto.PurchaseDTO">
 		select bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake
-		from purchase where bnum=#{bnum}
+		from purchase where bnum=#{bNum}
 	</select>
 	
-	<update id="updateData" parameterType="com.sajo.dto.PurchaseDTO">
-		update purchase set state=#{state} where bnum=#{bnum}
+	<update id="updateData" parameterType="int" >
+		update purchase set state='결제완료' where bnum=#{bNum}
 	</update>
 	
 	<delete id="deleteData" parameterType="int">
-		delete purchase where bnum=#{bnum}
+		delete purchase where bnum=#{bNum}
 	</delete>
 </mapper>
