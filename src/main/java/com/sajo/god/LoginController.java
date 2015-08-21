@@ -38,8 +38,9 @@ public class LoginController {
 		String userId = req.getParameter("userId");
 		String userPwd = req.getParameter("userPwd");
 		
+
 		session.removeAttribute("message");		
-		
+
 		dto = dao.getList(userId);
 		
 		if(dto==null){

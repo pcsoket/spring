@@ -73,8 +73,6 @@
   </div>
 </nav>
 
-
-<<<<<<< HEAD
 </body>
 </html>
 

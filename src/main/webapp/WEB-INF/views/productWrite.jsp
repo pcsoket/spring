@@ -75,7 +75,7 @@
       <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">카&nbsp;테&nbsp;고&nbsp;리</td>
       <td width="480" style="padding-left:10px;">
       	<select name="pCategory" class="boxTF" id="123">
-      		<option value="11">11</option>
+      		<option value="아이디어">아이디어</option>
       		<option value="11">22</option>
       		<option value="11">33</option>
       		<option value="11">44</option>
