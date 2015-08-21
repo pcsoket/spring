@@ -56,14 +56,16 @@ function gnoDelete() {
 		</div>
 		<br/>
 		<div style="margin-left: 580px;  margin-top: 190px;">
-		<c:if test="${logInfo.gno!=dto.gno}">
+		<c:if test="${logInfo.gno=='0'}">
 			<input type="button" value="그룹참여" onclick="gnoInsert();"/>
 			</c:if>
-		<c:if test="${logInfo.gno==dto.gno}">
+		<c:if test="${logInfo.gno=='1'}">
 			<input type="button" value="그룹탈퇴" onclick="gnoDelete();"/>
 			</c:if>
 		</div>
-		<input type="hidden" name="gno" value="${gno}"/>
+		${logInfo.userId}
+		${logInfo.gno}
+		<%-- <input type="hidden" name="gno" value="${gno}"/> --%>
 		</form>
 	</div>
 	<!-- 댓글 등록 -->

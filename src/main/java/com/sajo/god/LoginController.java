@@ -43,17 +43,21 @@ public class LoginController {
 
 		dto = dao.getList(userId);
 		
+		
+		
 		if(dto==null){
-		
-				session.setAttribute("message", "아이디 정보가 없습니다.");
-		
-		return "redirect:/login.action";
-		
-		}else if(!dto.getUserPwd().equals(userPwd)){
+			
+			session.setAttribute("message", "아이디 정보가 없습니다.");
+	
+	return "redirect:/login.action";
+	
+	}else if(!dto.getUserPwd().equals(userPwd)){
 			
 			session.setAttribute("message", "비밀번호가 일치하지 않습니다.");
 			return "redirect:/login.action";
 		}
+		
+		System.out.println(dto.getGno());
 		
 		session.setAttribute("logInfo", dto);
 		
