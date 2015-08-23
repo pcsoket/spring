@@ -7,6 +7,7 @@ import java.util.ListIterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -17,9 +18,12 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.dto.CommentDTO;
 import com.sajo.dto.GroupDTO;
+import com.sajo.dto.ImageDTO;
+import com.sajo.dto.LoginDTO;
 import com.sajo.util.MyUtil;
 import com.sajo.dao.CommentDAO;
 import com.sajo.dao.GroupDAO;
+import com.sajo.dao.ImageDAO;
 
 @Controller
 public class GroupController {
@@ -31,6 +35,10 @@ public class GroupController {
 	@Autowired
 	@Qualifier("commentDAO")
 	CommentDAO cdao;
+	
+	@Autowired
+	@Qualifier("imageDAO")
+	ImageDAO idao;
 	
 	@Autowired
 	MyUtil myUtil;
@@ -54,17 +62,29 @@ public class GroupController {
 	}
 	
 	@RequestMapping(value="/group/created_ok.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String created_ok(GroupDTO dto,HttpServletRequest request,HttpServletResponse response){
+	public String created_ok(GroupDTO dto,ImageDTO idto,HttpServletRequest request,HttpServletResponse response){
+		
+		
+		HttpSession session = request.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
+		
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			return "login";
+		}
+		
+		String path = request.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정 실제경로를 가져옴
+		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
+		String imgNum = idao.writeFile(idto, path);  //ex "3,4,5"반환
+		
 		
 		int maxNum = dao.getMaxNum();
+		int gnoMaxNum = dao.getGnoMaxNum();
 		System.out.println(dto.getgSubject());
-		dto.setmId("흐흐흐");
+		dto.setmId(logInfo.getUserId());
 		dto.setgNum(maxNum+1);
-		dto.setgImg1("1");
-		dto.setgImg2("1");
-		dto.setgImg3("1");
-		dto.setgImg4("1");
-		dto.setBoardName("test");
+		dto.setgNo(gnoMaxNum+1);
+		dto.setImgNum(imgNum);                     // 이미지테이블에서 가져올 이미지들의 넘버
+		dto.setBoardName("group");                 // group,idea,3d,sketch
 		
 		dao.insertData(dto);
 		

@@ -303,12 +303,9 @@ float: left;
 		<c:forEach var="dto" items="${hitcountlists}">	
 			<td width="200px" height="100px" align="center" class="category2">
 			
-<<<<<<< HEAD
-					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-=======
+
 					<img alt="" src="${dto.pImg}" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
->>>>>>> a429b6adedb5af7bc69f9744ebb2d8dfef29a513
 					<a href="${articleUrl}&pNum=${dto.pNum}">
 						${dto.pName}<br>${dto.pPrice}원</a></font></td>
 												

@@ -362,7 +362,7 @@ public class ProductController {
 	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		
-		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정
+		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정 실제경로를 가져옴
 		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
 		String imglistnum = idao.writeFile(idto, path);  //ex "3,4,5"반환
 		
