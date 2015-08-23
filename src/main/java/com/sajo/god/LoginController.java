@@ -38,23 +38,26 @@ public class LoginController {
 		String userId = req.getParameter("userId");
 		String userPwd = req.getParameter("userPwd");
 		
-		session.removeAttribute("message");
-		//session.invalidate();  세션날라가버림.
-		
-		
+
+		session.removeAttribute("message");		
+
 		dto = dao.getList(userId);
 		
+		
+		
 		if(dto==null){
-		
-				session.setAttribute("message", "아이디 정보가 없습니다.");
-		
-		return "redirect:/login.action";
-		
-		}else if(!dto.getUserPwd().equals(userPwd)){
+			
+			session.setAttribute("message", "아이디 정보가 없습니다.");
+	
+	return "redirect:/login.action";
+	
+	}else if(!dto.getUserPwd().equals(userPwd)){
 			
 			session.setAttribute("message", "비밀번호가 일치하지 않습니다.");
 			return "redirect:/login.action";
 		}
+		
+		System.out.println(dto.getGno());
 		
 		session.setAttribute("logInfo", dto);
 		
@@ -100,5 +103,7 @@ public class LoginController {
 		return "findId";
 
 	}
+	
+	
 
 }

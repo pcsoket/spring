@@ -20,48 +20,17 @@
 
 <div style="width: 100% ;text-align: center;">
 	<div class="container">
-		<div style="padding-top: 5px; float: left;">
-			<ul class="nav nav-tabs">
-			    <li class="active"><a href="<%=cp %>/shop.action">Shop</a></li>
-			    <li><a href="<%=cp %>/invent.action">Invent</a></li>
-			  
+		<div style="padding-top: 5px; float: left; width: 1000px;">
+			<ul class="nav nav-tabs" style="float: left;">
+			    <li><a href="<%=cp %>/shop.action">Shop</a></li>
+			    <li class="active"><a href="<%=cp %>/ideamain.action">Invent</a></li>
 		  	</ul>
-		</div>
-		
-	</div>
-</div>
-
-<nav class="navbar navbar-inverse" style="background-color: #ffffff; border-color: #ddd;">
-  <div class="container-fluid" style="padding-left: 100px; padding-right: 100px;">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="<%=cp %>/category.action">GodShop</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="<%=cp %>/category.action">아이디어상품<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">생활/건강</a></li>
-            <li><a href="#">디지털/가전</a></li>
-            <li><a href="#">가구/인테리어</a></li>
-            <li><a href="#">패션잡화</a></li>
-            <li><a href="#">스포츠/레저</a></li>
-          </ul>
-        </li>
-        <li><a href="<%=cp %>/category.action">베스트상품</a></li>
-        <li><a href="#">고객의 소리</a></li>
-      </ul>
-      <div align="right">
-    	<ul id="nav navbar-nav navbar-right" >
+	<div align="right">
+    	<ul id="nav navbar-nav navbar-right" style="width: 200px; padding-top: 20px; margin-bottom: 0px; margin-right: 100px;">
 			<c:choose>
-			<c:when test="${empty userId}">
-			 	<li style="width: 100px;"><a href="<%=cp %>/write.action"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-		        <li style="width: 100px;"><a href="<%=cp %>/login.action"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+			<c:when test="${empty logInfo}">
+			 	<div style="width: 100px; float: left;"><a href="<%=cp %>/write.action"><span class="glyphicon glyphicon-user"></span> Sign Up</a></div>
+		        <div style="width: 100px;"><a href="<%=cp %>/login.action"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
 			</c:when>
 			<c:otherwise>
 			<a href="<%=cp%>/logout.action">Logout</a> &nbsp;<a href="/god/myPage.action">myPage</a>
@@ -69,7 +38,27 @@
 			</c:choose>
 		</ul>
    	 </div>
+		</div>
+	</div>
+</div>
+
+<nav class="navbar navbar-inverse" style="background-color: #ffffff; border-color: #ddd; margin-bottom: 5px;">
+  <div class="container-fluid" style="padding-left: 10px; padding-right: 10px; width: 1000px;">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" style="font-size: 20pt; font-family: Helvetica Neue ;" href="<%=cp %>/ideamain.action">GoodIdea</a>
     </div>
+    <div>
+      <ul class="nav nav-pills nav-justified" style="padding-top: 10px; padding-bottom: 10px;" >
+	    <li ><a href="<%=cp %>/group/list.action">Invent</a></li>
+	    <li><a href="#">Community</a></li>
+	    <li><a href="#">Completed</a></li>
+ 	  </ul>
+ 	 </div>
   </div>
 </nav>
 

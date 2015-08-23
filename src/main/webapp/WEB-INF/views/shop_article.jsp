@@ -19,7 +19,6 @@
 	
 	function imgResize(){  //이미지 크기조절 안됨.
 		
-		
 		 var myImg = document.getElementById("img01");
 
 		  myImg.width = 350;

@@ -89,8 +89,11 @@ public class ProductController {
 		List<ProductDTO> hitcountlists = 
 				dao.p_getListsHitCount(start,end);
 		
+		List<ProductDTO> recommandlists = 
+				dao.p_getListsHitCount(start,end);
+		
 		List<ProductDTO> ideahitcountlists = 
-				dao.p_getListsIdeaHitCount(start,end,pCategory);
+				dao.p_getListsIdeaHitCount(start,end,"아이디어");
 		
 		//첫번째 이미지만 골라서 넣어줌.
 		lists = idao.imageForList(lists);
@@ -126,6 +129,7 @@ public class ProductController {
 		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);
+		request.setAttribute("recommandlists", recommandlists);
 		request.setAttribute("categorylists", categorylists);
 		request.setAttribute("hitcountlists", hitcountlists);
 		request.setAttribute("ideahitcountlists", ideahitcountlists);
@@ -166,7 +170,7 @@ public class ProductController {
 		}
 		//pCategory가 null일시 처리
 		if(pCategory == null)
-			pCategory = "아이디어상품";
+			pCategory = "%%";
 		
 		
 		//전체데이터갯수

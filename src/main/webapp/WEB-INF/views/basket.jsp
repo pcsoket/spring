@@ -29,7 +29,6 @@
 		var obj2 = document.getElementsByName("temp");
 		// alert( obj.length );
 		
-		
 		if(f.chk[index].checked){
 			
 			alert("체크를 풀고 수량을 선택해 주세요.");
@@ -79,8 +78,6 @@
 						
 					r+=Number(f.temp.value);
 					
-				
-					
 				}else{
 					
 					r-=Number(f.temp.value);
@@ -122,14 +119,14 @@
 	}
 	
 	
-	function senddirect(bnum,index) {
+	function senddirect(bNum,index) {
 		
 		var f = document.myForm;
 		
 		amt = Number(f.amount[index].value);
 		
 		
-		location.href="/god/direct.action?bnum=" + bnum + "&amount=" + amt ;
+		location.href="/god/direct.action?bNum=" + bNum + "&amount=" + amt ;
 		
 		
 	}
@@ -161,7 +158,7 @@
 				
 				f.chk[i].checked = false;
 				
-				f.temp[i].value = f.bprice[i].value;
+				f.temp[i].value = f.bPrice[i].value;
 			}
 			
 			
@@ -172,11 +169,11 @@
 		
 	}
 	
-	function del(bnum) {
+	function del(bNum) {
 		
 		var f = document.myForm;
 		
-		location.href="/god/del.action?bnum=" + bnum;
+		location.href="/god/del.action?bNum=" + bNum;
 		
 		
 		
@@ -188,9 +185,7 @@
 		
 		for(var i = 0;i<count;i++){
 			if(f.chk[i].checked){
-			
-				
-			
+
 			}
 		}
 		
@@ -207,7 +202,7 @@
 		
 		if(size==1){
 			if(f.chk.checked){
-				str = f.bnum.value;
+				str = f.bNum.value;
 				amt = f.amount.value;
 				
 			}
@@ -217,7 +212,7 @@
 			 for(var i=0; i<size; i++){
 				if(f.chk[i].checked){
 					
-					 str += f.bnum[i].value + "-";
+					 str += f.bNum[i].value + "-";
 					 amt += f.amount[i].value + "-";
 				}
 			}
@@ -267,10 +262,10 @@
 			<c:if test="${dataCount != 0 }">
 			<c:forEach var="dto" items="${bklists }" varStatus="status">
 
-				<input type="hidden" name="bnum" value="${dto.bNum }">		
+				<input type="hidden" name="bNum" value="${dto.bNum }">		
 				<div style="height: 60px; padding-top: 10px;">
 					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" id="chk" onclick="check('${status.index }');" ></div>
-					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" name="bpname"/>${dto.bPName }</div>
+					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" name="bPname"/>${dto.bPName }</div>
 					<div style="float: left; width: 100px; margin-left: 20px;">
 						<div style="float: left;"><img src="/god/resources/image/minus.png" name="minus" id="minus"  width="20px" height="20px" onclick="p(-1,'${dto.bPrice}','${status.index }');"></div>
 						 
@@ -282,7 +277,7 @@
 						<div style="float: left;"><img src="/god/resources/image/plus.png" name="plus" width="20px" height="20px" onclick="p(1,'${dto.bPrice}','${status.index }');" ></div>
 					</div>
 					<div style="float: left; width: 90px;">
-					<input type="text" name="bprice" style="border: none; margin-left: 25px;" readonly="readonly" value="${dto.bPrice }">
+					<input type="text" name="bPrice" style="border: none; margin-left: 25px;" readonly="readonly" value="${dto.bPrice }">
 					<input type="hidden" id="temp" name="temp" value="${dto.bPrice * dto.bAmount }" >
 
 					</div>
@@ -315,8 +310,7 @@
 				</div>
 			</div>
 			
-			<div> <!-- 결제 예정금액 틀--> 
-			
+			<div> <!-- 결제 예정금액 틀--> 			
 				<div style="height: 200px; padding-right: 30px; padding-top: 10px;"> <!-- 결제예정금액 상자 -->
 					<div style="font-size: 15pt; border: solid 2px #8e8e8e; width: 400px; float: right;">
 						<div align="left" style="background-color: #a4a0a5; padding-left: 10px; ">
@@ -333,7 +327,6 @@
 						</div>						
 					</div>
 				</div>
-			
 			</div>
 			<!-- 결제예정금액 끝 -->
 		
@@ -341,14 +334,13 @@
 		<br/>
 	</div>
 		
-		<div style="width: 100%;height: 60px;">
+	<div style="width: 100%;height: 60px;">
 		<input type="hidden" name="bnums" value=""><input type="hidden" name="amt" value="">
 			<div><button type="button" class="btn btn-primary btn-lg" onclick="account('${bklists.size()}');">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
 		</div>
 	</form>
 	
 </div>
-
 
 </body>
 </html>

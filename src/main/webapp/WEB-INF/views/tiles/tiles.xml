@@ -13,7 +13,7 @@
    </definition>
 <!--<end id="tile_template"/>-->
 
-   <definition name="invent" 
+   <definition name="idea" 
                template="/WEB-INF/views/tiles/invent-layout/layout.jsp">
      <put-attribute name="header" 
                     value="/WEB-INF/views/tiles/invent-layout/header.jsp" />
@@ -52,6 +52,17 @@
    <definition name="board/list" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
    </definition>
+   
+    <definition name="board/list" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
+   </definition>
+   <definition name="ideamain" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/ideamain.jsp" />
+   </definition>
+   <definition name="ideaArticle" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/invent/ideaArticle.jsp" />
+   </definition>
+   
    
 	<!--<definition-name:컨트롤러에서 반환한 String값과 일치시켜야함.
 	servlet-context에 적용시켜놓은 viewResolver가 가져옴

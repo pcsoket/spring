@@ -119,5 +119,22 @@ public List<MemberDTO> getTotalReadData(int start,int end,String searchKey,Strin
 		return result;
 		
 	}
+	
+	public void insertGno(String userId,int gno){
+		
+		HashMap<String, Object>params = new HashMap<String, Object>();
+		
+		params.put("userId", userId);
+		params.put("gno", gno);
+		
+		sessionTemplate.insert("com.sajo.member.sql.insertGno", params);
+		
+	}
+	
+public void deleteGno(String userId){		
+		
+		sessionTemplate.insert("com.sajo.member.sql.deleteGno", userId);
+		
+	}
 
 }

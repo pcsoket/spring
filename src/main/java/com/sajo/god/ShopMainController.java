@@ -117,7 +117,7 @@ public class ShopMainController {
 	}
 	
 	@RequestMapping(value="/direct.action")
-	public String direct(Integer bnum, Integer amount,HttpServletRequest req, HttpServletResponse resp){
+	public String direct(Integer bNum, Integer amount,HttpServletRequest req, HttpServletResponse resp){
 		
 		HttpSession session = req.getSession();
 		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
@@ -129,12 +129,13 @@ public class ShopMainController {
 		MemberDTO mdto = mdao.getReadData(logInfo.getUserId());
 		
 		//System.out.println(mdto.getUserName());
+		BasketDTO dto = dao.readbasket(bNum);
+		PurchaseDTO pdto = pdao.getReadData(dto.getpNum());
 		
-		BasketDTO dto = dao.readbasket(bnum);
-		
+		System.out.println(bNum+":"+pdto.getpPrice());
 		//int total = dto.getbPrice() * amount;
-						
-		req.setAttribute("dto", dto);
+		req.setAttribute("bnums", bNum);
+		req.setAttribute("pdto", pdto);
 		req.setAttribute("amount", amount);
 		//req.setAttribute("total", total);
 		req.setAttribute("mdto", mdto);

@@ -78,20 +78,15 @@ A:hover {text-decoration:none}
 <body>
 
 
-<table width="1000px" align="center" class="box">
+<table width="1000" align="center" class="box">
 	
-	<div class="container" >
+	<div class="container" style="width: 1030px;">
 	  <div class="jumbotron" align="center">
 	    <h3>Good Idea</h3>      
-	    <p>당신의 아이디어가 현실이 됩니다.</p>
-	    <c:choose>
-			<c:when test="${empty gno}">
-			 	<a href="<%=cp %>/" class="btn btn-info btn-lg">Start Invent</a>
-			</c:when>
-			<c:otherwise>
-			 	<a href="/wInvent.action" class="btn btn-info btn-lg">Write</a>
-			</c:otherwise>
-		</c:choose>      
+	    <p>당신의 아이디어가 현실이 됩니다.</p>      
+	    <a href="javascript:location.href='/god/group/created.action';" class="btn btn-info btn-lg">Write</a>
+	    
+
 	  </div>
 	</div>
 
