@@ -1,10 +1,8 @@
 package com.sajo.god;
 
 import java.io.File;
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
->>>>>>> a429b6adedb5af7bc69f9744ebb2d8dfef29a513
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -295,8 +293,7 @@ public class ShopMainController {
 		
 		String mid = "5";
 		
-		
-<<<<<<< HEAD
+	
 		return "shopmain";
 	}
 	
@@ -330,9 +327,7 @@ public class ShopMainController {
 			
 		}
 		
-		
-=======
->>>>>>> a429b6adedb5af7bc69f9744ebb2d8dfef29a513
+
 		
 		
 		if(bnums != null){
@@ -340,7 +335,7 @@ public class ShopMainController {
 			System.out.println("≥Œ¿Œ∞°" + bnums);
 			String[] nums= bnums.split("-");
 			
-			PurchaseDTO pdto;
+			PurchaseDTO pdto=null;
 			for(int i = 0;i<nums.length;i++){
 				
 				pdto = pdao.getReadData(Integer.parseInt(nums[i]));
@@ -370,11 +365,9 @@ public class ShopMainController {
 
 		}
 	
-<<<<<<< HEAD
+
 		return "redirect:basket.action";
-=======
-		return "redirect: basket.action";
->>>>>>> a429b6adedb5af7bc69f9744ebb2d8dfef29a513
+
 	}
 	
 	@RequestMapping(value="/del.action")
