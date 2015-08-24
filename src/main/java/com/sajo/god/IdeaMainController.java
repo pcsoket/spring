@@ -20,15 +20,15 @@ public class IdeaMainController {
 		return "ideamain";
 	}
 	
-	@RequestMapping(value="/ideaArticle.action")
+/*	@RequestMapping(value="/ideaArticle.action")
 	public String ideaArticle(HttpServletRequest req,HttpServletResponse resp,HttpSession session){
 		
 		
 		
 		
 		
-		return "ideaArticle";
-	}
+		return "/board/ideaArticle";
+	}*/
 	
 	@RequestMapping(value="/header.action")
 	public String header(){

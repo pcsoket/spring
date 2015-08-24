@@ -114,6 +114,7 @@
   <tr> 
       <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">카&nbsp;테&nbsp;고&nbsp;리</td>
       <td width="480" style="padding-left:10px;">
+<<<<<<< HEAD
       	<select name="pCategory1" class="boxTF" id="123" onchange="AddSelect_JS();">
       		<option value="life">생활/건강</option>
       		<option value="sports">스포츠/레저</option>
@@ -125,6 +126,13 @@
       	<select name="pCategory2" class="boxTF" id="123">
       		<option value="">선택</option>
 
+=======
+      	<select name="pCategory" class="boxTF" id="123">
+      		<option value="idea">아이디어</option>
+      		<option value="bath">욕실용품</option>
+      		<option value="util">공구</option>
+      		<option value="cleaning">청소용품</option>
+>>>>>>> 4681d755d652d4e5171b84b856fbf180bcbfaf7e
       	</select>
       </td>
   </tr>

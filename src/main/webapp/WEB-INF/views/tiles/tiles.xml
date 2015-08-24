@@ -43,6 +43,9 @@
    <definition name="category" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/category.jsp" />
    </definition>
+   <definition name="idea_category" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/idea_category.jsp" />
+   </definition>
    <definition name="shop_article" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/shop_article.jsp" />
    </definition>
@@ -65,6 +68,9 @@
    </definition>
    <definition name="ideaArticle" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/invent/ideaArticle.jsp" />
+   </definition>
+   <definition name="board/ideaArticle" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/board/ideaArticle.jsp" />
    </definition>
    
    

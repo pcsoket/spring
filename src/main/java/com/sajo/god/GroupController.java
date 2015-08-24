@@ -133,7 +133,7 @@ public class GroupController {
 		dataCount = dao.getDataCount(searchKey, searchValue);
 		
 		//전체페이지수
-		int numPerPage = 10;
+		int numPerPage = 9;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 		
 		
@@ -196,6 +196,10 @@ public class GroupController {
 		
 	public ModelAndView article (int gNum, CommentDTO cdto,HttpServletResponse response,HttpServletRequest request) throws Exception{
 		
+		HttpSession session = request.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
+		
+		
 		String cp = request.getContextPath();
 		
 		System.out.println(gNum);
@@ -219,6 +223,10 @@ public class GroupController {
 			response.sendRedirect(url);
 		}
 		
+		List<ImageDTO> ilists = idao.getImageList(dto.getImgNum());
+		
+		String listimgnum = idao.getImage(dto.getImgNum());
+		
 		int lineSu = dto.getgContent().split("\n").length;
 		
 		dto.setgContent(dto.getgContent().replaceAll("\n", "<br/>"));
@@ -232,17 +240,18 @@ public class GroupController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("board/article");
-		
+		mav.setViewName("board/ideaArticle");
+		mav.addObject("ilists", ilists);
 		mav.addObject("dto",dto);
 		mav.addObject("params",param);
 		mav.addObject("lineSu",lineSu);
 		mav.addObject("pageNum",pageNum);
+		mav.addObject("listimgnum",listimgnum);
 		
 		
 		/*=======================================*/
 		
-		int numPerPage = 5;
+		/*int numPerPage = 5;
 		int totalPage=0;
 		int totalDataCount = 0;
 	
@@ -301,7 +310,7 @@ public class GroupController {
 		mav.addObject("totalDataCount", totalDataCount);
 		mav.addObject("pageIndexList", pageIndexList);
 		mav.addObject("pageNO", currentPage);
-		
+		*/
 		return mav;
 		
 	}

@@ -9,7 +9,7 @@
 
 <c:if test="${c_totalDataCount!=0 }">
 
-<div style="width: 600px; border: none; align="center"> <!-- 전체틀 -->
+<div style="width: 600px; border: none; padding-top: 10px;" align="center"> <!-- 전체틀 -->
 
 
 <c:forEach var="dto" items="${c_lists }">
@@ -20,7 +20,7 @@
 
 <div style="height: 30px;">
 	<div style="padding-left: 10px; width: 300px;">
-	No ${dto.listNum}.${logInfo }
+	No ${dto.listNum}.${logInfo.userId }
 	</div>
 	<div><a href="javascript:addcmRecomm()">추천</a></div>
 	
@@ -39,7 +39,7 @@
 </c:forEach>
 
 <div>
-	<div style="background-color: #dbdbdb; height: 2px;"></div>
+	<div style="border-bottom: solid 1px #ddd;"></div>
 </div>
 
 
