@@ -133,8 +133,7 @@ A:hover {text-decoration:none}
 					</c:if>
 				</p>
 		</td>
-	</tr>
-	
+	</tr>	
 
 </table>
 
