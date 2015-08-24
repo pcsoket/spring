@@ -87,7 +87,7 @@ public class ImageDAO {
 	//============================================================이미지 배열 저장 및 insert
     public String writeFile(ImageDTO dto,String uploadPath) {
     	
- 
+    	
 		File dir = new File(uploadPath);//경로가 없으면 만듬
 		if (!dir.exists()){
 			dir.mkdirs();

@@ -366,7 +366,7 @@ public class ProductController {
 		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
 		String imglistnum = idao.writeFile(idto, path);  //ex "3,4,5"반환
 		
-		
+		System.out.println(path);
 		System.out.println(imglistnum);
 		
 		pdto.setpNum(dao.p_maxNum()+1); //product번호지정
