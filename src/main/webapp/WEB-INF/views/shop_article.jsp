@@ -90,24 +90,20 @@
 		<table class="box" height="700px">
 			<tr>
 				<td width="350px" height="400px" class="box" colspan="2">
-				
-				   
-						<div class="fotorama" data-autoplay="3000"
+				<!--이미지 갤러리  -->/
+						<div class="fotorama" data-autoplay="3000"             
 						 data-width="350"
 						 data-high="350"
 					     data-maxwidth="100%"
 					     data-allowfullscreen="false"
 					     data-nav="thumbs">
 	
-
-
 				<c:forEach var="dto" items="${ilists}">	
 				
- 
 		<img src="${dto.originalFileName}" style="cursor: hand" onmouseover="fimg(this.src)"/>
 
 				</c:forEach>
-										</div>
+						</div>
 		    			
 				</td>
         	</tr>

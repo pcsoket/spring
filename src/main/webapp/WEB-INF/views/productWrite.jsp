@@ -13,8 +13,6 @@
 <title>이미지 업로드</title>
 <script src="<%=cp%>/resources/ckeditor/ckeditor.js"></script>
 
-
-
 <!-- 멀티파일업로드 ajax를 이용한 gui에 필요한 js import -->
 
 <!-- jQuery import -->
@@ -72,7 +70,18 @@
 		});
 	});
 	
+	function AddSelect_JS(){    
+		var x = document.getElementById("pCategory2");
+		var option = document.createElement("option");
+		option.text = "잇힝~";    option.value = "1";
+		x.add(option, null);
+		option = document.createElement("option");
+		option.text = "1231233";
+		option.value = "1";
+		x.add(option, null);}
 
+	
+	
 </script>
 </head>
 
@@ -105,13 +114,17 @@
   <tr> 
       <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">카&nbsp;테&nbsp;고&nbsp;리</td>
       <td width="480" style="padding-left:10px;">
-      	<select name="pCategory" class="boxTF" id="123">
-      		<option value="아이디어">아이디어</option>
-      		<option value="11">22</option>
-      		<option value="11">33</option>
-      		<option value="11">44</option>
-      		<option value="11">55</option>
-      		<option value="11">66</option>
+      	<select name="pCategory1" class="boxTF" id="123" onchange="AddSelect_JS();">
+      		<option value="life">생활/건강</option>
+      		<option value="sports">스포츠/레저</option>
+      		<option value="interior">가구/인테리어</option>
+      		<option value="digital">디지털/가전</option>
+      		<option value="sundries">패션잡화</option>
+      	</select>
+      	
+      	<select name="pCategory2" class="boxTF" id="123">
+      		<option value="">선택</option>
+
       	</select>
       </td>
   </tr>
