@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
@@ -22,8 +21,6 @@ import com.sajo.dto.ProductDTO;
 
 
 public class ImageDAO {
-	
-	
 	
 	private SqlSessionTemplate sessionTemplate;
 	
@@ -88,7 +85,7 @@ public class ImageDAO {
 	//============================================================이미지 배열 저장 및 insert
     public String writeFile(ImageDTO dto,String uploadPath) {
     	
- 
+    	
 		File dir = new File(uploadPath);//경로가 없으면 만듬
 		if (!dir.exists()){
 			dir.mkdirs();

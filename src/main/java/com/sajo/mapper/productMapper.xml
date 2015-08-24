@@ -44,7 +44,7 @@
 	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock,pImg from product where pNum=#{pNum}
 </select>
 
-<!-- 카테고리 데이터 -->
+<!--  카테고리 데이터 
 <select id="p_getListsCategory" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">	
 	select * from(
 	select rownum rnum, data.* from (
@@ -54,7 +54,7 @@
 	where rnum>=#{start} and rnum<=#{end}
 	]]>
 
-</select>
+</select> -->
 
 <!-- 조회수 인기 데이터 -->
 <select id="p_getListsHitCount" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">	
@@ -69,7 +69,7 @@
 </select>
 
 
-<!-- 조회수 인기 데이터 -->
+<!-- 아이디어 조회수 인기 데이터 -->
 <select id="p_getListsIdeaHitCount" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">	
 	select * from(
 	select rownum rnum, data.* from (
@@ -87,6 +87,29 @@
 	select rownum rnum, data.* from (
 	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock,pImg from product
 	order by pGrade desc) data)	
+	<![CDATA[
+	where rnum>=#{start} and rnum<=#{end}
+	]]>
+	
+</select>
+
+
+
+
+
+<!-- ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ -->
+<!-- ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ -->
+
+
+<!-- 아이디어카테고리 -->
+
+
+<!-- 카테고리 데이터 -->
+<select id="p_getListsIdeaCategory" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">	
+	select * from(
+	select rownum rnum, data.* from (
+	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock,pImg from product
+	where pCategory=#{pCategory} order by pHitCount desc) data)	
 	<![CDATA[
 	where rnum>=#{start} and rnum<=#{end}
 	]]>

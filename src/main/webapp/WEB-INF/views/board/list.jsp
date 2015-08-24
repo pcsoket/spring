@@ -3,7 +3,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
-	
+
 	int i=1;
 	
 %>
@@ -48,10 +48,10 @@
 	}
 	
 .category2{
-	border: 1px solid #EAEAEA;
+	/* border: 1px solid #EAEAEA; */
 	height: 300px;
 	width: 300px;
-	padding-right: 30px;
+	padding-left: 30px;
 	}
 
 /* 하이퍼링크 밑줄 지우기 */
@@ -132,7 +132,7 @@ A:hover {text-decoration:none}
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href ="${articleUrl}&gNum=${dto.gNum}">
 					${dto.gSubject}</a></font>
-					<br>${dto.mId}&nbsp;&nbsp;&nbsp;&nbsp;별점☆
+					<br>${dto.mId}&nbsp;&nbsp;&nbsp;&nbsp;별점☆<br>.
 					</td>
 
 						
@@ -148,7 +148,6 @@ A:hover {text-decoration:none}
 						
 						<tr height="50px"></tr>
 
-			
 
 	
 	<tr height="50px"></tr>

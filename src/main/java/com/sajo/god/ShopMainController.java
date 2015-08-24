@@ -50,6 +50,14 @@ public class ShopMainController {
 		return "shop";
 	}
 	
+	@RequestMapping(value="/invent.action",method={RequestMethod.GET,RequestMethod.POST})  //Å×½ºÆ®
+	public String invent(HttpServletRequest req, String data) throws Exception{
+		
+		 
+				
+		return "Invent";
+	}
+	
 	@RequestMapping(value="/basket.action")
 	public String basket(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
