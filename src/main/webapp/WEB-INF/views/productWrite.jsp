@@ -12,8 +12,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>이미지 업로드</title>
 <script src="<%=cp%>/resources/ckeditor/ckeditor.js"></script>
-<script type="text/javascript" src="/js/jquery/jquery-1.7.2.min.js"></script>
-<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction('1', '<%=cp%>/resources/image/', '전송완료 메시지')</script>
+
+
+
+<!-- 멀티파일업로드 ajax를 이용한 gui에 필요한 js import -->
+
+<!-- jQuery import -->
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- jQuery Form Plugin import -->
+<script src="<%=cp%>/resources/js/jquery.form.min.js"></script>
+<!-- jQuery MultiFile Plugin import -->
+<script src="<%=cp%>/resources/js/jQuery.MultiFile.min.js"></script>
+
 <script type="text/javascript">
 
 	String.prototype.trim = function() {
@@ -41,6 +51,27 @@
 		
 	}
 	
+	$(document).ready(function(){
+		
+		//use jQuery MultiFile Plugin 
+		$('#myForm input[name=upload]').MultiFile({
+			max: 4, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
+			accept: 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
+			maxfile: 1024, //각 파일 최대 업로드 크기
+			maxsize: 3024,  //전체 파일 최대 업로드 크기
+			STRING: { //Multi-lingual support : 메시지 수정 가능
+			    remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
+			    duplicate : "$file 은 이미 선택된 파일입니다.", 
+			    denied : "$ext 는(은) 업로드 할수 없는 파일확장자입니다.",
+			     selected:'$file 을 선택했습니다.', 
+			    toomuch: "업로드할 수 있는 최대크기를 초과하였습니다.($size)", 
+			    toomany: "업로드할 수 있는 최대 갯수는 $max개 입니다.",
+			    toobig: "$file 은 크기가 매우 큽니다. (max $size)"
+			},
+			list:"#file-list" //파일목록을 출력할 요소 지정가능
+		});
+	});
+	
 
 </script>
 </head>
@@ -59,7 +90,7 @@
 </table>
 <br/>&nbsp;<br/>
 
-<form name="myForm" method="post" action="" enctype="multipart/form-data">
+<form name="myForm" id="myForm" method="post" action="" enctype="multipart/form-data">
   <table width="560" border="0" cellspacing="0" cellpadding="3" align="center">
 
   <tr><td colspan="2" height="3" bgcolor="#DBDBDB" align="center"></td></tr>
@@ -75,7 +106,7 @@
       <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">카&nbsp;테&nbsp;고&nbsp;리</td>
       <td width="480" style="padding-left:10px;">
       	<select name="pCategory" class="boxTF" id="123">
-      		<option value="11">11</option>
+      		<option value="아이디어">아이디어</option>
       		<option value="11">22</option>
       		<option value="11">33</option>
       		<option value="11">44</option>
@@ -107,11 +138,8 @@
       <!--  file upload input-->
       
         <input type="file"  name="upload" size="58" maxlength="100" class="boxTF" onchange=""/>
-        <input type="file"  name="upload" size="58" maxlength="100" class="boxTF" onchange=""/>
-        <input type="file"  name="upload" size="58" maxlength="100" class="boxTF" onchange=""/>
-        <input type="file"  name="upload" size="58" maxlength="100" class="boxTF" onchange=""/>
-      <div id="fileList">
-      </div>
+        <div id="file-list" style="border:2px solid #c9c9c9;min-height:50px"></div> 
+
       </td>
       
   </tr>
@@ -139,17 +167,24 @@
   </table>
 </form>
 <!-- //------------------------- // -->
-<div style="display: none;">
+<script>
 
+/*jQuery form 플러그인을 사용하여 폼데이터를 ajax로 전송*/
 
-<table>
-  <tr> 
-      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">파&nbsp;&nbsp;&nbsp;&nbsp;일</td>
-      <td width="480" style="padding-left:10px;"> 
-     
-      </td>
-  </tr>
-</table>
-</div>
+$(function(){
+    
+	//폼전송 : 해당폼의 submit 이벤트가 발생했을경우 실행  
+    $('#myForm').ajaxForm({
+       cache: false,
+       dataType:"json",
+       //ajax error
+       error: function(e){
+           alert("에러발생!!");
+           console.log(e);
+       }                               
+	});
+});
+</script>
+
 </body>
 </html>

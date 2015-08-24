@@ -1,6 +1,8 @@
 package com.sajo.god;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,11 +20,14 @@ public class IdeaMainController {
 		return "ideamain";
 	}
 	
-	@RequestMapping(value="/shop.action")
-	public String bigDoor(){
+	@RequestMapping(value="/ideaArticle.action")
+	public String ideaArticle(HttpServletRequest req,HttpServletResponse resp,HttpSession session){
 		
 		
-		return "shop";
+		
+		
+		
+		return "ideaArticle";
 	}
 	
 	@RequestMapping(value="/header.action")
@@ -36,7 +41,7 @@ public class IdeaMainController {
 	public String invent(){
 		
 		
-		return "Invent";
+		return "invent";
 	}
 
 }

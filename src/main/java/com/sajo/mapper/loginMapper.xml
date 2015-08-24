@@ -6,7 +6,7 @@
 	
 	<mapper namespace="com.sajo.login.sql">
 	<select id="getList" parameterType="String" resultType="com.sajo.dto.LoginDTO">
-		select mid as userId,mpwd as userPwd from member where mid=#{userId}
+		select mid as userId,mpwd as userPwd,gno from member where mid=#{userId}
 	</select>
 	<select id="getListId" parameterType="hashmap" resultType="com.sajo.dto.LoginDTO">
 		select mid as userId,mpwd as userPwd from member where mname=#{userName} and memail=#{userEmail} 

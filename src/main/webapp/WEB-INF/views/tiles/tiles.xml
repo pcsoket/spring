@@ -12,6 +12,14 @@
                     value="/WEB-INF/views/tiles/tiles-layout/footer.jsp" />
    </definition>
 <!--<end id="tile_template"/>-->
+
+   <definition name="idea" 
+               template="/WEB-INF/views/tiles/invent-layout/layout.jsp">
+     <put-attribute name="header" 
+                    value="/WEB-INF/views/tiles/invent-layout/header.jsp" />
+     <put-attribute name="footer" 
+                    value="/WEB-INF/views/tiles/invent-layout/footer.jsp" />
+   </definition>
  
 <!--<타일즈 적용할 JSP설정/>-->
    <definition name="productWrite" extends="template">
@@ -26,11 +34,11 @@
    <definition name="shopordercancel" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/shopordercancel.jsp" />
    </definition>
+   <definition name="myPage" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/shopMyPage.jsp" />
+   </definition>
    <definition name="purchase" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/purchase.jsp" />
-   </definition>
-   <definition name="card" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/card.jsp" />
    </definition>
    <definition name="category" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/category.jsp" />
@@ -38,17 +46,34 @@
    <definition name="shop_article" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/shop_article.jsp" />
    </definition>
+   <definition name="shopOrderList" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/shopOrderList.jsp" />
+   </definition>
    <definition name="board/list" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
    </definition>
    
    
-<!--<definition-name:컨트롤러에서 반환한 String값과 일치시켜야함.
+    <definition name="board/list" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
+   </definition>
+    <definition name="board/created" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/board/created.jsp" />
+   </definition>
+   <definition name="ideamain" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/ideamain.jsp" />
+   </definition>
+   <definition name="ideaArticle" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/invent/ideaArticle.jsp" />
+   </definition>
+   
+   
+	<!--<definition-name:컨트롤러에서 반환한 String값과 일치시켜야함.
 	servlet-context에 적용시켜놓은 viewResolver가 가져옴
 	
 	put-attribute name:jsp에 적용할 attribute name, layout.jsp의 해당insertAttribute에적용됨
 	
 	extends: 적용시킬 타일즈 정의의 네임을 적어놓아야함.
 	>-->
-        
+
 </tiles-definitions>

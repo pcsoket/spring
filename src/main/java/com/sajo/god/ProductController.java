@@ -1,12 +1,7 @@
 package com.sajo.god;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.net.URLDecoder;
 import java.net.URLEncoder;
-import java.util.Calendar;
-import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +12,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -95,8 +89,11 @@ public class ProductController {
 		List<ProductDTO> hitcountlists = 
 				dao.p_getListsHitCount(start,end);
 		
+		List<ProductDTO> recommandlists = 
+				dao.p_getListsHitCount(start,end);
+		
 		List<ProductDTO> ideahitcountlists = 
-				dao.p_getListsIdeaHitCount(start,end,pCategory);
+				dao.p_getListsIdeaHitCount(start,end,"아이디어");
 		
 		//첫번째 이미지만 골라서 넣어줌.
 		lists = idao.imageForList(lists);
@@ -132,14 +129,13 @@ public class ProductController {
 		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);
+		request.setAttribute("recommandlists", recommandlists);
 		request.setAttribute("categorylists", categorylists);
 		request.setAttribute("hitcountlists", hitcountlists);
 		request.setAttribute("ideahitcountlists", ideahitcountlists);
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
-		
-		
 		
 		
 		return "category";		
@@ -174,7 +170,7 @@ public class ProductController {
 		}
 		//pCategory가 null일시 처리
 		if(pCategory == null)
-			pCategory = "아이디어상품";
+			pCategory = "%%";
 		
 		
 		//전체데이터갯수
@@ -245,15 +241,12 @@ public class ProductController {
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		
-		
-		
 		return "idea_category";		
 		
 	}
 
 	
 	@RequestMapping(value="/shop_article.action",method={RequestMethod.GET,RequestMethod.POST})
-	
 	public ModelAndView shop_article (Integer pNum, HttpServletResponse response,HttpServletRequest request) throws Exception{
 	
 	
@@ -304,7 +297,7 @@ public class ProductController {
 		
 	}
 	
-@RequestMapping(value="/shop_update.action",method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="/shop_update.action",method={RequestMethod.GET,RequestMethod.POST})  ///만들다 말음.
 	
 	public ModelAndView shop_update (ProductDTO dto, HttpServletResponse response,HttpServletRequest request) throws Exception{
 	
@@ -355,7 +348,6 @@ public class ProductController {
 		
 	}
 	
-	
 	// ============================================================= productcreated
 	@RequestMapping(value="/shop_created.action",method={RequestMethod.GET,RequestMethod.POST})
 	
@@ -370,7 +362,7 @@ public class ProductController {
 	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		
-		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정
+		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정 실제경로를 가져옴
 		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
 		String imglistnum = idao.writeFile(idto, path);  //ex "3,4,5"반환
 		
@@ -380,7 +372,7 @@ public class ProductController {
 		pdto.setpNum(dao.p_maxNum()+1); //product번호지정
 		pdto.setpImg(imglistnum);        //product 에서 뿌려줄 이미지들의 번호
 		dao.p_insertData(pdto);          //product 테이블에 insert
-		mav.setViewName("productWrite"); //나갈곳
+		mav.setViewName("redirect:shop_article.action?pNum="+pdto.getpNum()); //나갈곳
 		//mav.addObject("pdto",pdto); 가져감?
 		
 		return mav;
