@@ -60,6 +60,7 @@ public class GroupController {
 		
 		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
 			mav.setViewName("login");
+			return mav;
 		}
 		
 		mav.setViewName("board/created");
