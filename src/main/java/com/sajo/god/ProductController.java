@@ -83,8 +83,8 @@ public class ProductController {
 		List<ProductDTO> lists =
 			dao.p_getList(start, end, searchKey, searchValue);
 		
-		List<ProductDTO> categorylists = 
-				dao.p_getListsCategory(start,end,pCategory);
+		/*List<ProductDTO> categorylists = 
+				dao.p_getListsCategory(start,end,pCategory);*/
 		
 		List<ProductDTO> hitcountlists = 
 				dao.p_getListsHitCount(start,end);
@@ -97,7 +97,7 @@ public class ProductController {
 		
 		//첫번째 이미지만 골라서 넣어줌.
 		lists = idao.imageForList(lists);
-		categorylists = idao.imageForList(categorylists);
+		/*categorylists = idao.imageForList(categorylists);*/
 		hitcountlists = idao.imageForList(hitcountlists);
 		ideahitcountlists = idao.imageForList(ideahitcountlists);
 
@@ -130,7 +130,7 @@ public class ProductController {
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);
 		request.setAttribute("recommandlists", recommandlists);
-		request.setAttribute("categorylists", categorylists);
+		/*request.setAttribute("categorylists", categorylists);*/
 		request.setAttribute("hitcountlists", hitcountlists);
 		request.setAttribute("ideahitcountlists", ideahitcountlists);
 		request.setAttribute("pageIndexList",pageIndexList);
@@ -155,6 +155,9 @@ public class ProductController {
 		
 		String searchKey = request.getParameter("searchKey");
 		String searchValue = request.getParameter("searchValue");
+		
+		
+		
 		
 		if(searchKey == null){
 			
@@ -187,16 +190,17 @@ public class ProductController {
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
 		
-		pCategory = "욕실용품";
+		//pCategory = "욕실용품";
 		
-		List<ProductDTO> idea_hitcountlists = 
-				dao.p_getListsIdea_HitCount(start,end,pCategory);
+		List<ProductDTO> idea_categorylists = 
+				dao.p_getListsIdeaCategory(start,end,pCategory);
 
 		
 		//첫번째 이미지만 골라서 넣어줌.
-		idea_hitcountlists = idao.imageForList(idea_hitcountlists);
+		idea_categorylists = idao.imageForList(idea_categorylists);
 	
-		
+		System.out.println(pCategory);
+		System.out.println(end);
 		
 		
 		//페이징 처리
@@ -224,7 +228,7 @@ public class ProductController {
 		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		
-		request.setAttribute("idea_hitcountlists", idea_hitcountlists);
+		request.setAttribute("idea_categorylists", idea_categorylists);
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
@@ -350,7 +354,7 @@ public class ProductController {
 	public ModelAndView shop_created_ok (ProductDTO pdto,ImageDTO idto, MultipartHttpServletRequest req, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		ModelAndView mav = new ModelAndView();
 		
-		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정
+		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정 실제경로를 가져옴
 		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
 		String imglistnum = idao.writeFile(idto, path);  //ex "3,4,5"반환
 		

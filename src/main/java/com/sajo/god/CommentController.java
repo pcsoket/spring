@@ -1,5 +1,8 @@
 package com.sajo.god;
 
+import java.util.List;
+import java.util.ListIterator;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -35,7 +38,7 @@ public class CommentController {
 		return "redirect:/group/article.action?"+dto.getParams()+"&gNum=" + dto.getgNum();
 	}
 
-	/*@RequestMapping(value="/comm/list.action", method={RequestMethod.GET,RequestMethod.POST})
+	@RequestMapping(value="/comm/list.action", method={RequestMethod.GET,RequestMethod.POST})
 	public String list(CommentDTO dto, HttpServletRequest request, HttpServletResponse response) throws Exception {
 				
 		int numPerPage = 5;
@@ -88,14 +91,14 @@ public class CommentController {
 		
 		String pageIndexList = myUtil.pageIndexList(currentPage, totalPage);
 
-		request.setAttribute("lists", lists);
-		request.setAttribute("totalDataCount", totalDataCount);
-		request.setAttribute("pageIndexList", pageIndexList);
-		request.setAttribute("pageNO", currentPage);
+		request.setAttribute("c_lists", lists);
+		request.setAttribute("c_totalDataCount", totalDataCount);
+		request.setAttribute("c_pageIndexList", pageIndexList);
+		request.setAttribute("c_pageNO", currentPage);
 
 		return "comm/commList";
 
-	}*/
+	}
 	
 	@RequestMapping(value="/comm/deleted.action", method={RequestMethod.GET,RequestMethod.POST})
 	public String delete(CommentDTO dto, HttpServletRequest request, HttpServletResponse response) throws Exception {

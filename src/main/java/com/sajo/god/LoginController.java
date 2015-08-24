@@ -105,12 +105,6 @@ public class LoginController {
 
 	}
 	
-	@RequestMapping(value="/ideaArticle.action")
-	public String ideaArticle(HttpServletRequest req,HttpServletResponse resp,HttpSession session){
-		
-		
-		
-		return "invent/ideaArticle";
-	}
+	
 
 }

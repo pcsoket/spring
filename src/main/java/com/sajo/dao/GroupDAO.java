@@ -26,6 +26,18 @@ public class GroupDAO {
 			
 	}
 	
+	
+	//Group으로 묶기위한 넘버를 뽑기
+	public int getGnoMaxNum(){
+			
+		int result = 0;
+					
+		result = sessionTemplate.selectOne("com.sajo.mapper.gnoMaxNum");
+			
+		return result;
+			
+	}
+	
 	//입력
 	public void insertData(GroupDTO dto){
 		
