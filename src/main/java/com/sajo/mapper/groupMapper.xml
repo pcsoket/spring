@@ -11,10 +11,15 @@
 	select nvl(max(gNum),0) from ideaGroup	
 </select>
 
+<!-- gNum의 최대값 -->
+<select id="gnoMaxNum" resultType="int">
+	select nvl(max(gNo),0) from ideaGroup	
+</select>
+
 <!-- 데이터 입력 -->
 <insert id="insertData" parameterType="com.sajo.dto.GroupDTO">
-	insert into ideaGroup(gNo,gNum,gHitCount,mId,gSubject,gImg1,gImg2,gImg3,gImg4,
-	gContent,gCreated,boardName,gRecomm) values (#{gNo},#{gNum},0,#{mId},#{gSubject},#{gImg1},#{gImg2},#{gImg3},#{gImg4},
+	insert into ideaGroup(gNo,gNum,gHitCount,mId,gSubject,imgnum,
+	gContent,gCreated,boardName,gRecomm) values (#{gNo},#{gNum},0,#{mId},#{gSubject},#{imgNum},
 	#{gContent},sysdate,#{boardName},0)
 </insert>
 
@@ -43,7 +48,7 @@
 
 <!-- 한개의 데이터 -->
 <select id="getReadData" parameterType="int" resultType="com.sajo.dto.GroupDTO">
-	select gNo,gNum,gHitCount,mId,gSubject,gImg1,gImg2,gImg3,gImg4,
+	select gNo,gNum,gHitCount,mId,gSubject,imgNum,
 	gContent,gCreated,boardName from ideaGroup where gNum=#{gNum}
 </select>
 

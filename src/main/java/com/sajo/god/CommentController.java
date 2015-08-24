@@ -31,7 +31,7 @@ public class CommentController {
 	public String created(CommentDTO dto,HttpServletRequest request, HttpServletResponse response){
 		
 		int numMax = dao.getMaxNum();
-		
+		dto.setBoardName("test");
 		dto.setCmNum(numMax+1);
 		dao.insertData(dto);
 
@@ -96,7 +96,7 @@ public class CommentController {
 		request.setAttribute("c_pageIndexList", pageIndexList);
 		request.setAttribute("c_pageNO", currentPage);
 
-		return "comm/commList";
+		return "board/commentList";
 
 	}
 	

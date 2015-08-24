@@ -2,7 +2,7 @@ package com.sajo.dto;
 
 public class LoginDTO {
 	
-	private String userId,userPwd;
+	private String userId,userPwd,userName;
 	private int gno;
 	
 	public int getGno() {
@@ -27,6 +27,14 @@ public class LoginDTO {
 
 	public void setUserPwd(String userPwd) {
 		this.userPwd = userPwd;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 

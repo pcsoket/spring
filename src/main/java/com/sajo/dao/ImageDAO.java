@@ -9,20 +9,18 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.sajo.dto.GroupDTO;
 import com.sajo.dto.ImageDTO;
 import com.sajo.dto.ProductDTO;
 
 
 public class ImageDAO {
-	
-	
 	
 	private SqlSessionTemplate sessionTemplate;
 	
@@ -87,13 +85,14 @@ public class ImageDAO {
 	//============================================================이미지 배열 저장 및 insert
     public String writeFile(ImageDTO dto,String uploadPath) {
     	
- 
+    	
 		File dir = new File(uploadPath);//경로가 없으면 만듬
 		if (!dir.exists()){
 			dir.mkdirs();
 		}
     	
-        String imageList = "";    //리턴할 imageNum 넣을곳.
+        String imageList = "";    //리턴할 imageNum 넣을곳.'gsubject'속성
+	
         
         if (dto.getUpload() != null) {  //파일이 있다면
         
@@ -171,12 +170,13 @@ public class ImageDAO {
 	   	String[] imgNum = imgnumlist.split(",");
 	   	int imgNo = Integer.parseInt(imgNum[0]);
 	
-	   	String img = sessionTemplate.selectOne("com.sajo.image.readImage",imgNo);
+	   	String img = sessionTemplate.selectOne("com.sajo.image.readImage",imgNo);//originalfilename으로 select
    	 
    	return img;
    }
-    
-	public List<ProductDTO> imageForList (List<ProductDTO> plists){
+	
+	
+	public List<ProductDTO> imageForList (List<ProductDTO> plists){//list.action할때만 사용
 		System.out.println("???");
 		if(plists!=null){
 			ProductDTO dto = new ProductDTO();
@@ -191,4 +191,6 @@ public class ImageDAO {
 		}
 		return plists;
 	}
+	
+	
 }

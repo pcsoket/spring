@@ -10,6 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>shop_article</title>
 
+<!-- fotorama.css & fotorama.js. -->
+<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
 
 <script type="text/javascript">
 
@@ -87,9 +90,21 @@
 		<table class="box" height="700px">
 			<tr>
 				<td width="350px" height="400px" class="box" colspan="2">
+				<!--이미지 갤러리  -->/
+						<div class="fotorama" data-autoplay="3000"             
+						 data-width="350"
+						 data-high="350"
+					     data-maxwidth="100%"
+					     data-allowfullscreen="false"
+					     data-nav="thumbs">
+	
+				<c:forEach var="dto" items="${ilists}">	
+				
+		<img src="${dto.originalFileName}" style="cursor: hand" onmouseover="fimg(this.src)"/>
 
-				<img alt="" src="/god/resources/image/ww.PNG" name="img01"/><br/>  <!-- 큰사진 -->
-
+				</c:forEach>
+						</div>
+		    			
 				</td>
         	</tr>
 			<tr>
@@ -98,14 +113,9 @@
 
 				<table>
 				<tr>
-				<c:forEach var="dto" items="${ilists}">	
-    					<td width="90px" height="100px" class="line1">
-    						<img alt="" src="${dto.originalFileName}" 
-    						width="90px" height="100px" border="1"
-								style="cursor: hand" onmouseover="fimg(this.src)"/>
-    					</td>
-				</c:forEach>		
-   						</tr>
+
+
+ 					</tr>
    				</table>
 				</td>
 			</tr>
