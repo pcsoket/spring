@@ -76,7 +76,7 @@
       <td width="480" style="padding-left:10px;">
       	<select name="pCategory" class="boxTF" id="123">
       		<option value="아이디어">아이디어</option>
-      		<option value="11">22</option>
+      		<option value="11">욕실용품</option>
       		<option value="11">33</option>
       		<option value="11">44</option>
       		<option value="11">55</option>

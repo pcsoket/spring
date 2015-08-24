@@ -3,7 +3,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
-
+	
 	int i=1;
 	
 %>
@@ -48,10 +48,10 @@
 	}
 	
 .category2{
-	/* border: 1px solid #EAEAEA; */
+	border: 1px solid #EAEAEA;
 	height: 300px;
 	width: 300px;
-	padding-left: 30px;
+	padding-right: 30px;
 	}
 
 /* 하이퍼링크 밑줄 지우기 */
@@ -78,20 +78,15 @@ A:hover {text-decoration:none}
 <body>
 
 
-<table width="1000px" align="center" class="box">
+<table width="1000" align="center" class="box">
 	
-	<div class="container" >
+	<div class="container" style="width: 1030px;">
 	  <div class="jumbotron" align="center">
 	    <h3>Good Idea</h3>      
-	    <p>당신의 아이디어가 현실이 됩니다.</p>
-	    <c:choose>
-			<c:when test="${empty gno}">
-			 	<a href="<%=cp %>/" class="btn btn-info btn-lg">Start Invent</a>
-			</c:when>
-			<c:otherwise>
-			 	<a href="/wInvent.action" class="btn btn-info btn-lg">Write</a>
-			</c:otherwise>
-		</c:choose>      
+	    <p>당신의 아이디어가 현실이 됩니다.</p>      
+	    <a href="javascript:location.href='/god/group/created.action';" class="btn btn-info btn-lg">Write</a>
+	    
+
 	  </div>
 	</div>
 
@@ -132,7 +127,7 @@ A:hover {text-decoration:none}
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href ="${articleUrl}&gNum=${dto.gNum}">
 					${dto.gSubject}</a></font>
-					<br>${dto.mId}&nbsp;&nbsp;&nbsp;&nbsp;별점☆<br>.
+					<br>${dto.mId}&nbsp;&nbsp;&nbsp;&nbsp;별점☆
 					</td>
 
 						
@@ -148,12 +143,8 @@ A:hover {text-decoration:none}
 						
 						<tr height="50px"></tr>
 
-<<<<<<< HEAD
-	
-=======
 			
 
->>>>>>> 8d479453e760ab8565f2648bf72109dcfae31c55
 	
 	<tr height="50px"></tr>
 

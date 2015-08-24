@@ -167,7 +167,7 @@ public class GroupController {
 	//public String article(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 	public ModelAndView article (int gNum, CommentDTO cdto,HttpServletResponse response,HttpServletRequest request) throws Exception{
-	
+		
 		String cp = request.getContextPath();
 		
 		System.out.println(gNum);

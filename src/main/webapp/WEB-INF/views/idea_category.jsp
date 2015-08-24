@@ -96,66 +96,38 @@
 			
 			<tr><td class="menu1">
 				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;아이디어상품</b></font>
-    					
-    					<a href="/god/idea_category.action">▼</a>
-    					<c:forEach var="dto" items="${categorylists}">
-								<div class="category1">
-								
-									<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-									<a href="${articleUrl}&pNum=${dto.pNum}">
-									&nbsp;&nbsp;&nbsp;&nbsp;${dto.pName}</a></font>
-									</div>
-							     </c:forEach>  
+			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>
+										
+    					&nbsp;&nbsp;&nbsp;&nbsp;생활/건강</b></font>  					
+ 
 
 				</td></tr>
 				
 			<tr><td class="menu2">
 				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;과일</b></font>
+			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;">				
+    					&nbsp;&nbsp;&nbsp;&nbsp;욕실용품</font>
     					
-    					<c:forEach var="dto" items="${categorylists}">
-								<div class="category3">
-									<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-									<a href="${articleUrl}&pNum=${dto.pNum}">
-									&nbsp;&nbsp;&nbsp;&nbsp;${dto.pName}</a></font>
-									</div>
-							     </c:forEach>  
+    					
 
 				</td></tr>
 				
 			<tr><td class="menu3">
 				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;티켓/공연</b></font>
+			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;">					
+    					&nbsp;&nbsp;&nbsp;&nbsp;공구</font>
 
 				</td></tr>
 				
 				
 			<tr><td class="menu3">
 				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;배달음식</b></font>
+			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;">				
+    					&nbsp;&nbsp;&nbsp;&nbsp;청소용품</font>
 
 				</td></tr>
 				
-			<tr><td class="menu3">
-				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;e쿠폰</b></font>
-
-
-				</td></tr>
-				
-				
-			<tr><td class="menu3">
-				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;의류</b></font>
-
-				</td></tr>
+			
 
 				
 			</table>		
@@ -167,12 +139,11 @@
 	<td>
 	<table width="800px" class="category2">
 	<tr><td height="50px" colspan="4"><font color="#8b4513 " style="font-family: 나눔바른펜;" size="4pt"><b>
-	&nbsp;&nbsp;&nbsp;아이디어 상품</b></font></td></tr>
+	&nbsp;&nbsp;&nbsp;욕실용품</b></font></td></tr>
 	<tr>
 	
-		<c:forEach var="dto" items="${categorylists}">	
+		<c:forEach var="dto" items="${idea_hitcountlists}">	
 			<td width="200px" height="300px" align="center" class="category2">
-			
 					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href="${articleUrl}&pNum=${dto.pNum}">
@@ -190,6 +161,7 @@
 		
 							
 	</tr>
+
 
 	</table>
 	</td></tr></table>
