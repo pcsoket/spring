@@ -287,19 +287,10 @@ public class ShopMainController {
 		return "redirect:orderList.action";
 	}
 	
-	@RequestMapping(value="/card_cancel.action")
-	public String card_cancel(String bnums,HttpServletRequest req, HttpServletResponse resp,HttpSession session){
-		
-		//String id = (String)session.getAttribute("userId"); //session에서 id받아오기
-		
-		String mid = "5";
-		
 	
-		return "shopmain";
-	}
 	
 	@RequestMapping(value="/card_cancle.action")
-	public String card_cancel(HttpServletRequest req, HttpServletResponse resp,HttpSession session){
+	public String card_cancel(String bnums, HttpServletRequest req, HttpServletResponse resp,HttpSession session){
 		
 		//String id = (String)session.getAttribute("userId"); //session에서 id받아오기
 		
@@ -316,12 +307,12 @@ public class ShopMainController {
 			pdto = (PurchaseDTO)reinst.next();
 			
 			
-			dto.setbNum(pdto.getBnum());
+			dto.setbNum(pdto.getbNum());
 			dto.setbAmount(1);
-			dto.setbPName(pdto.getPname());
-			dto.setbPrice(pdto.getPprice()/pdto.getPamount());
+			dto.setbPName(pdto.getpName());
+			dto.setbPrice(pdto.getpPrice()/pdto.getpAmount());
 			dto.setUserId(mid);
-			dto.setbNum(pdto.getPnum());
+			dto.setbNum(pdto.getpNum());
 			
 			dao.insertBK(dto);
 			
@@ -336,12 +327,12 @@ public class ShopMainController {
 			System.out.println("널인가" + bnums);
 			String[] nums= bnums.split("-");
 			
-			PurchaseDTO pdto=null;
+			//PurchaseDTO pdto=null;
 			for(int i = 0;i<nums.length;i++){
 				
 				pdto = pdao.getReadData(Integer.parseInt(nums[i]));
 				
-				BasketDTO dto = new BasketDTO();
+				dto = new BasketDTO();
 				
 				System.out.println(nums[i]);
 				dto.setbNum(Integer.parseInt(nums[i]));

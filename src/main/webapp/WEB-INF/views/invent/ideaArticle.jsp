@@ -35,7 +35,7 @@ function gnoDelete() {
 	$(document).ready(function(){
 		$("#sendButton").click(function(){
 			
-			var params = "name=" + $("#name").val() +"&boardNum="+"${dto.boardNum}"+ "&content=" + $("#content").val();
+			var params = "name=" + $("#name").val() +"&gNum="+"${dto.gNum}"+ "&content=" + $("#content").val();
 			
 			$.ajax({
 				
@@ -94,11 +94,11 @@ function gnoDelete() {
 	}
 	
 
-	function listPage(page){
+	function listPage(gNum){
 		
 		var url ="<%=cp%>/comm/list.action";
 		
-		$.post(url,{pageNO:page , boardNum:"${dto.boardNum}"}, function(args){
+		$.post(url,{gNum:gNum , gNo:"${dto.gNo}"}, function(args){
 			
 			$("#commList").html(args);
 			
