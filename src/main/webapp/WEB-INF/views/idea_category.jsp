@@ -10,10 +10,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>카테고리</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
@@ -32,6 +29,13 @@
     		});
 		});
 		
+		function p(a) {
+			
+			var f = document.myForm;
+			f.pCategory.value = a;
+			f.action = "<%=cp%>/idea_category.action";
+			f.submit();
+		}
 
 	</script>
 	
@@ -42,22 +46,22 @@
 
 	}
 .menu1{
-	border: 1px solid #EAEAEA;
-	background-color:  #ffd2d7;	
+	border-bottom :1px solid #EAEAEA;
+	border-top:1px solid #EAEAEA;	
 	width: 200px;
 	height: 50px;
 	}
 	
 .menu2{
-	border: 1px solid #EAEAEA;
-	background-color:  #ffd2d7;	
+	border-bottom :1px solid #EAEAEA;
+	border-top:1px solid #EAEAEA;
 	width: 200px;
 	height: 50px;
 	}
 	
 .menu3{
-	border: 1px solid #EAEAEA;
-	background-color:  #ffd2d7;	
+	border-bottom :1px solid #EAEAEA;
+	border-top:1px solid #EAEAEA;
 	width: 200px;
 	height: 50px;
 	}
@@ -89,73 +93,47 @@
 
 </head>
 <body>
-
+<form name="myForm">
+<input type="hidden" name="pCategory">
 <table width="1020px" class="box" align="center">
-	<tr><td rowspan="3" valign="top" bgcolor="#ffd2d7">
+	<tr><td rowspan="3" valign="top">
 			<table class="box" width="200px">
 			
-			<tr><td class="menu1">
-				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;아이디어상품</b></font>
-    					
-    					<a href="/god/idea_category.action">▼</a>
-    					<c:forEach var="dto" items="${categorylists}">
-								<div class="category1">
-								
-									<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-									<a href="${articleUrl}&pNum=${dto.pNum}">
-									&nbsp;&nbsp;&nbsp;&nbsp;${dto.pName}</a></font>
-									</div>
-							     </c:forEach>  
-
-				</td></tr>
-				
-			<tr><td class="menu2">
-				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;과일</b></font>
-    					
-    					<c:forEach var="dto" items="${categorylists}">
-								<div class="category3">
-									<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
-									<a href="${articleUrl}&pNum=${dto.pNum}">
-									&nbsp;&nbsp;&nbsp;&nbsp;${dto.pName}</a></font>
-									</div>
-							     </c:forEach>  
-
-				</td></tr>
-				
-			<tr><td class="menu3">
-				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;티켓/공연</b></font>
-
+			<tr><td class="menu1" style="background-color: #ebebe4;">&nbsp;&nbsp;&nbsp;&nbsp;
+			<font color="#8C8C8C"; style="font-family: 나눔바른펜; font-size:16pt; "><Strong>									
+    					[생활/건강]</Strong></font>  					
 				</td></tr>
 				
 				
-			<tr><td class="menu3">
-				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;배달음식</b></font>
-
+			<tr><td class="menu2">&nbsp;&nbsp;&nbsp;&nbsp;			
+			<a onclick="p('bath')"><font color="#8C8C8C"; style="font-family: 나눔바른펜; font-size:13pt;">				
+    					욕실용품</font></a>    					   	
 				</td></tr>
+			
 				
-			<tr><td class="menu3">
-				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;e쿠폰</b></font>
-
-
+			<tr><td class="menu3">&nbsp;&nbsp;&nbsp;&nbsp;			
+			<a onclick="p('util')"><font color="#8C8C8C"; style="font-family: 나눔바른펜; font-size:13pt;">					
+	   					공구</font></a>
 				</td></tr>
 				
 				
-			<tr><td class="menu3">
-				
-			<font color="#8b4513"; style="font-family: 나눔바른펜; font-size:13pt;"><b>					
-    					&nbsp;&nbsp;&nbsp;&nbsp;의류</b></font>
-
+			<tr><td class="menu3">&nbsp;&nbsp;&nbsp;&nbsp;
+			<a onclick="p('cleaning')"><font color="#8C8C8C"; style="font-family: 나눔바른펜; font-size:13pt;">				
+    					청소용품</font></a>
 				</td></tr>
+				
+				
+			<tr><td class="menu3">&nbsp;&nbsp;&nbsp;&nbsp;
+			<a onclick="p('cleaning')"><font color="#8C8C8C"; style="font-family: 나눔바른펜; font-size:13pt;">				
+    					주방용품</font></a>
+				</td></tr>
+				
+			<tr><td class="menu3">	
+			<a onclick="p('cleaning')"><font color="#8C8C8C"; style="font-family: 나눔바른펜; font-size:13pt;">				
+    					&nbsp;&nbsp;&nbsp;&nbsp;문구/사무용품</font></a>
+				</td></tr>
+				
+			
 
 				
 			</table>		
@@ -166,14 +144,13 @@
 	
 	<td>
 	<table width="800px" class="category2">
-	<tr><td height="50px" colspan="4"><font color="#8b4513 " style="font-family: 나눔바른펜;" size="4pt"><b>
-	&nbsp;&nbsp;&nbsp;아이디어 상품</b></font></td></tr>
+<%-- 	<tr><td height="50px" colspan="4"><font color="#ddd " style="font-family: 나눔바른펜;" size="4pt"><b>
+	&nbsp;&nbsp;&nbsp;${dto.pCategory}카테고리</b></font></td></tr> --%>
 	<tr>
 	
-		<c:forEach var="dto" items="${categorylists}">	
+		<c:forEach var="dto" items="${idea_categorylists}">	
 			<td width="200px" height="300px" align="center" class="category2">
-			
-					<img alt="" src="/god/resources/image/aa.PNG" width="200" height="200" />	
+					<img alt="" src="${dto.pImg}" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href="${articleUrl}&pNum=${dto.pNum}">
 						${dto.pName}<br>${dto.pPrice}원</a></font></td>
@@ -190,11 +167,27 @@
 		
 							
 	</tr>
+	
+	<tr height="50px"></tr>
+
+	<tr>
+		<td colspan="5" align="center">			
+				<p>
+					<c:if test="${dataCount!=0 }">
+						${pageIndexList}
+					</c:if>
+					<c:if test="${dataCount==0 }">
+						등록된게시물이 없습니다.
+					</c:if>
+				</p>
+		</td>
+	</tr>
+
 
 	</table>
 	</td></tr></table>
 
-
+</form>
 
 </body>
 </html>

@@ -3,7 +3,7 @@
 <%
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
-	
+
 	int i=1;
 	
 %>
@@ -13,11 +13,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>댓글 게시판</title>
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <style type="text/css">
-
 .box{
 	border-collapse: collapse;
 	}
@@ -49,20 +48,16 @@
 	}
 	
 .category2{
-	border: 1px solid #EAEAEA;
+	/* border: 1px solid #EAEAEA; */
 	height: 300px;
 	width: 300px;
-	padding-right: 30px;
+	padding-left: 30px;
 	}
 
 /* 하이퍼링크 밑줄 지우기 */
 A:link {text-decoration:none}
 A:visited {text-decoration:none}
 A:hover {text-decoration:none}
-
-.glyphicon-search {
-	font-size: 15pt;
-	}
 
 </style>
 	
@@ -81,6 +76,7 @@ A:hover {text-decoration:none}
 
 </head>
 <body>
+
 
 <table width="1000px" align="center" class="box">
 	
@@ -107,22 +103,14 @@ A:hover {text-decoration:none}
 	<tr height="30px">
 
 		<td width="50px" align="left" margin-left="20px"  colspan="4" >	
-			<form name="searchForm" method="post" action="">	
-			<div style="float: left">
-			<select name="searchKey"  style="height: 40px; width: 81px;"  class="form-control">
+			<form name="searchForm" method="post" action="">		
+			<select name="searchKey"  style="height: 40px;">
 				<option value="gSubject">제목</option>
 				<option value="mId">작성자</option>
 				<option value="gContent">내용</option>
 			</select>
-			</div>	
-			<div style="float: left">
-				<input type="text" name="searchValue" style="margin-left:5px; height: 40px;  width: 176px;"  class="form-control">
-			</div>
-			<div style="float: left">
-				<button style="margin-left:5px; height: 40px; " class="btn btn-info btn-lg">
-				<span class="glyphicon glyphicon-search"></span>
-				</button>
-			</div>
+			<input type="text" name="searchValue" style="height: 34px;"/>
+			<input type="button" style="width: 50px; height: 40px;" value=" 검 색 " class="btn2" onclick="sendIt();"/>
 			</form>
 		</td></tr>
 	<tr>
@@ -140,23 +128,27 @@ A:hover {text-decoration:none}
 		<c:forEach var="dto" items="${lists}">	
 			<td width="200px" height="300px" align="center" class="category2">
 			
-					<img alt="" src="/god/resources/image/aa.PNG" width="300" height="250" />	
+					<img alt="" src="/god/resources/image/aa.PNG" width="300" height="300" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href ="${articleUrl}&gNum=${dto.gNum}">
 					${dto.gSubject}</a></font>
-					<br>${dto.mId}&nbsp;&nbsp;&nbsp;&nbsp;별점☆
+					<br>${dto.mId}&nbsp;&nbsp;&nbsp;&nbsp;별점☆<br>.
 					</td>
+
 						
 						<%
 							if(i%3==0){
 							out.print("</tr><tr>");
 							}
 							i++;
-							%>						
+							%>
+						
 						
 						</c:forEach>
 						
 						<tr height="50px"></tr>
+
+
 	
 	<tr height="50px"></tr>
 
@@ -171,9 +163,11 @@ A:hover {text-decoration:none}
 					</c:if>
 				</p>
 		</td>
-	</tr>	
+	</tr>
+	
 
 </table>
+
 
 </body>
 </html>

@@ -60,6 +60,7 @@ public class GroupController {
 		
 		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
 			mav.setViewName("login");
+			return mav;
 		}
 		
 		mav.setViewName("board/created");
@@ -132,7 +133,7 @@ public class GroupController {
 		dataCount = dao.getDataCount(searchKey, searchValue);
 		
 		//전체페이지수
-		int numPerPage = 10;
+		int numPerPage = 9;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 		
 		
