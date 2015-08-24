@@ -33,7 +33,8 @@
 		        <div style="width: 100px;"><a href="<%=cp %>/login.action"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
 			</c:when>
 			<c:otherwise>
-			<a href="<%=cp%>/logout.action">Logout</a> &nbsp;<a href="/god/myPage.action">myPage</a>
+			<a href="<%=cp%>/logout.action"><span class="glyphicon glyphicon-log-out">Logout</span></a>&nbsp;&nbsp;
+			<a href="/god/myPage.action"><span class="glyphicon glyphicon-list-alt">myPage</span></a>
 			</c:otherwise>
 			</c:choose>
 		</ul>
