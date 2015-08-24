@@ -86,7 +86,7 @@ A:hover {text-decoration:none}
 	    <p>당신의 아이디어가 현실이 됩니다.</p>
 	    <c:choose>
 			<c:when test="${empty gno}">
-			 	<a href="<%=cp %>/" class="btn btn-info btn-lg">Start Invent</a>
+			 	<a href="<%=cp %>/group/created.action" class="btn btn-info btn-lg">Start Invent</a>
 			</c:when>
 			<c:otherwise>
 			 	<a href="/wInvent.action" class="btn btn-info btn-lg">Write</a>

@@ -53,8 +53,12 @@
      <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
    </definition>
    
+   
     <definition name="board/list" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
+   </definition>
+    <definition name="board/created" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/board/created.jsp" />
    </definition>
    <definition name="ideamain" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/ideamain.jsp" />
