@@ -66,6 +66,9 @@
    <definition name="ideaArticle" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/invent/ideaArticle.jsp" />
    </definition>
+   <definition name="board/ideaArticle" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/board/ideaArticle.jsp" />
+   </definition>
    
    
 	<!--<definition-name:컨트롤러에서 반환한 String값과 일치시켜야함.
