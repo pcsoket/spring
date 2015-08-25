@@ -83,6 +83,8 @@
 </style>
 </head>
 <body>
+
+<div>
 <form name="myForm">
 <table width="1000px" height="700px" align="center">
 	<tr>
@@ -90,7 +92,7 @@
 		<table class="box" height="700px">
 			<tr>
 				<td width="350px" height="400px" class="box" colspan="2">
-				<!--이미지 갤러리  -->/
+				<!--이미지 갤러리  -->
 						<div class="fotorama" data-autoplay="3000"             
 						 data-width="350"
 						 data-high="350"
@@ -202,7 +204,13 @@
 		</td>
 	</tr>
 </table>
+
 </form>
+</div>
+
+<div>
+
+</div>
 
 </body>
 </html>
