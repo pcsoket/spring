@@ -97,7 +97,7 @@ A:hover {text-decoration:none}
 
 	<tr height="30px"> 
 		<td class="line3" height="80px" colspan="5">
-					&nbsp;&nbsp;&nbsp;&nbsp;게시판</b></td>
+					<b>&nbsp;&nbsp;&nbsp;&nbsp;게시판</b></td>
 		</tr>
 	
 	<tr height="30px">
