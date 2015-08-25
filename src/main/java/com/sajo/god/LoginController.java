@@ -22,9 +22,14 @@ public class LoginController {
 	LoginDAO dao;
 	
 	@RequestMapping(value="/login.action")
-	public ModelAndView login(){
+	public ModelAndView login(String pagePath){
 		
 		ModelAndView mav = new ModelAndView();
+		
+		if(pagePath==null){
+			mav.setViewName(pagePath);
+			return mav;
+		}
 		
 		mav.setViewName("login");
 		

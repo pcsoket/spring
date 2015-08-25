@@ -17,7 +17,6 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.ImageDTO;
-import com.sajo.dto.MainListDTO;
 import com.sajo.dto.ProductDTO;
 
 
@@ -167,19 +166,18 @@ public class ImageDAO {
     	 return lists;
     }
 	public String getImage(String imgnumlist) {   //배열로 넣은 이미지 파일 중 첫번째 가져오기
-    	System.out.println(imgnumlist+"11");
+    	
 	   	String[] imgNum = imgnumlist.split(",");
-	   	System.out.println(imgNum[0]+"22");
 	   	int imgNo = Integer.parseInt(imgNum[0]);
-	   System.out.println(imgNo+"33");
+	
 	   	String img = imageUrl + sessionTemplate.selectOne("com.sajo.image.readImage",imgNo);//originalfilename으로 select
    	 
    	return img;
    }
 	
 	
-	public List<ProductDTO> imageForList (List<ProductDTO> plists){//list.action할때만 사용
-		
+	public List<ProductDTO> imageForPList (List<ProductDTO> plists){//list.action할때만 사용
+		System.out.println("???");
 		if(plists!=null){
 			ProductDTO dto = new ProductDTO();
 			Iterator<ProductDTO> it = plists.iterator();
@@ -194,20 +192,21 @@ public class ImageDAO {
 		return plists;
 	}
 	
-public List<MainListDTO> imageForMlList (List<MainListDTO> plists){//list.action할때만 사용
-		
-		if(plists!=null){
-			MainListDTO dto = new MainListDTO();
-			Iterator<MainListDTO> it = plists.iterator();
+	
+	public List<GroupDTO> imageForGList (List<GroupDTO> lists){//list.action할때만 사용
+		System.out.println("???");
+		if(lists!=null){
+			GroupDTO dto = new GroupDTO();
+			Iterator<GroupDTO> it = lists.iterator();
 			while(it.hasNext()){
 				
 				dto = it.next();
 				String img = imageUrl+getImage(dto.getImgNum());
-				dto.setImageoriginalFile(img);
-				System.out.println(dto.getImageoriginalFile()+":"+img);
+				dto.setImgNum(img);
+				System.out.println(dto.getImgNum()+":"+img);
 			}
 		}
-		return plists;
+		return lists;
 	}
 	
 	

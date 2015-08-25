@@ -78,5 +78,11 @@ public class CommentDAO {
 		sessionTemplate.update("com.sajo.comment.updateData",dto);			
 				
 	}
+	
+	public void update_recomm(int cmNum){
+		
+		sessionTemplate.update("com.sajo.comment.updaterecomm",cmNum);			
+				
+	}
 
 }
