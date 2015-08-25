@@ -66,7 +66,7 @@ margin: 0 auto;
 }
 
 #menu_ex{
-width: 150px;
+width: 350px;
 margin: 0;
 height: 397px;
 float: left;
@@ -112,7 +112,7 @@ float: left;
 	display: none;
 	}
 .category2{
-	border: 1px solid #EAEAEA;
+	border-bottom: 1px solid #EAEAEA;
 	height: 200px;
 	width: 200px;
 	}
@@ -123,7 +123,10 @@ float: left;
 	height: 30px;
 	display: none;
 	}
-
+.categorySpace{
+width: 50px;
+padding: 0;
+}
 
 
 </style>
@@ -216,7 +219,7 @@ float: left;
 
 	<div id="top_box">
 		<div id="menu_ex">
-			<table height="397" width="150" >
+			<table height="397" width="380" >
 				<tr>
 					<td bgcolor="red">A</td>
 				</tr>
@@ -245,20 +248,23 @@ float: left;
 	<div id="list_table">
 	
 	<table width="800px" class="category2">
-	<tr><td height="50px" colspan="4"><font color="#8b4513 " style="font-family: 나눔바른펜;" size="4pt"><b>
+	<tr><td height="50px" colspan="4"><font color="#8C8C8C" style="font-family: 나눔바른펜;" size="4pt"><b>
 	&nbsp;&nbsp;&nbsp;판매 인기순</b></font></td></tr>
 	<tr>
 	
 		<c:forEach var="dto" items="${hitcountlists}">	
 			<td width="200px" height="300px" align="center" class="category2">
 			
-					<img alt="" src="${dto.pImg}" width="200" height="200" />	
+				<img src="${dto.pImg}" width="240" height="200" style="padding-left: 20px;padding-right: 25px;"/><br>
+					
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
+					
 					<a href="${articleUrl}&pNum=${dto.pNum}">
 						${dto.pName}<br>${dto.pPrice}원</a></font></td>
+			
 						
 						
-						</c:forEach>
+		</c:forEach>
 		
 							
 	</tr>
@@ -279,12 +285,12 @@ float: left;
 	</tr> --%>
 	
 	
-	<tr><td height="50px" colspan="4"><font color="#8b4513 " style="font-family: 나눔바른펜;" size="4pt"><b>
+	<tr><td height="50px" colspan="4"><font color="#8C8C8C" style="font-family: 나눔바른펜;" size="4pt"><b>
 	&nbsp;&nbsp;&nbsp;추천 순</b></font></td></tr>
 	<tr>
 	
 		<c:forEach var="dto" items="${recommandlists}">	
-			<td width="200px" height="100px" align="center" class="category2">
+			<td width="250px" height="100px" align="center" class="category2"  style="padding-left: 25px;padding-right: 25px;">
 			
 					<img alt="" src="${dto.pImg}" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
@@ -296,12 +302,12 @@ float: left;
 	</tr>
 	
 	
-	<tr><td height="50px" colspan="4"><font color="#8b4513 " style="font-family: 나눔바른펜;" size="4pt"><b>
+	<tr><td height="50px" colspan="4"><font color="#8C8C8C" style="font-family: 나눔바른펜;" size="4pt"><b>
 	&nbsp;&nbsp;&nbsp;조회순</b></font></td></tr>
 	<tr>
 	
 		<c:forEach var="dto" items="${hitcountlists}">	
-			<td width="200px" height="100px" align="center" class="category2">
+			<td width="250px" height="100px" align="center" class="category2" style="padding-left: 25px;padding-right: 25px;">
 
 					<img alt="" src="${dto.pImg}" width="200" height="200" />	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">

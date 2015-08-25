@@ -29,7 +29,7 @@
 		return this.replace(TRIM_PATTERN, "");
 
 	}
-
+	var value1;
 	
 	function sendIt() {
 		
@@ -70,17 +70,74 @@
 		});
 	});
 	
-	function AddSelect_JS(){    
-		var x = document.getElementById("pCategory2");
-		var option = document.createElement("option");
-		option.text = "잇힝~";    option.value = "1";
-		x.add(option, null);
-		option = document.createElement("option");
-		option.text = "1231233";
-		option.value = "1";
-		x.add(option, null);}
+	
+	function AddSelect(value){                                  /* 하위카테고리 옵션추가 */
+		
+		clearOption();
+		
+		alert(value);
+		value1 = value;
+		pCategory2.options.add(new Option("선택", "") );
+		if(value=="life"){
+		pCategory2.options.add(new Option("욕실", "bath") );
+		pCategory2.options.add(new Option("공구", "util") );
+		pCategory2.options.add(new Option("청소", "cleaning"));
+		pCategory2.options.add(new Option("주방", "cleaning") );
+		pCategory2.options.add(new Option("문구/사무", "cleaning") );
+		
+		}
+		
+		if(value=="sports"){
+			pCategory2.options.add(new Option("캠핑", "camping") );
+			pCategory2.options.add(new Option("등산", "climbing") );
+			pCategory2.options.add(new Option("헬스", "health") );
+
+			
+			}
+		
+		
+		if(value=="interior"){
+			pCategory2.options.add(new Option("인테리어소품", "sopoom") );
+			pCategory2.options.add(new Option("수납가구", "furniture") );
+			pCategory2.options.add(new Option("DIY자재", "DIY") );
+			
+			}
+		
+		if(value=="digital"){
+			pCategory2.options.add(new Option("PC악세서리", "PC") );
+			pCategory2.options.add(new Option("음향가전", "sound") );
+			pCategory2.options.add(new Option("휴대폰악세서리", "phone") );
+			
+			}
+		
+		if(value=="sundries"){
+			pCategory2.options.add(new Option("남성가방", "man") );
+			pCategory2.options.add(new Option("여성가방", "woman") );
+			pCategory2.options.add(new Option("선글라스/안경테", "sunglasses") );
+
+			
+			}
+		
+	}
 
 	
+	
+	function clearOption() {              /* 옵션초기화 */
+	 
+	        for( var i=pCategory2.options.length-1; i>=0; i--){
+	 
+	        	pCategory2.options[i]=null;
+	        }
+	}
+
+	
+	function toCategory(value2){      /* 카테고리1,2합침 */
+		
+		document.myForm.pCategory.value = value1+value2;
+		
+	}
+
+
 	
 </script>
 </head>
@@ -114,8 +171,9 @@
   <tr> 
       <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">카&nbsp;테&nbsp;고&nbsp;리</td>
       <td width="480" style="padding-left:10px;">
-<<<<<<< HEAD
-      	<select name="pCategory1" class="boxTF" id="123" onchange="AddSelect_JS();">
+      
+      	<select name="pCategory1" class="boxTF" id="pCategory1" onchange="AddSelect(this.value);">
+      		<option value="null">선택</option>
       		<option value="life">생활/건강</option>
       		<option value="sports">스포츠/레저</option>
       		<option value="interior">가구/인테리어</option>
@@ -123,17 +181,11 @@
       		<option value="sundries">패션잡화</option>
       	</select>
       	
-      	<select name="pCategory2" class="boxTF" id="123">
+      	<select name="pCategory2" class="boxTF" id="pCategory2" onchange="toCategory(this.value);">
       		<option value="">선택</option>
 
-=======
-      	<select name="pCategory" class="boxTF" id="123">
-      		<option value="idea">아이디어</option>
-      		<option value="bath">욕실용품</option>
-      		<option value="util">공구</option>
-      		<option value="cleaning">청소용품</option>
->>>>>>> 4681d755d652d4e5171b84b856fbf180bcbfaf7e
       	</select>
+      	<input type="hidden" name="pCategory" id="pCategory" >
       </td>
   </tr>
   
