@@ -9,44 +9,46 @@
 
 <c:if test="${c_totalDataCount!=0 }">
 
-<table width="600" border="0" cellpadding="0" cellspacing="0" align="center">
+<div style="width: 600px; border: none; padding-top: 10px;" align="center"> <!-- 전체틀 -->
 
 
 <c:forEach var="dto" items="${c_lists }">
 
-<tr>
-	<td colspan="2" bgcolor="#999999" height="1"></td>
-</tr>
+<div>
+	<div style="background-color: #999999; height: 1px;"></div>
+</div>
 
-<tr height="30">
-	<td width="300" style="padding-left: 10px;">
-	No ${dto.listNum}.${dto.name }
-	</td>
-	<td width="300" align="right" style="padding-right: 10px;">
-	${dto.created }&nbsp;
-	<a href="javascript:deleteData('${dto.commentNum }','${c_pageNO }')">삭제</a>
-	</td>
-</tr>
+<div style="height: 30px;">
+	<div style="padding-left: 10px; width: 300px;">
+	No ${dto.listNum}.${logInfo.userId }
+	</div>
+	<div><a href="javascript:addcmRecomm()">추천</a></div>
+	
+	<div align="right" style="padding-right: 10px; width: 300px;">
+	${dto.cmCreated }&nbsp;
+	<a href="javascript:deleteData('${dto.cmNum }','${c_gNum }')">삭제</a>
+	</div>
+</div>
 
-<tr>
-	<td height="30" style="padding-left: 10px;" colspan="2">
-	${dto.content }
-	</td>
-</tr>
+<div>
+	<div style="padding-left: 10px; height: 30px;">
+	${dto.cmContent }
+	</div>
+</div>
 
 </c:forEach>
 
-<tr>
-	<td colspan="2" bgcolor="#dbdbdb" height="2"></td>
-</tr>
+<div>
+	<div style="border-bottom: solid 1px #ddd;"></div>
+</div>
 
 
 
-<tr height="30">
-	<td align="center" colspan="2">${c_pageIndexList }</td>
-</tr>
+<div style="height: 30px;">
+	<div align="center">${c_pageIndexList }</div>
+</div>
 
 
 
-</table>
+</div>
 </c:if>

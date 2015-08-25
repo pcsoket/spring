@@ -119,6 +119,7 @@ public class ProductDAO {
 
 				
 		}
+		
 
 		//아이디어상품 조회수 데이터 출력
 		public List<ProductDTO> p_getListsIdeaHitCount(int start, int end,String pCategory){
@@ -137,6 +138,27 @@ public class ProductDAO {
 
 						
 				}
+		
+		
+		//욕실용품ㅎ 조회수 데이터 출력
+				public List<ProductDTO> p_getListsIdeaCategory(int start, int end,String pCategory){
+									
+									
+					Map<String, Object> hMap = new HashMap<String, Object>();
+											
+					hMap.put("start", start);
+					hMap.put("end", end);
+					hMap.put("pCategory", pCategory);
+									
+					List<ProductDTO> idea_categorylists = 		
+							sessionTemplate.selectList("com.sajo.god.product.mapper.p_getListsIdeaCategory",hMap);
+									
+						return idea_categorylists;
+
+								
+						}
+				
+				
 		
 		//추천순 데이터 출력
 		public List<ProductDTO> p_getListsRecommand(int start, int end){
