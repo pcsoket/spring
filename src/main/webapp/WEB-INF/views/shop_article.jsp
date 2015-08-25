@@ -83,6 +83,8 @@
 </style>
 </head>
 <body>
+
+<div>
 <form name="myForm">
 <table width="1000px" height="700px" align="center">
 	<tr>
@@ -202,7 +204,13 @@
 		</td>
 	</tr>
 </table>
+
 </form>
+</div>
+
+<div>
+
+</div>
 
 </body>
 </html>

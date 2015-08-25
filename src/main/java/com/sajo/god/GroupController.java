@@ -85,7 +85,7 @@ public class GroupController {
 		String path = request.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정 실제경로를 가져옴
 		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
 		String imgNum = idao.writeFile(idto, path);  //ex "3,4,5"반환
-		
+	
 		
 		int maxNum = dao.getMaxNum();
 		int gnoMaxNum = dao.getGnoMaxNum();
@@ -205,12 +205,11 @@ public class GroupController {
 		
 		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
 			
-			
 			mav.setViewName("login");
+			mav.addObject("pagePath", "board/list");
 			
 			return mav;
 		}
-		
 		
 	
 		String cp = request.getContextPath();
@@ -251,13 +250,17 @@ public class GroupController {
 				+ URLEncoder.encode(searchValue, "UTF-8");
 		}		
 		
+		
+
+		
+		
+		
 		mav.setViewName("board/ideaArticle");
 		mav.addObject("ilists", ilists);
 		mav.addObject("dto",dto);
 		mav.addObject("params",param);
 		mav.addObject("lineSu",lineSu);
-		mav.addObject("pageNum",pageNum);
-		mav.addObject("listimgnum",listimgnum);
+
 		
 		
 		/*=======================================*/
