@@ -199,6 +199,7 @@ public class GroupController {
 		HttpSession session = request.getSession();
 		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
 		
+		gNum = 1;
 		
 		String cp = request.getContextPath();
 		

@@ -42,12 +42,8 @@ function gnoDelete() {
 		
 		$("#sendButton").click(function(){
 			
-<<<<<<< HEAD:src/main/webapp/WEB-INF/views/invent/ideaArticle.jsp
-			var params = "name=" + $("#name").val() +"&gNum="+"${dto.gNum}"+ "&content=" + $("#content").val();
-=======
 			var params = "cmId=" + $("#name").val() +"&gNum="+"${dto.gNum}"+ "&cmContent=" + $("#content").val();
->>>>>>> fbe5d628579013cf51378d102d92103ccd0bfc78:src/main/webapp/WEB-INF/views/board/ideaArticle.jsp
-			
+
 			$.ajax({
 				
 				type:"POST",
@@ -109,12 +105,9 @@ function gnoDelete() {
 		
 		var url ="<%=cp%>/comm/list.action";
 		
-<<<<<<< HEAD:src/main/webapp/WEB-INF/views/invent/ideaArticle.jsp
-		$.post(url,{gNum:gNum , gNo:"${dto.gNo}"}, function(args){
-=======
+
 		$.post(url,{pageNO:page , gNum:"${dto.gNum}"}, function(args){
->>>>>>> fbe5d628579013cf51378d102d92103ccd0bfc78:src/main/webapp/WEB-INF/views/board/ideaArticle.jsp
-			
+		
 			$("#commList").html(args);
 			
 		});
