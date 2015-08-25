@@ -170,7 +170,7 @@ public class ImageDAO {
 	   	String[] imgNum = imgnumlist.split(",");
 	   	int imgNo = Integer.parseInt(imgNum[0]);
 	
-	   	String img = sessionTemplate.selectOne("com.sajo.image.readImage",imgNo);//originalfilename으로 select
+	   	String img = imageUrl + sessionTemplate.selectOne("com.sajo.image.readImage",imgNo);//originalfilename으로 select
    	 
    	return img;
    }

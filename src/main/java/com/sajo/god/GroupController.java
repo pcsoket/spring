@@ -60,6 +60,7 @@ public class GroupController {
 		
 		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
 			mav.setViewName("login");
+			mav.addObject("pagePath","board/created");
 			return mav;
 		}
 		
@@ -77,6 +78,7 @@ public class GroupController {
 		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
 		
 		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			request.setAttribute("pagePath", "redirect:/group/list.action");
 			return "login";
 		}
 		
