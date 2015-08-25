@@ -72,7 +72,7 @@ function listPage(page){
 <c:if test="${c_totalDataCount!=0 }">
 
 
-<div style="width: 900px; border: none; padding-top: 10px;" align="center"> <!-- 전체틀 -->
+<div style="width: 800px; border: none; padding-top: 10px;" align="center"> <!-- 전체틀 -->
 
 <c:forEach var="dto" items="${c_lists }">
 
