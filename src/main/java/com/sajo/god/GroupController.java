@@ -194,12 +194,23 @@ public class GroupController {
 	@RequestMapping(value="/group/article.action",method={RequestMethod.GET,RequestMethod.POST})
 	//public String article(HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
-	public ModelAndView article (int gNum, CommentDTO cdto,HttpServletResponse response,HttpServletRequest request) throws Exception{
+	public ModelAndView article (int gNum,HttpServletResponse response,HttpServletRequest request) throws Exception{
 		
 		HttpSession session = request.getSession();
-		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
+		
+		ModelAndView mav = new ModelAndView();
+		
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			
+			
+			mav.setViewName("login");
+			
+			return mav;
+		}
 		
 		
+	
 		String cp = request.getContextPath();
 		
 		System.out.println(gNum);
@@ -237,8 +248,6 @@ public class GroupController {
 			param += "&searchValue=" 
 				+ URLEncoder.encode(searchValue, "UTF-8");
 		}		
-		
-		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("board/ideaArticle");
 		mav.addObject("ilists", ilists);
