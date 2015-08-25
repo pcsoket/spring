@@ -30,11 +30,16 @@
 
 	}
 	var value1;
+<<<<<<< HEAD
+=======
+	var value2;
+>>>>>>> aade1c7e79519699934970bcfdaae34aa954782f
 	
 	function sendIt() {
 		
 		f = document.myForm;
-
+		
+		f.pCategory.value();
 		str = f.pName.value;
 		str = str.trim();
 		if (!str) {
@@ -76,6 +81,7 @@
 		clearOption();
 		
 		alert(value);
+<<<<<<< HEAD
 		value1 = value;
 		pCategory2.options.add(new Option("선택", "") );
 		if(value=="life"){
@@ -129,9 +135,44 @@
 	        	pCategory2.options[i]=null;
 	        }
 	}
+=======
+		value1=value;
+		
+		pCategory2.options.add(new Option("선택", "value") );
+		
+		if(value=="life"){
+		pCategory2.options.add(new Option("test", "1") );
+		pCategory2.options.add(new Option("test", "2") );
+		pCategory2.options.add(new Option("test", "3") );
+		pCategory2.options.add(new Option("test", "4") );
+		pCategory2.options.add(new Option("test", "5") );
+		pCategory2.options.add(new Option("test", "6") );
+		pCategory2.options.add(new Option("test", "7") );
+		
+		}
+		
+	}
+>>>>>>> aade1c7e79519699934970bcfdaae34aa954782f
 
 	
 	function toCategory(value2){      /* 카테고리1,2합침 */
+		
+		document.myForm.pCategory.value = value1+value2;
+		
+	}
+
+
+	
+	function clearOption() {              /* 옵션초기화 */
+	 
+	        for( var i=pCategory2.options.length-1; i>=0; i--){
+	 
+	        	pCategory2.options[i]=null;
+	        }
+	}
+	
+	
+	function toCategory(value2){
 		
 		document.myForm.pCategory.value = value1+value2;
 		
@@ -173,7 +214,11 @@
       <td width="480" style="padding-left:10px;">
       
       	<select name="pCategory1" class="boxTF" id="pCategory1" onchange="AddSelect(this.value);">
+<<<<<<< HEAD
       		<option value="null">선택</option>
+=======
+      		<option value="">선택</option>
+>>>>>>> aade1c7e79519699934970bcfdaae34aa954782f
       		<option value="life">생활/건강</option>
       		<option value="sports">스포츠/레저</option>
       		<option value="interior">가구/인테리어</option>
@@ -183,9 +228,14 @@
       	
       	<select name="pCategory2" class="boxTF" id="pCategory2" onchange="toCategory(this.value);">
       		<option value="">선택</option>
+<<<<<<< HEAD
 
       	</select>
       	<input type="hidden" name="pCategory" id="pCategory" >
+=======
+      	</select>
+      	<input type="text" name="pCategory" id="pCategory">
+>>>>>>> aade1c7e79519699934970bcfdaae34aa954782f
       </td>
   </tr>
   
