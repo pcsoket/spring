@@ -176,7 +176,7 @@ public class ImageDAO {
    }
 	
 	
-	public List<ProductDTO> imageForList (List<ProductDTO> plists){//list.action할때만 사용
+	public List<ProductDTO> imageForPList (List<ProductDTO> plists){//list.action할때만 사용
 		System.out.println("???");
 		if(plists!=null){
 			ProductDTO dto = new ProductDTO();
@@ -190,6 +190,23 @@ public class ImageDAO {
 			}
 		}
 		return plists;
+	}
+	
+	
+	public List<GroupDTO> imageForGList (List<GroupDTO> lists){//list.action할때만 사용
+		System.out.println("???");
+		if(lists!=null){
+			GroupDTO dto = new GroupDTO();
+			Iterator<GroupDTO> it = lists.iterator();
+			while(it.hasNext()){
+				
+				dto = it.next();
+				String img = imageUrl+getImage(dto.getImgNum());
+				dto.setImgNum(img);
+				System.out.println(dto.getImgNum()+":"+img);
+			}
+		}
+		return lists;
 	}
 	
 	

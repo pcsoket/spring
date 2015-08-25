@@ -29,12 +29,14 @@
 		return this.replace(TRIM_PATTERN, "");
 
 	}
-
+	var value1;
+	var value2;
 	
 	function sendIt() {
 		
 		f = document.myForm;
-
+		
+		f.pCategory.value();
 		str = f.pName.value;
 		str = str.trim();
 		if (!str) {
@@ -70,17 +72,47 @@
 		});
 	});
 	
-	function AddSelect_JS(){    
-		var x = document.getElementById("pCategory2");
-		var option = document.createElement("option");
-		option.text = "잇힝~";    option.value = "1";
-		x.add(option, null);
-		option = document.createElement("option");
-		option.text = "1231233";
-		option.value = "1";
-		x.add(option, null);}
+	
+	function AddSelect(value){                                  /* 하위카테고리 옵션추가 */
+		
+		clearOption();
+		
+		alert(value);
+		value1=value;
+		
+		pCategory2.options.add(new Option("선택", "value") );
+		
+		if(value=="life"){
+		pCategory2.options.add(new Option("test", "1") );
+		pCategory2.options.add(new Option("test", "2") );
+		pCategory2.options.add(new Option("test", "3") );
+		pCategory2.options.add(new Option("test", "4") );
+		pCategory2.options.add(new Option("test", "5") );
+		pCategory2.options.add(new Option("test", "6") );
+		pCategory2.options.add(new Option("test", "7") );
+		
+		}
+		
+	}
 
 	
+	
+	function clearOption() {              /* 옵션초기화 */
+	 
+	        for( var i=pCategory2.options.length-1; i>=0; i--){
+	 
+	        	pCategory2.options[i]=null;
+	        }
+	}
+	
+	
+	function toCategory(value2){
+		
+		document.myForm.pCategory.value = value1+value2;
+		
+	}
+
+
 	
 </script>
 </head>
@@ -114,8 +146,9 @@
   <tr> 
       <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">카&nbsp;테&nbsp;고&nbsp;리</td>
       <td width="480" style="padding-left:10px;">
-<<<<<<< HEAD
-      	<select name="pCategory1" class="boxTF" id="123" onchange="AddSelect_JS();">
+      
+      	<select name="pCategory1" class="boxTF" id="pCategory1" onchange="AddSelect(this.value);">
+      		<option value="">선택</option>
       		<option value="life">생활/건강</option>
       		<option value="sports">스포츠/레저</option>
       		<option value="interior">가구/인테리어</option>
@@ -123,17 +156,10 @@
       		<option value="sundries">패션잡화</option>
       	</select>
       	
-      	<select name="pCategory2" class="boxTF" id="123">
+      	<select name="pCategory2" class="boxTF" id="pCategory2" onchange="toCategory(this.value);">
       		<option value="">선택</option>
-
-=======
-      	<select name="pCategory" class="boxTF" id="123">
-      		<option value="idea">아이디어</option>
-      		<option value="bath">욕실용품</option>
-      		<option value="util">공구</option>
-      		<option value="cleaning">청소용품</option>
->>>>>>> 4681d755d652d4e5171b84b856fbf180bcbfaf7e
       	</select>
+      	<input type="text" name="pCategory" id="pCategory">
       </td>
   </tr>
   
