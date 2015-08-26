@@ -185,7 +185,7 @@ public class ImageDAO {
 			while(it.hasNext()){
 				
 				dto = it.next();
-				String img = imageUrl+getImage(dto.getpImg());
+				String img = getImage(dto.getpImg());
 				dto.setpImg(img);
 				System.out.println(dto.getpImg()+":"+img);
 			}

@@ -100,10 +100,9 @@
 			<table class="box" width="200px">
 			
 			<tr><td class="menu1" style="background-color: #ebebe4;">&nbsp;&nbsp;&nbsp;&nbsp;
-			<font color="#8C8C8C"; style="font-family: 나눔바른펜; font-size:16pt; "><Strong>									
-    					[생활/건강]</Strong></font>  					
+			<a onclick="p('life')"><font color="#8C8C8C"; style="font-family: 나눔바른펜; font-size:16pt; "><Strong>									
+    					[생활/건강]</Strong></font></a>		
 				</td></tr>
-				
 				
 			<tr><td class="menu2">&nbsp;&nbsp;&nbsp;&nbsp;			
 			<a onclick="p('bath')"><font color="#8C8C8C"; style="font-family: 나눔바른펜; font-size:13pt;">				

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+	<mapper namespace="com.sajo.invent">
+	<select id="getInventData" parameterType="int" resultType="com.sajo.dto.InventDTO">
+	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='group'
+	</select>
+	<select id="getModelData" parameterType="int" resultType="com.sajo.dto.InventDTO">
+	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='3d'
+	</select>
+	<select id="getSketchData" parameterType="int" resultType="com.sajo.dto.InventDTO">
+	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='sketch'
+	</select>
+	<select id="getGno" parameterType="int" resultType="int">
+	select nvl(gno,0) as gno from ideagroup where gnum=#{gNum}
+	</select>
+	</mapper>
+	

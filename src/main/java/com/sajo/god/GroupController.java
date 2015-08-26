@@ -178,7 +178,7 @@ public class GroupController {
 		
 		//글보기 주소 정리
 		String articleUrl = 
-			cp + "/group/article.action?pageNum=" + currentPage;
+			cp + "/inventList.action?pageNum=" + currentPage;
 			
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
