@@ -26,7 +26,7 @@ public class LoginController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		if(pagePath!=null||!pagePath.contains("")){
+		if(pagePath!=null){
 			mav.addObject("pagePath", pagePath);          // 로그인한후 돌아갈 곳의 네임
 		}
 		
@@ -64,7 +64,7 @@ public class LoginController {
 		
 		session.setAttribute("logInfo", dto);
 		
-		if(pagePath!=null||!pagePath.contains("")){
+		if(pagePath!=null){
 			return pagePath;	                           // 로그인한후 돌아갈 곳 리턴
 		}
 		
