@@ -12,7 +12,6 @@
 
 <!-- ck에디터 -->
 <script src="<%=cp%>/resources/ckeditor/ckeditor.js"></script>
-<!--  <script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction('1', '<%=cp%>/resources/image/', '전송완료 메시지')</script>-->
 
 <!-- 멀티파일업로드 ajax를 이용한 gui에 필요한 js import -->
 
@@ -40,8 +39,8 @@
 		$('#myForm input[name=upload]').MultiFile({
 			max: 4, //업로드 최대 파일 갯수 (지정하지 않으면 무한대)
 			accept: 'jpg|png|gif', //허용할 확장자(지정하지 않으면 모든 확장자 허용)
-			maxfile: 4024, //각 파일 최대 업로드 크기
-			maxsize: 4024,  //전체 파일 최대 업로드 크기
+			maxfile: 1024, //각 파일 최대 업로드 크기
+			maxsize: 3024,  //전체 파일 최대 업로드 크기
 			STRING: { //Multi-lingual support : 메시지 수정 가능
 			    remove : "제거", //추가한 파일 제거 문구, 이미태그를 사용하면 이미지사용가능
 			    duplicate : "$file 은 이미 선택된 파일입니다.", 
@@ -147,7 +146,7 @@
 	       error: function(e){
 	           alert("에러발생!!");
 	           console.log(e);
-	       }                               
+	       }
 		});
 	});
 </script>

@@ -7,9 +7,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript">
+<title> 아이디어 상세 보기</title>
+<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"/> <!-- 3 KB -->
 
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<!-- fotorama.css & fotorama.js. -->
+<script type="text/javascript">
 <%--  function commCreated() {
 	
 	f=document.replyInsert;
@@ -164,7 +170,7 @@ function gnoDelete() {
 
 
 </script>
-<title> 아이디어 상세 보기</title>
+
 </head>
 <body>
 <form action="" name="myForm" method="post">
@@ -175,17 +181,25 @@ function gnoDelete() {
 	 	<!-- 아이디어 이미지 -->
 		
 		<div align="center"  style="float: left;">
-			<div> <img alt="" src="${listimgnum }" style="width: 250px; height: 250px;" name="img01"/></div> <!-- 큰사진 -->
-			<c:forEach var="dto" items="${ilists }">
+			<%-- <div> <img alt="" src="${listimgnum }" style="width: 250px; height: 250px;" name="img01"/></div> <!-- 큰사진 --> --%>
 			
-			<div style="float: left;"> <img src="${dto.originalFileName }" style="width: 60px; height: 60px; cursor: hand;" onmouseover="fimg(this.src)" /> </div>
+			<div class="fotorama" data-nav="thumbs" data-autoplay="3000" data-width="350" data-high="350"
+					     data-maxwidth="100%"
+					     data-allowfullscreen="false">
+				<c:forEach var="dto" items="${ilists }">
+			
+				  <img src="${dto.originalFileName }">
+			<%-- <img src="${dto.originalFileName }" style="width: 60px; height: 60px; cursor: hand;" onmouseover="fimg(this.src)" /> </div> --%>
 			</c:forEach>
+			</div>
 		</div>
 		<!-- 주제 --> 
 		<div style="margin-left: 25px;">
-			<div align="right" style="border-bottom: solid 1px #4374D9; width: 300px;"><font style="size: 2px; font-family: 나눔바른펜;">${dto.gSubject}</font></div>
+			<div align="left" style="border-bottom: solid 2px #4374D9; width: 350px; margin-left: 100px;">
+			<font style="size: 12pt; font-family: 나눔바른펜; padding-left: 20px;">${dto.gSubject}</font>
+			</div>
 			<br/>
-			<div><textarea rows="10" cols="50">${dto.gContent}</textarea></div>
+			<div style="width: 500px;"><textarea rows="10" cols="50">${dto.gContent}</textarea></div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
 		<c:if test="${logInfo.gno=='0'}">
 			<input type="button" value="그룹참여" onclick="gnoInsert();"/>
@@ -211,7 +225,7 @@ function gnoDelete() {
 			</div>
 			
 			<!-- 댓글 리스트 -->
-			<div style="padding-top: 10px; width: 1000px;">
+			<div align="center" style="padding-top: 10px; width: 800px;">
 				<span id="commList" style="display: none"></span>
 			</div>
 			
@@ -227,9 +241,9 @@ function gnoDelete() {
 		</div>	
 	</div>
 	
-	<div align="center" style="padding-top: 5px; width: 1000px;">
+	<!-- <div align="center" style="padding-top: 5px; width: 1000px;">
 		<span id="commList" style="display: none"></span>
-	</div>
+	</div> -->
 </div>
 
 </div>
