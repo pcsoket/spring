@@ -30,12 +30,13 @@ public class CommentController {
 	@RequestMapping(value="/comm/created.action", method={RequestMethod.POST,RequestMethod.GET})
 	public String created(CommentDTO dto,HttpServletRequest request, HttpServletResponse response){
 		
+		
 		int numMax = dao.getMaxNum();
 		dto.setBoardName("test");
 		dto.setCmNum(numMax+1);
 		dao.insertData(dto);
-
-		return "redirect:/group/article.action?"+dto.getParams()+"&gNum=" + dto.getgNum();
+		System.out.println(dto.getParams());
+		return "redirect:/group/article.action?"+dto.getParams() + "&gNum=" + dto.getgNum();
 	}
 
 	@RequestMapping(value="/comm/list.action", method={RequestMethod.GET,RequestMethod.POST})
@@ -55,10 +56,10 @@ public class CommentController {
 		}
 		else
 			pageNO="1";
-	
+		
 		
 		totalDataCount = dao.getDataCount(dto.getgNum());
-		
+		System.out.println("list:"+ dto.getgNum());
 		
 		//전체 페이지수 구하기
 		if(totalDataCount!=0)
@@ -109,12 +110,15 @@ public class CommentController {
 	}
 	
 	@RequestMapping(value="/comm/updated_Recomm.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String updated_Recomm(CommentDTO dto,int cmNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
+
+	public String updated_Recomm(CommentDTO dto, int cmNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
+
 	
 			
 		dao.update_recomm(cmNum);
 		
-		return "redirect:/group/article.action?" + dto.getParams()+"&gNum=" + dto.getgNum();
+		return "redirect:/group/article.action?"+dto.getParams() + "&gNum=" + dto.getgNum();
+
 		
 	}
 	

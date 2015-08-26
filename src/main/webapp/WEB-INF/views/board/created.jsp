@@ -12,7 +12,6 @@
 
 <!-- ck에디터 -->
 <script src="<%=cp%>/resources/ckeditor/ckeditor.js"></script>
-<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction('1', '<%=cp%>/resources/image/', '전송완료 메시지')</script>
 
 <!-- 멀티파일업로드 ajax를 이용한 gui에 필요한 js import -->
 
@@ -110,8 +109,7 @@
 	</tr>
 	<tr height="10px"></tr>
 	<tr>
-		<td colspan="2"><textarea name="gContent" cols="125" rows="12" 
-		class="border1"></textarea></td>
+		<td colspan="2"><textarea name="gContent" cols="125" rows="12"></textarea></td>
 	</tr>
 	
 	
@@ -148,7 +146,7 @@
 	       error: function(e){
 	           alert("에러발생!!");
 	           console.log(e);
-	       }                               
+	       }
 		});
 	});
 </script>
