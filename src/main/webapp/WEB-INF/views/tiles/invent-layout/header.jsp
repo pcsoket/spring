@@ -22,8 +22,8 @@
 	<div class="container">
 		<div style="padding-top: 5px; float: left; width: 1000px;">
 			<ul class="nav nav-tabs" style="float: left;">
-			    <li><a href="<%=cp %>/shop.action">Shop</a></li>
-			    <li class="active"><a href="<%=cp %>/ideamain.action">Invent</a></li>
+			    <li><a href="<%=cp %>/shopmain.action">Shop</a></li>
+			    <li class="active"><a href="<%=cp %>/ideaMain.action">Invent</a></li>
 		  	</ul>
 	<div align="right">
     	<ul id="nav navbar-nav navbar-right" style="width: 200px; padding-top: 20px; margin-bottom: 0px; margin-right: 100px;">
@@ -51,7 +51,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" style="font-size: 20pt; font-family: Helvetica Neue ;" href="<%=cp %>/ideamain.action">GoodIdea</a>
+      <a class="navbar-brand" style="font-size: 20pt; font-family: Helvetica Neue ;" href="<%=cp %>/ideaMain.action">GoodIdea</a>
     </div>
     <div>
       <ul class="nav nav-pills nav-justified" style="padding-top: 10px; padding-bottom: 10px;" >

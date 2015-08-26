@@ -56,6 +56,10 @@
 	<beans:bean id="productDAO" class="com.sajo.dao.ProductDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
 	</beans:bean>
+	<!-- ideaMainDAO 추가 -->
+	<beans:bean id="ideaMainDAO" class="com.sajo.dao.IdeaMainDAO">
+		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
+	</beans:bean>
 	
 	<!-- 파일업로드 기능 적용 인터페이스 -->
  	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
