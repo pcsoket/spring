@@ -181,7 +181,7 @@ public class ProductController {
 		
 		System.out.println(dataCount);
 		//전체페이지수
-		int numPerPage = 10;
+		int numPerPage = 16;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 		
 		if(currentPage > totalPage)
@@ -199,7 +199,7 @@ public class ProductController {
 		//첫번째 이미지만 골라서 넣어줌.
 		idea_categorylists = idao.imageForPList(idea_categorylists);
 	
-		System.out.println(pCategory);
+		System.out.println(pCategory+":pca");
 		System.out.println(end);
 		
 		
@@ -211,7 +211,7 @@ public class ProductController {
 				+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 		
-		String listUrl = cp + "/category.action";
+		String listUrl = cp + "/idea_category.action";
 		if(!param.equals("")){
 			listUrl = listUrl + "?" + param;				
 		}

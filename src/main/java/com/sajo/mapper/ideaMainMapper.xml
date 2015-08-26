@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.sajo.ideamainlist">
+
+<select id="getData" parameterType="hashMap" resultType="com.sajo.dto.MainListDTO">
+	select mid as userId,gsubject,gcontent,gnum,imgnum from ideagroup where mid=#{userId} and boardname=#{board}
+</select>
+<select id="getIdeaReadData" parameterType="String" resultType="com.sajo.dto.MainListDTO">
+		select * from (
+		select rownum rnum, data.* from (
+		select mid as userId,gsubject,gcontent,gnum,imgnum from ideagroup 
+		where boardname like '%' || #{boardName} || '%'
+		 order by ghitcount desc) data)
+		 <![CDATA[
+		where rnum>=1 and rnum<=3
+		]]>
+	</select>
+</mapper>

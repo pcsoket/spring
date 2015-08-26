@@ -6,8 +6,8 @@
 	
 <mapper namespace="com.sajo.member.sql">
 	<insert id="insertData" parameterType="com.sajo.dto.MemberDTO">
-	insert into member (mid,mname,mpwd,maddr1,maddr2,maddr3,mtel,memail,gno,mcreated,mself,mpimg)
-	values (#{userId},#{userName},#{userPwd},#{userAddr1},#{userAddr2},#{userAddr3},#{userTel},#{userEmail},0,sysdate,#{userSelf},#{userPimg})
+	insert into member (mid,mname,mpwd,maddr1,maddr2,maddr3,mtel,memail,gno,mauth,mcreated,mself,mpimg)
+	values (#{userId},#{userName},#{userPwd},#{userAddr1},#{userAddr2},#{userAddr3},#{userTel},#{userEmail},0,1,sysdate,#{userSelf},#{userPimg})
 	</insert>
 	<!-- addrlist -->
 	<select id="getAddrList" parameterType="String" resultType="com.sajo.dto.AddrDTO">

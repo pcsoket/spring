@@ -83,7 +83,7 @@ A:hover {text-decoration:none}
 <body>
 
 <table width="1140px" align="center" class="box">
-	
+<tr><td>
 	<div class="container" >
 	  <div class="jumbotron" align="center" style="background-image: url(/god/resources/image/배너.png);">
 	    <h3 style="color: #ff4b46">Good Idea</h3>      
@@ -98,10 +98,10 @@ A:hover {text-decoration:none}
 		</c:choose>      
 	  </div>
 	</div>
-
+</td></tr>
 	<tr height="30px"> 
 		<td class="line3" height="40px" colspan="5" style="border-color: #ff4b46">
-	
+		<input type="hidden" name="boardName" value="${boardName }">
 	</tr>
 	
 	<tr height="30px">

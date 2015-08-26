@@ -17,6 +17,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.ImageDTO;
+import com.sajo.dto.MainListDTO;
 import com.sajo.dto.ProductDTO;
 
 
@@ -184,7 +185,7 @@ public class ImageDAO {
 			while(it.hasNext()){
 				
 				dto = it.next();
-				String img = imageUrl+getImage(dto.getpImg());
+				String img = getImage(dto.getpImg());
 				dto.setpImg(img);
 				System.out.println(dto.getpImg()+":"+img);
 			}
@@ -198,6 +199,22 @@ public class ImageDAO {
 		if(lists!=null){
 			GroupDTO dto = new GroupDTO();
 			Iterator<GroupDTO> it = lists.iterator();
+			while(it.hasNext()){
+				
+				dto = it.next();
+				String img = imageUrl+getImage(dto.getImgNum());
+				dto.setImgNum(img);
+				System.out.println(dto.getImgNum()+":"+img);
+			}
+		}
+		return lists;
+	}
+	
+	public List<MainListDTO> imageForMlList (List<MainListDTO> lists){//MainList.action할때만 사용
+		
+		if(lists!=null){
+			MainListDTO dto = new MainListDTO();
+			Iterator<MainListDTO> it = lists.iterator();
 			while(it.hasNext()){
 				
 				dto = it.next();

@@ -98,7 +98,7 @@ function findId() {
                         <label for="keep_id" class="keep_id"><input type="checkbox" id="keep_id" name="keep_id" title="아이디 저장" class="checkbox" /> 아이디 저장</label>
                         <a onclick="findId();" class="find_profile">아이디/비밀번호 찾기</a>
                     </div>
-                   <input type="hidden" name="pagePath" value="">
+                   <input type="text" name="pagePath" value="${pagePath}">
                 </fieldset>
              
                 </form>

@@ -8,16 +8,76 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<!-- fotorama.css & fotorama.js. -->
+<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+<style type="text/css">
+
+.banner-inner{
+
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 400;	
+}
+
+.banner-heading-tape {
+    background-color: #ff4b46;
+    color: #fff;
+    display: inline-block;
+    line-height: 1.5;
+    margin: 0 0 .25em;
+    padding: 0 .5em;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+
+.hidden{
+	display: none !important;
+}
+
+.banner-rwd-heading {
+    padding-top: 2rem;
+    font-size: 2.25rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 1rem 0 0;
+    width: 100%;
+}
+
+.text-light {
+    color: #fff;
+}
+
+.u-grid-bottom-margin, .u-grid-margin-bottom {
+    margin-bottom: 32px !important;
+}
+
+.block-center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.block-md {
+    max-width: 768px;
+}
+
+</style>
+
 <script type="text/javascript">
 
-function searchId() {
-	
+function searchId() {	
 		
 		var f = document.search;
 		
 		f.action = "<%=cp%>/memberList.action";
-		f.submit();
-		
+		f.submit();		
 	
 }
 
@@ -28,19 +88,51 @@ function searchId() {
 <!-- 전체 회원 리스트  -->
 <div style="width: 100%;">
 	<form action="" name="search" method="post">
-		<!-- 검색 -->
-		<div align="left">
-		<select name="searchKey">
-			<option value="mid"> I D </option>
-			<option value="mSelf"> mySelf </option>
-		</select>
-		<input type="text" name="searchValue"/>
-		<input type="button" value="검색" onclick="searchId();"/>
+
+<!-- 검색 -->
+<div align="left">
+<select name="searchKey">
+	<option value="mid"> I D </option>
+	<option value="mSelf"> mySelf </option>
+</select>
+<input type="text" name="searchValue"/>
+<input type="button" value="검색" onclick="searchId();"/>
+</div>
+</form>
+
+		
+<!--이미지 갤러리  -->
+
+<div style="position: relative;">
+	<div class="banner-inner">
+		<div style="width: 100%; max-width: 1536;">
+		<h1 style="padding-top: 2rem; font-size: 2.25rem;">
+			<span class="banner-heading-tape">Tap into</span>
+			<br/>
+			<span class="banner-heading-tape">the community</span>
+		</h1>			
 		</div>
-		</form>
-		<div align="center">
-		<font size="100pt;" style="font-family: 나눔손글씨 붓; color : #FF85FF;"> Member List</font>
 	</div>
+	
+	<div class="banner-inner hidden">
+		<div style="width: 100%; max-width: 1536px;">
+		<h1 class="banner-rwd-heading u-grid-bottom-margin u-mt0 text-light">
+			Tap into the community</h1>
+			<div class="block-md block-center"></div>			
+		</div>		
+	</div>		
+</div>
+
+
+	<div class="fotorama" data-autoplay="3000" data-loop="true" data-width="100%"> 
+	  <img src="/god/resources/image/슬라이드1.png">
+	  <img src="/god/resources/image/슬라이드2.png">
+	  <img src="/god/resources/image/슬라이드3.png">
+	  <img src="/god/resources/image/슬라이드4.png">
+	  <img src="/god/resources/image/슬라이드5.png">
+	</div>
+
+
 	<div style="border:1px solid; border-color: #8C8C8C; margin-top: 1px;">
 	</div>
 		<div>	

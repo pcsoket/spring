@@ -86,7 +86,7 @@ public class GroupController {
 		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
 		String imgNum = idao.writeFile(idto, path);  //ex "3,4,5"반환
 	
-		
+		System.out.println(dto.getgContent());
 		int maxNum = dao.getMaxNum();
 		int gnoMaxNum = dao.getGnoMaxNum();
 		System.out.println(dto.getgSubject());
@@ -104,7 +104,7 @@ public class GroupController {
 	
 	@RequestMapping(value="/group/list.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String list(GroupDTO dto,HttpServletRequest request,HttpServletResponse response) throws Exception{
-		
+			
 		
 		String cp = request.getContextPath();
 		
@@ -178,7 +178,7 @@ public class GroupController {
 		
 		//글보기 주소 정리
 		String articleUrl = 
-			cp + "/group/article.action?pageNum=" + currentPage;
+			cp + "/inventList.action?pageNum=" + currentPage;
 			
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
@@ -203,6 +203,7 @@ public class GroupController {
 		
 		ModelAndView mav = new ModelAndView();
 		
+<<<<<<< HEAD
 
 		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
 			
@@ -212,6 +213,8 @@ public class GroupController {
 			return mav;
 		}
 
+=======
+>>>>>>> b709560d31e408c4c1d25b16b621035ca1f0e76a
 		
 	
 		String cp = request.getContextPath();

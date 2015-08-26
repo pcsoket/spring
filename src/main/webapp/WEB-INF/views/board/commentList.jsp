@@ -13,6 +13,7 @@
 
 <div style="width: 800px; border: none; padding-top: 10px;" align="center"> <!-- 전체틀 -->
 
+<<<<<<< HEAD
 
 <c:forEach var="dto" items="${c_lists }">
 
@@ -28,16 +29,57 @@
 	<div align="right" style="padding-right: 10px; width: 300px;">
 	${dto.cmCreated }&nbsp;
 	<a href="javascript:deleteData('${dto.cmNum }','${dto.gNum }')">삭제</a>
+=======
+<div align="left" style="width: 600px; margin-bottom: 30px;">
+	
+	<div>
+		<div style="border-bottom: solid 2px #6f5f63; width: 200px; margin-bottom: 10px; padding-left: 20px;">
+			<font style="font-weight: bold; font-size: 20px;">베스트 의견</font>
+		</div>
 	</div>
+	<div>
+		<div style="width: 600px; padding-left: 20px;">
+		<div style="float: left; padding-right: 300px;">${cdto.cmId }</div> <div>추천 ${cdto.cmRecomm }</div>
+		</div>
+		<div style="padding-left: 20px; padding-right: 20px;">${cdto.cmContent }</div>
+	
+>>>>>>> b709560d31e408c4c1d25b16b621035ca1f0e76a
+	</div>
+
 </div>
+
 
 <div>
-	<div style="padding-left: 10px; height: 30px;">
-	${dto.cmContent } ${dto.gNum }
+<c:forEach var="dto" items="${c_lists }">
+
+	<div style="border-top: solid 2px #999999; width: 700px;">
+		<div style="padding-left: 10px; width: 200px; float: left;">
+	
+		No ${dto.listNum}.${dto.cmId }
+	
+		</div>
+		<div style="float: left; width: 100px;">
+			<div  style="float: left;"><a href="javascript:updateRecomm('${dto.cmNum }')" id="addRecomm">추천</a></div>
+			<div id="cmRecomm">${dto.cmRecomm }</div>
+		</div>
+		<div align="right" style="padding-right: 10px; width: 400px; padding-bottom: 10px">
+		${dto.cmCreated }&nbsp;
+		<a href="javascript:deleteData('${dto.cmNum }','${dto.gNum }')">삭제</a>
+		</div>
 	</div>
-</div>
+	
+	
+	<div style="width: 700px;">
+		<div style="padding-left: 10px; height: 50px;  padding-top: 10px; padding-bottom: 10px;">
+		${dto.cmContent }
+		</div>
+	</div>
+
+
 
 </c:forEach>
+
+</div>
 
 <div>
 
