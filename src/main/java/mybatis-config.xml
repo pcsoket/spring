@@ -35,5 +35,6 @@
 		<mapper resource="com/sajo/mapper/groupMapper.xml"/>
 		<mapper resource="com/sajo/mapper/commentMapper.xml"/>
 		<mapper resource="com/sajo/mapper/ideaMainMapper.xml"/>
+		<mapper resource="com/sajo/mapper/inventMapper.xml"/>
 	</mappers>
 </configuration>
