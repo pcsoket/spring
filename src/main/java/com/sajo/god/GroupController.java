@@ -86,7 +86,7 @@ public class GroupController {
 		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
 		String imgNum = idao.writeFile(idto, path);  //ex "3,4,5"반환
 	
-		
+		System.out.println(dto.getgContent());
 		int maxNum = dao.getMaxNum();
 		int gnoMaxNum = dao.getGnoMaxNum();
 		System.out.println(dto.getgSubject());

@@ -27,8 +27,7 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		
 		if(pagePath==null){
-			mav.setViewName(pagePath);
-			return mav;
+			mav.addObject("pagePath", pagePath);          // 로그인한후 돌아갈 곳의 네임
 		}
 		
 		mav.setViewName("login");
@@ -38,7 +37,7 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/login_ok.action",method={RequestMethod.POST})
-	public String login_ok(HttpServletRequest req,HttpServletResponse resp,HttpSession session,LoginDTO dto){
+	public String login_ok(String pagePath,HttpServletRequest req,HttpServletResponse resp,HttpSession session,LoginDTO dto){
 		
 		String userId = req.getParameter("userId");
 		String userPwd = req.getParameter("userPwd");
@@ -49,7 +48,9 @@ public class LoginController {
 
 		dto = dao.getList(userId);
 		
-		
+		if(pagePath==null){
+			return pagePath;	                           // 로그인한후 돌아갈 곳 리턴
+		}
 		
 		if(dto==null){
 			
