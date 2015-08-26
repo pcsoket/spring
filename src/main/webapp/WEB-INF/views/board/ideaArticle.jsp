@@ -199,7 +199,7 @@ function gnoDelete() {
 			<font style="size: 12pt; font-family: 나눔바른펜; padding-left: 20px;">${dto.gSubject}</font>
 			</div>
 			<br/>
-			<div style="width: 500px;"><textarea rows="10" cols="50">${dto.gContent}</textarea></div>
+			<div style="width: 500px;text-align:left;padding-left: 10px; ">${dto.gContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
 		<c:if test="${logInfo.gno=='0'}">
 			<input type="button" value="그룹참여" onclick="gnoInsert();"/>

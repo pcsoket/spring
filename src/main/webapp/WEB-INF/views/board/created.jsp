@@ -109,16 +109,15 @@
 	</tr>
 	<tr height="10px"></tr>
 	<tr>
-		<td colspan="2"><textarea name="gContent" cols="125" rows="12"></textarea></td>
-	</tr>
-	
-	
-	        <script>CKEDITOR.replace('gContent' ,   /* ck에디터삽입 */
-        		
+		<td colspan="2"><!-- <textarea name="gContent" cols="125" rows="12"></textarea> -->
+		<textarea name="gContent" cols="20" rows="20"></textarea>
+        <script>CKEDITOR.replace('gContent' ,	
         		 {width : '680px', // 입력창의 넓이
         	      height : '200px',  // 입력창의 높이
         	      startupFocus : false});</script>
-        	      
+        </td>
+	</tr>
+
 	<tr height="20px">
 	</tr>	
 	<tr>
