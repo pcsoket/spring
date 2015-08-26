@@ -58,7 +58,6 @@
 				
 			});
 			
-			
 		});
 		
 	});
@@ -91,9 +90,7 @@
 		
 		return true;
 		
-		
 	} 
-	
 
 	function listPage(page){
 		
@@ -107,7 +104,6 @@
 		});
 		
 		$("#commList").show();
-		
 		
 	}
 	
@@ -157,12 +153,10 @@
 
 .line2{
 		border-bottom: 2px solid #ffd2d7;
-		
-		}
+}
 
 .line3{border-top: 5px solid  #A6A6A6;
 	border-bottom: 1px solid #ffd2d7;
-
 }
 .line4{	
 	border-bottom: 1px solid  #EAEAEA;
@@ -189,14 +183,7 @@
 
 <div>
 <form name="myForm">
-<table width="1000px" height="700px" align="center">
-	<tr>
-		<td>
-		<table class="box" height="700px">
-			<tr>
-				<td width="350px" height="400px" class="box" colspan="2">
-				<!--이미지 갤러리  -->
-						<div class="fotorama" data-autoplay="3000"             
+		<div class="fotorama" data-autoplay="3000"             
 						 data-width="350"
 						 data-high="350"
 					     data-maxwidth="100%"
@@ -208,38 +195,9 @@
 		<img src="${dto.originalFileName}" style="cursor: hand" onmouseover="fimg(this.src)"/>
 
 				</c:forEach>
-						</div>
+		</div>
 		    			
-				</td>
-        	</tr>
-			<tr>
-				<td width="330px" height="150px" class="line2" colspan="2">
-
-
-				<table>
-				<tr>
-
-
- 					</tr>
-   				</table>
-				</td>
-			</tr>
-
-			<tr>
-				<td class="line4" width="150px" height="50px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>수량</b></font></td>
-				<td class="line5" width="200px" height="50px">
-					&nbsp;&nbsp;2</td>
-			</tr>
-			<tr>
-				<td class="line4" width="150px" height="80px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>구매예정금액</b></font></td>
-				<td class="line5" width="200px" height="80px">
-					&nbsp;&nbsp;${2*dto.pPrice}</td>
-			</tr>
-		</table>
-		</td>
-		<td>
+		<div id="productInfo">
 		<table width="500px" height="700px" class="box">
 		
 		
@@ -271,6 +229,18 @@
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>조회수</b></font></td>
 				<td class="line5" width="400px" height="50px">
 					&nbsp;&nbsp;${dto.pHitcount}</td>
+			</tr>
+						<tr>
+				<td class="line4" width="150px" height="50px" align="center">
+					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>수량</b></font></td>
+				<td class="line5" width="200px" height="50px">
+					&nbsp;&nbsp;2</td>
+			</tr>
+			<tr>
+				<td class="line4" width="150px" height="80px" align="center">
+					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>구매예정금액</b></font></td>
+				<td class="line5" width="200px" height="80px">
+					&nbsp;&nbsp;${2*dto.pPrice}</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
@@ -305,9 +275,7 @@
 			</tr>
 			
 		</table>
-		</td>
-	</tr>
-</table>
+		</div>
 
 </form>
 </div>
