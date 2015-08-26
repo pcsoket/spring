@@ -205,7 +205,7 @@
 
 
       	</select>
-      	<!-- <input type="text" name="pCategory" id="pCategory" > -->
+      	<input type="text" name="pCategory" id="pCategory" >
 
       </td>
   </tr>
@@ -227,7 +227,7 @@
   <tr><td colspan="2" bgcolor="#DBDBDB" height="1"></td></tr>
 
   <tr> 
-      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">&nbsp;파&nbsp;&nbsp;&nbsp;&nbsp;일</td>
+      <td width="80" height="50" bgcolor="#EEEEEE" style="padding-left:20px;">&nbsp;파&nbsp;&nbsp;&nbsp;&nbsp;일</td>
       <td width="480" style="padding-left:10px;"> 
       <!--  file upload input-->
       
@@ -258,6 +258,7 @@
         <input type="button" value=" 작성취소 " onclick="javascript:location.href='<%=cp%>/img/list.action';" class="btn1"/>
       </td>
     </tr>
+    <tr height="50px"><td></td></tr>
   </table>
 </form>
 <!-- //------------------------- // -->
