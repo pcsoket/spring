@@ -54,6 +54,15 @@ public class CommentDAO {
 
 	}
 	
+	//베스트추천글 출력
+	
+	public CommentDTO getBestRecomm(int gNum){
+		
+		CommentDTO dto = sessionTemplate.selectOne("com.sajo.comment.getReadData",gNum);
+		
+		return dto;
+	}
+	
 	//한명의 데이터 출력
 	public CommentDTO getReadData(int gNum){
 		

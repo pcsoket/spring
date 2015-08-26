@@ -91,7 +91,11 @@ public class CommentController {
 		}					
 		
 		String pageIndexList = myUtil.pageIndexList(currentPage, totalPage);
-
+		
+		CommentDTO cdto = dao.getBestRecomm(dto.getgNum());
+		
+		
+		request.setAttribute("cdto", cdto);
 		request.setAttribute("c_lists", lists);
 		request.setAttribute("c_totalDataCount", totalDataCount);
 		request.setAttribute("c_pageIndexList", pageIndexList);

@@ -74,6 +74,23 @@ function listPage(page){
 
 <div style="width: 800px; border: none; padding-top: 10px;" align="center"> <!-- 전체틀 -->
 
+<div style="background-color: #">
+	
+	<div style="border-bottom: solid 1px #ff2828 ; width: 100px;">
+		<div style="border-bottom: solid 1px #ff2828; width: 30px; padding-bottom: 5px;">베스트 의견</div>
+	</div>
+	<div>
+		<div style="width: 700px;">
+		<div >${cdto.getcmId }</div> <div>추천 ${cdto.cmRecomm }</div>
+		</div>
+		<div>${cdto.cmContent }</div>
+	
+	</div>
+
+</div>
+
+
+
 <c:forEach var="dto" items="${c_lists }">
 
 <div style="height: 30px; border-top: solid 1px #999999;">
