@@ -187,7 +187,7 @@ function gnoDelete() {
 					     data-maxwidth="100%"
 					     data-allowfullscreen="false">
 				<c:forEach var="dto" items="${ilists }">
-			
+		
 				  <img src="${dto.originalFileName }">
 			<%-- <img src="${dto.originalFileName }" style="width: 60px; height: 60px; cursor: hand;" onmouseover="fimg(this.src)" /> </div> --%>
 			</c:forEach>
