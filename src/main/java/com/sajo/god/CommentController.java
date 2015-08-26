@@ -35,8 +35,8 @@ public class CommentController {
 		dto.setBoardName("test");
 		dto.setCmNum(numMax+1);
 		dao.insertData(dto);
-		System.out.println(dto.getParams());
-		return "redirect:/group/article.action?"+dto.getParams() + "&gNum=" + dto.getgNum();
+		
+		return "redirect:/comm/list.action?" + dto.getParams() + "&gNum=" + dto.getgNum();
 	}
 
 	@RequestMapping(value="/comm/list.action", method={RequestMethod.GET,RequestMethod.POST})
@@ -91,7 +91,13 @@ public class CommentController {
 		}					
 		
 		String pageIndexList = myUtil.pageIndexList(currentPage, totalPage);
+		
+		CommentDTO cdto = dao.getBestRecomm(dto.getgNum());
+		System.out.println(dto.getgNum());
+		System.out.println(cdto.getCmId());
 
+		
+		request.setAttribute("cdto", cdto);
 		request.setAttribute("c_lists", lists);
 		request.setAttribute("c_totalDataCount", totalDataCount);
 		request.setAttribute("c_pageIndexList", pageIndexList);
@@ -106,7 +112,7 @@ public class CommentController {
 		
 		dao.deleteData(dto.getCmNum());
 
-		return "redirect:/group/article.action?"+dto.getParams()+"&gNum=" + dto.getgNum();
+		return "redirect:/comm/list.action?" + dto.getParams() + "&gNum=" + dto.getgNum();
 	}
 	
 	@RequestMapping(value="/comm/updated_Recomm.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -115,12 +121,14 @@ public class CommentController {
 			
 		dao.update_recomm(cmNum);
 		
-		return "redirect:/group/article.action?"+dto.getParams() + "&gNum=" + dto.getgNum();
+		
+		return "redirect:/comm/list.action?" + dto.getParams() + "&gNum=" + dto.getgNum();
+		//return "redirect:/group/article.action?"+dto.getParams() + "&gNum=" + dto.getgNum();
 		
 	}
 	
 	
-	@RequestMapping(value="/comm/updated.action",method={RequestMethod.GET,RequestMethod.POST})
+	/*@RequestMapping(value="/comm/updated.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String updated(CommentDTO dto,int cmNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 		String cp = request.getContextPath();
@@ -130,7 +138,7 @@ public class CommentController {
 		dto = dao.getReadData(cmNum);
 		
 		if(dto == null){
-			return "redirect:/group/article.action?"+dto.getParams()+"&gNum=" + dto.getgNum();
+			return "redirect:/comm/list.action?" + dto.getParams() + "&gNum=" + dto.getgNum();
 		}
 		
 		request.setAttribute("dto", dto);
@@ -138,9 +146,9 @@ public class CommentController {
 		
 		return "board/c_updated";
 
-	}
+	}*/
 	
-	@RequestMapping(value="/comm/updated_ok.action",method={RequestMethod.GET,RequestMethod.POST})
+	/*@RequestMapping(value="/comm/updated_ok.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String updated_ok(CommentDTO dto, HttpServletRequest request,HttpServletResponse response) throws Exception{
 	
 		String pageNum = request.getParameter("pageNum");
@@ -149,6 +157,6 @@ public class CommentController {
 		
 		return "redirect:/group/article.action?"+"pageNum="+ pageNum +"&gNum=" + dto.getgNum();
 			
-	}
+	}*/
 
 }

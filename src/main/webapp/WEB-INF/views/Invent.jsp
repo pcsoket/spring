@@ -8,12 +8,38 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript">
 
+ function inventsendIt() {
+	 
+	 f = document.groupimg;
+	 
+	 f.action ="<%=cp%>/group/article.action?pageNum="+'${pageNum}' + "&gNum=" +'${gNum}';
+	 f.submit();
+	
+}
+function modelsendIt() {
+	 
+	 f = document.groupimg;
+	 
+	 f.action ="<%=cp%>/group/article.action?pageNum="+'${pageNum}' + "&gNum=" +'${gNum}';
+	 f.submit();
+	
+}
+function sketchsendIt() {
+	 
+	 f = document.groupimg;
+	 
+	 f.action ="<%=cp%>/group/article.action?pageNum="+'${pageNum}' + "&gNum=" +'${gNum}';
+	 f.submit();
+	
+}
 
+</script>
+<title>Invent</title>
 </head>
 <body>
 <div>
@@ -28,21 +54,24 @@
 	<div align="center">
 		<div class="border" style="width:1170px; border: solid 1px; border-color: #D5D5D5;"></div>
 	</div>
-
-	<!-- c:forEach 사용으로 한줄에 3개씩 이미지 뿌리기 -->
+	<form name="groupimg" method="post">
 	<div class="container" style="padding-top:5px;">	
-		<div align="center" style="border: solid 1px; float:left; margin-right: 10px; border-color: #D5D5D5; width: 370px; height: 300px;">
-		
+		<!-- invent -->
+		<div align="center" style="border: solid 1px; float:left; margin-right: 10px; border-color: #D5D5D5; width: 300px; height: 300px;">
+			<img src="${ImageoriginalFile1}" onclick="inventsendIt();" style="width:200px; height:200px; border-radius: 50%;"/>
 		</div>
-		<div align="center" style="border: solid 1px; float:left; margin-right: 10px; border-color: #D5D5D5; width: 370px; height: 300px;">
-		
+		<!-- 3d -->
+		<div align="center" style="border: solid 1px; float:left; margin-right: 10px; border-color: #D5D5D5; width: 300px; height: 300px;">
+			<img src="${ImageoriginalFile2}" onclick="modelsendIt();" style="width:200px; height:200px; border-radius: 50%;"/>
 		</div>
-		<div align="center" style="border: solid 1px; float:left; border-color: #D5D5D5; width: 370px; height: 300px;">
-		
+		<!-- sketch -->
+		<div align="center" style="border: solid 1px; float:left; border-color: #D5D5D5; width: 300px; height: 300px;">
+			<img src="${ImageoriginalFile3}" onclick="sketchsendIt();" style="width:200px; height:200px; border-radius: 50%;"/>
 		</div>
-
 	</div>
-	
+	<input type="hidden" name="pageNum" value="${pageNum}"/>
+	<input type="hidden" name="gNum" value="${gNum}"/>
+	</form>
 	<div align="center" style="margin-top: 7px;">
 		<div class="border" style="width:1170px; border: solid 1px; border-color: #D5D5D5;"></div>
 	</div>

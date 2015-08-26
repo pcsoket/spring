@@ -36,6 +36,13 @@
 	cmContent,cmCreated,boardName from boardcomment where cmNum=#{cmNum}
 </select>
 
+<!-- 베스트 추천글  -->
+
+<select id="getbestRecomm" parameterType="int" resultType="com.sajo.dto.CommentDTO">
+	select * from (select rownum rnum ,data.* from  (select * from boardComment where gNum=#{gNum} order By cmRecomm desc) data) where rnum=1
+
+</select>
+
 <!-- 데이터 수정 -->
 <update id="updateData" parameterType="com.sajo.dto.CommentDTO">
 	update boardcomment set cmContent=#{cmContent} where cmNum=#{cmNum}
