@@ -27,12 +27,9 @@ public class LoginController {
 		ModelAndView mav = new ModelAndView();
 		
 		if(pagePath!=null){
-<<<<<<< HEAD
-			mav.addObject(pagePath);
-			return mav;
-=======
+
 			mav.addObject("pagePath", pagePath);          // 로그인한후 돌아갈 곳의 네임
->>>>>>> 3c0b3f70f9346ad53a3200c04e814023467ea4de
+
 		}
 		
 		mav.setViewName("login");
