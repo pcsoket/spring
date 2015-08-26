@@ -63,8 +63,9 @@ public class LoginController {
 		System.out.println(dto.getGno());
 		
 		session.setAttribute("logInfo", dto);
+		System.out.println(pagePath+":page");
 		
-		if(pagePath!=null){
+		if(!pagePath.equals("")){
 			return pagePath;	                           // 로그인한후 돌아갈 곳 리턴
 		}
 		
