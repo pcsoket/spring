@@ -26,8 +26,8 @@ public class LoginController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		if(pagePath==null){
-			mav.setViewName(pagePath);
+		if(pagePath!=null){
+			mav.addObject(pagePath);
 			return mav;
 		}
 		
