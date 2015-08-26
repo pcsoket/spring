@@ -46,17 +46,15 @@ public class LoginController {
 
 		dto = dao.getList(userId);
 		
-		if(pagePath!=null||!pagePath.contains("")){
-			return pagePath;	                           // 로그인한후 돌아갈 곳 리턴
-		}
+
 		
 		if(dto==null){
 			
 			session.setAttribute("message", "아이디 정보가 없습니다.");
 	
-	return "redirect:/login.action";
+			return "redirect:/login.action";
 	
-	}else if(!dto.getUserPwd().equals(userPwd)){
+		}else if(!dto.getUserPwd().equals(userPwd)){
 			
 			session.setAttribute("message", "비밀번호가 일치하지 않습니다.");
 			return "redirect:/login.action";
@@ -65,6 +63,10 @@ public class LoginController {
 		System.out.println(dto.getGno());
 		
 		session.setAttribute("logInfo", dto);
+		
+		if(pagePath!=null||!pagePath.contains("")){
+			return pagePath;	                           // 로그인한후 돌아갈 곳 리턴
+		}
 		
 		return "redirect:/category.action";
 		
