@@ -104,7 +104,7 @@ public class GroupController {
 	
 	@RequestMapping(value="/group/list.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String list(GroupDTO dto,HttpServletRequest request,HttpServletResponse response) throws Exception{
-		
+			
 		
 		String cp = request.getContextPath();
 		
@@ -203,13 +203,6 @@ public class GroupController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
-			
-			mav.setViewName("login");
-			mav.addObject("pagePath", "board/list");
-			
-			return mav;
-		}
 		
 	
 		String cp = request.getContextPath();
