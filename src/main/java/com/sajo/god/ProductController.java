@@ -96,10 +96,10 @@ public class ProductController {
 				dao.p_getListsIdeaHitCount(start,end,"아이디어");
 		
 		//첫번째 이미지만 골라서 넣어줌.
-		lists = idao.imageForList(lists);
+		lists = idao.imageForPList(lists);
 		/*categorylists = idao.imageForList(categorylists);*/
-		hitcountlists = idao.imageForList(hitcountlists);
-		ideahitcountlists = idao.imageForList(ideahitcountlists);
+		hitcountlists = idao.imageForPList(hitcountlists);
+		ideahitcountlists = idao.imageForPList(ideahitcountlists);
 
 
 		//페이징 처리
@@ -197,7 +197,7 @@ public class ProductController {
 
 		
 		//첫번째 이미지만 골라서 넣어줌.
-		idea_categorylists = idao.imageForList(idea_categorylists);
+		idea_categorylists = idao.imageForPList(idea_categorylists);
 	
 		System.out.println(pCategory+":pca");
 		System.out.println(end);
