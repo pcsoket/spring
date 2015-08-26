@@ -26,7 +26,7 @@ public class LoginController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		if(pagePath==null){
+		if(pagePath!=null||!pagePath.contains("")){
 			mav.addObject("pagePath", pagePath);          // 로그인한후 돌아갈 곳의 네임
 		}
 		
@@ -42,13 +42,11 @@ public class LoginController {
 		String userId = req.getParameter("userId");
 		String userPwd = req.getParameter("userPwd");
 		
-
 		session.removeAttribute("message");
-		
 
 		dto = dao.getList(userId);
 		
-		if(pagePath!=null){
+		if(pagePath!=null||!pagePath.contains("")){
 			return pagePath;	                           // 로그인한후 돌아갈 곳 리턴
 		}
 		
