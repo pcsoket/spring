@@ -22,7 +22,7 @@
 	<div class="container">
 		<div style="padding-top: 5px; float: left; width: 1000px;">
 			<ul class="nav nav-tabs" style="float: left;">
-			    <li class="active"><a href="<%=cp %>/shopmain.action">Shop</a></li>
+			    <li class="active"><a href="<%=cp %>/category.action">Shop</a></li>
 			    <li><a href="<%=cp %>/ideaMain.action">Invent</a></li>
 		  	</ul>
 	<div align="right">
@@ -58,7 +58,7 @@
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="<%=cp %>/category.action">아이디어상품  <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">생활/건강</a></li>
+            <li><a href="<%=cp %>/idea_category.action">생활/건강</a></li>
             <li><a href="#">디지털/가전</a></li>
             <li><a href="#">가구/인테리어</a></li>
             <li><a href="#">패션잡화</a></li>
