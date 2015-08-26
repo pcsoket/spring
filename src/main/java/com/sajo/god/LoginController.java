@@ -48,7 +48,7 @@ public class LoginController {
 
 		dto = dao.getList(userId);
 		
-		if(pagePath==null){
+		if(pagePath!=null){
 			return pagePath;	                           // 로그인한후 돌아갈 곳 리턴
 		}
 		
