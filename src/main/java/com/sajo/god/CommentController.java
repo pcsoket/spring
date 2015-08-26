@@ -38,6 +38,8 @@ public class CommentController {
 		System.out.println(dto.getParams());
 		return "redirect:/group/article.action?"+dto.getParams() + "&gNum=" + dto.getgNum();
 	}
+	
+
 
 	@RequestMapping(value="/comm/list.action", method={RequestMethod.GET,RequestMethod.POST})
 	public String list(CommentDTO dto, HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -150,5 +152,20 @@ public class CommentController {
 		return "redirect:/group/article.action?"+"pageNum="+ pageNum +"&gNum=" + dto.getgNum();
 			
 	}
+	
+	@RequestMapping(value="/after/created.action", method={RequestMethod.POST,RequestMethod.GET})
+	public String afterCreated(CommentDTO dto,HttpServletRequest request, HttpServletResponse response){
+		
+		
+		int numMax = dao.getMaxNum();
+		dto.setCmNum(numMax+1);
+		dao.insertData(dto);
+		System.out.println(dto.getParams());
+		
+		return "redirect:/group/article.action?"+dto.getParams() + "&gNum=" + dto.getgNum();
+	}
+	
+	
+	
 
 }

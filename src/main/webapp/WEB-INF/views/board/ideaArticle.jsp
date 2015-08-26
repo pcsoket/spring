@@ -155,19 +155,6 @@ function gnoDelete() {
 		
 	}
 	
- 	function fimg(csrc){
-		
-		window.document.images["img01"].src = csrc;		
-	}
-	
-	function imgResize(){  //이미지 크기조절 안됨.
-		
-		 var myImg = document.getElementById("img01");
-
-		  myImg.width = 350;
-		  myImg.height = 350;     
-	}  
-
 
 </script>
 
@@ -232,7 +219,7 @@ function gnoDelete() {
 			
 			<div style="width: 800px;">
 				<div style="float: left;">작성자</div>
-				<div id="name">${logInfo.userId } </div>
+				<div id="name">${logInfo.userId } </div>s
 			</div>
 			<div style="border-top: solid 1px #ddd ; padding-top: 10px; width: 900px;" >
 				<div style="float: left;"><textarea rows="5" cols="100" id="content"></textarea></div>

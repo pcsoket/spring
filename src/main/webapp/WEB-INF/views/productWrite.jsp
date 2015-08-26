@@ -36,7 +36,6 @@
 		
 		f = document.myForm;
 		
-		f.pCategory.value();
 		str = f.pName.value;
 		str = str.trim();
 		if (!str) {

@@ -16,18 +16,6 @@
 
 <script type="text/javascript">
 
-	function fimg(csrc){
-		window.document.images["img01"].src = csrc;		
-	}
-	
-	function imgResize(){  //이미지 크기조절 안됨.
-		
-		 var myImg = document.getElementById("img01");
-
-		  myImg.width = 350;
-		  myImg.height = 350;     
-	}
-
 	
 	function sendIt() {
 		
@@ -35,6 +23,121 @@
 		
 		f.action = "<%=cp%>/toBasket.action";
 		f.submit();
+		
+	}
+	
+	$(function(){
+		listPage(1);//1페이지 호출
+		
+	});
+
+	$(document).ready(function(){
+	
+		$("#sendButton").click(function(){
+			
+			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.pNum}"+ "&cmContent=" + $("#content").val()+ "&boardName=" + document.myForm.boardName.val;
+
+			$.ajax({
+				
+				type:"POST",
+				url:"<%=cp%>/after/created.action",
+				data:params,
+				success:function(args){
+					
+					$("#commList").html(args);
+					
+					//데이터 삭제
+					
+					$("#content").val("");
+					
+				},
+				//beforeSend:showRequest,
+				error:function(e){
+					alert(e.responseText);
+				}
+				
+			});
+			
+			
+		});
+		
+	});
+	
+	function showRequest(){//유효성 검사
+		
+		var name = $.trim($("#name").val());
+		var content = $.trim($("#content").val());
+		
+		if(!name){
+			alert("\n이름을 입력하세요!");
+			$("#name").focus();
+			return false;
+		}
+		
+		if(!content){
+			alert("\n내용을 입력하세요!");
+			$("#content").focus();
+			return false;
+		}
+		
+		if(content.length>200){
+			
+			alert("\n내용은 200자 까지만 가능합니다.");
+			$("#content").focus();
+			
+			return false;
+			
+		}
+		
+		return true;
+		
+		
+	} 
+	
+
+	function listPage(page){
+		
+		var url ="<%=cp%>/comm/list.action";
+		
+
+		$.post(url,{pageNO:page , gNum:"${dto.pNum}"}, function(args){
+		
+			$("#commList").html(args);
+			
+		});
+		
+		$("#commList").show();
+		
+		
+	}
+	
+	function updateRecomm(cmNum,page){
+		
+		var url = "<%=cp%>/comm/updated_Recomm.action";
+		
+		$.post(url,{cmNum:cmNum,gNum:"${dto.pNum}",pageNO:page}, function(args){
+			
+		
+			$("#commList").html(args);
+			
+		});
+		
+		$("#commList").show();
+		
+	}
+	
+	function deleteData(cmNum,page){
+		
+		var url ="<%=cp%>/comm/deleted.action";
+		
+		$.post(url,{cmNum:cmNum,gNum:"${dto.pNum}",pageNO:page}, function(args){
+			
+			
+			$("#commList").html(args);
+			
+		});
+		
+		$("#commList").show();
 		
 	}
 
@@ -197,6 +300,7 @@
 				 	<input type="hidden" name="bPrice" value="${dto.pPrice}">
 				 	<input type="hidden" name="pNum" value="${dto.pNum}">
 				 	<input type="hidden" name="imgNum" value="${dto.pImg}">
+				 	<input type="hidden" name="boardName" value="product">
 				</td>
 			</tr>
 			
@@ -208,9 +312,30 @@
 </form>
 </div>
 
-<div>
-
-</div>
+<!-- 댓글 등록 -->
+	<div style="margin-top: 40px; width: 1000px;">
+		<div align="center" style="width: 900px; float: left; margin-bottom:10px; border-bottom: solid 2px #ddd">
+		
+			<div align="left" style="width: 800px; padding-left: 20px; padding-bottom: 20px;">
+			<font style="font-family: 나눔손글씨 붓; color: #2F9D27; font-size: 15pt;"> <b> 댓 글 </b> </font>
+			</div>
+			
+			<!-- 댓글 리스트 -->
+			<div align="center" style="padding-top: 10px; width: 800px;">
+				<span id="commList" style="display: none"></span>
+			</div>
+			
+			
+			<div style="width: 800px;">
+				<div style="float: left;">작성자</div>
+				<div id="name">${logInfo.userId } </div>
+			</div>
+			<div style="border-top: solid 1px #ddd ; padding-top: 10px; width: 900px;" >
+				<div style="float: left;"><textarea rows="5" cols="100" id="content"></textarea></div>
+				<div><input type="button" value="등록" id="sendButton" style="margin-left:5px; float:left; width: 80px; height: 80px;"/></div>
+			</div>
+		</div>	
+	</div>
 
 </body>
 </html>
