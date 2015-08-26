@@ -58,7 +58,7 @@ public class CommentDAO {
 	
 	public CommentDTO getBestRecomm(int gNum){
 		
-		CommentDTO dto = sessionTemplate.selectOne("com.sajo.comment.getReadData",gNum);
+		CommentDTO dto = sessionTemplate.selectOne("com.sajo.comment.getbestRecomm",gNum);
 		
 		return dto;
 	}

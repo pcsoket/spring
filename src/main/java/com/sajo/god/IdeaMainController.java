@@ -79,7 +79,7 @@ public class IdeaMainController {
 		}	
 		//인기아이디어 순위
 		
-		List<MainListDTO> idealists = idao.imageForMList(dao.getIdeaReadData());
+		List<MainListDTO> idealists = idao.imageForMlList(dao.getIdeaReadData());
 		req.setAttribute("idealists", idealists);
 		
 		//complate 순위
