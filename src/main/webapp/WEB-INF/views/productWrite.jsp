@@ -30,13 +30,10 @@
 
 	}
 	var value1;
-	var value2;
 	
 	function sendIt() {
-		
 		f = document.myForm;
 		
-		f.pCategory.value();
 		str = f.pName.value;
 		str = str.trim();
 		if (!str) {
@@ -77,25 +74,70 @@
 		
 		clearOption();
 		
-		alert(value);
-		value1=value;
+		//alert(value);
 		
-		pCategory2.options.add(new Option("선택", "value") );
-		
+		value1 = value;
+		pCategory2.options.add(new Option("선택", "") );
 		if(value=="life"){
-		pCategory2.options.add(new Option("test", "1") );
-		pCategory2.options.add(new Option("test", "2") );
-		pCategory2.options.add(new Option("test", "3") );
-		pCategory2.options.add(new Option("test", "4") );
-		pCategory2.options.add(new Option("test", "5") );
-		pCategory2.options.add(new Option("test", "6") );
-		pCategory2.options.add(new Option("test", "7") );
+		pCategory2.options.add(new Option("욕실", "bath") );
+		pCategory2.options.add(new Option("공구", "util") );
+		pCategory2.options.add(new Option("청소", "cleaning"));
+		pCategory2.options.add(new Option("주방", "cleaning") );
+		pCategory2.options.add(new Option("문구/사무", "cleaning") );
 		
 		}
+		
+		if(value=="sports"){
+			pCategory2.options.add(new Option("캠핑", "camping") );
+			pCategory2.options.add(new Option("등산", "climbing") );
+			pCategory2.options.add(new Option("헬스", "health") );
+
+			
+			}
+		
+		
+		if(value=="interior"){
+			pCategory2.options.add(new Option("인테리어소품", "sopoom") );
+			pCategory2.options.add(new Option("수납가구", "furniture") );
+			pCategory2.options.add(new Option("DIY자재", "DIY") );
+			
+			}
+		
+		if(value=="digital"){
+			pCategory2.options.add(new Option("PC악세서리", "PC") );
+			pCategory2.options.add(new Option("음향가전", "sound") );
+			pCategory2.options.add(new Option("휴대폰악세서리", "phone") );
+			
+			}
+		
+		if(value=="sundries"){
+			pCategory2.options.add(new Option("남성가방", "man") );
+			pCategory2.options.add(new Option("여성가방", "woman") );
+			pCategory2.options.add(new Option("선글라스/안경테", "sunglasses") );
+
+			
+			}
 		
 	}
 
 	
+	
+	function clearOption() {              /* 옵션초기화 */
+	 
+	        for( var i=pCategory2.options.length-1; i>=0; i--){
+	 
+	        	pCategory2.options[i]=null;
+	        }
+	}
+
+	
+	function toCategory(value2){      /* 카테고리1,2합침 */
+		
+		document.myForm.pCategory.value = value1+value2;
+		
+	}
+
+
 	
 	function clearOption() {              /* 옵션초기화 */
 	 
@@ -121,10 +163,10 @@
 
 <br/>&nbsp;<br/>
 
-<table width="560" border="2" cellspacing="0" cellpadding="0" bordercolor="#D6D4A6" align="center">
+<table width="650" border="2" cellspacing="0" cellpadding="0" bordercolor="#DBDBDB" align="center">
 <tr height="40"> 
 <td style="padding-left:25px;">
-<b>이미지 게시판(Spring)</b>
+<b>상품 등록</b>
 
 </td>
 </tr>
@@ -132,23 +174,25 @@
 <br/>&nbsp;<br/>
 
 <form name="myForm" id="myForm" method="post" action="" enctype="multipart/form-data">
-  <table width="560" border="0" cellspacing="0" cellpadding="3" align="center">
+  <table width="650" border="0" cellspacing="0" cellpadding="3" align="center">
 
   <tr><td colspan="2" height="3" bgcolor="#DBDBDB" align="center"></td></tr>
 
   <tr> 
-      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">상&nbsp;품&nbsp;이&nbsp;름</td>
-      <td width="480" style="padding-left:10px;"> 
+      <td width="100" height="40" bgcolor="#EEEEEE" style="padding-left:20px;">상품이름&nbsp;</td>
+      <td width="500" style="padding-left:10px;"> 
         <input type="text" name="pName" size="74" maxlength="100" class="boxTF"/>
       </td>
   </tr>
   
   <tr> 
-      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">카&nbsp;테&nbsp;고&nbsp;리</td>
+      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">카테고리&nbsp;</td>
       <td width="480" style="padding-left:10px;">
       
       	<select name="pCategory1" class="boxTF" id="pCategory1" onchange="AddSelect(this.value);">
-      		<option value="">선택</option>
+
+      		<option value="null">선택</option>
+
       		<option value="life">생활/건강</option>
       		<option value="sports">스포츠/레저</option>
       		<option value="interior">가구/인테리어</option>
@@ -158,20 +202,23 @@
       	
       	<select name="pCategory2" class="boxTF" id="pCategory2" onchange="toCategory(this.value);">
       		<option value="">선택</option>
+
+
       	</select>
-      	<input type="text" name="pCategory" id="pCategory">
+      	<input type="text" name="pCategory" id="pCategory" >
+
       </td>
   </tr>
   
   <tr> 
-      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">가&nbsp;&nbsp;&nbsp;&nbsp;격</td>
+      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">&nbsp;가&nbsp;&nbsp;&nbsp;&nbsp;격</td>
       <td width="480" style="padding-left:10px;"> 
         <input type="text" name="pPrice" size="74" maxlength="100" class="boxTF"/>
       </td>
   </tr>
   
   <tr> 
-      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">재&nbsp;&nbsp;&nbsp;&nbsp;고</td>
+      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">&nbsp;재&nbsp;&nbsp;&nbsp;&nbsp;고</td>
       <td width="480" style="padding-left:10px;"> 
         <input type="text" name="pStock" size="74" maxlength="100" class="boxTF"/>
       </td>
@@ -180,7 +227,7 @@
   <tr><td colspan="2" bgcolor="#DBDBDB" height="1"></td></tr>
 
   <tr> 
-      <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">파&nbsp;&nbsp;&nbsp;&nbsp;일</td>
+      <td width="80" height="50" bgcolor="#EEEEEE" style="padding-left:20px;">&nbsp;파&nbsp;&nbsp;&nbsp;&nbsp;일</td>
       <td width="480" style="padding-left:10px;"> 
       <!--  file upload input-->
       
@@ -201,7 +248,7 @@
         <textarea name="pContent" cols="20" rows="20"></textarea>
         <script>CKEDITOR.replace('pContent' ,
         		
-        		 {width : '620px', // 입력창의 넓이
+        		 {width : '650px', // 입력창의 넓이
         	      height : '200px',  // 입력창의 높이
         	      startupFocus : false});</script>
         <img alt="" src="${img}"><br/>
@@ -211,6 +258,7 @@
         <input type="button" value=" 작성취소 " onclick="javascript:location.href='<%=cp%>/img/list.action';" class="btn1"/>
       </td>
     </tr>
+    <tr height="50px"><td></td></tr>
   </table>
 </form>
 <!-- //------------------------- // -->
