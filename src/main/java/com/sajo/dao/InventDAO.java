@@ -1,7 +1,11 @@
 package com.sajo.dao;
 
+import java.util.HashMap;
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 
+import com.sajo.dto.GroupDTO;
 import com.sajo.dto.InventDTO;
 
 public class InventDAO {
@@ -42,5 +46,24 @@ public class InventDAO {
 		
 		return dto;
 	}
+	
+	//전체데이터
+		public List<GroupDTO> getList(int start, int end,
+				String searchKey, String searchValue, int gNo,String boardName){
+			
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			
+			params.put("start", start);
+			params.put("end", end);
+			params.put("searchKey", searchKey);
+			params.put("searchValue", searchValue);
+			params.put("gNo", gNo);
+			params.put("boardName",boardName);
+			
+			List<GroupDTO> lists = sessionTemplate.selectList("com.sajo.invent.getLists",params);
+			
+			return lists;
+			
+		}
 
 }

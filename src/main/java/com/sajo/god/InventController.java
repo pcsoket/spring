@@ -1,5 +1,10 @@
 package com.sajo.god;
 
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import java.util.List;
+import java.util.ListIterator;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -8,21 +13,38 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sajo.dao.CommentDAO;
+import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dao.InventDAO;
+import com.sajo.dto.GroupDTO;
 import com.sajo.dto.InventDTO;
+import com.sajo.util.MyUtil;
 
 @Controller
 public class InventController {
 	
 	@Autowired
+	@Qualifier("groupDAO")
+	GroupDAO dao;
+	
+	@Autowired
+	@Qualifier("commentDAO")
+	CommentDAO cdao;
+	
+	
+	@Autowired
 	@Qualifier("inventDAO")
-	InventDAO dao;
+	InventDAO indao;
 	
 	@Autowired
 	@Qualifier("imageDAO")
 	ImageDAO idao;
+	
+	@Autowired
+	MyUtil myUtil;
 	
 	@RequestMapping(value="/inventList.action")
 	public String imgList(HttpServletRequest req,HttpServletResponse resp, HttpSession session){
@@ -30,11 +52,11 @@ public class InventController {
 		int gNum = Integer.parseInt(req.getParameter("gNum"));
 		int pageNum = Integer.parseInt(req.getParameter("pageNum"));
 		
-		 int gno = dao.getGno(gNum);
+		 int gno = indao.getGno(gNum);
 		 
 		if(gno!=0){
 			System.out.println(0);
-			InventDTO dto1 = dao.getInventData(gno);
+			InventDTO dto1 = indao.getInventData(gno);
 			if(dto1==null){
 				String ImageoriginalFile1 = "/god/resources/imageFile/asdf.jpg";
 				req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
@@ -44,7 +66,7 @@ public class InventController {
 			req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
 			System.out.println(2);
 			}
-			InventDTO dto2 = dao.get3dData(gno);
+			InventDTO dto2 = indao.get3dData(gno);
 			if(dto2==null){
 				String ImageoriginalFile2 = "/god/resources/imageFile/asdf.jpg";
 				req.setAttribute("ImageoriginalFile2", ImageoriginalFile2);
@@ -54,7 +76,7 @@ public class InventController {
 			req.setAttribute("ImageoriginalFile2", ImageoriginalFile2);
 			System.out.println(4);
 			}
-			InventDTO dto3 = dao.getSketchData(gno);
+			InventDTO dto3 = indao.getSketchData(gno);
 			if(dto3==null){
 				String ImageoriginalFile3 = "/god/resources/imageFile/asdf.jpg";
 				req.setAttribute("ImageoriginalFile3", ImageoriginalFile3);
@@ -76,10 +98,298 @@ public class InventController {
 		
 		req.setAttribute("pageNum", pageNum);
 		req.setAttribute("gNum", gNum);
+		req.setAttribute("gNo", gno);
 		
 		return "Invent";
-		
-		
-		
 	}
+			
+	@RequestMapping(value="/group/idea.action",method={RequestMethod.GET,RequestMethod.POST})
+	public String i_list(GroupDTO dto,HttpServletRequest request, HttpServletResponse response) throws Exception{
+		
+		String cp = request.getContextPath();
+		
+		String boardName="idea";
+		
+		String pageNum = request.getParameter("pageNum");
+		int currentPage = 1;
+		
+		if(pageNum != null)
+			currentPage = Integer.parseInt(pageNum);
+		
+		String searchKey = request.getParameter("searchKey");
+		String searchValue = request.getParameter("searchValue");
+		
+		if(searchKey == null){
+			
+			searchKey = "gSubject";
+			searchValue = "";
+			
+		}else{
+			
+			if(request.getMethod().equalsIgnoreCase("GET"))
+				searchValue =
+					URLDecoder.decode(searchValue, "UTF-8");
+			
+		}
+		
+		//전체데이터갯수
+		int dataCount = 0;
+		dataCount = dao.getDataCount(searchKey, searchValue);
+		
+		//전체페이지수
+		int numPerPage = 9;
+		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+		
+		
+		if(currentPage > totalPage)
+			currentPage = totalPage;
+		
+		int start = (currentPage-1)*numPerPage+1;
+		int end = currentPage*numPerPage;
+		
+		List<GroupDTO> lists =
+			indao.getList(start, end, searchKey, searchValue, dto.getgNo(),boardName);
+		
+		ListIterator<GroupDTO> it = lists.listIterator();
+
+		int listNum, n=0;
+
+		while(it.hasNext()){
+			
+			dto = (GroupDTO)it.next();
+			listNum = dataCount - (start+n-1);
+			dto.setListNum(listNum);
+			n++;			
+		}
+		
+		//페이징 처리
+		String param = "";
+		if(!searchValue.equals("")){
+			param = "searchKey=" + searchKey;
+			param+= "&searchValue=" 
+				+ URLEncoder.encode(searchValue, "UTF-8");
+		}
+		
+		String listUrl = cp + "/group/list.action";
+		if(!param.equals("")){
+			listUrl = listUrl + "?" + param;				
+		}
+		
+		String pageIndexList =
+			myUtil.pageIndexList(currentPage, totalPage, listUrl);
+		
+		
+		
+		//글보기 주소 정리
+		String articleUrl = 
+			cp + "/group/article.action?pageNum=" + currentPage + "&gNo=" + dto.getgNo();
+			
+		if(!param.equals(""))
+			articleUrl = articleUrl + "&" + param;
+		
+		
+		
+		//포워딩 될 페이지에 데이터를 넘긴다
+		request.setAttribute("lists", lists);
+		request.setAttribute("pageIndexList",pageIndexList);
+		request.setAttribute("dataCount",dataCount);
+		request.setAttribute("articleUrl",articleUrl);
+		request.setAttribute("boardName", boardName);
+		
+		return "board/list";
+	}
+	
+	@RequestMapping(value="/group/sketch.action",method={RequestMethod.GET,RequestMethod.POST})
+	public String s_list(GroupDTO dto,HttpServletRequest request, HttpServletResponse response) throws Exception{
+		
+		String cp = request.getContextPath();
+		
+		String boardName="sketch";
+		
+		String pageNum = request.getParameter("pageNum");
+		int currentPage = 1;
+		
+		if(pageNum != null)
+			currentPage = Integer.parseInt(pageNum);
+		
+		String searchKey = request.getParameter("searchKey");
+		String searchValue = request.getParameter("searchValue");
+		
+		if(searchKey == null){
+			
+			searchKey = "gSubject";
+			searchValue = "";
+			
+		}else{
+			
+			if(request.getMethod().equalsIgnoreCase("GET"))
+				searchValue =
+					URLDecoder.decode(searchValue, "UTF-8");
+			
+		}
+		
+		//전체데이터갯수
+		int dataCount = 0;
+		dataCount = dao.getDataCount(searchKey, searchValue);
+		
+		//전체페이지수
+		int numPerPage = 9;
+		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+		
+		
+		if(currentPage > totalPage)
+			currentPage = totalPage;
+		
+		int start = (currentPage-1)*numPerPage+1;
+		int end = currentPage*numPerPage;
+		
+		List<GroupDTO> lists =
+			indao.getList(start, end, searchKey, searchValue, dto.getgNo(),boardName);
+		
+		ListIterator<GroupDTO> it = lists.listIterator();
+
+		int listNum, n=0;
+
+		while(it.hasNext()){
+			
+			dto = (GroupDTO)it.next();
+			listNum = dataCount - (start+n-1);
+			dto.setListNum(listNum);
+			n++;			
+		}
+		
+		//페이징 처리
+		String param = "";
+		if(!searchValue.equals("")){
+			param = "searchKey=" + searchKey;
+			param+= "&searchValue=" 
+				+ URLEncoder.encode(searchValue, "UTF-8");
+		}
+		
+		String listUrl = cp + "/group/list.action";
+		if(!param.equals("")){
+			listUrl = listUrl + "?" + param;				
+		}
+		
+		String pageIndexList =
+			myUtil.pageIndexList(currentPage, totalPage, listUrl);
+		
+		
+		
+		//글보기 주소 정리
+		String articleUrl = 
+			cp + "/group/article.action?pageNum=" + currentPage + "&gNo=" + dto.getgNo();
+			
+		if(!param.equals(""))
+			articleUrl = articleUrl + "&" + param;
+		
+		
+		
+		//포워딩 될 페이지에 데이터를 넘긴다
+		request.setAttribute("lists", lists);
+		request.setAttribute("pageIndexList",pageIndexList);
+		request.setAttribute("dataCount",dataCount);
+		request.setAttribute("articleUrl",articleUrl);
+		request.setAttribute("boardName", boardName);
+		
+		return "board/list";
+	}
+	
+	@RequestMapping(value="/group/3D.action",method={RequestMethod.GET,RequestMethod.POST})
+	public String md_list(GroupDTO dto,HttpServletRequest request, HttpServletResponse response) throws Exception{
+		
+		String cp = request.getContextPath();
+		
+		String boardName="3D";
+		
+		String pageNum = request.getParameter("pageNum");
+		int currentPage = 1;
+		
+		if(pageNum != null)
+			currentPage = Integer.parseInt(pageNum);
+		
+		String searchKey = request.getParameter("searchKey");
+		String searchValue = request.getParameter("searchValue");
+		
+		if(searchKey == null){
+			
+			searchKey = "gSubject";
+			searchValue = "";
+			
+		}else{
+			
+			if(request.getMethod().equalsIgnoreCase("GET"))
+				searchValue =
+					URLDecoder.decode(searchValue, "UTF-8");
+			
+		}
+		
+		//전체데이터갯수
+		int dataCount = 0;
+		dataCount = dao.getDataCount(searchKey, searchValue);
+		
+		//전체페이지수
+		int numPerPage = 9;
+		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
+		
+		
+		if(currentPage > totalPage)
+			currentPage = totalPage;
+		
+		int start = (currentPage-1)*numPerPage+1;
+		int end = currentPage*numPerPage;
+		
+		List<GroupDTO> lists =
+			indao.getList(start, end, searchKey, searchValue, dto.getgNo(), boardName);
+		
+		ListIterator<GroupDTO> it = lists.listIterator();
+
+		int listNum, n=0;
+
+		while(it.hasNext()){
+			
+			dto = (GroupDTO)it.next();
+			listNum = dataCount - (start+n-1);
+			dto.setListNum(listNum);
+			n++;			
+		}
+		
+		//페이징 처리
+		String param = "";
+		if(!searchValue.equals("")){
+			param = "searchKey=" + searchKey;
+			param+= "&searchValue=" 
+				+ URLEncoder.encode(searchValue, "UTF-8");
+		}
+		
+		String listUrl = cp + "/group/list.action";
+		if(!param.equals("")){
+			listUrl = listUrl + "?" + param;				
+		}
+		
+		String pageIndexList =
+			myUtil.pageIndexList(currentPage, totalPage, listUrl);
+		
+		
+		
+		//글보기 주소 정리
+		String articleUrl = 
+			cp + "/group/article.action?pageNum=" + currentPage + "&gNo=" + dto.getgNo();
+			
+		if(!param.equals(""))
+			articleUrl = articleUrl + "&" + param;
+		
+		
+		
+		//포워딩 될 페이지에 데이터를 넘긴다
+		request.setAttribute("lists", lists);
+		request.setAttribute("pageIndexList",pageIndexList);
+		request.setAttribute("dataCount",dataCount);
+		request.setAttribute("articleUrl",articleUrl);
+		request.setAttribute("boardName", boardName);
+		
+		return "board/list";
+	}
+		
 }
+

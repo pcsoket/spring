@@ -123,14 +123,9 @@ public class CommentController {
 			
 		dao.update_recomm(cmNum);
 		
-<<<<<<< HEAD
-		return "redirect:/group/article.action?"+dto.getParams() + "&gNum=" + dto.getgNum();
-
-=======
-		
 		return "redirect:/comm/list.action?" + dto.getParams() + "&gNum=" + dto.getgNum();
 		//return "redirect:/group/article.action?"+dto.getParams() + "&gNum=" + dto.getgNum();
->>>>>>> b709560d31e408c4c1d25b16b621035ca1f0e76a
+
 		
 	}
 	
