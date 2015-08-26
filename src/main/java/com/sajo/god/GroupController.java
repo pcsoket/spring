@@ -51,7 +51,7 @@ public class GroupController {
 	}
 		
 	@RequestMapping(value="/group/created.action")
-	public ModelAndView created(HttpServletRequest request){
+	public ModelAndView created(String boardName,HttpServletRequest request){
 		
 		HttpSession session = request.getSession();
 		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
@@ -65,13 +65,14 @@ public class GroupController {
 		}
 		
 		mav.setViewName("board/created");
+		mav.addObject("boardName", boardName);
 		
 		return mav;
 		
 	}
 	
 	@RequestMapping(value="/group/created_ok.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String created_ok(GroupDTO dto,ImageDTO idto,HttpServletRequest request,HttpServletResponse response){
+	public String created_ok(String boardName,GroupDTO dto,ImageDTO idto,HttpServletRequest request,HttpServletResponse response){
 		
 		
 		HttpSession session = request.getSession();
@@ -94,7 +95,12 @@ public class GroupController {
 		dto.setgNum(maxNum+1);
 		dto.setgNo(gnoMaxNum+1);
 		dto.setImgNum(imgNum);                     // 이미지테이블에서 가져올 이미지들의 넘버
-		dto.setBoardName("group");                 // group,idea,3d,sketch
+		if(boardName.equals("group")){
+			dto.setBoardName("group");                 // group,idea,3d,sketch
+		}else{
+			
+			dto.setBoardName(boardName);
+		}
 		
 		dao.insertData(dto);
 		
@@ -105,6 +111,13 @@ public class GroupController {
 	@RequestMapping(value="/group/list.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String list(GroupDTO dto,HttpServletRequest request,HttpServletResponse response) throws Exception{
 			
+		HttpSession session = request.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
+		
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			request.setAttribute("pagePath", "redirect:/group/list.action");
+			return "login";
+		}
 		
 		String cp = request.getContextPath();
 		
@@ -183,11 +196,15 @@ public class GroupController {
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
 		
+		String boardName="group";
+		
+		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);
 		request.setAttribute("pageIndexList",pageIndexList);
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
+		request.setAttribute("boardName", boardName);
 		
 		return "board/list";
 		
@@ -203,7 +220,14 @@ public class GroupController {
 		
 		ModelAndView mav = new ModelAndView();
 		
-		
+		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			
+			mav.setViewName("login");
+			mav.addObject("pagePath", "board/list");
+			
+			return mav;
+		}
+
 	
 		String cp = request.getContextPath();
 		

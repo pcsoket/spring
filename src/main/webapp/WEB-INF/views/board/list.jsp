@@ -89,11 +89,14 @@ A:hover {text-decoration:none}
 	    <h3 style="color: #ff4b46">Good Idea</h3>      
 	    <p style="color: #ff4b46">당신의 아이디어가 현실이 됩니다.</p>
 	    <c:choose>
-			<c:when test="${empty gno}">
+			<c:when test="${empty logInfo.gno}">
 			 	<a href="<%=cp %>/group/created.action" class="btn btn-danger btn-lg">Start Invent</a>
 			</c:when>
+			<c:when test="${boardName=='group'}">
+			 	
+			</c:when>
 			<c:otherwise>
-			 	<a href="/wInvent.action" class="btn btn-danger btn-lg">Write</a>
+			 	<a href="<%=cp %>/group/created.action?boardName=${boardName}" class="btn btn-danger btn-lg">Write</a>
 			</c:otherwise>
 		</c:choose>      
 	  </div>
@@ -101,7 +104,7 @@ A:hover {text-decoration:none}
 </td></tr>
 	<tr height="30px"> 
 		<td class="line3" height="40px" colspan="5" style="border-color: #ff4b46">
-		<input type="hidden" name="boardName" value="${boardName }">
+		<input type="text" name="boardName" value="${boardName }"><input type="text" name="gno" value="'${ logInfo.gno}' +' ${gNo}'">
 	</tr>
 	
 	<tr height="30px">
@@ -141,7 +144,7 @@ A:hover {text-decoration:none}
 			<td width="200px" height="300px" align="center" class="category2">
 			
 					<img alt="" src="/god/resources/image/aa.PNG" width="300" height="250" />	
-					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
+					<font color="#8b4513 " style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href ="${articleUrl}&gNum=${dto.gNum}">
 					${dto.gSubject}</a></font>
 					<br>${dto.mId}&nbsp;&nbsp;&nbsp;&nbsp;★★☆☆☆별점
@@ -155,7 +158,7 @@ A:hover {text-decoration:none}
 							%>						
 						
 						</c:forEach>
-						
+
 						<tr height="50px"></tr>
 	
 	<tr height="50px"></tr>

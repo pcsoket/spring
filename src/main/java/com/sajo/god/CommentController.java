@@ -116,14 +116,16 @@ public class CommentController {
 	}
 	
 	@RequestMapping(value="/comm/updated_Recomm.action",method={RequestMethod.GET,RequestMethod.POST})
+
 	public String updated_Recomm(CommentDTO dto, int cmNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
+
 	
 			
 		dao.update_recomm(cmNum);
 		
-		
 		return "redirect:/comm/list.action?" + dto.getParams() + "&gNum=" + dto.getgNum();
 		//return "redirect:/group/article.action?"+dto.getParams() + "&gNum=" + dto.getgNum();
+
 		
 	}
 	

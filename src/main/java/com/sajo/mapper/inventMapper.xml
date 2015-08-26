@@ -6,7 +6,7 @@
 	
 	<mapper namespace="com.sajo.invent">
 	<select id="getInventData" parameterType="int" resultType="com.sajo.dto.InventDTO">
-	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='group'
+	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='idea'
 	</select>
 	<select id="getModelData" parameterType="int" resultType="com.sajo.dto.InventDTO">
 	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='3d'
@@ -17,5 +17,20 @@
 	<select id="getGno" parameterType="int" resultType="int">
 	select nvl(gno,0) as gno from ideagroup where gnum=#{gNum}
 	</select>
+	
+	<!-- 모든 데이터 -->
+<select id="getLists" parameterType="hashMap" resultType="com.sajo.dto.GroupDTO">
+	select * from (
+	select rownum rnum, data.* from(
+	select gNum,mId,gSubject,gHitCount,to_char(gCreated,'YYYY-MM-DD') gCreated
+	from ideaGroup where gNo=#{gNo} and boardname=#{boardName} and ${searchKey} like '%' || #{searchValue} || '%'
+	order by gNum desc) data)
+<![CDATA[
+	where rnum>=#{start} and rnum<=#{end}
+]]>
+</select>
+	
+	
+	
 	</mapper>
 	

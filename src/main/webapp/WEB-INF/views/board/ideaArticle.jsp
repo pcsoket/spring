@@ -50,6 +50,7 @@ function gnoDelete() {
 			
 			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+ "&cmContent=" + $("#content").val();
 
+
 			$.ajax({
 				
 				type:"POST",
@@ -108,13 +109,14 @@ function gnoDelete() {
 	} 
 	
 
-	function listPage(page){
+	function listPage(gNum){
 		
 		var url ="<%=cp%>/comm/list.action";
 		
 
 		$.post(url,{pageNO:page , gNum:"${dto.gNum}"}, function(args){
 		
+
 			$("#commList").html(args);
 			
 		});
@@ -144,7 +146,6 @@ function gnoDelete() {
 		var url ="<%=cp%>/comm/deleted.action";
 		
 		$.post(url,{cmNum:cmNum,gNum:"${dto.gNum}",pageNO:page}, function(args){
-			
 			
 			$("#commList").html(args);
 			

@@ -1,6 +1,8 @@
 package com.sajo.god;
 
 import java.io.File;
+import java.util.ArrayList;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
@@ -293,14 +295,39 @@ public class ShopMainController {
 		return "redirect:orderList.action";
 	}
 	
-	@RequestMapping(value="/card_cancel.action")
-	public String card_cancel(String bnums,HttpServletRequest req, HttpServletResponse resp,HttpSession session){
+	
+	
+	@RequestMapping(value="/card_cancle.action")
+	public String card_cancel(String bnums, HttpServletRequest req, HttpServletResponse resp,HttpSession session){
 		
 		//String id = (String)session.getAttribute("userId"); //session에서 id받아오기
 		
 		String mid = "5";
+		BasketDTO dto = null;
+		PurchaseDTO pdto;
+		List<PurchaseDTO> lists = (List<PurchaseDTO>)pdao.getReadId(mid);
+		
+		Iterator<PurchaseDTO> reinst = lists.iterator();
 		
 		
+		while(reinst.hasNext()){
+			
+			pdto = (PurchaseDTO)reinst.next();
+			
+			
+			dto.setbNum(pdto.getbNum());
+			dto.setbAmount(1);
+			dto.setbPName(pdto.getpName());
+			dto.setbPrice(pdto.getpPrice()/pdto.getpAmount());
+			dto.setUserId(mid);
+			dto.setbNum(pdto.getpNum());
+			
+			dao.insertBK(dto);
+			
+			
+		}
+		
+
 		
 		
 		if(bnums != null){
@@ -308,12 +335,12 @@ public class ShopMainController {
 			System.out.println("널인가" + bnums);
 			String[] nums= bnums.split("-");
 			
-			PurchaseDTO pdto;
+			//PurchaseDTO pdto=null;
 			for(int i = 0;i<nums.length;i++){
 				
 				pdto = pdao.getReadData(Integer.parseInt(nums[i]));
 				
-				BasketDTO dto = new BasketDTO();
+				dto = new BasketDTO();
 				
 				System.out.println(nums[i]);
 				dto.setbNum(Integer.parseInt(nums[i]));
@@ -338,7 +365,9 @@ public class ShopMainController {
 
 		}
 	
-		return "redirect: basket.action";
+
+		return "redirect:basket.action";
+
 	}
 	
 	@RequestMapping(value="/del.action")

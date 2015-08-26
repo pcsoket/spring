@@ -49,7 +49,9 @@
 </update>
 
 <update id="updaterecomm" parameterType="int">
+
 	update boardcomment set cmRecomm = cmRecomm +1 where cmNum=#{cmNum}
+
 </update>
 
 <!-- 데이터 삭제 -->

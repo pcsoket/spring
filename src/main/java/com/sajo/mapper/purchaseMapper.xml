@@ -50,9 +50,10 @@
 		select bnum,pnum,pprice,pamount,pname,mid,maddr,bdate,state,retake
 		from purchase where bnum=#{bNum}
 	</select>
-	
+
 	<update id="updateData" parameterType="int" >
 		update purchase set state='결제완료' where bnum=#{bNum}
+
 	</update>
 	
 	<delete id="deleteData" parameterType="int">
