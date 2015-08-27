@@ -187,9 +187,12 @@ function sendIt() {
 	  }
 	  f.userEmail.value = str;
 	  
-	f.action = "<%=cp %>/write_ok.action";
-	
-	f.submit();
+
+		if(!confirm("축하합니다!\n회원가입이 완료 되었습니다.")){
+			  return; 
+			 }
+		  f.action = "<%=cp%>/write_ok.action";
+		  f.submit();
 	
 }
 //주소 검색 팝업창 추가-> jsp도 같이 추가
@@ -203,7 +206,7 @@ function searchData() {
 function idchk() {
 	
 	var f = document.write;
-	var popOption = "width=350, height=300,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+	var popOption = "width=350, height=140,resizable=no,scrollbars=no, status=no, top=300,left=700;";
 	window.open("<%=cp %>/idchk.action?userId="+f.userId.value,"popup",popOption);
 	
 	
