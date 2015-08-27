@@ -4,76 +4,15 @@
 	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
 	
+
 %>
-<%-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-<script type="text/javascript">
-
-/* $(function(){
-	listPage(1);//1페이지 호출
-	
-}); */
-
-$(document).ready(function(){
-	alert("cmlist"+1);
-	$("#addRecomm").click(function(){
-		alert("cmlist"+ 2);
-		var params ="cmNum=" + "${dto.cmNum}";
-
-		$.ajax({
-			
-			type:"POST",
-			url:"<%=cp%>/comm/updated_Recomm.action",
-			data:params,
-			success:function(args){
-				
-				$("#cmRecomm").html(args);
-				
-			/* 	//데이터 삭제
-				$("#name").val("");
-				$("#content").val("") */;
-				
-			},
-			//beforeSend:showRequest,
-			error:function(e){
-				alert(e.responseText);
-			}
-			
-		});
-		
-		
-	});
-});
-
-function listPage(page){
-	
-	var url ="<%=cp%>/comm/list.action";
-	
-
-	$.post(url,{pageNO:page , gNum:"${dto.gNum}"}, function(args){
-	
-		$("#cmRecomm").html(args);
-		
-	});
-	
-	$("#cmRecomm").show();
-	
-	
-}
-
-</script>
-</head>
-
-<body> --%>
 
 <c:if test="${c_totalDataCount!=0 }">
 
 
-<div style="width: 800px; border: none; padding-top: 10px;" align="center"> <!-- 전체틀 -->
 
+<div style="width: 800px; border: none; padding-top: 10px;" align="center">
+ <!-- 전체틀 -->
 <div align="left" style="width: 600px; margin-bottom: 30px;">
 	
 	<div>
@@ -140,4 +79,5 @@ function listPage(page){
 
 </div>
 </c:if>
+
 

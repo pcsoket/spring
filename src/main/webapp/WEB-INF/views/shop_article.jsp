@@ -136,6 +136,13 @@
 		$("#commList").show();
 		
 	}
+	
+	function plus() {
+		
+		f = document.getElementsByName("bAmount");
+		f.value = Number(f.value)+1;
+		
+	}
 
 </script>
 
@@ -172,8 +179,14 @@
 	border:1px solid #ffd2d7;
 	font :"#8b4513";
 	font-family : 나눔바른펜";
-
 	}
+#imageGallery{
+	float: left;
+}
+#bodyWrap{
+	width:1000px;
+	margin: 0 auto;
+}
 	
 	
 
@@ -181,8 +194,9 @@
 </head>
 <body>
 
-<div>
+<div  id="bodyWrap">
 <form name="myForm">
+	<div id="imageGallery">
 		<div class="fotorama" data-autoplay="3000"             
 						 data-width="350"
 						 data-high="350"
@@ -196,7 +210,7 @@
 
 				</c:forEach>
 		</div>
-		    			
+	</div>   			
 		<div id="productInfo">
 		<table width="500px" height="700px" class="box">
 		
@@ -234,19 +248,15 @@
 				<td class="line4" width="150px" height="50px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>수량</b></font></td>
 				<td class="line5" width="200px" height="50px">
-					&nbsp;&nbsp;2</td>
+					<a onclick="minus();">-</a><input type="text" name="bAmount" id="bAmount" size=2 value=1><a onclick="plus();">+</a>
+					
+					</td>
 			</tr>
 			<tr>
 				<td class="line4" width="150px" height="80px" align="center">
 					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>구매예정금액</b></font></td>
 				<td class="line5" width="200px" height="80px">
 					&nbsp;&nbsp;${2*dto.pPrice}</td>
-			</tr>
-			<tr>
-				<td class="line4" width="100px" height="50px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>재고</b></font></td>
-				<td class="line5" width="400px" height="50px">
-					&nbsp;&nbsp;${dto.pStock}</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="250px" align="center">

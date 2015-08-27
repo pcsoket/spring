@@ -18,6 +18,7 @@ public class BasketDAO {
 		
 	}
 	
+
 	public int maxNum(){
 		
 		int maxNum = sessionTemplate.selectOne("com.sajo.mapper.basket.maxNum");
@@ -36,7 +37,7 @@ public class BasketDAO {
 	}
 	
 	
-	
+
 	public List<BasketDTO> readPro(String mid){
 		
 		List<BasketDTO> lists = sessionTemplate.selectList("com.sajo.mapper.basket.readPro", mid);
