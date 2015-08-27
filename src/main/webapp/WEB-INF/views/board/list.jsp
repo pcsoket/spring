@@ -123,7 +123,7 @@ A:hover {text-decoration:none}
 			</div>
 			<div style="float: left">
 				<button style="margin-left:5px; height: 40px; " class="btn btn-danger btn-lg">
-				<span class="glyphicon glyphicon-search"></span>
+				<span class="glyphicon glyphicon-search"></span><!-- 검색 -->
 				</button>
 			</div>
 			</form>
