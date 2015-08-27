@@ -19,6 +19,7 @@ import com.sajo.dao.CommentDAO;
 import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dao.InventDAO;
+import com.sajo.dao.MemberDAO;
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.InventDTO;
 import com.sajo.util.MyUtil;
@@ -42,6 +43,10 @@ public class InventController {
 	@Autowired
 	@Qualifier("imageDAO")
 	ImageDAO idao;
+	
+	@Autowired
+	@Qualifier("memberDAO")
+	MemberDAO mdao;
 	
 	@Autowired
 	MyUtil myUtil;
@@ -119,6 +124,8 @@ public class InventController {
 		String searchKey = request.getParameter("searchKey");
 		String searchValue = request.getParameter("searchValue");
 		
+		System.out.println(dto.getgNo());
+		
 		if(searchKey == null){
 			
 			searchKey = "gSubject";
@@ -134,12 +141,14 @@ public class InventController {
 		
 		//전체데이터갯수
 		int dataCount = 0;
-		dataCount = dao.getDataCount(searchKey, searchValue);
+		dataCount = indao.getDataCount(searchKey, searchValue,dto.getgNo(), boardName);
+		
+		request.setAttribute("gNo",dto.getgNo());                    //중간에보냄
 		
 		//전체페이지수
 		int numPerPage = 9;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
-		
+		System.out.println("idea : "+dataCount);
 		
 		if(currentPage > totalPage)
 			currentPage = totalPage;
@@ -170,7 +179,7 @@ public class InventController {
 				+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 		
-		String listUrl = cp + "/group/list.action";
+		String listUrl = cp + "/group/idea.action";
 		if(!param.equals("")){
 			listUrl = listUrl + "?" + param;				
 		}
@@ -187,7 +196,7 @@ public class InventController {
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
 		
-		
+		System.out.println(dto.getgNo());
 		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);
@@ -195,6 +204,7 @@ public class InventController {
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		request.setAttribute("boardName", boardName);
+
 		
 		return "board/list";
 	}
@@ -230,7 +240,9 @@ public class InventController {
 		
 		//전체데이터갯수
 		int dataCount = 0;
-		dataCount = dao.getDataCount(searchKey, searchValue);
+		dataCount = indao.getDataCount(searchKey, searchValue,dto.getgNo(), boardName);
+		
+		request.setAttribute("gNo",dto.getgNo());                    //중간에보냄
 		
 		//전체페이지수
 		int numPerPage = 9;
@@ -266,7 +278,7 @@ public class InventController {
 				+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 		
-		String listUrl = cp + "/group/list.action";
+		String listUrl = cp + "/group/sketch.action";
 		if(!param.equals("")){
 			listUrl = listUrl + "?" + param;				
 		}
@@ -326,7 +338,10 @@ public class InventController {
 		
 		//전체데이터갯수
 		int dataCount = 0;
-		dataCount = dao.getDataCount(searchKey, searchValue);
+		dataCount = indao.getDataCount(searchKey, searchValue,dto.getgNo(), boardName);
+		
+		request.setAttribute("gNo",dto.getgNo());                    //중간에보냄
+		
 		
 		//전체페이지수
 		int numPerPage = 9;
@@ -362,7 +377,7 @@ public class InventController {
 				+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 		
-		String listUrl = cp + "/group/list.action";
+		String listUrl = cp + "/group/3D.action";
 		if(!param.equals("")){
 			listUrl = listUrl + "?" + param;				
 		}

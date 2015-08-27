@@ -89,14 +89,17 @@ A:hover {text-decoration:none}
 	    <h3 style="color: #ff4b46">Good Idea</h3>      
 	    <p style="color: #ff4b46">당신의 아이디어가 현실이 됩니다.</p>
 	    <c:choose>
-			<c:when test="${empty logInfo.gno}">
-			 	<a href="<%=cp %>/group/created.action" class="btn btn-danger btn-lg">Start Invent</a>
+			<c:when test="${logInfo.gno == 0}">
+			 	<a href="<%=cp %>/group/created.action?boardName=${boardName}" class="btn btn-danger btn-lg">Start Invent</a>
 			</c:when>
 			<c:when test="${boardName=='group'}">
 			 	
 			</c:when>
+			<c:when test="${logInfo.gno == gNo }">
+				<a href="<%=cp %>/group/created.action?boardName=${boardName}" class="btn btn-danger btn-lg">Write</a>
+			</c:when>
 			<c:otherwise>
-			 	<a href="<%=cp %>/group/created.action?boardName=${boardName}" class="btn btn-danger btn-lg">Write</a>
+			
 			</c:otherwise>
 		</c:choose>      
 	  </div>

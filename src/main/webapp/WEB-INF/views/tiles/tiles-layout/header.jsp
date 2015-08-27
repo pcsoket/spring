@@ -23,7 +23,7 @@
 		<div style="padding-top: 5px; float: left; width: 1000px;">
 			<ul class="nav nav-tabs" style="float: left;">
 			    <li class="active"><a href="<%=cp %>/category.action">Shop</a></li>
-			    <li><a href="<%=cp %>/ideaMain.action">Invent</a></li>
+			    <li><a href="<%=cp %>/ideamain.action">Invent</a></li>
 		  	</ul>
 	<div align="right">
     	<ul id="nav navbar-nav navbar-right" style="width: 200px; padding-top: 20px; margin-bottom: 0px; margin-right: 100px;">
