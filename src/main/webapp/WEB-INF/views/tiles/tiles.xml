@@ -25,8 +25,8 @@
    <definition name="productWrite" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/productWrite.jsp" />
    </definition>
-   <definition name="shop" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/shop.jsp" />
+  <definition name="shop" extends="template">
+     <put-attribute name="content" value="/WEB-INF/views/shop.jsp" /> 
    </definition>
    <definition name="basket" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/basket.jsp" />

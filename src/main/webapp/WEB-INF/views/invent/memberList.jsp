@@ -89,17 +89,6 @@ function searchId() {
 <div style="width: 100%;">
 	<form action="" name="search" method="post">
 
-<!-- 검색 -->
-<div align="left">
-<select name="searchKey">
-	<option value="mid"> I D </option>
-	<option value="mSelf"> mySelf </option>
-</select>
-<input type="text" name="searchValue"/>
-<input type="button" value="검색" onclick="searchId();"/>
-</div>
-</form>
-
 		
 <!--이미지 갤러리  -->
 
@@ -107,9 +96,9 @@ function searchId() {
 	<div class="banner-inner">
 		<div style="width: 100%; max-width: 1536;">
 		<h1 style="padding-top: 2rem; font-size: 2.25rem;">
-			<span class="banner-heading-tape">Tap into</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="banner-heading-tape">Tap into</span>
 			<br/>
-			<span class="banner-heading-tape">the community</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;<span class="banner-heading-tape">the community</span>
 		</h1>			
 		</div>
 	</div>
@@ -132,6 +121,21 @@ function searchId() {
 	  <img src="/god/resources/image/슬라이드5.png">
 	</div>
 
+<!-- 검색 -->
+<div align="left">
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<select name="searchKey" style="height: 30px; width: 60px;">
+	<option value="mid"> I D </option>
+	<option value="mSelf"> mySelf </option>
+</select>
+<input type="text" name="searchValue" style="height: 30px; width: 176px;"/>
+<button style="margin-left:5px; height: 30px; width: 45px; padding: 0px; margin-bottom: 3px;" class="btn btn-danger btn-lg" onclick="searchId();">
+	<span class="glyphicon glyphicon-search"></span><!-- 검색 -->
+</button>
+
+</div>
+</form>
+
+<br/>
 
 	<div style="border:1px solid; border-color: #8C8C8C; margin-top: 1px;">
 	</div>

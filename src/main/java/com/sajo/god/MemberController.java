@@ -111,7 +111,7 @@ public class MemberController {
 		
 		dao.insertData(dto);
 
-		return "shop";
+		return "category";
 	}
 	
 	//È¸¿ø Å»Åð ÄÚµù

@@ -299,8 +299,8 @@ float: right;
 				</div>
 			<div class="basicInfo_contentWrap">
  					<div class="basicInfo_title">프로필 사진</div> 
-					<div style="width: 150px; height: 100px;" class="basicInfo_content"> 
-					<img style=" width: 100px; height: 110px;" id="img_preview" src="${dto.userPimg}"/> 
+					<div style="width: 150px; height: 200px;" class="basicInfo_content"> 
+					<img style=" width: 100px; height: 110px; float: right;" id="img_preview" src="${dto.userPimg}"/> 
  					<font style="color: black;"><input type="file" id="file1"  name="file2"/></font></div>
 				</div> 
 				<div class="basicInfo_contentWrap">
