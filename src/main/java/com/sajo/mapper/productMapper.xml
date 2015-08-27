@@ -17,10 +17,17 @@
 </insert>
 
 <!-- 전체데이터 갯수 -->
+<<<<<<< HEAD
+<select id="p_getDataCount" parameterType="hashMap" resultType="int">
+	select nvl(count(*),0) from product
+	where ${searchKey} like '%' || #{searchValue} || '%'
+</select>
+=======
  <select id="p_getDataCount" parameterType="hashMap" resultType="int">
 	select nvl(count(*),0) from product
 	where ${searchKey} like '%' || #{searchValue} || '%'
 </select> 
+>>>>>>> ba7b305d4e869373bed6d8db19752d8323ebbdb8
 
 <!-- 모든 데이터 -->
 <select id="p_getLists" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">
@@ -62,6 +69,18 @@
 	select rownum rnum, data.* from (
 	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock,pImg from product
 	order by pHitCount desc) data)
+	<![CDATA[
+	where rnum>=#{start} and rnum<=#{end}
+	]]>
+	
+</select>
+
+<!-- 추천 데이터 -->
+<select id="p_getListsGrade" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">	
+	select * from(
+	select rownum rnum, data.* from (
+	select pNum,pCategory,pName,pPrice,pGrade,pHitCount,pContent,pStock,pImg from product
+	order by pGrade desc) data)
 	<![CDATA[
 	where rnum>=#{start} and rnum<=#{end}
 	]]>

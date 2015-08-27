@@ -13,10 +13,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>카테고리</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">   <!-- 이거 뭐지? -->
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 <!-- fotorama.css & fotorama.js. -->
 <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"> <!-- 3 KB -->
@@ -221,13 +217,13 @@ padding: 0;
 		<div id="menu_ex">
 			<table height="397" width="380" >
 				<tr>
-					<td bgcolor="red">A</td>
+					<td height="247">
+					<img src="<%=cp%>/resources/image/kko.png">
+					</td>
+				
 				</tr>
 				<tr>
-					<td bgcolor="blue">B</td>
-				</tr>
-				<tr>
-					<td bgcolor="yellow">C</td>
+					<td height="150"><img src="<%=cp%>/resources/image/8888.png"></td>
 				</tr>
 			</table>
 		</div>
@@ -238,10 +234,10 @@ padding: 0;
 		     data-allowfullscreen="false"
 		     data-nav="false">
 	
-		<img src="<%=cp%>/resources/image/617x397/617_1.jpg">
-		<img src="<%=cp%>/resources/image/617x397/617_2.jpg">
-		<img src="<%=cp%>/resources/image/617x397/617_3.jpg">
-		<img src="<%=cp%>/resources/image/617x397/617_4.jpg">
+		<img src="<%=cp%>/resources/image/2000_1.PNG">
+		<img src="<%=cp%>/resources/image/2000_2.PNG">
+		<img src="<%=cp%>/resources/image/2000_3.PNG">
+		<img src="<%=cp%>/resources/image/2000_4.PNG">
 		</div>
 	</div>
 	

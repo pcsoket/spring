@@ -11,23 +11,9 @@
 <html>
 <head>
 <title>카테고리</title>
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
  
   <script>
-		$(document).ready(function(){
-    		$(".menu1").click(function(){
-        		$(".category1").toggle(200);
-    		});
-		});
 		
-		$(document).ready(function(){
-    		$(".menu2").click(function(){
-        		$(".category3").toggle(200);
-    		});
-		});
 		
 		function p(a) {
 			
@@ -74,7 +60,6 @@
 	display: none;
 	}
 .category2{
-	border: 1px solid #EAEAEA;
 	height: 200px;
 	width: 200px;
 	}
@@ -149,13 +134,13 @@
 	
 		<c:forEach var="dto" items="${idea_categorylists}">	
 			<td width="200px" height="300px" align="center" class="category2">
-					<img alt="" src="${dto.pImg}" width="200" height="200" />	
+					<img alt="" src="${dto.pImg}" width="240" height="200"  style="padding-left: 20px;padding-right: 25px;"/>	
 					<font color="#8b4513 "; style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href="${articleUrl}&pNum=${dto.pNum}">
 						${dto.pName}<br>${dto.pPrice}원</a></font></td>
 						
 						<%
-							if(i%4==0){
+							if(i%3==0){
 							out.print("</tr><tr>");
 							}
 							i++;
