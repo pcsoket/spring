@@ -90,14 +90,14 @@ public class ProductController {
 				dao.p_getListsHitCount(start,end);
 		
 		List<ProductDTO> recommandlists = 
-				dao.p_getListsHitCount(start,end);
+				dao.p_getListsGrade(start,end);
 		
 		List<ProductDTO> ideahitcountlists = 
 				dao.p_getListsIdeaHitCount(start,end,"아이디어");
 		
 		//첫번째 이미지만 골라서 넣어줌.
 		lists = idao.imageForPList(lists);
-		/*categorylists = idao.imageForList(categorylists);*/
+		recommandlists = idao.imageForPList(recommandlists);
 		hitcountlists = idao.imageForPList(hitcountlists);
 		ideahitcountlists = idao.imageForPList(ideahitcountlists);
 
@@ -181,7 +181,7 @@ public class ProductController {
 		
 		System.out.println(dataCount);
 		//전체페이지수
-		int numPerPage = 16;
+		int numPerPage = 12;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
 		
 		if(currentPage > totalPage)
