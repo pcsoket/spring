@@ -73,6 +73,17 @@ public int getDataCount(String dong){
 		
 	}
 	
+	public void gnoUpdate(int gno,String userId){
+		
+		HashMap<String, Object>params = new HashMap<String, Object>();
+		
+		params.put("gno", gno);
+		params.put("userId", userId);
+		
+		sessionTemplate.update("com.sajo.member.sql.gnoUpdate", params);
+		
+	}
+	
 public List<MemberDTO> getTotalReadData(int start,int end,String searchKey,String searchValue){
 		
 	HashMap<String, Object> params = new HashMap<String, Object>();

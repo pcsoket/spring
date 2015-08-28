@@ -9,6 +9,6 @@
 		select mid as userId,mpwd as userPwd,gno from member where mid=#{userId}
 	</select>
 	<select id="getListId" parameterType="hashmap" resultType="com.sajo.dto.LoginDTO">
-		select mid as userId,mpwd as userPwd from member where mname=#{userName} and memail=#{userEmail} 
+		select mid as userId,mpwd as userPwd, gno from member where mname=#{userName} and memail=#{userEmail} 
 	</select>
 	</mapper>

@@ -65,5 +65,22 @@ public class InventDAO {
 			return lists;
 			
 		}
+		
+		
+		//전체 데이터수 구하기
+		public int getDataCount(String searchKey,String searchValue,int gNo,String boardName){
+					
+			HashMap<String, Object> params = new HashMap<String, Object>();
+			
+			params.put("searchKey", searchKey);
+			params.put("searchValue", searchValue);
+			params.put("gNo", gNo);
+			params.put("boardName",boardName);
+			
+			int result = sessionTemplate.selectOne("com.sajo.invent.getDataCount",params);
+							
+			return result;
+			
+		}
 
 }

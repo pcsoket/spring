@@ -29,6 +29,13 @@
 	where rnum>=#{start} and rnum<=#{end}
 ]]>
 </select>
+
+<!-- 데이터갯수 -->
+<select id="getDataCount" parameterType="hashMap" resultType="int">
+	select nvl(count(*),0) from ideaGroup
+	where gNo=#{gNo} and boardname=#{boardName} and ${searchKey} like '%' || #{searchValue} || '%'
+</select>
+
 	
 	
 	

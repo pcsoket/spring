@@ -24,6 +24,7 @@ import com.sajo.util.MyUtil;
 import com.sajo.dao.CommentDAO;
 import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
+import com.sajo.dao.MemberDAO;
 
 @Controller
 public class GroupController {
@@ -39,6 +40,10 @@ public class GroupController {
 	@Autowired
 	@Qualifier("imageDAO")
 	ImageDAO idao;
+	
+	@Autowired
+	@Qualifier("memberDAO")
+	MemberDAO mdao;
 	
 	@Autowired
 	MyUtil myUtil;
@@ -93,18 +98,66 @@ public class GroupController {
 		System.out.println(dto.getgSubject());
 		dto.setmId(logInfo.getUserId());
 		dto.setgNum(maxNum+1);
-		dto.setgNo(gnoMaxNum+1);
-		dto.setImgNum(imgNum);                     // 이미지테이블에서 가져올 이미지들의 넘버
+		System.out.println("gno" + logInfo.getGno());
+		
+		
+		if(logInfo.getGno() != 0){	
+			
+			dto.setgNo(logInfo.getGno());
+			
+		}else{
+			
+			dto.setgNo(gnoMaxNum + 1);
+			System.out.println("list : "+dto.getgNo());
+			mdao.gnoUpdate(dto.getgNo(), logInfo.getUserId());
+			session.setAttribute("logInfo", logInfo);
+			
+		}
+		dto.setImgNum(imgNum);  // 이미지테이블에서 가져올 이미지들의 넘버
+		
+		
+	
+		
 		if(boardName.equals("group")){
 			dto.setBoardName("group");                 // group,idea,3d,sketch
+			
+			dao.insertData(dto);
+			
+			return "redirect:/group/list.action";
+			
+		}else if(boardName.equals("idea")){
+			
+			dto.setBoardName(boardName);
+			
+			dao.insertData(dto);
+			
+			request.setAttribute("dto", dto);
+			
+			return "redirect:/group/idea.action?gNo=" + dto.getgNo() + "&boardName=" + dto.getBoardName();
+		
+		}else if(boardName.equals("sketch")){
+			
+			dto.setBoardName(boardName);
+			
+			dao.insertData(dto);
+			
+			request.setAttribute("dto", dto);
+			
+			return "redirect:/group/sketch.action";
+			
+			
 		}else{
 			
 			dto.setBoardName(boardName);
+			
+			dao.insertData(dto);
+			
+			request.setAttribute("dto", dto);
+			
+			return "redirect:/group/3D.action";
+			
 		}
 		
-		dao.insertData(dto);
-		
-		return "redirect:/group/list.action";
 		
 	}
 	

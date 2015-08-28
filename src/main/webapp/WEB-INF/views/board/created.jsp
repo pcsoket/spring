@@ -53,6 +53,20 @@
 			list:"#file-list" //파일목록을 출력할 요소 지정가능
 		});
 	});
+	
+	$(function(){
+		//폼전송 : 해당폼의 submit 이벤트가 발생했을경우 실행  
+	    $('#myForm').ajaxForm({
+	       cache: false,
+	       dataType:"json",
+	       //ajax error
+	       error: function(e){
+	           alert("에러발생!!");
+	           console.log(e);
+	       }
+		});
+	});
+	
 </script>
 
 <style type="text/css">
@@ -92,7 +106,7 @@
 	<tr height="100px"></tr>
 	
 	<tr height="40px"> 
-		<td class="line3" colspan="2"><font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="10px"><b>글 쓰기</b></font></td>
+		<td class="line3" colspan="2"><font color="#8b4513 " style="font-family: 나눔손글씨 붓; size :10pt;"><b>글 쓰기</b></font></td>
 	</tr>
 	<tr height="20px"></tr>
 	
@@ -102,7 +116,7 @@
 		class="border1"/></td>
 	</tr>
 	<tr>
-		<td>
+		<td><input type="hidden" name="boardName" value="${boardName }">
 		<input type="file"  name="upload" size="58" maxlength="100" class="boxTF" onchange=""/>
         <div id="file-list" style="border:2px solid #c9c9c9;min-height:50px"></div> 
 		</td>
@@ -135,7 +149,7 @@
     </tr>
     </table>
 
-<script>
+<!-- <script>
 	$(function(){
 		//폼전송 : 해당폼의 submit 이벤트가 발생했을경우 실행  
 	    $('#myForm').ajaxForm({
@@ -148,7 +162,7 @@
 	       }
 		});
 	});
-</script>
+</script> -->
 </form>
 </body>
 </html>
