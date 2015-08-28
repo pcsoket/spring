@@ -291,7 +291,7 @@
 </div>
 
 <!-- 댓글 등록 -->
-	<div style="margin-top: 40px; width: 1000px;">
+	<div style="margin-top: 40px; width: 1000px;" align="center">
 		<div align="center" style="width: 900px; float: left; margin-bottom:10px; border-bottom: solid 2px #ddd">
 		
 			<div align="left" style="width: 800px; padding-left: 20px; padding-bottom: 20px;">
