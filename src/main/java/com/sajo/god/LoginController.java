@@ -84,6 +84,15 @@ public class LoginController {
 		return "redirect:/shopmain.action";
 	}
 	
+	@RequestMapping(value="/logout1.action")
+	public String logout1(HttpServletRequest req,HttpServletResponse resp,HttpSession session,LoginDTO dto){
+		
+		session.removeAttribute("logInfo");
+		session.invalidate();
+		
+		return "redirect:/ideaMain.action";
+	}
+	
 	@RequestMapping(value="/findId.action")
 	public String findId(){
 		

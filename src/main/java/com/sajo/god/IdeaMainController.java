@@ -82,6 +82,8 @@ public class IdeaMainController {
 		List<MainListDTO> idealists = idao.imageForMlList(dao.getIdeaReadData());
 		req.setAttribute("idealists", idealists);
 		
+	
+		
 		//complate ¼øÀ§
 		
 		return "ideamain";
