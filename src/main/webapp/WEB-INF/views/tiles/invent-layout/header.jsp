@@ -51,7 +51,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" style="font-size: 20pt; margin-top: 5px;" href="<%=cp %>/ideaMain.action"><img src="/god/resources/image/goodidea.png"></a>
+      <a class="navbar-brand" style="font-size: 20pt; margin-top: 5px; padding: 0px;" href="<%=cp %>/ideaMain.action">
+      <img style="width: 120px; height: 60px; padding-bottom: 10px;" src="/god/resources/image/goodidea.png"></a>
     </div>
     <div>
       <ul class="nav nav-pills nav-justified" style="padding-top: 10px; padding-bottom: 10px;" >

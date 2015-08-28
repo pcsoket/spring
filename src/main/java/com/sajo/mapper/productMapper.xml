@@ -17,17 +17,12 @@
 </insert>
 
 <!-- 전체데이터 갯수 -->
-<<<<<<< HEAD
-<select id="p_getDataCount" parameterType="hashMap" resultType="int">
-	select nvl(count(*),0) from product
-	where ${searchKey} like '%' || #{searchValue} || '%'
-</select>
-=======
+
  <select id="p_getDataCount" parameterType="hashMap" resultType="int">
 	select nvl(count(*),0) from product
 	where ${searchKey} like '%' || #{searchValue} || '%'
 </select> 
->>>>>>> ba7b305d4e869373bed6d8db19752d8323ebbdb8
+
 
 <!-- 모든 데이터 -->
 <select id="p_getLists" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">

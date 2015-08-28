@@ -11,6 +11,7 @@
 </head>
 <body>
 <div>
+	<form action="" method="post" name="myForm">
 	<div align="center" style=" margin:0 auto; width: 100%; padding-top: 15px; "> <!-- 전체 감싸기 -->
 		<div class="container" style="text-align: left;">
 			<div class="jumbotron" align="center" style="height: 400px;"> <!-- 참여중인 프로젝트 -->
@@ -31,7 +32,7 @@
 					 			<div class="jumbotron" align="center">
 									<h3>Good Idea</h3>      
 									<p>당신의 아이디어가 현실이 됩니다.</p>
-									<a href="<%=cp %>/group/created.action" class="btn btn-info btn-lg">Start Invent</a>
+									<a href="<%=cp %>/group/created.action?boardName=group" class="btn btn-info btn-lg">register group</a>
 								</div>
 							</div>
 						</c:otherwise>
@@ -39,7 +40,9 @@
 				</div>
 			</div>
 		</div>
-	</div>		
+	</div>	
+	</form>
+		
 	<div align="center" style="margin: 0 auto; width: 1150px; padding-top: 15px; padding-left: 5px;">
 		<div>
 			<div style=" border: solid 1px ; width: 560px; height: 400px; float: left;"> <!-- 인기idea -->

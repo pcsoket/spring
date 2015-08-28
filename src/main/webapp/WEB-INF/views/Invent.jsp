@@ -29,7 +29,7 @@ function modelsendIt() {
 	 
 	 
 	 //
-	 f.action ="<%=cp%>/group/3D.action?pageNum="+'${pageNum}' + "&gNo=" +'${gNo}';
+	 f.action ="<%=cp%>/group/sketch.action?pageNum="+'${pageNum}' + "&gNo=" +'${gNo}';
 	 <%-- f.action ="<%=cp%>/group/article.action?pageNum="+'${pageNum}' + "&gNum=" +'${gNum}'; --%>
 	 f.submit();
 	
