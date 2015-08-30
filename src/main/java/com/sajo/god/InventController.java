@@ -105,7 +105,7 @@ public class InventController {
 		req.setAttribute("gNum", gNum);
 		req.setAttribute("gNo", gno);
 		
-		return "Invent";
+		return "invent";
 	}
 			
 	@RequestMapping(value="/group/idea.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -206,7 +206,7 @@ public class InventController {
 		request.setAttribute("boardName", boardName);
 
 		
-		return "board/list";
+		return "board/list_idea";
 	}
 	
 	@RequestMapping(value="/group/sketch.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -304,7 +304,7 @@ public class InventController {
 		request.setAttribute("articleUrl",articleUrl);
 		request.setAttribute("boardName", boardName);
 		
-		return "board/list";
+		return "board/list_sketch";
 	}
 	
 	@RequestMapping(value="/group/3D.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -403,7 +403,7 @@ public class InventController {
 		request.setAttribute("articleUrl",articleUrl);
 		request.setAttribute("boardName", boardName);
 		
-		return "board/list";
+		return "board/list_3d";
 	}
 		
 }
