@@ -16,20 +16,10 @@
 	values (#{pNum},#{pCategory},#{pName},#{pPrice},0,0,#{pContent},#{pStock},#{pImg})
 </insert>
 
-<!-- 전체데이터 갯수 -->
-<<<<<<< HEAD
-<select id="p_getDataCount" parameterType="hashMap" resultType="int">
-	select nvl(count(*),0) from product
-	where ${searchKey} like '%' || #{searchValue} || '%'
-</select>
-=======
-
  <select id="p_getDataCount" parameterType="hashMap" resultType="int">
 	select nvl(count(*),0) from product
 	where ${searchKey} like '%' || #{searchValue} || '%'
 </select> 
->>>>>>> 9dd1a5e30aa931d83d90600db5e9b052d68e1cc4
-
 
 <!-- 모든 데이터 -->
 <select id="p_getLists" parameterType="hashMap" resultType="com.sajo.dto.ProductDTO">
