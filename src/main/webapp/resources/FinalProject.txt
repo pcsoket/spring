@@ -114,3 +114,13 @@ uploadFileName VARCHAR2(200) NOT NULL,
 saveFileName VARCHAR2(200) NOT NULL,
 originalFileName VARCHAR2(200) NOT NULL);
 
+
+CREATE TABLE contribute
+(imgnum NUMBER PRIMARY KEY,
+gnum NUMBER,
+gno NUMBER NOT NULL,
+userId VARCHAR2(12) NOT NULL,
+saveFileName VARCHAR2(200) NOT NULL,
+originalFileName VARCHAR2(200) NOT NULL);
+
+

@@ -14,7 +14,7 @@
   <body>
     <div id="container">
     <div><tiles:insertAttribute name="header"></tiles:insertAttribute></div>
-    <div><tiles:insertAttribute name="leftMenu"></tiles:insertAttribute></div>
+    <div style="width: 200px;"><tiles:insertAttribute name="leftMenu"></tiles:insertAttribute></div>
     <div><tiles:insertAttribute name="content"></tiles:insertAttribute></div>
     <div><tiles:insertAttribute name="footer"></tiles:insertAttribute></div>
     </div>
