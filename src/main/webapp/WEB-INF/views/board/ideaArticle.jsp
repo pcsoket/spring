@@ -8,13 +8,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 아이디어 상세 보기</title>
-
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 <!-- fotorama.css & fotorama.js. -->
 <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"/> <!-- 3 KB -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
-
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-
 
 <script type="text/javascript">
 <%--  function commCreated() {
@@ -46,9 +43,9 @@ function gnoDelete() {
 		listPage(1);//1페이지 호출
 		
 	});
-alert(1);
+
 	$(document).ready(function(){
-	alert(2);
+	
 		$("#sendButton").click(function(){
 			alert(${dto.gNum});
 			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+ "&cmContent=" + $("#content").val();
@@ -105,6 +102,7 @@ alert(1);
 		
 	});
 	
+	
 	function showRequest(){//유효성 검사
 		
 		var name = $.trim($("#name").val());
@@ -137,7 +135,7 @@ alert(1);
 	} 
 	
 
-	function listPage(gNum){
+	function listPage(page){
 		
 		var url ="<%=cp%>/comm/list.action";
 		
@@ -180,6 +178,16 @@ alert(1);
 		});
 		
 		$("#commList").show();
+		
+		
+	}
+	
+	/* completed로 넘기기 */
+	
+	function completed() {
+		
+		var f = document.MyForm;
+		
 		
 		
 	}
@@ -228,6 +236,10 @@ alert(1);
 		<c:if test="${logInfo.gno==gNo}">
 			<input type="button" value="그룹탈퇴" onclick="gnoDelete();"/>
 			</c:if>
+			<c:if test="${boardName=='3D' }">
+				<input type="button" name="completed" value="completed" onclick="completed();">			
+			</c:if>
+			
 		</div>
 		</div>
 		<br/>
