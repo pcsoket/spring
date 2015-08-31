@@ -426,15 +426,7 @@ public class InventController {
 		return "";
 	}
 
-	@RequestMapping(value="/completed.action")
-	public String completed(HttpServletRequest req,HttpServletResponse resp, HttpSession session) throws Exception{
-		
-		List<CompletedDTO> lists = cpdao.getbest();
-		
-		req.setAttribute("clists", lists);
-		
-		return "invent/completed";
-	}
+	
 	
 		
 
