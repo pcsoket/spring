@@ -38,5 +38,6 @@
 		<mapper resource="com/sajo/mapper/memberMapper.xml"/>
 		<mapper resource="com/sajo/mapper/productMapper.xml"/>
 		<mapper resource="com/sajo/mapper/purchaseMapper.xml"/>
+		<mapper resource="com/sajo/mapper/contributionMapper.xml"/>
 	</mappers>
 </configuration>
