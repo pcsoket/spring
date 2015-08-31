@@ -116,11 +116,11 @@ function searchId() {
 
 
 	<div class="fotorama" data-autoplay="3000" data-loop="true" data-width="100%"> 
-	  <img src="/god/resources/image/슬라이드1.png">
-	  <img src="/god/resources/image/슬라이드2.png">
-	  <img src="/god/resources/image/슬라이드3.png">
-	  <img src="/god/resources/image/슬라이드4.png">
-	  <img src="/god/resources/image/슬라이드5.png">
+	  <img src="/god/resources/image/slide1.png">
+	  <img src="/god/resources/image/slide2.png">
+	  <img src="/god/resources/image/slide3.png">
+	  <img src="/god/resources/image/slide4.png">
+	  <img src="/god/resources/image/slide5.png">
 	</div>
 
 <!-- 검색 -->
