@@ -3,7 +3,7 @@ package com.sajo.dto;
 public class MainListDTO {
 	
 	private String gcontent,imgNum,userId,gsubject,imageoriginalFile,boardName;
-	private int ghitCount,gnum;
+	private int ghitCount,gNum,gNo; 
 	
 	
 	public String getImageoriginalFile() {
@@ -12,11 +12,17 @@ public class MainListDTO {
 	public void setImageoriginalFile(String imageoriginalFile) {
 		this.imageoriginalFile = imageoriginalFile;
 	}
-	public int getGnum() {
-		return gnum;
+	public String getGcontent() {
+		return gcontent;
 	}
-	public void setGnum(int gnum) {
-		this.gnum = gnum;
+	public void setGcontent(String gcontent) {
+		this.gcontent = gcontent;
+	}
+	public String getImgNum() {
+		return imgNum;
+	}
+	public void setImgNum(String imgNum) {
+		this.imgNum = imgNum;
 	}
 	public String getUserId() {
 		return userId;
@@ -30,12 +36,6 @@ public class MainListDTO {
 	public void setGsubject(String gsubject) {
 		this.gsubject = gsubject;
 	}
-	public String getGcontent() {
-		return gcontent;
-	}
-	public void setGcontent(String gcontent) {
-		this.gcontent = gcontent;
-	}
 	public String getBoardName() {
 		return boardName;
 	}
@@ -48,12 +48,19 @@ public class MainListDTO {
 	public void setGhitCount(int ghitCount) {
 		this.ghitCount = ghitCount;
 	}
-	public String getImgNum() {
-		return imgNum;
+	public int getgNum() {
+		return gNum;
 	}
-	public void setImgNum(String imgNum) {
-		this.imgNum = imgNum;
+	public void setgNum(int gNum) {
+		this.gNum = gNum;
 	}
+	public int getgNo() {
+		return gNo;
+	}
+	public void setgNo(int gNo) {
+		this.gNo = gNo;
+	}
+
 	
 	
 

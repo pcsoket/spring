@@ -22,7 +22,7 @@ public class IdeaMainDAO {
 		HashMap<String, Object> hMap = new HashMap<String, Object>();
 		
 		hMap.put("userId",userId);
-		hMap.put("board",boardName);
+		hMap.put("boardName",boardName);
 		
 		MainListDTO dto = sessionTemplate.selectOne("com.sajo.ideamainlist.getData",hMap);
 		
