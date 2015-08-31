@@ -167,9 +167,15 @@ public class ImageDAO {
     	 return lists;
     }
 	public String getImage(String imgnumlist) {   //배열로 넣은 이미지 파일 중 첫번째 가져오기
-    	
-	   	String[] imgNum = imgnumlist.split(",");
-	   	int imgNo = Integer.parseInt(imgNum[0]);
+    	int imgNo = 0;
+		System.out.println(imgnumlist);
+    	System.out.println(imgnumlist.indexOf(","));
+		if(imgnumlist.indexOf(",")==-1){
+			imgNo = Integer.parseInt(imgnumlist);
+		}else{
+			String[] imgNum = imgnumlist.split(",");
+	   		imgNo = Integer.parseInt(imgNum[0]);
+		}
 	
 	   	String img = imageUrl + sessionTemplate.selectOne("com.sajo.image.readImage",imgNo);//originalfilename으로 select
    	 
@@ -202,7 +208,8 @@ public class ImageDAO {
 			while(it.hasNext()){
 				
 				dto = it.next();
-				String img = imageUrl+getImage(dto.getImgNum());
+				System.out.println(dto.getImgNum()+":"+dto.getgNum());
+				String img = getImage(dto.getImgNum());
 				dto.setImgNum(img);
 				System.out.println(dto.getImgNum()+":"+img);
 			}
@@ -218,7 +225,7 @@ public class ImageDAO {
 			while(it.hasNext()){
 				
 				dto = it.next();
-				String img = imageUrl+getImage(dto.getImgNum());
+				String img = getImage(dto.getImgNum());
 				dto.setImgNum(img);
 				System.out.println(dto.getImgNum()+":"+img);
 			}

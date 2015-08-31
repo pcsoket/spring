@@ -81,7 +81,7 @@ public class LoginController {
 		session.removeAttribute("logInfo");
 		session.invalidate();
 		
-		return "redirect:/shopmain.action";
+		return "redirect:/category.action";
 	}
 	
 	@RequestMapping(value="/logout1.action")

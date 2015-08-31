@@ -33,7 +33,7 @@
 <select id="getLists" parameterType="hashMap" resultType="com.sajo.dto.GroupDTO">
 	select * from (
 	select rownum rnum, data.* from(
-	select gNum,mId,gSubject,gHitCount,to_char(gCreated,'YYYY-MM-DD') gCreated
+	select gNum,mId,gSubject,gHitCount,to_char(gCreated,'YYYY-MM-DD') gCreated,imgnum
 	from ideaGroup where boardName=#{boardName} and ${searchKey} like '%' || #{searchValue} || '%'
 	order by gNum desc) data)
 <![CDATA[
