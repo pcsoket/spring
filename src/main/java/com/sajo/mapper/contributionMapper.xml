@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.sajo.cont">
+	
+<!-- gNum의 최대값 -->
+<select id="maxNum" resultType="int">
+	select nvl(max(gNum),0) from ideaGroup	
+</select>
+
+<!-- gNum의 최대값 -->
+<select id="gnoMaxNum" resultType="int">
+	select nvl(max(gNo),0) from ideaGroup	
+</select>
+
+<!-- 데이터 입력 -->
+<insert id="insertData" parameterType="com.sajo.dto.GroupDTO">
+	insert into ideaGroup(gNo,gNum,gHitCount,mId,gSubject,imgnum,
+	gContent,gCreated,boardName,gRecomm) values (#{gNo},#{gNum},0,#{mId},#{gSubject},#{imgNum},
+	#{gContent},sysdate,#{boardName},0)
+</insert>
+
+<!-- contribution 수정 -->
+<update id="updateContribution" parameterType="int">
+	update contribution set gHitCount=gHitCount+1 where gNum=#{gNum}
+</update>
+	
+</mapper>
