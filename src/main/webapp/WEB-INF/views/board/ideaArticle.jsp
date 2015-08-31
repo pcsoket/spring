@@ -39,6 +39,8 @@ function gnoDelete() {
 	f.submit();
 	
 }  --%>
+
+
 	
 	$(function(){
 		listPage(1);//1페이지 호출
@@ -74,6 +76,31 @@ alert(1);
 			});
 			
 			
+		});
+		
+		
+		
+		/*  추천 버튼 */
+		$("#con_button").click(function(){
+			
+			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"
+	
+			$.ajax({
+				
+				type:"POST",
+				url:"<%=cp%>/contribute.action",
+				data:params,
+				success:function(args){
+					
+					$("#message").html(args);
+					
+				},
+				error:function(e){
+					alert(e.responseText);
+				}
+				
+			});
+		
 		});
 		
 	});
@@ -191,10 +218,14 @@ alert(1);
 			<br/>
 			<div style="width: 500px; height: 150px; padding-left: 15px; padding-right: 15px;">${dto.gContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
+			
+		<c:if test="${!empty logInfo}">
+			<input type="button" id="con_button" value="추천"/>
+		</c:if>
 		<c:if test="${logInfo.gno=='0'}">
 			<input type="button" value="그룹참여" onclick="gnoInsert();"/>
 			</c:if>
-		<c:if test="${logInfo.gno=='1'}">
+		<c:if test="${logInfo.gno==gNo}">
 			<input type="button" value="그룹탈퇴" onclick="gnoDelete();"/>
 			</c:if>
 		</div>
