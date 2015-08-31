@@ -50,7 +50,7 @@ function gnoDelete() {
 	$(document).ready(function(){
 	
 		$("#sendButton").click(function(){
-			
+
 			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+ "&cmContent=" + $("#content").val();
 
 
@@ -79,7 +79,7 @@ function gnoDelete() {
 		});
 		
 		
-		
+<%-- 		
 		/*  추천 버튼 */
 		$("#con_button").click(function(){
 			
@@ -101,11 +101,11 @@ function gnoDelete() {
 				
 			});
 		
-		});
+		}); --%>
 		
 	});
 	
-	function showRequest(){//유효성 검사
+/* 	function showRequest(){//유효성 검사
 		
 		var name = $.trim($("#name").val());
 		var content = $.trim($("#content").val());
@@ -135,9 +135,9 @@ function gnoDelete() {
 		
 		
 	} 
-	
+	 */
 
-	function listPage(gNum){
+	function listPage(page){
 		
 		var url ="<%=cp%>/comm/list.action";
 		
@@ -154,7 +154,7 @@ function gnoDelete() {
 		
 	}
 	
-	function updateRecomm(cmNum,page){
+<%-- 	function updateRecomm(cmNum,page){
 		
 		var url = "<%=cp%>/comm/updated_Recomm.action";
 		
@@ -182,7 +182,7 @@ function gnoDelete() {
 		$("#commList").show();
 		
 		
-	}
+	} --%>
 	
 
 

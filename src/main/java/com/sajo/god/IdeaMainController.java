@@ -44,10 +44,10 @@ public class IdeaMainController {
 		if(logInfo!=null){
 				int gno = logInfo.getGno();
 				String userId=logInfo.getUserId();
-			if(gno==1){
-				MainListDTO dto1 = dao.getData(userId,"group");
-				MainListDTO dto2 = dao.getData(userId,"3d");
-				MainListDTO dto3 = dao.getData(userId,"sketch");
+			if(gno!=0){
+				MainListDTO dto1 = dao.getData(userId,"idea");
+				MainListDTO dto2 = dao.getData(userId,"sketch");
+				MainListDTO dto3 = dao.getData(userId,"3D");
 				
 				if(dto1!=null){
 					System.out.println(dto1.getImgNum()+"00");

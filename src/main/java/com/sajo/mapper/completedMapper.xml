@@ -4,21 +4,21 @@
 	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
-<mapper namespace="com.sajo.mapper">
+<mapper namespace="com.sajo.completed">
 	
 <!-- gNum의 최대값 -->
 <select id="maxNum" resultType="int">
-	select nvl(max(gNum),0) from ideaGroup	
+	select nvl(max(gNum),0) from complete	
 </select>
 
 <!-- gNum의 최대값 -->
 <select id="gnoMaxNum" resultType="int">
-	select nvl(max(gNo),0) from ideaGroup	
+	select nvl(max(gNo),0) from complete	
 </select>
 
 <!-- 데이터 입력 -->
-<insert id="insertData" parameterType="com.sajo.dto.GroupDTO">
-	insert into ideaGroup(gNo,gNum,gHitCount,mId,gSubject,imgnum,
+<insert id="insertData" parameterType="com.sajo.dto.CompletedDTO">
+	insert into complete (gNo,gNum,gHitCount,mId,gSubject,imgnum,
 	gContent,gCreated,boardName,gRecomm) values (#{gNo},#{gNum},0,#{mId},#{gSubject},#{imgNum},
 	#{gContent},sysdate,#{boardName},0)
 </insert>
@@ -30,7 +30,7 @@
 </select>
 
 <!-- 모든 데이터 -->
-<select id="getLists" parameterType="hashMap" resultType="com.sajo.dto.GroupDTO">
+<select id="getLists" parameterType="hashMap" resultType="com.sajo.dto.CompletedDTO">
 	select * from (
 	select rownum rnum, data.* from(
 	select gNum,mId,gSubject,gHitCount,to_char(gCreated,'YYYY-MM-DD') gCreated
@@ -47,13 +47,13 @@
 </update>
 
 <!-- 한개의 데이터 -->
-<select id="getReadData" parameterType="int" resultType="com.sajo.dto.GroupDTO">
+<select id="getReadData" parameterType="int" resultType="com.sajo.dto.CompletedDTO">
 	select gNo,gNum,gHitCount,mId,gSubject,imgNum,
 	gContent,gCreated,boardName from ideaGroup where gNum=#{gNum}
 </select>
 
 <!-- 데이터 수정 -->
-<update id="updateData" parameterType="com.sajo.dto.GroupDTO">
+<update id="updateData" parameterType="com.sajo.dto.CompletedDTO">
 	update ideaGroup set gSubject=#{gSubject},
 	gContent=#{gContent} where gNum=#{gNum}
 </update>
@@ -66,8 +66,6 @@
 <delete id="c_deleteData" parameterType="int">
 	delete boardcomment where gNum=#{gNum}
 </delete>
-
-
 
 
 	
