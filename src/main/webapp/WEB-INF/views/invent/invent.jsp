@@ -73,6 +73,8 @@ function modelsendIt() {
     margin: 0 0.25em;
     padding: 0.5em;
     text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+    margin-left: 0px;
+    margin-right: 1000px;
 }
 
 .hidden{
@@ -117,12 +119,12 @@ function modelsendIt() {
 <div style="position: relative;">
 	<div class="banner-inner">
 		<div style="width: 100%; max-width: 1536;">
-		<h1 style="padding-top: 2rem;">
+		<h1 style="padding-top: 2rem; font-size: 24px;">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<span class="banner-heading-tape">Tap into</span>
 			<br/>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="banner-heading-tape">the community</span>
+			<span class="banner-heading-tape" style="margin-right: 938px;">the community</span>
 		</h1>			
 		</div>
 	</div>
@@ -137,7 +139,7 @@ function modelsendIt() {
 </div>
 
 
-	<div class="fotorama" data-autoplay="3000" data-loop="true" data-width="100%"> 
+	<div class="fotorama" data-autoplay="3000" data-loop="true" data-width="100%" style="width: 1170px; margin-right: 200px;"> 
 	  <img src="/god/resources/image/slide1.png">
 	  <img src="/god/resources/image/slide2.png">
 	  <img src="/god/resources/image/slide3.png">
