@@ -8,7 +8,8 @@
 <!-- 사용할 DB 선언 내용 -->
 	<properties>
 		<property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="url" value="jdbc:oracle:thin:@192.168.0.10:1521:XE"/>
+
+		<property name="url" value="jdbc:oracle:thin:@192.168.16.15:1521:TestDB"/>
 		<property name="username" value="god"/>
 		<property name="password" value="god"/>
 	</properties>
@@ -26,15 +27,16 @@
 	</environments>
 	<!-- 사용자 정의 sql 파일 -->
 	<mappers>
-		<mapper resource="com/sajo/mapper/memberMapper.xml"/>
 		<mapper resource="com/sajo/mapper/basketMapper.xml"/>
-		<mapper resource="com/sajo/mapper/purchaseMapper.xml"/>
-		<mapper resource="com/sajo/mapper/loginMapper.xml"/>
-		<mapper resource="com/sajo/mapper/productMapper.xml"/>
-		<mapper resource="com/sajo/mapper/imageMapper.xml"/>
-		<mapper resource="com/sajo/mapper/groupMapper.xml"/>
 		<mapper resource="com/sajo/mapper/commentMapper.xml"/>
+		<mapper resource="com/sajo/mapper/completedMapper.xml"/>
+		<mapper resource="com/sajo/mapper/groupMapper.xml"/>
 		<mapper resource="com/sajo/mapper/ideaMainMapper.xml"/>
+		<mapper resource="com/sajo/mapper/imageMapper.xml"/>
 		<mapper resource="com/sajo/mapper/inventMapper.xml"/>
+		<mapper resource="com/sajo/mapper/loginMapper.xml"/>	
+		<mapper resource="com/sajo/mapper/memberMapper.xml"/>
+		<mapper resource="com/sajo/mapper/productMapper.xml"/>
+		<mapper resource="com/sajo/mapper/purchaseMapper.xml"/>
 	</mappers>
 </configuration>

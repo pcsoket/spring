@@ -207,7 +207,11 @@ public class InventController {
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		request.setAttribute("boardName", boardName);
+
+		request.setAttribute("dto", dto);
+
 		request.setAttribute("gNo",gNo);
+
 
 		
 		return "board/list_idea";
@@ -415,5 +419,16 @@ public class InventController {
 	public String contribute_ok(GroupDTO dto,HttpServletRequest request, HttpServletResponse response) throws Exception{
 		return "";
 	}
+
+	@RequestMapping(value="/completed.action")
+	public String completed(HttpServletRequest req,HttpServletResponse resp, HttpSession session){
+		
+		
+		
+		return "invent/completed";
+	}
+	
+		
+
 }
 

@@ -104,6 +104,10 @@
    <definition name="board/list_3d" extends="group">
      <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
    </definition>
+   <definition name="invent/completed" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/invent/completed.jsp" />
+   </definition>
+   
    
    
    

@@ -17,15 +17,21 @@
 			<div class="jumbotron" align="center" style="height: 400px;"> <!-- 참여중인 프로젝트 -->
 			<font size="3pt;" style="margin:0 auto; margin-top:1px; float:left; text-align: left; font-family: 나눔손글씨 붓;"><b>참여중인 프로젝트</b></font>
 			<br/>
-				<div>
+				<div style="width: 800px;">
 					<c:choose>
-					<c:when test="${logInfo.gno==1}">
-					<img src="${ImageoriginalFile1}" style="width:200px; height:200px; border-radius:30%"/>
-					${dto1.gsubject}
-					<img src="${ImageoriginalFile2}" style="width:200px; height:200px; border-radius:30%" />
-					${dto2.gsubject}
-					<img src="${ImageoriginalFile3}" style="width:200px; height:200px; border-radius:30%" />
-					${dto3.gsubject}
+					<c:when test="${logInfo.gno!=0}">
+					<div style="float: left; padding-right: 15px;">
+					<div><img src="${ImageoriginalFile1}" style="width:200px; height:200px; border-radius:30%"/></div>
+					<div>${dto1.gsubject}</div>
+					</div>
+					<div style="float: left; padding-right: 15px;">
+					<div><img src="${ImageoriginalFile2}" style="width:200px; height:200px; border-radius:30%" /></div>
+					<div>${dto2.gsubject}</div>
+					</div>
+					<div>
+					<div><img src="${ImageoriginalFile3}" style="width:200px; height:200px; border-radius:30%" /></div>
+					<div>${dto3.gsubject}</div>
+					</div>
 					</c:when>
 						<c:otherwise>
 							<div class="container" >

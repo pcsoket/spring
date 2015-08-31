@@ -170,6 +170,8 @@ public class GroupController {
 		
 		String cp = request.getContextPath();
 		
+		String boardName = "group";
+		
 		String pageNum = request.getParameter("pageNum");
 		int currentPage = 1;
 		
@@ -208,7 +210,7 @@ public class GroupController {
 		int end = currentPage*numPerPage;
 		
 		List<GroupDTO> lists =
-			dao.getList(start, end, searchKey, searchValue);
+			dao.getList(start, end, searchKey, searchValue,boardName);
 		
 		ListIterator<GroupDTO> it = lists.listIterator();
 
@@ -244,8 +246,6 @@ public class GroupController {
 			
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
-		
-		String boardName="group";
 		
 		
 		//포워딩 될 페이지에 데이터를 넘긴다

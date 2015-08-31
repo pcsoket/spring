@@ -50,6 +50,9 @@ imgnum VARCHAR2(100));
 CREATE TABLE complete
 (gno NUMBER PRIMARY KEY,
 crecomm NUMBER,
+chitCount Number,
+ccategory VARCHAR2(20) NOT NULL,
+cprice NUMBER(8) NOT NULL,
 csubject VARCHAR2(50) NOT NULL,
 ccontent VARCHAR2(4000) NOT NULL,
 ccreated DATE NOT NULL,

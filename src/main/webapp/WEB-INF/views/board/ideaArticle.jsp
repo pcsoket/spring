@@ -46,11 +46,11 @@ function gnoDelete() {
 		listPage(1);//1페이지 호출
 		
 	});
-
+alert(1);
 	$(document).ready(function(){
-	
+	alert(2);
 		$("#sendButton").click(function(){
-			
+			alert(${dto.gNum});
 			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+ "&cmContent=" + $("#content").val();
 
 
