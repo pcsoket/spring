@@ -33,8 +33,8 @@
     color: #fff;
     display: inline-block;
     line-height: 1.5;
-    margin: 0 0 .25em;
-    padding: 0 .5em;
+    margin: 0 0.25em;
+    padding: 0.5em;
     text-shadow: 0 1px 0 rgba(0,0,0,0.15);
 }
 
