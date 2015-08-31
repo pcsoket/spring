@@ -20,16 +20,18 @@
 				<div style="width: 800px;">
 					<c:choose>
 					<c:when test="${logInfo.gno!=0}">
+					
 					<div style="float: left; padding-right: 15px;">
-					<div><img src="${ImageoriginalFile1}" style="width:200px; height:200px; border-radius:30%"/></div>
+					<div><a href="<%=cp %>/group/article.action?gNum=${dto1.gNum}" ><img src="${ImageoriginalFile1}" style="width:200px; height:200px; border-radius:30%"/></a></div>
 					<div>${dto1.gsubject}</div>
+					
 					</div>
 					<div style="float: left; padding-right: 15px;">
-					<div><img src="${ImageoriginalFile2}" style="width:200px; height:200px; border-radius:30%" /></div>
+					<div><a href="<%=cp %>/group/article.action?gNum=${dto2.gNum}"> <img src="${ImageoriginalFile2}" style="width:200px; height:200px; border-radius:30%" /></a></div>
 					<div>${dto2.gsubject}</div>
 					</div>
 					<div>
-					<div><img src="${ImageoriginalFile3}" style="width:200px; height:200px; border-radius:30%" /></div>
+					<div><a href="<%=cp %>/group/article.action?gNum=${dto3.gNum}"><img src="${ImageoriginalFile3}" style="width:200px; height:200px; border-radius:30%" /></a></div>
 					<div>${dto3.gsubject}</div>
 					</div>
 					</c:when>

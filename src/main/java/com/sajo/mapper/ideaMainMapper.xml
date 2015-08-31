@@ -7,7 +7,10 @@
 <mapper namespace="com.sajo.ideamainlist">
 
 <select id="getData" parameterType="hashMap" resultType="com.sajo.dto.MainListDTO">
-	select mid as userId,gsubject,gcontent,gnum,imgnum from ideagroup where mid=#{userId} and boardname=#{board}
+	select * from (
+	select rownum rnum, data.* from (
+	select gno,mid as userId,gsubject,gcontent,gnum,imgnum from ideagroup where mid=#{userId} and boardname=#{boardName} order by ghitcount desc) data)
+	where rnum = 1
 </select>
 <select id="getIdeaReadData" parameterType="String" resultType="com.sajo.dto.MainListDTO">
 		select * from (

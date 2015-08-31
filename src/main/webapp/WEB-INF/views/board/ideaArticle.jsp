@@ -198,9 +198,10 @@ function gnoDelete() {
 
 </head>
 <body>
+<div align="center" >
 <form action="" name="myForm" method="post">
 <!-- 전체 묶음 -->
-<div align="center" style="width: 1000px; margin-left: 300px;">
+<div style="width: 1000px; ">
 	
 	<div style="margin-top: 2px; width: 1000px; ">
 	 	<!-- 아이디어 이미지 -->
@@ -282,5 +283,7 @@ function gnoDelete() {
 </div>
 
 	</form>
+	
+</div>
 </body>
 </html>
