@@ -353,7 +353,7 @@ public class MemberController {
 		req.setAttribute("pageIndexList",pageIndexList);
 		req.setAttribute("dataCount",dataCount);
 		
-		return "invent/memberList";
+		return "memberList";
 		
 	}
 	

@@ -67,9 +67,7 @@
    <definition name="shopOrderList" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/shopOrderList.jsp" />
    </definition>
-   <definition name="board/list" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
-   </definition>
+
    
    
 
@@ -87,6 +85,9 @@
    </definition>
    <definition name="memberList" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/invent/memberList.jsp" />
+   </definition>
+      <definition name="board/list" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
    </definition>
    
    
