@@ -58,7 +58,7 @@
       <ul class="nav nav-pills nav-justified" style="padding-top: 10px; padding-bottom: 10px;" >
 	    <li><a href="<%=cp %>/group/list.action"><img src="/god/resources/image/Invent.png" style="margin-left: 20px;"></a></li>
 	    <li><a href="<%=cp %>/memberList.action"><img src="/god/resources/image/Community.png"></a></li>
-	    <li><a href="#"><img src="/god/resources/image/Completed.png"></a></li>
+	    <li><a href="<%=cp %>/completed.action"><img src="/god/resources/image/Completed.png"></a></li>
  	  </ul>
  	 </div>
   </div>

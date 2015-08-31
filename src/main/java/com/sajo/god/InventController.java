@@ -204,7 +204,7 @@ public class InventController {
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		request.setAttribute("boardName", boardName);
-
+		request.setAttribute("dto", dto);
 		
 		return "board/list";
 	}
@@ -405,6 +405,15 @@ public class InventController {
 		
 		return "board/list";
 	}
+	
+	@RequestMapping(value="/completed.action")
+	public String completed(HttpServletRequest req,HttpServletResponse resp, HttpSession session){
+		
+		
+		
+		return "invent/completed";
+	}
+	
 		
 }
 

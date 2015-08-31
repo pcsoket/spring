@@ -78,6 +78,10 @@
    <definition name="Invent" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/Invent.jsp" />
    </definition>
+   <definition name="invent/completed" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/invent/completed.jsp" />
+   </definition>
+   
    
    
    

@@ -47,7 +47,7 @@ public class GroupDAO {
 	
 	//전체데이터
 	public List<GroupDTO> getList(int start, int end,
-			String searchKey, String searchValue){
+			String searchKey, String searchValue,String boardName){
 		
 		HashMap<String, Object> params = new HashMap<String, Object>();
 		
@@ -55,6 +55,7 @@ public class GroupDAO {
 		params.put("end", end);
 		params.put("searchKey", searchKey);
 		params.put("searchValue", searchValue);
+		params.put("boardName", boardName);
 		
 		List<GroupDTO> lists = sessionTemplate.selectList("com.sajo.mapper.getLists",params);
 		
