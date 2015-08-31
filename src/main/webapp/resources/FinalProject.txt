@@ -119,10 +119,11 @@ originalFileName VARCHAR2(200) NOT NULL);
 
 
 CREATE TABLE contribution
-(gnum NUMBER PRIMARY KEY,
+(conNum NUMBER PRIMARY KEY,
+gnum NUMBER NOT NULL,
 gno NUMBER NOT NULL,
 userId VARCHAR2(12) NOT NULL,
-grecomm NUMBER not null
-);
+grecomm NUMBER not null,
+boardname varchar2(10) NOT NULL);
 
 
