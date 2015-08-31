@@ -44,7 +44,7 @@ public class ComController{
 	@RequestMapping(value="/test1.action")
 	public String test1(){
 		
-		return "test1";
+		return "main";
 	}
 
 
