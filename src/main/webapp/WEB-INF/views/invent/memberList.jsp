@@ -95,10 +95,12 @@ function searchId() {
 <div style="position: relative;">
 	<div class="banner-inner">
 		<div style="width: 100%; max-width: 1536;">
-		<h1 style="padding-top: 2rem; font-size: 2.25rem;">
-			&nbsp;&nbsp;&nbsp;&nbsp;<span class="banner-heading-tape">Tap into</span>
+		<h1 style="padding-top: 2rem;">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<span class="banner-heading-tape">Tap into</span>
 			<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;<span class="banner-heading-tape">the community</span>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<span class="banner-heading-tape">the community</span>
 		</h1>			
 		</div>
 	</div>
@@ -114,11 +116,11 @@ function searchId() {
 
 
 	<div class="fotorama" data-autoplay="3000" data-loop="true" data-width="100%"> 
-	  <img src="/god/resources/image/슬라이드1.png">
-	  <img src="/god/resources/image/슬라이드2.png">
-	  <img src="/god/resources/image/슬라이드3.png">
-	  <img src="/god/resources/image/슬라이드4.png">
-	  <img src="/god/resources/image/슬라이드5.png">
+	  <img src="/god/resources/image/slide1.png">
+	  <img src="/god/resources/image/slide2.png">
+	  <img src="/god/resources/image/slide3.png">
+	  <img src="/god/resources/image/slide4.png">
+	  <img src="/god/resources/image/slide5.png">
 	</div>
 
 <!-- 검색 -->
@@ -137,7 +139,7 @@ function searchId() {
 
 <br/>
 
-	<div style="border:1px solid; border-color: #8C8C8C; margin-top: 1px;">
+	<div style="border:1px solid; border-color: #ff4b46; margin-top: 1px;">
 	</div>
 		<div>	
 			<div align="center" style="width: 800px; height: 800px; margin-left:30%;">

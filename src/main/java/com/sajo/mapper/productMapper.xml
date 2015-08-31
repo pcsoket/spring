@@ -16,8 +16,8 @@
 	values (#{pNum},#{pCategory},#{pName},#{pPrice},0,0,#{pContent},#{pStock},#{pImg})
 </insert>
 
-<!-- 전체데이터 갯수 -->
 
+<!-- 전체데이터 갯수 -->
  <select id="p_getDataCount" parameterType="hashMap" resultType="int">
 	select nvl(count(*),0) from product
 	where ${searchKey} like '%' || #{searchValue} || '%'

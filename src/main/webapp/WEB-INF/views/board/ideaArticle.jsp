@@ -8,13 +8,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 아이디어 상세 보기</title>
-<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"/> <!-- 3 KB -->
 
+<!-- fotorama.css & fotorama.js. -->
+<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"/> <!-- 3 KB -->
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
 
 <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 
-<!-- fotorama.css & fotorama.js. -->
+
 <script type="text/javascript">
 <%--  function commCreated() {
 	
@@ -38,16 +39,18 @@ function gnoDelete() {
 	f.submit();
 	
 }  --%>
+
+
 	
 	$(function(){
 		listPage(1);//1페이지 호출
 		
 	});
-
+alert(1);
 	$(document).ready(function(){
-	
+	alert(2);
 		$("#sendButton").click(function(){
-			
+			alert(${dto.gNum});
 			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+ "&cmContent=" + $("#content").val();
 
 
@@ -73,6 +76,31 @@ function gnoDelete() {
 			});
 			
 			
+		});
+		
+		
+		
+		/*  추천 버튼 */
+		$("#con_button").click(function(){
+			
+			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"
+	
+			$.ajax({
+				
+				type:"POST",
+				url:"<%=cp%>/contribute.action",
+				data:params,
+				success:function(args){
+					
+					$("#message").html(args);
+					
+				},
+				error:function(e){
+					alert(e.responseText);
+				}
+				
+			});
+		
 		});
 		
 	});
@@ -156,18 +184,6 @@ function gnoDelete() {
 		
 	}
 	
- 	function fimg(csrc){
-		
-		window.document.images["img01"].src = csrc;		
-	}
-	
-	function imgResize(){  //이미지 크기조절 안됨.
-		
-		 var myImg = document.getElementById("img01");
-
-		  myImg.width = 350;
-		  myImg.height = 350;     
-	}  
 
 
 </script>
@@ -202,10 +218,14 @@ function gnoDelete() {
 			<br/>
 			<div style="width: 500px; height: 150px; padding-left: 15px; padding-right: 15px;">${dto.gContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
+			
+		<c:if test="${!empty logInfo}">
+			<input type="button" id="con_button" value="추천"/>
+		</c:if>
 		<c:if test="${logInfo.gno=='0'}">
 			<input type="button" value="그룹참여" onclick="gnoInsert();"/>
 			</c:if>
-		<c:if test="${logInfo.gno=='1'}">
+		<c:if test="${logInfo.gno==gNo}">
 			<input type="button" value="그룹탈퇴" onclick="gnoDelete();"/>
 			</c:if>
 		</div>

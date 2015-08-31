@@ -57,8 +57,9 @@ public class InventController {
 		int gNum = Integer.parseInt(req.getParameter("gNum"));
 		int pageNum = Integer.parseInt(req.getParameter("pageNum"));
 		
-		 int gno = indao.getGno(gNum);
-		 
+		int gno = indao.getGno(gNum);
+		int boardName = Integer.parseInt(req.getParameter("boardName"));
+		
 		if(gno!=0){
 			System.out.println(0);
 			InventDTO dto1 = indao.getInventData(gno);
@@ -104,8 +105,9 @@ public class InventController {
 		req.setAttribute("pageNum", pageNum);
 		req.setAttribute("gNum", gNum);
 		req.setAttribute("gNo", gno);
+		req.setAttribute("boardName", boardName);
 		
-		return "Invent";
+		return "invent";
 	}
 			
 	@RequestMapping(value="/group/idea.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -143,7 +145,9 @@ public class InventController {
 		int dataCount = 0;
 		dataCount = indao.getDataCount(searchKey, searchValue,dto.getgNo(), boardName);
 		
-		request.setAttribute("gNo",dto.getgNo());                    //중간에보냄
+		
+		int gNo = dto.getgNo();                                               //여러군데서 쓰기때문에 선언해줌
+
 		
 		//전체페이지수
 		int numPerPage = 9;
@@ -191,12 +195,13 @@ public class InventController {
 		
 		//글보기 주소 정리
 		String articleUrl = 
-			cp + "/group/article.action?pageNum=" + currentPage + "&gNo=" + dto.getgNo();
+			cp + "/group/article.action?pageNum=" + currentPage + "&gNo=" + gNo;                      //dto. 쓰고난 뒤라서 getdto로가져오면 0이나옴.
 			
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
 		
-		System.out.println(dto.getgNo());
+		System.out.println(dto.getgNo()+":idea article gNo");
+		System.out.println(articleUrl+":ideaarticle");
 		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);
@@ -205,8 +210,13 @@ public class InventController {
 		request.setAttribute("articleUrl",articleUrl);
 		request.setAttribute("boardName", boardName);
 
+		request.setAttribute("dto", dto);
+
+		request.setAttribute("gNo",gNo);
+
+
 		
-		return "board/list";
+		return "board/list_idea";
 	}
 	
 	@RequestMapping(value="/group/sketch.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -304,7 +314,7 @@ public class InventController {
 		request.setAttribute("articleUrl",articleUrl);
 		request.setAttribute("boardName", boardName);
 		
-		return "board/list";
+		return "board/list_sketch";
 	}
 	
 	@RequestMapping(value="/group/3D.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -403,8 +413,24 @@ public class InventController {
 		request.setAttribute("articleUrl",articleUrl);
 		request.setAttribute("boardName", boardName);
 		
-		return "board/list";
+		return "board/list_3d";
 	}
+	
+	
+	@RequestMapping(value="/contribute.action",method={RequestMethod.GET,RequestMethod.POST})
+	public String contribute_ok(GroupDTO dto,HttpServletRequest request, HttpServletResponse response) throws Exception{
+		return "";
+	}
+
+	@RequestMapping(value="/completed.action")
+	public String completed(HttpServletRequest req,HttpServletResponse resp, HttpSession session){
 		
+		
+		
+		return "invent/completed";
+	}
+	
+		
+
 }
 

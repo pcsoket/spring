@@ -85,7 +85,7 @@ A:hover {text-decoration:none}
 <table width="1140px" align="center" class="box">
 <tr><td>
 	<div class="container" >
-	  <div class="jumbotron" align="center" style="background-image: url(/god/resources/image/배너.png);">
+	  <div class="jumbotron" align="center" style="background-image: url(/god/resources/image/banner.png);">
 	    <h3 style="color: #ff4b46">Good Idea</h3>      
 	    <p style="color: #ff4b46">당신의 아이디어가 현실이 됩니다.</p>
 	    <c:choose>
