@@ -46,11 +46,11 @@ function gnoDelete() {
 		listPage(1);//1페이지 호출
 		
 	});
-alert(1);
+
 	$(document).ready(function(){
-	alert(2);
+	
 		$("#sendButton").click(function(){
-			alert(${dto.gNum});
+
 			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+ "&cmContent=" + $("#content").val();
 
 
@@ -79,7 +79,7 @@ alert(1);
 		});
 		
 		
-		
+<%-- 		
 		/*  추천 버튼 */
 		$("#con_button").click(function(){
 			
@@ -101,11 +101,11 @@ alert(1);
 				
 			});
 		
-		});
+		}); --%>
 		
 	});
 	
-	function showRequest(){//유효성 검사
+/* 	function showRequest(){//유효성 검사
 		
 		var name = $.trim($("#name").val());
 		var content = $.trim($("#content").val());
@@ -135,9 +135,9 @@ alert(1);
 		
 		
 	} 
-	
+	 */
 
-	function listPage(gNum){
+	function listPage(page){
 		
 		var url ="<%=cp%>/comm/list.action";
 		
@@ -154,7 +154,7 @@ alert(1);
 		
 	}
 	
-	function updateRecomm(cmNum,page){
+<%-- 	function updateRecomm(cmNum,page){
 		
 		var url = "<%=cp%>/comm/updated_Recomm.action";
 		
@@ -182,7 +182,7 @@ alert(1);
 		$("#commList").show();
 		
 		
-	}
+	} --%>
 	
 
 

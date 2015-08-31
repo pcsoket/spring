@@ -53,11 +53,66 @@ function modelsendIt() {
 }
 
 </script>
+
+<style type="text/css">
+
+.banner-inner{
+
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 400;	
+}
+
+.banner-heading-tape {
+    background-color: #ff4b46;
+    color: #fff;
+    display: inline-block;
+    line-height: 1.5;
+    margin: 0 0.25em;
+    padding: 0.5em;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+}
+
+.hidden{
+	display: none !important;
+}
+
+.banner-rwd-heading {
+    padding-top: 2rem;
+    font-size: 2.25rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 1rem 0 0;
+    width: 100%;
+}
+
+.text-light {
+    color: #fff;
+}
+
+.u-grid-bottom-margin, .u-grid-margin-bottom {
+    margin-bottom: 32px !important;
+}
+
+.block-center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.block-md {
+    max-width: 768px;
+}
+
+</style>
+
 <title>Invent</title>
 </head>
 <body>
 <div align="center">
-	<!--이미지 갤러리  -->
+
+<!--이미지 갤러리  -->
 
 <div style="position: relative;">
 	<div class="banner-inner">
@@ -79,15 +134,15 @@ function modelsendIt() {
 			<div class="block-md block-center"></div>			
 		</div>		
 	</div>		
-
 </div>
 
+
 	<div class="fotorama" data-autoplay="3000" data-loop="true" data-width="100%"> 
-	  <img src="/god/resources/image/슬라이드1.png">
-	  <img src="/god/resources/image/슬라이드2.png">
-	  <img src="/god/resources/image/슬라이드3.png">
-	  <img src="/god/resources/image/슬라이드4.png">
-	  <img src="/god/resources/image/슬라이드5.png">
+	  <img src="/god/resources/image/slide1.png">
+	  <img src="/god/resources/image/slide2.png">
+	  <img src="/god/resources/image/slide3.png">
+	  <img src="/god/resources/image/slide4.png">
+	  <img src="/god/resources/image/slide5.png">
 	</div>
 
 	<div align="center">
