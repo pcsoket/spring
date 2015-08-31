@@ -59,7 +59,7 @@ function findId() {
     <div id="pop_header" >
         <h1 style="font-family: 나눔손글씨 붓; ">로그인</h1>
     </div>
-    <div style="width: 100%; border-bottom: solid 3px; border-color: #ffd2d7;">
+    <div style="width: 100%; border-bottom: solid 3px; border-color: #ddd;">
     </div>
    
     <div id="pop_container">
