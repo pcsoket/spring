@@ -26,15 +26,17 @@
 			    <li><a href="<%=cp %>/ideaMain.action">Invent</a></li>
 		  	</ul>
 	<div align="right">
-    	<ul id="nav navbar-nav navbar-right" style="width: 200px; padding-top: 20px; margin-bottom: 0px; margin-right: 100px;">
+    	<ul id="nav navbar-nav navbar-right" style="width: 240px; padding-top: 20px; margin-bottom: 0px; margin-right: 0px;">
 			<c:choose>
 			<c:when test="${empty logInfo}">
-			 	<div style="width: 100px; float: left;"><a href="<%=cp %>/write.action"><span class="glyphicon glyphicon-user"></span> Sign Up</a></div>
-		        <div style="width: 100px;"><a href="<%=cp %>/login.action"><span class="glyphicon glyphicon-log-in"></span> Login</a></div>
+				<a href="<%=cp %>/basket.action"><span class="glyphicon glyphicon-shopping-cart"></span> basket</a>
+			 	<a href="<%=cp %>/write.action"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+		        <a href="<%=cp %>/login.action"><span class="glyphicon glyphicon-log-in"></span> Login</a>		        
 			</c:when>
-			<c:otherwise>
-			<a href="<%=cp%>/logout.action"><span class="glyphicon glyphicon-log-out">Logout</span></a>&nbsp;&nbsp;
-			<a href="/god/myPage.action"><span class="glyphicon glyphicon-list-alt">myPage</span></a>
+			<c:otherwise>			
+				<a href="/god/myPage.action"><span class="glyphicon glyphicon-list-alt">myPage</span></a>
+				<a href="<%=cp %>/basket.action"><span class="glyphicon glyphicon-shopping-cart"></span> basket</a>
+				<a href="<%=cp%>/logout.action"><span class="glyphicon glyphicon-log-out">Logout</span></a>
 			</c:otherwise>
 			</c:choose>
 		</ul>
