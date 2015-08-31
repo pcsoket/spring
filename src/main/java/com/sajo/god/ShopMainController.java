@@ -152,7 +152,7 @@ public class ShopMainController {
 	}
 	
 	@RequestMapping(value="/basket_ok.action")
-	public String basket_ok(String bnums, String amt,HttpServletRequest req, HttpServletResponse resp){
+	public String basket_ok(String bnums, String amt,String price, String total,HttpServletRequest req, HttpServletResponse resp){
 		
 		HttpSession session = req.getSession();
 		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");
@@ -243,6 +243,8 @@ public class ShopMainController {
 		req.setAttribute("mdto", mdto);
 		req.setAttribute("pdto", pdto);
 		req.setAttribute("bnums", bnums);
+		req.setAttribute("ptotal", price);
+		req.setAttribute("total", total);
 		
 		
 		return "purchase";
