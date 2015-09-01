@@ -81,12 +81,13 @@ function gnoDelete() {
 		/*  추천 버튼 */
 		$("#con_button").click(function(){
 			
-			var params = "userId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"
-	
+			var params = "userId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+"&gNo="+"${dto.gNo}"
+						+"&boardName="+"${dto.boardName}" +"&writer="+"${dto.mId}";
+			alert(params);
 			$.ajax({
 				
 				type:"POST",
-				url:"<%=cp%>/contribute.action",
+				url:"<%=cp%>/insertContribution.action",
 				data:params,
 				success:function(args){
 					
@@ -202,6 +203,9 @@ function gnoDelete() {
 
 </head>
 <body>
+
+<
+
 <div align="center" >
 <form action="" name="myForm" method="post">
 <!-- 전체 묶음 -->
@@ -217,7 +221,7 @@ function gnoDelete() {
 					     data-maxwidth="100%"
 					     data-allowfullscreen="false">
 				<c:forEach var="dto" items="${ilists }">
-			
+				
 				  <img src="${dto.originalFileName }">
 			<%-- <img src="${dto.originalFileName }" style="width: 60px; height: 60px; cursor: hand;" onmouseover="fimg(this.src)" /> </div> --%>
 			</c:forEach>
@@ -233,7 +237,7 @@ function gnoDelete() {
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
 		<div>
 			<c:if test="${!empty logInfo}">
-				<div><span id="message"></span><input type="button" id="con_button" value="추천"/>
+				<div><span id="message"></span></div><div><input type="button" id="con_button" value="추천"/>
 							</div>
 			
 			<c:if test="${logInfo.gno=='0'}">
@@ -242,11 +246,12 @@ function gnoDelete() {
 			<c:if test="${logInfo.gno==gNo}">
 				<div><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
 			</c:if>
-			<c:if test="${boardName=='3D' && logInfo.auth==3 }">
+			<c:if test="${dto.boardName=='3D' && logInfo.auth==3 }">
 				<div><input type="button" name="completed" value="completed" onclick="completed();"></div>			
 			</c:if>
 				
 			</c:if>
+
 		</div>
 			
 		</div>

@@ -15,19 +15,24 @@
 
 <!-- contribution  -->
 <insert id="insertData" parameterType="com.sajo.dto.ContributionDTO">
-	insert into contribution (conNum,gnum,gno,userId,grecomm,boardName)
-	values (#{conNum},#{gNum},#{gno},#{userId},0,#{boardName})
+	insert into contribution (conNum,gnum,gno,userId,grecomm,boardName,writer)
+	values (#{conNum},#{gNum},#{gNo},#{userId},1,#{boardName},#{writer})
 </insert>
 
 
-<!-- contribution 업데이트 -->
+<!-- contribution 업데이트 안씀-->
 <update id="updateContribution" parameterType="int">
 	update contribution set grecomm=grecomm+1 where gNum=#{gNum}
 </update>
 
 <!-- contribution check -->
-<select id="checkContribution" parameterType="int" resultType="int">
+<select id="printContribution" parameterType="int" resultType="int">
 	select sum(grecomm) from contribution where gNum=#{gNum}
+</select>
+
+<!-- contribution update -->
+<select id="checkContribution" parameterType="com.sajo.dto.ContributionDTO" resultType="int">
+	select grecomm from contribution where gNum=#{gNum} and userId=#{userId}
 </select>
 	
 </mapper>

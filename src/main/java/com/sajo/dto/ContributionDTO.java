@@ -2,9 +2,8 @@ package com.sajo.dto;
 
 public class ContributionDTO {
 	
-	private int conNum,gNo,gNum,cmRecomm,listNum;
-	private String userId,grecomm,boardName;
-	
+	private int conNum,gNo,gNum;
+	private String userId,grecomm,boardName,writer;
 	
 	public int getConNum() {
 		return conNum;
@@ -24,18 +23,6 @@ public class ContributionDTO {
 	public void setgNum(int gNum) {
 		this.gNum = gNum;
 	}
-	public int getCmRecomm() {
-		return cmRecomm;
-	}
-	public void setCmRecomm(int cmRecomm) {
-		this.cmRecomm = cmRecomm;
-	}
-	public int getListNum() {
-		return listNum;
-	}
-	public void setListNum(int listNum) {
-		this.listNum = listNum;
-	}
 	public String getUserId() {
 		return userId;
 	}
@@ -54,6 +41,13 @@ public class ContributionDTO {
 	public void setBoardName(String boardName) {
 		this.boardName = boardName;
 	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	
 
 }
 
