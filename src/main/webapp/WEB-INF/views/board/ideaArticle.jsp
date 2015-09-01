@@ -86,7 +86,7 @@ function gnoDelete() {
 			$.ajax({
 				
 				type:"POST",
-				url:"<%=cp%>/contribute.action",
+				url:"<%=cp%>/insertContribution.action",
 				data:params,
 				success:function(args){
 					
@@ -233,9 +233,9 @@ function gnoDelete() {
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
 		<div>
 			<c:if test="${!empty logInfo}">
-				<div><input type="button" id="con_button" value="추천"/></div>
+				<div><span id="message"></span></div><div><input type="button" id="con_button" value="추천"/></div>
 			
-			<c:if test="${logInfo.gno=='0'}">
+			<c:if test="${logInfo.gno==0}">
 				<div><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
 			</c:if>
 			<c:if test="${logInfo.gno==gNo}">
@@ -247,7 +247,7 @@ function gnoDelete() {
 				
 			</c:if>
 		</div>
-			
+			<input type="text" value="${logInfo.mauth }">
 		</div>
 		</div>
 		<br/>
