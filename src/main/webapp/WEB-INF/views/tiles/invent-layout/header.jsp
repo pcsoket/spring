@@ -51,13 +51,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" style="font-size: 20pt; margin-top: 5px;" href="<%=cp %>/ideaMain.action"><img src="/god/resources/image/goodidea.png"></a>
+      <a class="navbar-brand" style="font-size: 20pt; margin-top: 5px; padding: 0px;" href="<%=cp %>/ideaMain.action">
+      <img style="width: 120px; height: 60px; padding-bottom: 10px;" src="/god/resources/image/goodidea.png"></a>
     </div>
     <div>
       <ul class="nav nav-pills nav-justified" style="padding-top: 10px; padding-bottom: 10px;" >
 	    <li><a href="<%=cp %>/group/list.action"><img src="/god/resources/image/Invent.png" style="margin-left: 20px;"></a></li>
 	    <li><a href="<%=cp %>/memberList.action"><img src="/god/resources/image/Community.png"></a></li>
-	    <li><a href="#"><img src="/god/resources/image/Completed.png"></a></li>
+	    <li><a href="<%=cp %>/completed.action"><img src="/god/resources/image/Completed.png"></a></li>
  	  </ul>
  	 </div>
   </div>

@@ -22,6 +22,7 @@ import com.sajo.dto.ImageDTO;
 import com.sajo.dto.LoginDTO;
 import com.sajo.util.MyUtil;
 import com.sajo.dao.CommentDAO;
+import com.sajo.dao.CompletedDAO;
 import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dao.MemberDAO;
@@ -36,6 +37,7 @@ public class GroupController {
 	@Autowired
 	@Qualifier("commentDAO")
 	CommentDAO cdao;
+
 	
 	@Autowired
 	@Qualifier("imageDAO")
@@ -65,9 +67,11 @@ public class GroupController {
 		
 		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
 			mav.setViewName("login");
-			mav.addObject("pagePath","board/created");
+			mav.addObject("pagePath","ideamain");
 			return mav;
 		}
+		
+		System.out.println(boardName);
 		
 		mav.setViewName("board/created");
 		mav.addObject("boardName", boardName);
@@ -164,15 +168,11 @@ public class GroupController {
 	@RequestMapping(value="/group/list.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String list(GroupDTO dto,HttpServletRequest request,HttpServletResponse response) throws Exception{
 			
-		HttpSession session = request.getSession();
-		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
 		
-		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
-			request.setAttribute("pagePath", "redirect:/group/list.action");
-			return "login";
-		}
 		
 		String cp = request.getContextPath();
+		
+		String boardName = "group";
 		
 		String pageNum = request.getParameter("pageNum");
 		int currentPage = 1;
@@ -210,9 +210,11 @@ public class GroupController {
 		
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
-		
+		System.out.println(start+":"+end+":"+searchKey+":"+searchValue+":"+boardName);
 		List<GroupDTO> lists =
-			dao.getList(start, end, searchKey, searchValue);
+			dao.getList(start, end, searchKey, searchValue,boardName);
+		
+		lists = idao.imageForGList(lists);
 		
 		ListIterator<GroupDTO> it = lists.listIterator();
 
@@ -248,8 +250,6 @@ public class GroupController {
 			
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
-		
-		String boardName="group";
 		
 		
 		//포워딩 될 페이지에 데이터를 넘긴다

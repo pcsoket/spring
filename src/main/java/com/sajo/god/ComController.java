@@ -40,6 +40,13 @@ public class ComController{
 		
 		return "comment";
 	}
+	
+	@RequestMapping(value="/test1.action")
+	public String test1(){
+		
+		return "main";
+	}
+
 
 	
 

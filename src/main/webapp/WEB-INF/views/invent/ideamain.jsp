@@ -11,27 +11,36 @@
 </head>
 <body>
 <div>
+	<form action="" method="post" name="myForm">
 	<div align="center" style=" margin:0 auto; width: 100%; padding-top: 15px; "> <!-- 전체 감싸기 -->
 		<div class="container" style="text-align: left;">
 			<div class="jumbotron" align="center" style="height: 400px;"> <!-- 참여중인 프로젝트 -->
 			<font size="3pt;" style="margin:0 auto; margin-top:1px; float:left; text-align: left; font-family: 나눔손글씨 붓;"><b>참여중인 프로젝트</b></font>
 			<br/>
-				<div>
+				<div style="width: 800px;">
 					<c:choose>
-					<c:when test="${logInfo.gno==1}">
-					<img src="${ImageoriginalFile1}" style="width:200px; height:200px; border-radius:30%"/>
-					${dto1.gsubject}
-					<img src="${ImageoriginalFile2}" style="width:200px; height:200px; border-radius:30%" />
-					${dto2.gsubject}
-					<img src="${ImageoriginalFile3}" style="width:200px; height:200px; border-radius:30%" />
-					${dto3.gsubject}
+					<c:when test="${logInfo.gno!=0}">
+					
+					<div style="float: left; padding-right: 15px;">
+					<div><a href="<%=cp %>/group/article.action?gNum=${dto1.gNum}" ><img src="${ImageoriginalFile1}" style="width:200px; height:200px; border-radius:30%"/></a></div>
+					<div>${dto1.gsubject}</div>
+					
+					</div>
+					<div style="float: left; padding-right: 15px;">
+					<div><a href="<%=cp %>/group/article.action?gNum=${dto2.gNum}"> <img src="${ImageoriginalFile2}" style="width:200px; height:200px; border-radius:30%" /></a></div>
+					<div>${dto2.gsubject}</div>
+					</div>
+					<div>
+					<div><a href="<%=cp %>/group/article.action?gNum=${dto3.gNum}"><img src="${ImageoriginalFile3}" style="width:200px; height:200px; border-radius:30%" /></a></div>
+					<div>${dto3.gsubject}</div>
+					</div>
 					</c:when>
 						<c:otherwise>
 							<div class="container" >
 					 			<div class="jumbotron" align="center">
 									<h3>Good Idea</h3>      
 									<p>당신의 아이디어가 현실이 됩니다.</p>
-									<a href="<%=cp %>/group/created.action" class="btn btn-info btn-lg">Start Invent</a>
+									<a href="<%=cp %>/group/created.action?boardName=group" class="btn btn-info btn-lg">register group</a>
 								</div>
 							</div>
 						</c:otherwise>
@@ -39,7 +48,9 @@
 				</div>
 			</div>
 		</div>
-	</div>		
+	</div>	
+	</form>
+		
 	<div align="center" style="margin: 0 auto; width: 1150px; padding-top: 15px; padding-left: 5px;">
 		<div>
 			<div style=" border: solid 1px ; width: 560px; height: 400px; float: left;"> <!-- 인기idea -->

@@ -44,10 +44,11 @@ public class IdeaMainController {
 		if(logInfo!=null){
 				int gno = logInfo.getGno();
 				String userId=logInfo.getUserId();
-			if(gno==1){
-				MainListDTO dto1 = dao.getData(userId,"group");
-				MainListDTO dto2 = dao.getData(userId,"3d");
-				MainListDTO dto3 = dao.getData(userId,"sketch");
+				System.out.println(gno);
+			if(gno!=0){
+				MainListDTO dto1 = dao.getData(userId,"idea");
+				MainListDTO dto2 = dao.getData(userId,"sketch");
+				MainListDTO dto3 = dao.getData(userId,"3D");
 				
 				if(dto1!=null){
 					System.out.println(dto1.getImgNum()+"00");
@@ -55,6 +56,7 @@ public class IdeaMainController {
 				System.out.println("99");
 				req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
 				req.setAttribute("dto1", dto1);
+				req.setAttribute("gno", gno);
 				}
 				if(dto2!=null){
 				String ImageoriginalFile2 = idao.getImage(dto2.getImgNum());
@@ -81,6 +83,8 @@ public class IdeaMainController {
 		
 		List<MainListDTO> idealists = idao.imageForMlList(dao.getIdeaReadData());
 		req.setAttribute("idealists", idealists);
+		
+	
 		
 		//complate ¼øÀ§
 		

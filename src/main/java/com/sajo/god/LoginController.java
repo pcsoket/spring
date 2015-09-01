@@ -81,7 +81,16 @@ public class LoginController {
 		session.removeAttribute("logInfo");
 		session.invalidate();
 		
-		return "redirect:/shopmain.action";
+		return "redirect:/category.action";
+	}
+	
+	@RequestMapping(value="/logout1.action")
+	public String logout1(HttpServletRequest req,HttpServletResponse resp,HttpSession session,LoginDTO dto){
+		
+		session.removeAttribute("logInfo");
+		session.invalidate();
+		
+		return "redirect:/ideaMain.action";
 	}
 	
 	@RequestMapping(value="/findId.action")

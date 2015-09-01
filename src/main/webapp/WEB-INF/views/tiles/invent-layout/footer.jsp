@@ -20,7 +20,7 @@
 		<td height="40" colspan="3"></td>
 	</tr>
 	<tr>
-		<td width="100" height="60" background="<%=cp%>/resources/image/로고.png"></td><!-- 로고 -->
+		<td width="100" height="60" background="<%=cp%>/resources/image/logo.png"></td><!-- 로고 -->
 		<td width="34" valign="top"></td>
 		<td width="856" valign="top">
 <table width="856" border="0" cellspacing="0" cellpadding="0">
@@ -32,19 +32,19 @@
 		
 		<a href="http://www.maque.co.kr/provision.php" onfocus='this.blur()' onmouseout="MM_swapImgRestore()"
 		onmouseover="MM_swapImage('ft_bt1','','http://www.maque.co.kr/img/ft/bt1_on.png',0)">		
-		<img src="<%=cp%>/resources/image/이용약관.png" name="ft_bt1" border="0" id="ft_bt1" /></a> 		
+		<img src="<%=cp%>/resources/image/f1.png" name="ft_bt1" border="0" id="ft_bt1" /></a> 		
 		<img src="<%=cp%>/resources/image/line.png" alt="" border="0"> 
 		<a href="http://www.maque.co.kr/privacy.php"> 		
-		<img src="<%=cp%>/resources/image/개인정보.png" /></a> 
+		<img src="<%=cp%>/resources/image/f2.png" /></a> 
 		<img src="<%=cp%>/resources/image/line.png" alt="" border="0">
 		<a href="http://www.maque.co.kr/bbs/write.php?bo_table=partners">		
-		<img src="<%=cp%>/resources/image/제휴.png" /></a> 
+		<img src="<%=cp%>/resources/image/f3.png" /></a> 
 		<img src="<%=cp%>/resources/image/line.png" alt="" border="0"> 
 		<a href="http://www.maque.co.kr/bbs/write.php?bo_table=invest">											
-		<img src="<%=cp%>/resources/image/투자문의.png" /></a> 
+		<img src="<%=cp%>/resources/image/f4.png" /></a> 
 		<img src="<%=cp%>/resources/image/line.png" alt="" border="0"> 
 		<a href="http://www.maque.co.kr/bbs/write.php?bo_table=register">											
-		<img src="<%=cp%>/resources/image/아이디어등록.png" /></a>
+		<img src="<%=cp%>/resources/image/f5.png" /></a>
 		</td>
 	</tr>
 </table>

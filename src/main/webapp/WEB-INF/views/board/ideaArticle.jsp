@@ -8,13 +8,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title> 아이디어 상세 보기</title>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<!-- fotorama.css & fotorama.js. -->
 <link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet"/> <!-- 3 KB -->
-
 <script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script> <!-- 16 KB -->
 
-<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
-
-<!-- fotorama.css & fotorama.js. -->
 <script type="text/javascript">
 <%--  function commCreated() {
 	
@@ -38,6 +36,8 @@ function gnoDelete() {
 	f.submit();
 	
 }  --%>
+
+
 	
 	$(function(){
 		listPage(1);//1페이지 호출
@@ -47,7 +47,7 @@ function gnoDelete() {
 	$(document).ready(function(){
 	
 		$("#sendButton").click(function(){
-			
+			alert(${dto.gNum});
 			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+ "&cmContent=" + $("#content").val();
 
 
@@ -75,7 +75,33 @@ function gnoDelete() {
 			
 		});
 		
+		
+		
+		/*  추천 버튼 */
+		$("#con_button").click(function(){
+			
+			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"
+	
+			$.ajax({
+				
+				type:"POST",
+				url:"<%=cp%>/contribute.action",
+				data:params,
+				success:function(args){
+					
+					$("#message").html(args);
+					
+				},
+				error:function(e){
+					alert(e.responseText);
+				}
+				
+			});
+		
+		});
+		
 	});
+	
 	
 	function showRequest(){//유효성 검사
 		
@@ -109,7 +135,7 @@ function gnoDelete() {
 	} 
 	
 
-	function listPage(gNum){
+	function listPage(page){
 		
 		var url ="<%=cp%>/comm/list.action";
 		
@@ -156,27 +182,29 @@ function gnoDelete() {
 		
 	}
 	
- 	function fimg(csrc){
+	/* completed로 넘기기 */
+	
+	function completed() {
 		
-		window.document.images["img01"].src = csrc;		
+		var f = document.myForm;
+		
+		f.action="<%=cp%>/compl/created.action";
+		f.submit();
+		
+		
+		
 	}
 	
-	function imgResize(){  //이미지 크기조절 안됨.
-		
-		 var myImg = document.getElementById("img01");
-
-		  myImg.width = 350;
-		  myImg.height = 350;     
-	}  
 
 
 </script>
 
 </head>
 <body>
+<div align="center" >
 <form action="" name="myForm" method="post">
 <!-- 전체 묶음 -->
-<div align="center" style="width: 1000px; margin-left: 300px;">
+<div style="width: 1000px; ">
 	
 	<div style="margin-top: 2px; width: 1000px; ">
 	 	<!-- 아이디어 이미지 -->
@@ -202,12 +230,23 @@ function gnoDelete() {
 			<br/>
 			<div style="width: 500px; height: 150px; padding-left: 15px; padding-right: 15px;">${dto.gContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
-		<c:if test="${logInfo.gno=='0'}">
-			<input type="button" value="그룹참여" onclick="gnoInsert();"/>
+		<div>
+			<c:if test="${!empty logInfo}">
+				<div><input type="button" id="con_button" value="추천"/></div>
+			
+			<c:if test="${logInfo.gno=='0'}">
+				<div><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
 			</c:if>
-		<c:if test="${logInfo.gno=='1'}">
-			<input type="button" value="그룹탈퇴" onclick="gnoDelete();"/>
+			<c:if test="${logInfo.gno==gNo}">
+				<div><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
 			</c:if>
+			<c:if test="${boardName=='3D' && logInfo.auth==3 }">
+				<div><input type="button" name="completed" value="completed" onclick="completed();"></div>			
+			</c:if>
+				
+			</c:if>
+		</div>
+			
 		</div>
 		</div>
 		<br/>
@@ -250,5 +289,7 @@ function gnoDelete() {
 </div>
 
 	</form>
+	
+</div>
 </body>
 </html>

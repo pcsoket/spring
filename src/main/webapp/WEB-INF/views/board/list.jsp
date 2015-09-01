@@ -15,7 +15,7 @@
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
+	
 <style type="text/css">
 
 .box{
@@ -85,7 +85,7 @@ A:hover {text-decoration:none}
 <table width="1140px" align="center" class="box">
 <tr><td>
 	<div class="container" >
-	  <div class="jumbotron" align="center" style="background-image: url(/god/resources/image/배너.png);">
+	  <div class="jumbotron" align="center" style="background-image: url(/god/resources/image/banner.png);">
 	    <h3 style="color: #ff4b46">Good Idea</h3>      
 	    <p style="color: #ff4b46">당신의 아이디어가 현실이 됩니다.</p>
 	    <c:choose>
@@ -146,7 +146,7 @@ A:hover {text-decoration:none}
 		<c:forEach var="dto" items="${lists}">	
 			<td width="200px" height="300px" align="center" class="category2">
 			
-					<img alt="" src="/god/resources/image/aa.PNG" width="300" height="250" />	
+					<img alt="" src="${dto.imgNum }" width="300" height="250" />	
 					<font color="#8b4513 " style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href ="${articleUrl}&gNum=${dto.gNum}">
 					${dto.gSubject}</a></font>

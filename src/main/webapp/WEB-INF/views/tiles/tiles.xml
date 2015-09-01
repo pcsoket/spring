@@ -20,6 +20,21 @@
      <put-attribute name="footer" 
                     value="/WEB-INF/views/tiles/invent-layout/footer.jsp" />
    </definition>
+   
+   
+   
+   <!-- group 관련 leftMenu추가 -->
+   <definition name="group" 
+               template="/WEB-INF/views/tiles/invent-layout/groupLayout.jsp">
+     <put-attribute name="header" 
+                    value="/WEB-INF/views/tiles/invent-layout/header.jsp" />
+ 	 <put-attribute name="leftMenu" 
+                    value="/WEB-INF/views/tiles/invent-layout/leftMenu.jsp" />
+     <put-attribute name="footer" 
+                    value="/WEB-INF/views/tiles/invent-layout/footer.jsp" />
+   </definition>
+   
+   
  
 <!--<타일즈 적용할 JSP설정/>-->
    <definition name="productWrite" extends="template">
@@ -29,42 +44,38 @@
      <put-attribute name="content" value="/WEB-INF/views/shop.jsp" /> 
    </definition>
    <definition name="basket" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/basket.jsp" />
+     <put-attribute name="content" value="/WEB-INF/views/shop/basket.jsp" />
    </definition>
    <definition name="shopordercancel" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/shopordercancel.jsp" />
+     <put-attribute name="content" value="/WEB-INF/views/shop/shopordercancel.jsp" />
    </definition>
    <definition name="myPage" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/shopMyPage.jsp" />
    </definition>
    <definition name="purchase" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/purchase.jsp" />
+     <put-attribute name="content" value="/WEB-INF/views/shop/purchase.jsp" />
    </definition>
    <definition name="category" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/category.jsp" />
+     <put-attribute name="content" value="/WEB-INF/views/shop/category.jsp" />
    </definition>
    <definition name="idea_category" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/idea_category.jsp" />
+     <put-attribute name="content" value="/WEB-INF/views/shop/idea_category.jsp" />
    </definition>
    <definition name="shop_article" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/shop_article.jsp" />
+     <put-attribute name="content" value="/WEB-INF/views/shop/shop_article.jsp" />
    </definition>
    <definition name="shopOrderList" extends="template">
      <put-attribute name="content" value="/WEB-INF/views/shopOrderList.jsp" />
    </definition>
-   <definition name="board/list" extends="template">
-     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
-   </definition>
+
    
    
-    <definition name="board/list" extends="idea">
-     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
-   </definition>
+
     <definition name="board/created" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/board/created.jsp" />
    </definition>
    <definition name="ideamain" extends="idea">
-     <put-attribute name="content" value="/WEB-INF/views/ideamain.jsp" />
+     <put-attribute name="content" value="/WEB-INF/views/invent/ideamain.jsp" />
    </definition>
    <definition name="ideaArticle" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/invent/ideaArticle.jsp" />
@@ -72,12 +83,32 @@
    <definition name="board/ideaArticle" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/board/ideaArticle.jsp" />
    </definition>
-   <definition name="invent/memberList" extends="idea">
+   <definition name="memberList" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/invent/memberList.jsp" />
    </definition>
-   <definition name="Invent" extends="idea">
-     <put-attribute name="content" value="/WEB-INF/views/Invent.jsp" />
+      <definition name="board/list" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
    </definition>
+   
+   
+   
+   <!-- group -->
+   <definition name="invent" extends="group">
+     <put-attribute name="content" value="/WEB-INF/views/invent/invent.jsp" />
+   </definition>
+   <definition name="board/list_sketch" extends="group">
+     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
+   </definition>
+   <definition name="board/list_idea" extends="group">
+     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
+   </definition>
+   <definition name="board/list_3d" extends="group">
+     <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
+   </definition>
+   <definition name="invent/completed" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/invent/completed.jsp" />
+   </definition>
+   
    
    
    

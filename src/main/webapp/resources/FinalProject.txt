@@ -50,6 +50,9 @@ imgnum VARCHAR2(100));
 CREATE TABLE complete
 (gno NUMBER PRIMARY KEY,
 crecomm NUMBER,
+chitCount Number,
+ccategory VARCHAR2(20) NOT NULL,
+cprice NUMBER(8) NOT NULL,
 csubject VARCHAR2(50) NOT NULL,
 ccontent VARCHAR2(4000) NOT NULL,
 ccreated DATE NOT NULL,
@@ -113,4 +116,14 @@ userId VARCHAR2(12) NOT NULL,
 uploadFileName VARCHAR2(200) NOT NULL,
 saveFileName VARCHAR2(200) NOT NULL,
 originalFileName VARCHAR2(200) NOT NULL);
+
+
+CREATE TABLE contribution
+(conNum NUMBER PRIMARY KEY,
+gnum NUMBER NOT NULL,
+gno NUMBER NOT NULL,
+userId VARCHAR2(12) NOT NULL,
+grecomm NUMBER not null,
+boardname varchar2(10) NOT NULL);
+
 
