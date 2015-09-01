@@ -236,7 +236,7 @@ function gnoDelete() {
 				<div><input type="button" id="con_button" value="추천"/></div>
 			
 			<c:if test="${logInfo.gno=='0'}">
-				<div><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
+				<div><span id="message"></span></div><div><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
 			</c:if>
 			<c:if test="${logInfo.gno==gNo}">
 				<div><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
