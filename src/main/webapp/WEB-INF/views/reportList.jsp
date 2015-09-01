@@ -8,41 +8,62 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
-
+function chk(str) {
+	alert("한글안되냐? : /r/n되냐?");
+	var popOption = "width=300, height=200,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+	win = window.open("<%=cp %>/chkRcontent.action?str=" + str,"popup",popOption);
+	
+}
 </script>
 <title> 신 고 게 시 판 </title>
 </head>
 <body>
-	<div align="center" style="width: 800px">
+	<div align="center" style=" margin-left:250px; width: 800px;">
 		<font size="9pt;" style="font-family: 나눔손글씨 붓;">신 고 접 수 현 황</font>
 	</div>
-	<div style=" width: 800px; border: 1px solid; border-top-color: #EAEAEA;">
-	</div>
-	<div align="center" style=" width: 800px; height: 20px;">
-		<div align="center" style="width: 750px;">
-			<div style="width: 250px; float: left;">
-			 신고된 주소
-			</div>
-			<div style="width: 200px; float: left;">
-			신고된 내용
-			</div>
-			<div style="width: 120px; float: left; ">
-			신고한 ID
-			</div>
-			<div style="width: 150px; float: left;">
-			 신고된 게시판
-			</div>
-		</div>
-	</div>		
-	<div style=" width: 800px; border: 1px solid; border-bottom-color: #EAEAEA;">
-	</div>	
-		<div align="center" style=" border:1px solid; width: 800px; height: 500px;">
+		
+		<div align="center" style="width: 1200px;">
+		<table style="border:1px; border-color:#EAEAEA; width: 800px;">
+		<tr><td colspan="4"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
+		</tr>
+			<tr>
+				<td style="width: 30px;">
+				주소
+				</td>
+				<td style="width: 230px;">
+				신고된 내용
+				</td>
+				<td style="width: 100px;">
+				신고 ID
+				</td>
+				<td style="width: 30px;">
+				게시판
+				</td>
+			</tr>
+			<tr><td colspan="4"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
 			<c:forEach var="dto" items="${lists}">
-				<div><a href="${dto.raddress}">${dto.raddress}</a></div>
-				<div>${dto.rContent}</div>
-				<div>${dto.mid}</div>
-				<div>${dto.boardName}</div>
+				<tr>
+				<td>
+				<a href="${dto.raddress}">Link</a>
+				</td>
+				<td style="width: 30px;">
+				${dto.rContent}
+				</td>
+				<td>
+				${dto.mid}
+				</td>
+				<td>
+				${dto.boardName}
+				</td>
+				</tr>
+				<tr><td colspan="4"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
+			</tr>
 			</c:forEach>
+			</table>
+			<div style="height: 30px;">
+			<div align="center">${pageIndexList}</div>
+			</div>
 		</div>	
 	</body>
 </html>
+

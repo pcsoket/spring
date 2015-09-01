@@ -79,7 +79,7 @@
 	<div align="center">${c_pageIndexList}</div>
 </div>
 
-
+</div>
 
 </div>
 </c:if>

@@ -46,17 +46,17 @@ public class ReportController {
 		
 		LoginDTO ldto = (LoginDTO)session.getAttribute("logInfo");
 
-		dto.setBoardname(req.getParameter("boardName"));
+		dto.setBoardName(req.getParameter("boardName"));
 		dto.setRnum(rpdao.getMaxNum()+1);
 		dto.setGnum(Integer.parseInt(req.getParameter("gnum")));
 		dto.setMid(ldto.getUserId());
-		dto.setRContent(req.getParameter("rContent"));
+		dto.setrContent(req.getParameter("rContent"));
 		
 		System.out.println(dto.getBoardName());
 		System.out.println(dto.getGnum());
 		System.out.println(dto.getMid());
 		System.out.println(dto.getRaddress());
-		System.out.println(dto.getRContent());
+		System.out.println(dto.getrContent());
 		System.out.println(dto.getRnum());
 		System.out.println(dto.getRsubject());
 		
@@ -85,16 +85,29 @@ public class ReportController {
 		
 		List<ReportDTO> lists = rpdao.getReadData(start,end);
 		
-		String listUrl = cp + "/memberList.action";
+		String listUrl = cp + "/reportlist.action";
 		
 		String pageIndexList =
 				myUtil.pageIndexList(currentPage, totalPage, listUrl);
-		
+		for(ReportDTO a : lists){
+			System.out.println(a.getrContent());
+		}
 		req.setAttribute("lists", lists);
 		req.setAttribute("pageIndexList",pageIndexList);
 		req.setAttribute("dataCount",dataCount);
 		
 		return "reportList";
+		
+	}
+	
+	@RequestMapping(value="/chkRcontent.action")
+	public String chkRcontent (HttpServletRequest req, ReportDTO dto, HttpServletResponse resp, HttpSession session){
+		
+		String str = req.getParameter("str");
+		
+		req.setAttribute("rcontent", str);
+		
+		return "chkRcontent";
 		
 	}
 	

@@ -4,8 +4,6 @@ public class ReportDTO {
 	
 	private int rnum,gnum; 
 	private String mid,rsubject,rContent,raddress,boardName,rcreated;
-	
-	
 	public int getRnum() {
 		return rnum;
 	}
@@ -30,10 +28,10 @@ public class ReportDTO {
 	public void setRsubject(String rsubject) {
 		this.rsubject = rsubject;
 	}
-	public String getRContent() {
+	public String getrContent() {
 		return rContent;
 	}
-	public void setRContent(String rContent) {
+	public void setrContent(String rContent) {
 		this.rContent = rContent;
 	}
 	public String getRaddress() {
@@ -45,7 +43,7 @@ public class ReportDTO {
 	public String getBoardName() {
 		return boardName;
 	}
-	public void setBoardname(String boardName) {
+	public void setBoardName(String boardName) {
 		this.boardName = boardName;
 	}
 	public String getRcreated() {
@@ -53,7 +51,10 @@ public class ReportDTO {
 	}
 	public void setRcreated(String rcreated) {
 		this.rcreated = rcreated;
-	} 
+	}
+	
+	
+	
 	
 	
 	
