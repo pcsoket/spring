@@ -65,7 +65,7 @@ function modelsendIt() {
 }
 
 .banner-heading-tape {
-    background-color: #ff4b46;
+    /* background-color: #ff4b46; */
     color: #fff;
     display: inline-block;
     line-height: 1.5;
@@ -117,7 +117,7 @@ function modelsendIt() {
 
 <div style="position: relative;">
 	<div class="banner-inner">
-		<div style="width: 100%; max-width: 1536;">
+		<div style="width: 100%; max-width: 1536; margin: 100px;">
 		<h1 style="padding-top: 2rem; font-size: 24px;">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 			<span class="banner-heading-tape">${gdto.gContent}</span>

@@ -147,7 +147,7 @@ public class GroupController {
 			
 			request.setAttribute("dto", dto);
 			
-			return "redirect:/group/sketch.action";
+			return "redirect:/group/sketch.action?gNo=" + dto.getgNo() + "&boardName=" + dto.getBoardName();
 			
 			
 		}else{
@@ -158,7 +158,7 @@ public class GroupController {
 			
 			request.setAttribute("dto", dto);
 			
-			return "redirect:/group/3D.action";
+			return "redirect:/group/3D.action?gNo=" + dto.getgNo() + "&boardName=" + dto.getBoardName();
 			
 		}
 		

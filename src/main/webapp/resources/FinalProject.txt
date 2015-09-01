@@ -2,6 +2,9 @@ CREATE TABLESPACE god
 DATAFILE 'C:\app\user\oradata\TestDB\god.DBF' SIZE 200M
 AUTOEXTEND ON NEXT 5M MAXSIZE 400M;
 
+C:\oraclexe\app\oracle\oradata\XE\god.DBF
+
+
 CREATE USER god
 IDENTIFIED BY god
 DEFAULT TABLESPACE god
@@ -124,6 +127,7 @@ CREATE TABLE contribution
 (conNum NUMBER PRIMARY KEY,
 gnum NUMBER NOT NULL,
 gno NUMBER NOT NULL,
+writer VARCHAR2(12) NOT NULL,
 userId VARCHAR2(12) NOT NULL,
 grecomm NUMBER not null,
 boardname varchar2(10) NOT NULL);

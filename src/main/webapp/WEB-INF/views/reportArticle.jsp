@@ -14,7 +14,7 @@ window.onload = function () {
 	document.getElementById("raddress").value= window.opener.document.location.href ;
 	if(opener.document.all.cmContent.value!=""){
 	document.getElementById("rContent").value = "\r\n\r\n" + "신고글 내용  : " + opener.document.all.cmContent.value;
-	document.getElementById("rContent").value +="\r\n" + "====================================================";
+	document.getElementById("rContent").value +="\r\n" + "====================================================" + "\r\n";
 	}
 }
 

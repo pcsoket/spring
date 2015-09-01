@@ -47,20 +47,20 @@ public class ReportController {
 		LoginDTO ldto = (LoginDTO)session.getAttribute("logInfo");
 
 		dto.setBoardname(req.getParameter("boardName"));
-		dto.setRnum(rpdao.getMaxNum());
+		dto.setRnum(rpdao.getMaxNum()+1);
 		dto.setGnum(Integer.parseInt(req.getParameter("gnum")));
 		dto.setMid(ldto.getUserId());
+		dto.setRContent(req.getParameter("rContent"));
 		
 		System.out.println(dto.getBoardName());
 		System.out.println(dto.getGnum());
 		System.out.println(dto.getMid());
 		System.out.println(dto.getRaddress());
 		System.out.println(dto.getRContent());
-		System.out.println(dto.getRcreated());
 		System.out.println(dto.getRnum());
 		System.out.println(dto.getRsubject());
 		
-		//rpdao.insertData(dto);
+		rpdao.insertData(dto);
 		
 	}
 	

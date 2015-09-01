@@ -6,7 +6,7 @@
 	<mapper namespace="com.sajo.report">
 	<insert id="insertData" parameterType="com.sajo.dto.ReportDTO">
 	insert into report (rnum,gnum,mid,rsubject,rcontent,raddress,boardName,rcreated)
-	values (#{rnum},#{gnum},#{mid},#{rsubject},#{rcontent},#{raddress},#{boardName},sysdate)
+	values (#{rnum},#{gnum},#{mid},#{rsubject},#{rContent},#{raddress},#{boardName},sysdate)
 	</insert>
 	
 	<select id="maxNum" resultType="int">
@@ -15,7 +15,7 @@
 	<select id="getReadData" parameterType="hashmap" resultType="com.sajo.dto.ReportDTO">
 		select * from (
 		select rownum rnum, data.* from (
-		select gnum,mid,rsubject,rcontent,raddress,boardName,rcreated from report
+		select gnum,mid,rsubject,rContent,raddress,boardName,rcreated from report
 		 order by rcreated desc) data)
 		 <![CDATA[
 		where rnum>=#{start} and rnum<=#{end}
