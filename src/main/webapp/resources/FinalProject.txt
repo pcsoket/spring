@@ -86,6 +86,8 @@ mid VARCHAR2(12) NOT NULL,
 gnum NUMBER NOT NULL,
 rsubject VARCHAR2(50) NOT NULL,
 rcontent VARCHAR2(4000) NOT NULL,
+raddress VARCHAR2(4000) NOT NULL,
+boardname varchar2(10) NOT NULL,
 rcreated DATE NOT NULL);
 
 CREATE TABLE ideaGroup
