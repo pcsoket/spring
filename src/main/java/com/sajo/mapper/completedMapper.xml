@@ -67,6 +67,16 @@
 	delete boardcomment where gNum=#{gNum}
 </delete>
 
+<select id="getbest" parameterType="int" resultType="com.sajo.dto.CompletedDTO">
+	select * from (
+	select rownum rnum, data.* from(
+	select gno,crecomm,chitcount,ccategory,cprice,csubject,ccontent,to_char(cCreated,'YYYY-MM-DD') gCreated, imgnum 
+	from complete order by crecomm desc) data)
+<![CDATA[
+	where rnum>=1 and rnum<=3
+]]>
+</select>
+
 
 	
 </mapper>

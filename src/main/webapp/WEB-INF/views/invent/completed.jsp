@@ -17,10 +17,19 @@
 
 	<div align="left">
 		<div> <img src="/god/resources/image/bestidea.png" style="margin-left: 20px;"> </div> <!-- bestidea -->
-		<div> 이미지 띄우기</div>
+		<div> 
+			<c:forEach var="dto" items="${clists }">
+			<div>
+				
+			</div>
+			
+			</c:forEach>
+			
+		</div>
 	</div>
 	
 	<div> 선 긋기</div>
+	
 
 	<div> <!-- 이미지 틀 -->
 	
@@ -28,7 +37,7 @@
 		
 		<div> 
 			
-			<c:forEach var="dto" items="${clists }">
+			<c:forEach var="dto" items="${lists }">
 			
 				
 			

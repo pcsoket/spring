@@ -53,6 +53,62 @@ function modelsendIt() {
 }
 
 </script>
+<style type="text/css">
+
+.banner-inner{
+
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 400;	
+}
+
+.banner-heading-tape {
+    background-color: #ff4b46;
+    color: #fff;
+    display: inline-block;
+    line-height: 1.5;
+    margin: 0 0.25em;
+    padding: 0.5em;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+    margin-left: 0px;
+    margin-right: 1000px;
+}
+
+.hidden{
+	display: none !important;
+}
+
+.banner-rwd-heading {
+    padding-top: 2rem;
+    font-size: 2.25rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 1rem 0 0;
+    width: 100%;
+}
+
+.text-light {
+    color: #fff;
+}
+
+.u-grid-bottom-margin, .u-grid-margin-bottom {
+    margin-bottom: 32px !important;
+}
+
+.block-center {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.block-md {
+    max-width: 768px;
+}
+
+</style>
+
+
 <title>Invent</title>
 </head>
 <body>
@@ -62,12 +118,9 @@ function modelsendIt() {
 <div style="position: relative;">
 	<div class="banner-inner">
 		<div style="width: 100%; max-width: 1536;">
-		<h1 style="padding-top: 2rem;">
+		<h1 style="padding-top: 2rem; font-size: 24px;">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="banner-heading-tape">Tap into</span>
-			<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="banner-heading-tape">the community</span>
+			<span class="banner-heading-tape">${gdto.gContent}</span>
 		</h1>			
 		</div>
 	</div>
@@ -82,12 +135,13 @@ function modelsendIt() {
 
 </div>
 
-	<div class="fotorama" data-autoplay="3000" data-loop="true" data-width="100%"> 
-	  <img src="/god/resources/image/슬라이드1.png">
-	  <img src="/god/resources/image/슬라이드2.png">
-	  <img src="/god/resources/image/슬라이드3.png">
-	  <img src="/god/resources/image/슬라이드4.png">
-	  <img src="/god/resources/image/슬라이드5.png">
+
+	<div class="fotorama" data-autoplay="3000" data-loop="true" data-width="100%" style="width: 1170px; margin-right: 200px;"> 
+	  <img src="/god/resources/image/slide1.png">
+	  <img src="/god/resources/image/slide2.png">
+	  <img src="/god/resources/image/slide3.png">
+	  <img src="/god/resources/image/slide4.png">
+	  <img src="/god/resources/image/slide5.png">
 	</div>
 
 	<div align="center">

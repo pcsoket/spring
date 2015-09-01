@@ -81,7 +81,7 @@ A:hover {text-decoration:none}
 
 </head>
 <body>
-
+<form name="searchForm" method="post" action="">
 <table width="1140px" align="center" class="box">
 <tr><td>
 	<div class="container" >
@@ -107,13 +107,13 @@ A:hover {text-decoration:none}
 </td></tr>
 	<tr height="30px"> 
 		<td class="line3" height="40px" colspan="5" style="border-color: #ff4b46">
-		<input type="text" name="boardName" value="${boardName }"><input type="text" name="gno" value="'${ logInfo.gno}' +' ${gNo}'">
+		<input type="text" name="boardName" value="${boardName }"><input type="text" name="gno1" value="'${ logInfo.gno}' +' ${gNo}'">
 	</tr>
 	
 	<tr height="30px">
 
 		<td width="50px" align="left" margin-left="20px"  colspan="4" >	
-			<form name="searchForm" method="post" action="">	
+				
 			<div style="float: left">
 			<select name="searchKey"  style="height: 40px; width: 81px;"  class="form-control">
 				<option value="gSubject">제목</option>
@@ -129,7 +129,7 @@ A:hover {text-decoration:none}
 				<span class="glyphicon glyphicon-search"></span><!-- 검색 -->
 				</button>
 			</div>
-			</form>
+			
 		</td></tr>
 	<tr>
 	<td height="50px"></td></tr>
@@ -146,9 +146,9 @@ A:hover {text-decoration:none}
 		<c:forEach var="dto" items="${lists}">	
 			<td width="200px" height="300px" align="center" class="category2">
 			
-					<img alt="" src="/god/resources/image/aa.PNG" width="300" height="250" />	
+					<img alt="" src="${dto.imgNum }" width="300" height="250" />	
 					<font color="#8b4513 " style="font-family: 나눔바른펜; font-size:13pt;">
-					<a href ="${articleUrl}&gNum=${dto.gNum}">
+					<a href ="${articleUrl}&gNum=${dto.gNum}&boardName=${boardName}">
 					${dto.gSubject}</a></font>
 					<br>${dto.mId}&nbsp;&nbsp;&nbsp;&nbsp;★★☆☆☆별점
 					</td>
@@ -180,6 +180,6 @@ A:hover {text-decoration:none}
 	</tr>	
 
 </table>
-
+</form>
 </body>
 </html>

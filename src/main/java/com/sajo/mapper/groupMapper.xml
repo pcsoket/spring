@@ -33,7 +33,7 @@
 <select id="getLists" parameterType="hashMap" resultType="com.sajo.dto.GroupDTO">
 	select * from (
 	select rownum rnum, data.* from(
-	select gNum,mId,gSubject,gHitCount,to_char(gCreated,'YYYY-MM-DD') gCreated
+	select gNum,mId,gSubject,gHitCount,to_char(gCreated,'YYYY-MM-DD') gCreated,imgnum
 	from ideaGroup where boardName=#{boardName} and ${searchKey} like '%' || #{searchValue} || '%'
 	order by gNum desc) data)
 <![CDATA[
@@ -68,10 +68,12 @@
 </delete>
 
 <!-- 참여중인 그룹 -->
-<select id="g_getReadData" parameterType="int" resultType="com.sajo.dto.GroupDTO">
+<select id="g_getReadData" parameterType="hashMap" resultType="com.sajo.dto.GroupDTO">
 	select gNo,gNum,gHitCount,mId,gSubject,imgNum,
 	gContent,gCreated,boardName from ideaGroup where gNo=#{gNo} and boardName=#{boardName}
 </select>
+
+
 
 	
 </mapper>

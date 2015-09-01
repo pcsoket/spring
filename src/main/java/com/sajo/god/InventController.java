@@ -16,10 +16,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sajo.dao.CommentDAO;
+import com.sajo.dao.CompletedDAO;
 import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dao.InventDAO;
 import com.sajo.dao.MemberDAO;
+import com.sajo.dto.CompletedDTO;
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.InventDTO;
 import com.sajo.util.MyUtil;
@@ -35,6 +37,9 @@ public class InventController {
 	@Qualifier("commentDAO")
 	CommentDAO cdao;
 	
+	@Autowired
+	@Qualifier("completedDAO")
+	CompletedDAO cpdao;
 	
 	@Autowired
 	@Qualifier("inventDAO")
@@ -52,13 +57,14 @@ public class InventController {
 	MyUtil myUtil;
 	
 	@RequestMapping(value="/inventList.action")
-	public String imgList(HttpServletRequest req,HttpServletResponse resp, HttpSession session){
+	public String imgList(String boardName,HttpServletRequest req,HttpServletResponse resp, HttpSession session){
 		
 		int gNum = Integer.parseInt(req.getParameter("gNum"));
 		int pageNum = Integer.parseInt(req.getParameter("pageNum"));
 		
+		System.out.println(boardName+":"+gNum+":");
+		
 		int gno = indao.getGno(gNum);
-		int boardName = Integer.parseInt(req.getParameter("boardName"));
 		
 		if(gno!=0){
 			System.out.println(0);
@@ -101,11 +107,18 @@ public class InventController {
 				req.setAttribute("ImageoriginalFile3", ImageoriginalFile3);
 		}
 		
+		System.out.println(boardName+"::::"+gno);
+		
+		GroupDTO gdto = new GroupDTO();
+		gdto = dao.g_getReadData(gno, boardName);
+		
 		
 		req.setAttribute("pageNum", pageNum);
 		req.setAttribute("gNum", gNum);
 		req.setAttribute("gNo", gno);
 		req.setAttribute("boardName", boardName);
+		req.setAttribute("gdto", gdto);
+		
 		
 		return "invent";
 	}
@@ -300,7 +313,7 @@ public class InventController {
 		
 		//글보기 주소 정리
 		String articleUrl = 
-			cp + "/group/article.action?pageNum=" + currentPage + "&gNo=" + dto.getgNo();
+			cp + "/group/article.action?pageNum=" + currentPage;
 			
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
@@ -423,9 +436,11 @@ public class InventController {
 	}
 
 	@RequestMapping(value="/completed.action")
-	public String completed(HttpServletRequest req,HttpServletResponse resp, HttpSession session){
+	public String completed(HttpServletRequest req,HttpServletResponse resp, HttpSession session) throws Exception{
 		
+		List<CompletedDTO> lists = cpdao.getbest();
 		
+		req.setAttribute("clists", lists);
 		
 		return "invent/completed";
 	}

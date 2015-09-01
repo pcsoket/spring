@@ -22,6 +22,7 @@ import com.sajo.dto.ImageDTO;
 import com.sajo.dto.LoginDTO;
 import com.sajo.util.MyUtil;
 import com.sajo.dao.CommentDAO;
+import com.sajo.dao.CompletedDAO;
 import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dao.MemberDAO;
@@ -36,6 +37,7 @@ public class GroupController {
 	@Autowired
 	@Qualifier("commentDAO")
 	CommentDAO cdao;
+
 	
 	@Autowired
 	@Qualifier("imageDAO")
@@ -208,9 +210,11 @@ public class GroupController {
 		
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
-		
+		System.out.println(start+":"+end+":"+searchKey+":"+searchValue+":"+boardName);
 		List<GroupDTO> lists =
 			dao.getList(start, end, searchKey, searchValue,boardName);
+		
+		lists = idao.imageForGList(lists);
 		
 		ListIterator<GroupDTO> it = lists.listIterator();
 
