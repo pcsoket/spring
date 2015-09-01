@@ -217,12 +217,12 @@
 		
 			<tr>
 				<td class="line3" height="80px" colspan="2">
-					&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="5px"><b>
+					&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8b4513 " style="font-family: 나눔바른펜;" font size="5px"><b>
 					${dto.pName}</b></font></td></tr>
 			
 			<tr>
 				<td class="line4" width="100px" height="50px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>판매가</b></font></td>
+					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>판매가 한글</b></font></td>
 				<td class="line5" width="400px" height="50px">
 					&nbsp;&nbsp;${dto.pPrice}</td>
 			</tr>

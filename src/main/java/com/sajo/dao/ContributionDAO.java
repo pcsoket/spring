@@ -47,8 +47,11 @@ public class ContributionDAO {
 	
 	public int checkContribution(ContributionDTO dto){
 		
-		int result = 0;
-		result =sessionTemplate.selectOne("com.sajo.contribution.printContribution",dto);				
+		int result = 1;
+		if(sessionTemplate.selectOne("com.sajo.contribution.checkContribution",dto)==null){
+			result=0;
+			return result;
+		}				
 		
 		return result;
 				
