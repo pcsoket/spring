@@ -29,7 +29,7 @@
 </head>
 <body>
 	<header class="cd-header">
-		<div class="cd-logo"><a href="#0"></a></div>
+		<div class="cd-logo"><a href="#0"><img style="margin-top: 70px;" src="<%=cp%>/resources/image/gengu.png"></a></div>
 
 		<a class="cd-primary-nav-trigger" href="#0">
 			<span class="cd-menu-text">Menu</span><span class="cd-menu-icon"></span>
