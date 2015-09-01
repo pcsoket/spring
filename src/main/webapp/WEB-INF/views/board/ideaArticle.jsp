@@ -153,12 +153,15 @@ function gnoDelete() {
 		
 	}
 	
-	function reportData(cmcontent) {
+	function reportData(str,str1,a) {
 		
-		var popOption = "width=600, height=600,resizable=no,scrollbars=no, status=no, top=300,left=700;";
-		window.open("<%=cp %>/report.action","popup",popOption);
+		document.all.gnum.value=a;
+		document.all.cmContent.value=str;
+		document.all.bName.value=str1;
+		var popOption = "width=520, height=300,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+		win = window.open("<%=cp %>/report.action","popup",popOption);
 		
-	}
+	}	
 	
 	function updateRecomm(cmNum,page){
 		
@@ -251,8 +254,9 @@ function gnoDelete() {
 			<c:if test="${boardName=='3D' && logInfo.auth==3 }">
 				<div><input type="button" name="completed" value="completed" onclick="completed();"></div>			
 			</c:if>
-				
+				<div><input type="button" value="신고" onclick="reportData('','${dto.boardName}','${dto.gNum}');"></div>
 			</c:if>
+			
 		</div>
 			
 		</div>
@@ -275,6 +279,7 @@ function gnoDelete() {
 			<!-- 댓글 리스트 -->
 			<div align="center" style="width: 800px;">
 				<span id="commList" style="display: none"></span>
+				
 			</div>
 			
 			
@@ -287,7 +292,7 @@ function gnoDelete() {
 				<div><input type="button" value="등록" id="sendButton" style="margin-left:5px; float:left; width: 80px; height: 80px;"/></div>
 			</div>
 		</div>	
-	</div>
+	</div> 
 	
 	<!-- <div align="center" style="padding-top: 5px; width: 1000px;">
 		<span id="commList" style="display: none"></span>
@@ -295,7 +300,9 @@ function gnoDelete() {
 </div>
 
 </div>
-
+<input type="hidden" id="gnum" name="gnum"/>
+<input type="hidden" id="bName" name="bName"/>
+<input type="hidden" id="cmContent" name="cmContent" />
 	</form>
 	
 </div>

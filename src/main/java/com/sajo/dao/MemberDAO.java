@@ -111,19 +111,7 @@ public List<MemberDTO> getTotalReadData(int start,int end,String searchKey,Strin
 		
 	}
 	
-	public int getListDataCount(String searchKey,String searchValue){
-		
 
-		HashMap<String, Object>params = new HashMap<String, Object>();
-		
-		params.put("searchKey", searchKey);
-		params.put("searchValue", searchValue);
-		
-		int result = sessionTemplate.selectOne("com.sajo.member.sql.getListDataCount", params);
-		
-		return result;
-		
-	}
 	
 	public void insertGno(String userId,int gno){
 		
