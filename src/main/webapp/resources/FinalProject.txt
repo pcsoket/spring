@@ -50,8 +50,9 @@ RETAKE NUMBER(1) NOT NULL,
 pnum NUMBER NOT NULL,
 imgnum VARCHAR2(100));
 
-CREATE TABLE complete
-(gno NUMBER PRIMARY KEY,
+CREATE TABLE complete(
+cpNum number,
+gno NUMBER PRIMARY KEY,
 crecomm NUMBER,
 chitCount Number,
 ccategory VARCHAR2(20) NOT NULL,
@@ -86,6 +87,8 @@ mid VARCHAR2(12) NOT NULL,
 gnum NUMBER NOT NULL,
 rsubject VARCHAR2(50) NOT NULL,
 rcontent VARCHAR2(4000) NOT NULL,
+raddress VARCHAR2(4000) NOT NULL,
+boardname varchar2(10) NOT NULL,
 rcreated DATE NOT NULL);
 
 CREATE TABLE ideaGroup
