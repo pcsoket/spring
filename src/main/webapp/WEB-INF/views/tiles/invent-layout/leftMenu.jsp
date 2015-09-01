@@ -133,12 +133,12 @@ list-style-type: none;
 </style></head><body>
 <div id="sidebar" class="nano" style="float: left;">
   <div class="nano-content">
-    <div class="logo-container"><span class="logo glyphicon glyphicon-envelope"></span>${dto.gSubject }</div><a class="compose-button">그룹참여</a>
+    <div class="logo-container"><span class="logo glyphicon glyphicon-envelope"></span></div><a class="compose-button">그룹참여</a>
     <div class="separator"></div>
     <menu class="menu-segment">
       <ul>
 		<li class=""><a href="<%=cp%>/group/idea.action">그룹소개</a></li>
-		<li class=""><a href="<%=cp%>/group/idea.action">그룹통계</a></li>
+		<li class=""><a href="<%=cp%>/contributionInfo.action">그룹통계</a></li>
       </ul>
     </menu>
         <div class="separator"></div>

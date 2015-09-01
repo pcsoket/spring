@@ -108,6 +108,9 @@
    <definition name="invent/completed" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/invent/completed.jsp" />
    </definition>
+   <definition name="contributionInfo" extends="group">
+     <put-attribute name="content" value="/WEB-INF/views/board/contributionInfo.jsp" />
+   </definition>
    
    
    
