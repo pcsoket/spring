@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
+	request.setCharacterEncoding("UTF-8");
 	String cp = request.getContextPath();
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -136,6 +137,18 @@ function gnoDelete() {
 		
 	} 
 	
+	function compl() {
+		
+		var f = document.myForm;
+		alert(1);
+		f.action="<%=cp%>/compl/created.action";
+		f.submit();
+		
+		
+		
+	}
+	
+	
 
 	function listPage(page){
 		
@@ -154,7 +167,7 @@ function gnoDelete() {
 		
 	}
 	
-	function updateRecomm(cmNum,page){
+<%-- 	function updateRecomm(cmNum,page){
 		
 		var url = "<%=cp%>/comm/updated_Recomm.action";
 		
@@ -183,19 +196,10 @@ function gnoDelete() {
 		
 		
 	}
-	
+	 --%>
 	/* completed로 넘기기 */
 	
-	function completed() {
-		
-		var f = document.myForm;
-		
-		f.action="<%=cp%>/compl/created.action";
-		f.submit();
-		
-		
-		
-	}
+	
 	
 
 
@@ -203,15 +207,12 @@ function gnoDelete() {
 
 </head>
 <body>
-
-<
-
 <div align="center" >
 <form action="" name="myForm" method="post">
 <!-- 전체 묶음 -->
-<div style="width: 1000px; ">
+<div align="center" style="width: 1000px; margin-top: 20px; font-family: 나눔바른펜;">
 	
-	<div style="margin-top: 2px; width: 1000px; ">
+	<div  style="margin-top: 2px; margin-left: 70px; width: 1000px; ">
 	 	<!-- 아이디어 이미지 -->
 		
 		<div align="center"  style="float: left;">
@@ -221,24 +222,23 @@ function gnoDelete() {
 					     data-maxwidth="100%"
 					     data-allowfullscreen="false">
 				<c:forEach var="dto" items="${ilists }">
-				
+			
 				  <img src="${dto.originalFileName }">
 			<%-- <img src="${dto.originalFileName }" style="width: 60px; height: 60px; cursor: hand;" onmouseover="fimg(this.src)" /> </div> --%>
 			</c:forEach>
 			</div>
 		</div>
 		<!-- 주제 --> 
-		<div style="margin-left: 25px;">
-			<div align="left" style="border-bottom: solid 2px #4374D9; width: 350px; margin-left: 100px; padding-bottom: 20px;">
-			<font style="size: 12pt; font-family: 나눔바른펜; padding-left: 20px;">${dto.gSubject}</font>
+		<div style="margin-left: 25px; width: 500px;">
+			<div align="left" style="border-bottom: solid 2px #4374D9; font-size : 15pt; font-weight: bold; width: 350px; margin-left: 100px; padding-bottom: 10px; padding-left: 5px;">
+			${dto.gSubject}
 			</div>
 			<br/>
 			<div style="width: 500px; height: 150px; padding-left: 15px; padding-right: 15px;">${dto.gContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
 		<div>
 			<c:if test="${!empty logInfo}">
-				<div><span id="message"></span></div><div><input type="button" id="con_button" value="추천"/>
-							</div>
+				<div><span id="message"></span></div><div><input type="button" id="con_button" value="추천"/></div>
 			
 			<c:if test="${logInfo.gno=='0'}">
 				<div><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
@@ -246,12 +246,11 @@ function gnoDelete() {
 			<c:if test="${logInfo.gno==gNo}">
 				<div><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
 			</c:if>
-			<c:if test="${dto.boardName=='3D' && logInfo.auth==3 }">
-				<div><input type="button" name="completed" value="completed" onclick="completed();"></div>			
+			<c:if test="${dto.boardName=='3D' && logInfo.mauth==3 }">
+				<div><input type="button" name="completed" value="completed" onclick="compl();"></div>			
 			</c:if>
 				
 			</c:if>
-
 		</div>
 			
 		</div>
@@ -268,7 +267,7 @@ function gnoDelete() {
 		<div align="center" style="width: 900px; float: left; margin-bottom:10px; border-bottom: solid 2px #ddd">
 		
 			<div align="left" style="width: 800px; padding-left: 20px; padding-top: 20px;">
-			<font style="font-family: 나눔손글씨 붓; color: #2F9D27; font-size: 15pt;"> <b> 댓 글 </b> </font>
+				<div> <img alt="" src="<%=cp%>/resources/image/comment.png"> </div>
 			</div>
 			
 			<!-- 댓글 리스트 -->
@@ -276,14 +275,15 @@ function gnoDelete() {
 				<span id="commList" style="display: none"></span>
 			</div>
 			
-			
-			<div style="width: 800px;">
-				<div style="float: left;">작성자</div>
-				<div id="name">${logInfo.userId } </div>
-			</div>
-			<div style="border-top: solid 1px #ddd ; padding-top: 10px; width: 900px; padding-left: 30px;" >
-				<div style="float: left;"><textarea rows="5" cols="100" id="content"></textarea></div>
-				<div><input type="button" value="등록" id="sendButton" style="margin-left:5px; float:left; width: 80px; height: 80px;"/></div>
+			<div align="center" style="margin-left: 70px;">
+				<div style="padding-bottom: 5px; padding-left: 30px;">
+					<div style="float: left; font-size: 12pt; font-weight: bold;">작성자</div>
+					<div id="name">${logInfo.userId } </div>
+				</div>
+				<div style=" padding-left: 30px;" >
+					<div style="float: left;"><textarea rows="5" cols="100" id="content"></textarea></div>
+					<div><input type="button" value="등록" id="sendButton" style="margin-left:5px; float:left; width: 80px; height: 80px;"/></div>
+				</div>
 			</div>
 		</div>	
 	</div>

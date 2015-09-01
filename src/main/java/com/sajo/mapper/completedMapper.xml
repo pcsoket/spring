@@ -8,7 +8,7 @@
 	
 <!-- gNum의 최대값 -->
 <select id="maxNum" resultType="int">
-	select nvl(max(gNum),0) from complete	
+	select nvl(max(cpNum),0) from complete	
 </select>
 
 <!-- gNum의 최대값 -->
@@ -25,7 +25,7 @@
 
 <!-- 전체데이터 갯수 -->
 <select id="getDataCount" parameterType="hashMap" resultType="int">
-	select nvl(count(*),0) from ideaGroup
+	select nvl(count(*),0) from complete
 	where ${searchKey} like '%' || #{searchValue} || '%'
 </select>
 
@@ -34,7 +34,7 @@
 	select * from (
 	select rownum rnum, data.* from(
 	select gNum,mId,gSubject,gHitCount,to_char(gCreated,'YYYY-MM-DD') gCreated
-	from ideaGroup where boardName=#{boardName} and ${searchKey} like '%' || #{searchValue} || '%'
+	from complete where boardName=#{boardName} and ${searchKey} like '%' || #{searchValue} || '%'
 	order by gNum desc) data)
 <![CDATA[
 	where rnum>=#{start} and rnum<=#{end}
@@ -43,28 +43,28 @@
 
 <!-- 조회수 수정 -->
 <update id="updateHitCount" parameterType="int">
-	update ideaGroup set gHitCount=gHitCount+1 where gNum=#{gNum}
+	update complete set gHitCount=gHitCount+1 where gNum=#{gNum}
 </update>
 
 <!-- 한개의 데이터 -->
 <select id="getReadData" parameterType="int" resultType="com.sajo.dto.CompletedDTO">
 	select gNo,gNum,gHitCount,mId,gSubject,imgNum,
-	gContent,gCreated,boardName from ideaGroup where gNum=#{gNum}
+	gContent,gCreated,boardName from complete where gNum=#{gNum}
 </select>
 
 <!-- 데이터 수정 -->
 <update id="updateData" parameterType="com.sajo.dto.CompletedDTO">
-	update ideaGroup set gSubject=#{gSubject},
+	update complete set gSubject=#{gSubject},
 	gContent=#{gContent} where gNum=#{gNum}
 </update>
 
 <!-- 데이터 삭제 -->
 <delete id="deleteData" parameterType="int">
-	delete ideaGroup where gNum=#{gNum}
+	delete completed where gNum=#{gNum}
 </delete>
 
 <delete id="c_deleteData" parameterType="int">
-	delete boardcomment where gNum=#{gNum}
+	delete boardcomment where cpNum=#{cpNum}
 </delete>
 
 <select id="getbest" parameterType="int" resultType="com.sajo.dto.CompletedDTO">

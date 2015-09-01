@@ -51,7 +51,7 @@ public class ContributionController {
 		int result = dao.checkContribution(dto);
 		
 		if(result>0){
-			return "redirect:/checkContribution.action?gNum=" + dto.getgNum()+"&message=" +"이미 추천하셨습니다.";
+			return "redirect:/checkContribution.action?gNum=" + dto.getgNum()+"&message=이미 추천하셨습니다.";
 		}
 		
 		dao.insertData(dto);

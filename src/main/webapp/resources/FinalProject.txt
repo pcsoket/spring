@@ -50,8 +50,9 @@ RETAKE NUMBER(1) NOT NULL,
 pnum NUMBER NOT NULL,
 imgnum VARCHAR2(100));
 
-CREATE TABLE complete
-(gno NUMBER PRIMARY KEY,
+CREATE TABLE complete(
+cpNum number,
+gno NUMBER PRIMARY KEY,
 crecomm NUMBER,
 chitCount Number,
 ccategory VARCHAR2(20) NOT NULL,
