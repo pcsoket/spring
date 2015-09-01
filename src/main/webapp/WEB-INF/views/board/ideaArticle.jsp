@@ -153,6 +153,13 @@ function gnoDelete() {
 		
 	}
 	
+	function reportData(cmcontent) {
+		
+		var popOption = "width=600, height=600,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+		window.open("<%=cp %>/report.action","popup",popOption);
+		
+	}
+	
 	function updateRecomm(cmNum,page){
 		
 		var url = "<%=cp%>/comm/updated_Recomm.action";
