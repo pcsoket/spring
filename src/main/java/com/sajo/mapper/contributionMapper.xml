@@ -14,7 +14,7 @@
 
 
 <!-- contribution  -->
-<insert id="insertData" parameterType="dto">
+<insert id="insertData" parameterType="com.sajo.dto.ContributionDTO">
 	insert into contribution (conNum,gnum,gno,userId,grecomm,boardName)
 	values (#{conNum},#{gNum},#{gno},#{userId},0,#{boardName})
 </insert>
