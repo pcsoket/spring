@@ -68,7 +68,7 @@ public class ProductController {
 		
 		
 		//전체데이터갯수
-		int dataCount = dao.p_getDataCount(searchKey, searchValue);
+		int dataCount = dao.p_getDataCount(searchKey, searchValue,pCategory);
 		
 		//전체페이지수
 		int numPerPage = 10;
@@ -177,7 +177,7 @@ public class ProductController {
 		
 		
 		//전체데이터갯수
-		int dataCount = dao.p_getDataCount(searchKey, searchValue);
+		int dataCount = dao.p_getDataCount(searchKey, searchValue,pCategory);
 		
 		System.out.println(dataCount);
 		//전체페이지수
@@ -212,9 +212,22 @@ public class ProductController {
 		}
 		
 		String listUrl = cp + "/idea_category.action";
+		
+	
+		
 		if(!param.equals("")){
-			listUrl = listUrl + "?" + param;				
+			listUrl = listUrl + "?" + param;		
+			
+			if(pCategory!=null){
+				listUrl+= "&pCategory="+pCategory;
+			}
+		}else {
+			if(pCategory!=null){
+				listUrl+= "?pCategory="+pCategory;
+			}
 		}
+		
+		
 		
 		String pageIndexList =
 			myUtil.pageIndexList(currentPage, totalPage, listUrl);

@@ -56,12 +56,13 @@ public class ProductDAO {
 	
 		
 		//전체 데이터수 구하기
-		public int p_getDataCount(String searchKey,String searchValue){
+		public int p_getDataCount(String searchKey,String searchValue,String pCategory){
 					
 			HashMap<String, Object> params = new HashMap<String, Object>();
 			
 			params.put("searchKey", searchKey);
 			params.put("searchValue", searchValue);
+			params.put("pCategory", pCategory);
 			
 			int result = sessionTemplate.selectOne("com.sajo.god.product.mapper.p_getDataCount",params);
 							
@@ -187,7 +188,7 @@ public class ProductDAO {
 			
 			sessionTemplate.insert("com.sajo.god.product.mapper.p_insertData",dto);
 		}
-		
+
 		
 				
 		
