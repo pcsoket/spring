@@ -13,9 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
-
- <!-- 전체틀 -->
+<div align="center"> <!-- 전체틀 -->
 <table width="1140px" align="center" class="box">
 <tr>
 	<td>
@@ -32,13 +30,6 @@
 </tr>
 </table>
 
-	<div align="left">
-		<div> <img src="/god/resources/image/bestidea.png" style="margin-left: 20px;"> </div> <!-- bestidea -->
-		<div> 
-			<c:forEach var="dto" items="${clists }">
-			<div>
-=======
-<div align="center"> <!-- 전체틀 -->
 	<div style="width: 1140px;">
 		<div align="left">
 			<div> <img src="/god/resources/image/bestidea.png" style="margin-left: 20px;"> </div> <!-- bestidea -->
@@ -49,7 +40,6 @@
 				</div>
 				
 				</c:forEach>
->>>>>>> 8ca9f28a4d43555e695165297f8b58eede1cc68a
 				
 			</div>
 		</div>
