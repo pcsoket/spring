@@ -53,7 +53,6 @@ function modelsendIt() {
 }
 
 </script>
-
 <style type="text/css">
 
 .banner-inner{
@@ -109,22 +108,19 @@ function modelsendIt() {
 
 </style>
 
+
 <title>Invent</title>
 </head>
 <body>
 <div align="center">
-
-<!--이미지 갤러리  -->
+	<!--이미지 갤러리  -->
 
 <div style="position: relative;">
 	<div class="banner-inner">
 		<div style="width: 100%; max-width: 1536;">
 		<h1 style="padding-top: 2rem; font-size: 24px;">
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="banner-heading-tape">Tap into</span>
-			<br/>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<span class="banner-heading-tape" style="margin-right: 938px;">the community</span>
+			<span class="banner-heading-tape">${gdto.gContent}</span>
 		</h1>			
 		</div>
 	</div>
@@ -136,6 +132,7 @@ function modelsendIt() {
 			<div class="block-md block-center"></div>			
 		</div>		
 	</div>		
+
 </div>
 
 
@@ -167,9 +164,12 @@ function modelsendIt() {
 			<img src="${ImageoriginalFile3}" onclick="modelsendIt();" style="width:200px; height:200px; border-radius: 50%;"/>
 			<div> <a href="javascript:modelsendIt();"> 3D </a></div>
 		</div>
+		
+		
 	</div>
 	<input type="hidden" name="pageNum" value="${pageNum}"/>
 	<input type="hidden" name="gNum" value="${gNum}"/>
+	
 	</form>
 	<div align="center" style="margin-top: 7px;">
 		<div class="border" style="width:1170px; border: solid 1px; border-color: #D5D5D5;"></div>
