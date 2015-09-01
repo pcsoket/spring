@@ -265,7 +265,7 @@ public class InventController {
 		int dataCount = 0;
 		dataCount = indao.getDataCount(searchKey, searchValue,dto.getgNo(), boardName);
 		
-		request.setAttribute("gNo",dto.getgNo());                    //중간에보냄
+		int gNo = dto.getgNo();                     //중간에보냄
 		
 		//전체페이지수
 		int numPerPage = 9;
@@ -313,7 +313,7 @@ public class InventController {
 		
 		//글보기 주소 정리
 		String articleUrl = 
-			cp + "/group/article.action?pageNum=" + currentPage;
+			cp + "/group/article.action?pageNum=" + currentPage + "&gNo=" + gNo ;
 			
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
@@ -326,6 +326,8 @@ public class InventController {
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		request.setAttribute("boardName", boardName);
+		request.setAttribute("dto", dto);
+		request.setAttribute("gNo",gNo);
 		
 		return "board/list_sketch";
 	}
@@ -363,7 +365,7 @@ public class InventController {
 		int dataCount = 0;
 		dataCount = indao.getDataCount(searchKey, searchValue,dto.getgNo(), boardName);
 		
-		request.setAttribute("gNo",dto.getgNo());                    //중간에보냄
+		int gNo = dto.getgNo();                     //중간에보냄
 		
 		
 		//전체페이지수
@@ -412,7 +414,7 @@ public class InventController {
 		
 		//글보기 주소 정리
 		String articleUrl = 
-			cp + "/group/article.action?pageNum=" + currentPage + "&gNo=" + dto.getgNo();
+			cp + "/group/article.action?pageNum=" + currentPage + "&gNo=" + gNo;
 			
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
@@ -425,6 +427,8 @@ public class InventController {
 		request.setAttribute("dataCount",dataCount);
 		request.setAttribute("articleUrl",articleUrl);
 		request.setAttribute("boardName", boardName);
+		request.setAttribute("dto", dto);
+		request.setAttribute("gNo",gNo);
 		
 		return "board/list_3d";
 	}
