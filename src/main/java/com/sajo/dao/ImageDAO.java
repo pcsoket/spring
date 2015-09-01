@@ -15,6 +15,7 @@ import org.apache.commons.io.IOUtils;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
+import com.sajo.dto.CompletedDTO;
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.ImageDTO;
 import com.sajo.dto.MainListDTO;
@@ -217,6 +218,22 @@ public class ImageDAO {
 		return lists;
 	}
 	
+	public List<CompletedDTO> imageForcList (List<CompletedDTO> lists){//list.action할때만 사용
+		System.out.println("???");
+		if(lists!=null){
+			CompletedDTO dto = new CompletedDTO();
+			Iterator<CompletedDTO> it = lists.iterator();
+			while(it.hasNext()){
+				
+				dto = it.next();
+				//System.out.println(dto.getImgNum()+":"+dto.getgNum());
+				String img = getImage(dto.getImgNum());
+				dto.setImgNum(img);
+				System.out.println(dto.getImgNum()+":"+img);
+			}
+		}
+		return lists;
+	}
 	public List<MainListDTO> imageForMlList (List<MainListDTO> lists){//MainList.action할때만 사용
 		
 		if(lists!=null){

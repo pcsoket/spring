@@ -109,4 +109,19 @@ public class GroupDAO {
 		sessionTemplate.update("com.sajo.mapper.updateData",dto);			
 				
 	}
+
+	//참여중인 그룹 데이터
+	public GroupDTO g_getReadData(int gNo,String boardName){
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("gNo", gNo);
+		params.put("boardName", boardName);
+		
+		GroupDTO dto =		
+				sessionTemplate.selectOne("com.sajo.mapper.g_getReadData",params);
+						
+		return dto;
+		
+	}
 }

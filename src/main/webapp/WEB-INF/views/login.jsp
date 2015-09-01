@@ -59,7 +59,7 @@ function findId() {
     <div id="pop_header" >
         <h1 style="font-family: 나눔손글씨 붓; ">로그인</h1>
     </div>
-    <div style="width: 100%; border-bottom: solid 3px; border-color: #ffd2d7;">
+    <div style="width: 100%; border-bottom: solid 3px; border-color: #ddd;">
     </div>
    
     <div id="pop_container">
@@ -98,7 +98,7 @@ function findId() {
                         <label for="keep_id" class="keep_id"><input type="checkbox" id="keep_id" name="keep_id" title="아이디 저장" class="checkbox" /> 아이디 저장</label>
                         <a onclick="findId();" class="find_profile">아이디/비밀번호 찾기</a>
                     </div>
-                   <input type="hidden" name="pagePath" value="${pagePath}">
+                   <input type="text" name="pagePath" value="${pagePath}">
                 </fieldset>
              
                 </form>

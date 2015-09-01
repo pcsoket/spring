@@ -57,13 +57,15 @@ public class InventController {
 	MyUtil myUtil;
 	
 	@RequestMapping(value="/inventList.action")
-	public String imgList(HttpServletRequest req,HttpServletResponse resp, HttpSession session){
+	public String imgList(String boardName,HttpServletRequest req,HttpServletResponse resp, HttpSession session){
 		
 		int gNum = Integer.parseInt(req.getParameter("gNum"));
 		int pageNum = Integer.parseInt(req.getParameter("pageNum"));
 		
+		System.out.println(boardName+":"+gNum+":");
+		
 		int gno = indao.getGno(gNum);
-		 
+		
 		if(gno!=0){
 			System.out.println(0);
 			InventDTO dto1 = indao.getInventData(gno);
@@ -105,10 +107,17 @@ public class InventController {
 				req.setAttribute("ImageoriginalFile3", ImageoriginalFile3);
 		}
 		
+		System.out.println(boardName+"::::"+gno);
+		
+		GroupDTO gdto = new GroupDTO();
+		gdto = dao.g_getReadData(gno, boardName);
+		
 		
 		req.setAttribute("pageNum", pageNum);
 		req.setAttribute("gNum", gNum);
 		req.setAttribute("gNo", gno);
+		req.setAttribute("boardName", boardName);
+		req.setAttribute("gdto", gdto);
 		
 		
 		return "invent";
@@ -426,15 +435,7 @@ public class InventController {
 		return "";
 	}
 
-	@RequestMapping(value="/completed.action")
-	public String completed(HttpServletRequest req,HttpServletResponse resp, HttpSession session) throws Exception{
-		
-		List<CompletedDTO> lists = cpdao.getbest();
-		
-		req.setAttribute("clists", lists);
-		
-		return "invent/completed";
-	}
+	
 	
 		
 

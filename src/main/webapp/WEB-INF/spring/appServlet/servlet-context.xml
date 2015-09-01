@@ -71,9 +71,9 @@
 	</beans:bean>
 	
 	<!-- completedDAO 추가 -->
-	<beans:bean id="contributionDAO" class="com.sajo.dao.ContributionDAO">
+ 	<beans:bean id="contributionDAO" class="com.sajo.dao.ContributionDAO">
 		<beans:property name="sessionTemplate" ref="sessionTemplate"/>
-	</beans:bean>
+	</beans:bean> 
 	
 	<!-- 파일업로드 기능 적용 인터페이스 -->
  	<beans:bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
