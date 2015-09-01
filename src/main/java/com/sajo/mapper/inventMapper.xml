@@ -6,13 +6,22 @@
 	
 	<mapper namespace="com.sajo.invent">
 	<select id="getInventData" parameterType="int" resultType="com.sajo.dto.InventDTO">
-	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='idea'
+	select * from (
+	select rownum rnum, data.* from(
+	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='idea') data) 
+	where rnum=1 
 	</select>
 	<select id="getModelData" parameterType="int" resultType="com.sajo.dto.InventDTO">
-	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='3d'
+	select * from (
+	select rownum rnum, data.* from(
+	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='3d') data) 
+	where rnum=1 
 	</select>
 	<select id="getSketchData" parameterType="int" resultType="com.sajo.dto.InventDTO">
-	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='sketch'
+	select * from (
+	select rownum rnum, data.* from(
+	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='sketch') data) 
+	where rnum=1 
 	</select>
 	<select id="getGno" parameterType="int" resultType="int">
 	select nvl(gno,0) as gno from ideagroup where gnum=#{gNum}
