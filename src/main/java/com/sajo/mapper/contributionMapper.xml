@@ -24,5 +24,10 @@
 <update id="updateContribution" parameterType="int">
 	update contribution set grecomm=grecomm+1 where gNum=#{gNum}
 </update>
+
+<!-- contribution check -->
+<select id="checkContribution" parameterType="int" resultType="int">
+	select sum(grecomm) from contribution where gNum=#{gNum}
+</select>
 	
 </mapper>

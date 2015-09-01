@@ -31,20 +31,25 @@ public class ContributionController {
 		dto.setConNum(numMax+1);
 		dao.insertData(dto);
 		
-		return "redirect:/group/article.action?gNum=" + dto.getgNum();
+		return "redirect:/checkContribution.action?&gNum=" + dto.getgNum();
 	}
 
 	
 	@RequestMapping(value="/updateContribution.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String update(ContributionDTO dto, HttpServletRequest request,HttpServletResponse response) throws Exception{
+	public String update(ContributionDTO dto, HttpServletRequest request,HttpServletResponse response){
 
 	
-			
-		dao.updateContribution(dto);
+		dao.updateContribution(dto.getgNum());
 		
-		return "redirect:/group/article.action?gNum=" + dto.getgNum();
-
-		
+		return "redirect:/checkContribution.action?&gNum=" + dto.getgNum();
 	}
 	
+	@RequestMapping(value="/checkContribution.action",method={RequestMethod.GET,RequestMethod.POST})
+	public String check(ContributionDTO dto, HttpServletRequest request,HttpServletResponse response){
+
+		dao.checkContribution(dto.getgNum());
+
+		return "board/contribution/contribution_update";
+
+	}	
 }

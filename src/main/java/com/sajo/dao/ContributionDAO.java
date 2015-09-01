@@ -28,10 +28,16 @@ public class ContributionDAO {
 		
 	}
 	
-	//¼öÁ¤
-	public void updateContribution(ContributionDTO dto){
+
+	public void updateContribution(int gNum){
 		
-		sessionTemplate.update("com.sajo.contribution.updateContribution",dto);			
+		sessionTemplate.update("com.sajo.contribution.updateContribution",gNum);			
+				
+	}
+	
+	public void checkContribution(int gNum){
+		
+		sessionTemplate.update("com.sajo.contribution.checkContribution",gNum);			
 				
 	}
 

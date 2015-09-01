@@ -81,7 +81,7 @@ function gnoDelete() {
 		/*  추천 버튼 */
 		$("#con_button").click(function(){
 			
-			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"
+			var params = "userId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"
 	
 			$.ajax({
 				
@@ -233,7 +233,8 @@ function gnoDelete() {
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
 		<div>
 			<c:if test="${!empty logInfo}">
-				<div><input type="button" id="con_button" value="추천"/></div>
+				<div><span id="message"></span><input type="button" id="con_button" value="추천"/>
+							</div>
 			
 			<c:if test="${logInfo.gno=='0'}">
 				<div><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
