@@ -67,6 +67,11 @@
 	delete boardcomment where gNum=#{gNum}
 </delete>
 
+<!-- 참여중인 그룹 -->
+<select id="g_getReadData" parameterType="hashMap" resultType="com.sajo.dto.GroupDTO">
+	select gNo,gNum,gHitCount,mId,gSubject,imgNum,
+	gContent,gCreated,boardName from ideaGroup where gNo=#{gNo} and boardName=#{boardName}
+</select>
 
 
 
