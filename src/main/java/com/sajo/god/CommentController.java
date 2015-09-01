@@ -94,7 +94,7 @@ public class CommentController {
 		
 		CommentDTO cdto = dao.getBestRecomm(dto.getgNum());
 		System.out.println(dto.getgNum());
-		System.out.println(cdto.getCmId());
+		//System.out.println(cdto.getCmId());
 
 		
 		request.setAttribute("cdto", cdto);
