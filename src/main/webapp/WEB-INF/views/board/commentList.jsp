@@ -31,10 +31,14 @@
 </div>
 
 
+
+<div>
+
 <div style="font-family: 나눔바른펜;">
 <c:forEach var="dto" items="${c_lists }">
 
 	<div style="border-top: solid 2px #999999; width: 780px; padding-top: 20px;">
+
 		<div style="padding-left: 10px; width: 200px; float: left;">
 	
 		userId.${dto.cmId }
@@ -47,6 +51,7 @@
 		<div align="right" style="padding-right: 10px; width: 400px; padding-bottom: 10px">
 		${dto.cmCreated }&nbsp;
 		<a href="javascript:deleteData('${dto.cmNum }','${dto.gNum }')">삭제</a>
+		<a href="javascript:reportData('${dto.cmContent}','comment','${dto.gNum }')">신고</a>
 		</div>
 	</div>
 	
@@ -56,9 +61,8 @@
 		${dto.cmContent }
 		</div>
 	</div>
-
-
-
+<form name="report" method="post">
+</form>
 </c:forEach>
 
 </div>
@@ -72,10 +76,10 @@
 
 
 <div style="height: 30px;">
-	<div align="center">${c_pageIndexList }</div>
+	<div align="center">${c_pageIndexList}</div>
 </div>
 
-
+</div>
 
 </div>
 </c:if>
