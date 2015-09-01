@@ -29,7 +29,7 @@
 	</update>
 	<!-- gno수정하기 -->
 	<update id="gnoUpdate" parameterType="com.sajo.dto.MemberDTO">
-		update member set gno=#{gno} where mid=#{userId}
+		update member set gno=#{gno},mauth=3 where mid=#{userId}
 	</update>
 	
 	<delete id="deleteData" parameterType="String">
