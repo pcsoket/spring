@@ -186,7 +186,10 @@ function gnoDelete() {
 	
 	function completed() {
 		
-		var f = document.MyForm;
+		var f = document.myForm;
+		
+		f.action="<%=cp%>/compl/created.action";
+		f.submit();
 		
 		
 		
@@ -198,9 +201,10 @@ function gnoDelete() {
 
 </head>
 <body>
+<div align="center" >
 <form action="" name="myForm" method="post">
 <!-- 전체 묶음 -->
-<div align="center" style="width: 1000px; margin-left: 300px;">
+<div style="width: 1000px; ">
 	
 	<div style="margin-top: 2px; width: 1000px; ">
 	 	<!-- 아이디어 이미지 -->
@@ -226,19 +230,22 @@ function gnoDelete() {
 			<br/>
 			<div style="width: 500px; height: 150px; padding-left: 15px; padding-right: 15px;">${dto.gContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
+		<div>
+			<c:if test="${!empty logInfo}">
+				<div><input type="button" id="con_button" value="추천"/></div>
 			
-		<c:if test="${!empty logInfo}">
-			<input type="button" id="con_button" value="추천"/>
-		</c:if>
-		<c:if test="${logInfo.gno=='0'}">
-			<input type="button" value="그룹참여" onclick="gnoInsert();"/>
+			<c:if test="${logInfo.gno=='0'}">
+				<div><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
 			</c:if>
-		<c:if test="${logInfo.gno==gNo}">
-			<input type="button" value="그룹탈퇴" onclick="gnoDelete();"/>
+			<c:if test="${logInfo.gno==gNo}">
+				<div><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
 			</c:if>
-			<c:if test="${boardName=='3D' }">
-				<input type="button" name="completed" value="completed" onclick="completed();">			
+			<c:if test="${boardName=='3D' && logInfo.auth==3 }">
+				<div><input type="button" name="completed" value="completed" onclick="completed();"></div>			
 			</c:if>
+				
+			</c:if>
+		</div>
 			
 		</div>
 		</div>
@@ -282,5 +289,7 @@ function gnoDelete() {
 </div>
 
 	</form>
+	
+</div>
 </body>
 </html>

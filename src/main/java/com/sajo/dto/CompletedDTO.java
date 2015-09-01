@@ -2,15 +2,16 @@ package com.sajo.dto;
 
 public class CompletedDTO {
 	
-	int gno,cRecomm,cHitCount,cPrice;
+	int gNo,cRecomm,cHitCount,cPrice;
 	String cCategory,cSubject,cContent,cCreated,imgNum;
 	
 	
-	public int getGno() {
-		return gno;
+
+	public int getgNo() {
+		return gNo;
 	}
-	public void setGno(int gno) {
-		this.gno = gno;
+	public void setgNo(int gNo) {
+		this.gNo = gNo;
 	}
 	public int getcRecomm() {
 		return cRecomm;

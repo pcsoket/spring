@@ -13,40 +13,40 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div align="center" style="width: 1140px;"> <!-- 전체틀 -->
-
-	<div align="left">
-		<div> <img src="/god/resources/image/bestidea.png" style="margin-left: 20px;"> </div> <!-- bestidea -->
-		<div> 
-			<c:forEach var="dto" items="${clists }">
-			<div>
+<div align="center"> <!-- 전체틀 -->
+	<div style="width: 1140px;">
+		<div align="left">
+			<div> <img src="/god/resources/image/bestidea.png" style="margin-left: 20px;"> </div> <!-- bestidea -->
+			<div> 
+				<c:forEach var="dto" items="${clists }">
+				<div>
+					<img alt="" src="  ">
+				</div>
+				
+				</c:forEach>
 				
 			</div>
-			
-			</c:forEach>
-			
 		</div>
-	</div>
-	
-	<div> 선 긋기</div>
-	
-
-	<div> <!-- 이미지 틀 -->
-	
-		<div>조회순  추천순</div> <!-- 조회순 추천순 -->
 		
-		<div> 
-			
-			<c:forEach var="dto" items="${lists }">
-			
-				
-			
-			</c:forEach>
-
-		</div>
+		<div> 선 긋기</div>
+		
 	
+		<div> <!-- 이미지 틀 -->
+		
+			<div>조회순  추천순</div> <!-- 조회순 추천순 -->
+			
+			<div> 
+				
+				<c:forEach var="dto" items="${lists }">
+				
+					
+				
+				</c:forEach>
+	
+			</div>
+		
+		</div>
 	</div>
-
 </div>
 
 </body>

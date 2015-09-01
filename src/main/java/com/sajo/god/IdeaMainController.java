@@ -44,6 +44,7 @@ public class IdeaMainController {
 		if(logInfo!=null){
 				int gno = logInfo.getGno();
 				String userId=logInfo.getUserId();
+				System.out.println(gno);
 			if(gno!=0){
 				MainListDTO dto1 = dao.getData(userId,"idea");
 				MainListDTO dto2 = dao.getData(userId,"sketch");
@@ -55,6 +56,7 @@ public class IdeaMainController {
 				System.out.println("99");
 				req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
 				req.setAttribute("dto1", dto1);
+				req.setAttribute("gno", gno);
 				}
 				if(dto2!=null){
 				String ImageoriginalFile2 = idao.getImage(dto2.getImgNum());
