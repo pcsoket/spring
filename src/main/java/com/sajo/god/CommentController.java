@@ -94,7 +94,7 @@ public class CommentController {
 		
 		CommentDTO cdto = dao.getBestRecomm(dto.getgNum());
 		System.out.println(dto.getgNum());
-		System.out.println(cdto.getCmId());
+		//System.out.println(cdto.getCmId());
 
 		
 		request.setAttribute("cdto", cdto);
@@ -130,11 +130,11 @@ public class CommentController {
 	}
 	
 	
-	/*@RequestMapping(value="/comm/updated.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String updated(CommentDTO dto,int cmNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
+	/*@RequestMng updated(CommentDTO dto,int cmNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 		String cp = request.getContextPath();
-	
+	apping(value="/comm/updated.action",method={RequestMethod.GET,RequestMethod.POST})
+	public Stri
 		String pageNum = request.getParameter("pageNum");
 		
 		dto = dao.getReadData(cmNum);

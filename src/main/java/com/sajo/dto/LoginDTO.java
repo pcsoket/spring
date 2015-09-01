@@ -3,8 +3,16 @@ package com.sajo.dto;
 public class LoginDTO {
 	
 	private String userId,userPwd,userName;
-	private int gno;
+	private int gno,mauth;
 	
+	public int getMauth() {
+		return mauth;
+	}
+
+	public void setMauth(int mauth) {
+		this.mauth = mauth;
+	}
+
 	public int getGno() {
 		return gno;
 	}

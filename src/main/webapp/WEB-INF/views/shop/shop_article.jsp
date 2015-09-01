@@ -163,22 +163,26 @@
 }
 
 .line3{border-top: 5px solid  #A6A6A6;
-	border-bottom: 1px solid #ffd2d7;
+	border-bottom: 1px solid #EAEAEA;
 }
 .line4{	
 	border-bottom: 1px solid  #EAEAEA;
-	background-color:  #ffd2d7;
+	background-color:  #F6F6F6;
+	font-size: 14pt;
+	font-family: 나눔고딕코딩;
+	
 	}
 .line5{
 	border-bottom: 1px solid  #EAEAEA;
-
+	font-size: 13pt;
+	
 	}
 	
 .btn1{
-	background-color: #ffd2d7;
-	border:1px solid #ffd2d7;
-	font :"#8b4513";
-	font-family : 나눔바른펜";
+	background-color: #BDBDBD;
+	border: 1px solid #BDBDBD;
+	font-weight: #FFFFFF;
+	border-radius : 10px;
 	}
 #imageGallery{
 	float: left;
@@ -193,13 +197,24 @@
 </style>
 </head>
 <body>
+<!-- 전체묶음 -->
+<div style="width: 100%;">
 
-<div  id="bodyWrap">
+<div id="bodyWrap"  style="width:1000px">
+
+<!-- 이미지 -->
+<div>
+	<img src="<%=cp%>/resources/image/award.png">
+</div>
+
+<br/>
+
+
 <form name="myForm">
-	<div id="imageGallery">
+	<div id="imageGallery" style="margin-right: 50px;">
 		<div class="fotorama" data-autoplay="3000"             
-						 data-width="350"
-						 data-high="350"
+						 data-width="480"
+						 data-height="480"
 					     data-maxwidth="100%"
 					     data-allowfullscreen="false"
 					     data-nav="thumbs">
@@ -210,59 +225,62 @@
 
 				</c:forEach>
 		</div>
-	</div>   			
+	</div> 
+	
+	  			
 		<div id="productInfo">
-		<table width="500px" height="700px" class="box">
+		<table width="350px" height="700px" class="box" >
 		
 		
 			<tr>
 				<td class="line3" height="80px" colspan="2">
-					&nbsp;&nbsp;&nbsp;&nbsp;<font color="#8b4513 " style="font-family: 나눔손글씨 붓;" font size="5px"><b>
+					&nbsp;&nbsp;&nbsp;&nbsp;<font style="font-size: 25pt; font-family: fantasy;"><b>
 					${dto.pName}</b></font></td></tr>
 			
 			<tr>
-				<td class="line4" width="100px" height="50px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>판매가</b></font></td>
+				
+				<td class="line4" width="120px" height="50px" align="center">
+					<b>판매가</b></td>
 				<td class="line5" width="400px" height="50px">
-					&nbsp;&nbsp;${dto.pPrice}</td>
+					&nbsp;&nbsp;&nbsp;${dto.pPrice}</td>
 			</tr>
 			<tr>
-				<td class="line4" width="100px" height="50px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>상품번호</b></font></td>
+				<td class="line4" width="120px" height="50px" align="center">
+					<b>상품번호</b></td>
 				<td class="line5" width="400px" height="50px">
-					&nbsp;&nbsp;${dto.pNum}</td>
+					&nbsp;&nbsp;&nbsp;${dto.pNum}</td>
 			</tr>
 			<tr>
-				<td class="line4" width="100px" height="50px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>평점</b></font></td>
+				<td class="line4" width="120px" height="50px" align="center">
+					<b>평점</b></td>
 				<td class="line5" width="400px" height="50px">
-					&nbsp;&nbsp;${dto.pGrade}</td>
+					&nbsp;&nbsp;&nbsp;${dto.pGrade}</td>
 			</tr>
 			<tr>
-				<td class="line4" width="100px" height="50px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>조회수</b></font></td>
+				<td class="line4" width="120px" height="50px" align="center">
+					<b>조회수</b></td>
 				<td class="line5" width="400px" height="50px">
-					&nbsp;&nbsp;${dto.pHitcount}</td>
+					&nbsp;&nbsp;&nbsp;${dto.pHitcount}</td>
 			</tr>
 						<tr>
 				<td class="line4" width="150px" height="50px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>수량</b></font></td>
+					<b>수량</b></td>
 				<td class="line5" width="200px" height="50px">
-					<a onclick="minus();">-</a><input type="text" name="bAmount" id="bAmount" size=2 value=1><a onclick="plus();">+</a>
+					&nbsp;&nbsp;<a onclick="minus();">-&nbsp;</a><input type="text" name="bAmount" id="bAmount" size=2 value=1><a onclick="plus();">&nbsp;+</a>
 					
 					</td>
 			</tr>
 			<tr>
 				<td class="line4" width="150px" height="80px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>구매예정금액</b></font></td>
+					<font style="font-family: 나눔바른펜;"><b>구매예정<br/>금액</b></font></td>
 				<td class="line5" width="200px" height="80px">
-					&nbsp;&nbsp;${2*dto.pPrice}</td>
+					&nbsp;&nbsp;&nbsp;${2*dto.pPrice}</td>
 			</tr>
 			<tr>
 				<td class="line4" width="100px" height="250px" align="center">
-					<font color="#8b4513 " style="font-family: 나눔바른펜;"><b>설명</b></font></td>
+					<b>설명</b></td>
 				<td class="line5" width="400px" height="250px">
-					&nbsp;&nbsp;${dto.pContent}</td>
+					&nbsp;&nbsp;&nbsp;${dto.pContent}</td>
 			</tr>
 			
 			<tr>
@@ -270,10 +288,10 @@
 				<td width="100px" height="70px" colspan="2">
 				<table>
 					<tr>
-					<td width="250px" height="70px" align="right">
-					<input type="button" style="width:100px; height:50px;" value="장바구니" class="btn1" onclick="sendIt();"></td>
+					<td width="250px" height="70px" align="center">
+					<input type="button" style="width:100px; height:50px; font-size: 15pt; color: #ffffff; font-weight: bold;" class="btn1" value="장바구니" onclick="sendIt();"></td>
 					<td width="250px" height="70px" colspan="2">
-				 	<input type="button" style="width:100px; height:50px;" value="바로 구매" class="btn1"></td>
+				 	<input type="button" style="width:100px; height:50px; font-size: 15pt; color: #ffffff; font-weight: bold;" class="btn1" value="바로 구매"></td>
 				</table>
 				 	<input type="hidden" name="bAmount" value=1><!-- 임시로. 고를수있게 해놓아야됨 -->
 				 	<input type="hidden" name="bPName" value="${dto.pName}">
@@ -315,5 +333,8 @@
 		</div>	
 	</div>
 
+
+</div>
+<!-- 전체묶음 -->
 </body>
 </html>

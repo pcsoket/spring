@@ -1,0 +1,2 @@
+${contribution}<br/>
+${message}

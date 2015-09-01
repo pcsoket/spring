@@ -14,7 +14,7 @@
 	<select id="getModelData" parameterType="int" resultType="com.sajo.dto.InventDTO">
 	select * from (
 	select rownum rnum, data.* from(
-	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='3d') data) 
+	select imgnum,gnum from ideagroup where gno=#{gNo} and boardname='3D') data) 
 	where rnum=1 
 	</select>
 	<select id="getSketchData" parameterType="int" resultType="com.sajo.dto.InventDTO">

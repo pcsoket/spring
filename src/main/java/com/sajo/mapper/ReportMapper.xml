@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	<mapper namespace="com.sajo.report">
+	<insert id="insertData" parameterType="com.sajo.dto.ReportDTO">
+	insert into report (rnum,gnum,mid,rsubject,rcontent,raddress,boardName,rcreated)
+	values (#{rnum},#{gnum},#{mid},#{rsubject},#{rContent},#{raddress},#{boardName},sysdate)
+	</insert>
+	
+	<select id="maxNum" resultType="int">
+		select nvl(max(rnum),0) from report 
+	</select>
+	<select id="getReadData" parameterType="hashmap" resultType="com.sajo.dto.ReportDTO">
+		select * from (
+		select rownum rnum, data.* from (
+		select gnum,mid,rsubject,rContent,raddress,boardName,rcreated from report
+		 order by rcreated desc) data)
+		 <![CDATA[
+		where rnum>=#{start} and rnum<=#{end}
+		]]>
+	</select>
+	<select id="getDataCount" resultType="int">
+		select nvl(count(*),0) from report
+	</select>
+	</mapper>

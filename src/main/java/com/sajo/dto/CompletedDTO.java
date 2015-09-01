@@ -2,11 +2,25 @@ package com.sajo.dto;
 
 public class CompletedDTO {
 	
-	int gNo,cRecomm,cHitCount,cPrice;
+	int listNum,cpNum,gNo,cRecomm,cHitCount,cPrice;
+	
+	
+	public int getListNum() {
+		return listNum;
+	}
+	public void setListNum(int listNum) {
+		this.listNum = listNum;
+	}
 	String cCategory,cSubject,cContent,cCreated,imgNum;
 	
 	
 
+	public int getCpNum() {
+		return cpNum;
+	}
+	public void setCpNum(int cpNum) {
+		this.cpNum = cpNum;
+	}
 	public int getgNo() {
 		return gNo;
 	}

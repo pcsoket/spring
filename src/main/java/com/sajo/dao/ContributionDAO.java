@@ -16,7 +16,7 @@ public class ContributionDAO {
 		
 		int result = 0;
 		
-		result = sessionTemplate.selectOne("com.sajo.contributin.maxNum");
+		result = sessionTemplate.selectOne("com.sajo.contribution.maxNum");
 		
 		return result;
 		
@@ -28,10 +28,32 @@ public class ContributionDAO {
 		
 	}
 	
-	//¼öÁ¤
-	public void updateContribution(ContributionDTO dto){
+
+	public void updateContribution(int gNum){
+		System.out.println(gNum + "contributionUpdate");
+		sessionTemplate.update("com.sajo.contribution.updateContribution",gNum);			
+				
+	}
+	
+	public int printContribution(int gNum){
 		
-		sessionTemplate.update("com.sajo.contribution.updateContribution",dto);			
+		int result = 0;
+		
+		result =sessionTemplate.selectOne("com.sajo.contribution.printContribution",gNum);			
+		
+		return result;
+				
+	}
+	
+	public int checkContribution(ContributionDTO dto){
+		
+		int result = 1;
+		if(sessionTemplate.selectOne("com.sajo.contribution.checkContribution",dto)==null){
+			result=0;
+			return result;
+		}				
+		
+		return result;
 				
 	}
 
