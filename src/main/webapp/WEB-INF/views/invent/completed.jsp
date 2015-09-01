@@ -14,6 +14,22 @@
 </head>
 <body>
 <div align="center"> <!-- 전체틀 -->
+<table width="1140px" align="center" class="box">
+<tr>
+	<td>
+<div class="container" >
+	<div class="jumbotron" align="center" style="background-image: url(/god/resources/image/banner2.png);">
+		<h3 style="color: #ff4b46">Team up with top brands</h3>      
+		<p style="color: #ff4b46"></p>
+		
+		
+		
+	</div>
+</div>
+	</td>
+</tr>
+</table>
+
 	<div style="width: 1140px;">
 		<div align="left">
 			<div> <img src="/god/resources/image/bestidea.png" style="margin-left: 20px;"> </div> <!-- bestidea -->
