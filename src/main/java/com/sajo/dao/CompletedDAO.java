@@ -73,7 +73,7 @@ public class CompletedDAO {
 			params.put("searchValue", searchValue);
 			
 			
-			int result = sessionTemplate.selectOne("com.sajo.completed.cp_getDataCount",params);
+			int result = sessionTemplate.selectOne("com.sajo.completed.getDataCount",params);
 							
 			return result;
 			

@@ -45,20 +45,20 @@
 	</div>
 </div>
 
-<nav class="navbar navbar-inverse" style="background-color: #ffffff; border-color: #ddd;">
+<nav class="navbar navbar-inverse" style="background-color: #616161; border-color: #ddd; background-image: url(/god/resources/image/main1.png)">
   <div class="container-fluid" style="padding-left: 10px; padding-right: 10px; width: 1020px; margin-left: 370px; margin-right: 150px;">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+    <div class="navbar-header" style="margin-bottom: 10px;">
+      <!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="<%=cp %>/category.action">GodShop</a>
+      </button> -->
+      <a class="navbar-brand" href="<%=cp %>/category.action"><img alt="" src="<%=cp%>/resources/image/ideaShop.PNG"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="<%=cp %>/category.action">아이디어상품  <span class="caret"></span></a>
+          <a class="dropdown-toggle" data-toggle="dropdown" href="<%=cp %>/category.action"><img alt="" src="<%=cp%>/resources/image/ideaproduct.png"><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="<%=cp %>/idea_category.action">생활/건강</a></li>
             <li><a href="#">디지털/가전</a></li>
@@ -67,8 +67,8 @@
             <li><a href="#">스포츠/레저</a></li>
           </ul>
         </li>
-        <li><a href="<%=cp %>/category.action">베스트상품</a></li>
-        <li><a href="#">고객의 소리</a></li>
+        <li><a href="<%=cp %>/category.action"><img alt="" src="<%=cp%>/resources/image/bestproduct.png"></a></li>
+        <li><a href="#"><img alt="" src="<%=cp%>/resources/image/customer.png"></a></li>
       </ul>
     </div>
   
