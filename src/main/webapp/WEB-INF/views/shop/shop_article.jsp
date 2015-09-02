@@ -113,7 +113,6 @@
 		
 		$.post(url,{cmNum:cmNum,gNum:"${dto.pNum}",pageNO:page}, function(args){
 			
-		
 			$("#commList").html(args);
 			
 		});
@@ -127,7 +126,6 @@
 		var url ="<%=cp%>/comm/deleted.action";
 		
 		$.post(url,{cmNum:cmNum,gNum:"${dto.pNum}",pageNO:page}, function(args){
-			
 			
 			$("#commList").html(args);
 			
@@ -200,7 +198,6 @@
 
 	}
 	
-	
 #imageGallery{
 	float: left;
 }
@@ -226,7 +223,6 @@
 
 <br/>
 
-
 <form name="myForm">
 
 	<div id="imageGallery" style="margin-right: 50px;">
@@ -244,19 +240,15 @@
 				</c:forEach>
 		</div>
 	</div> 
-	
-	  			
+		
 		<div id="productInfo" style="width: 1000px">
 		<table width="350px" height="700px" class="box" >
-		
-		
+
 			<tr>
 				<td class="line3" height="80px" colspan="2">
 					&nbsp;&nbsp;&nbsp;&nbsp;<font style="font-size: 25pt; font-family: fantasy;"><b>
 					${dto.pName}</b></font></td></tr>
-			
 			<tr>
-				
 				<td class="line4" width="120px" height="50px" align="center">
 					<b>판매가</b></td>
 				<td class="line5" width="400px" height="50px">
@@ -280,14 +272,13 @@
 				<td class="line5" width="400px" height="50px">
 					&nbsp;&nbsp;&nbsp;${dto.pHitcount}</td>
 			</tr>
-						<tr>
+			<tr>
 				<td class="line4" width="150px" height="50px" align="center">
 					<b>수량</b></td>
 				<td class="line5" width="200px" height="50px">
 					&nbsp;&nbsp;<a onclick="minus();"><img src="<%=cp%>/resources/image/s_minus.png">&nbsp;
 					</a><input type="text" name="bAmount" id="bAmount" size=2 value=1>
-					<a onclick="plus();">&nbsp;<img src="<%=cp%>/resources/image/s_plus.png"></a>
-					
+					<a onclick="plus();">&nbsp;<img src="<%=cp%>/resources/image/s_plus.png"></a>	
 					</td>
 			</tr>
 			<tr>
@@ -301,10 +292,8 @@
 					<b>설명</b></td>
 				<td class="line5" width="400px" height="250px">
 					&nbsp;&nbsp;&nbsp;${dto.pContent}</td>
-			</tr>
-			
-			<tr>
-				
+			</tr>	
+			<tr>	
 				<td width="100px" height="70px" colspan="2">
 				<table>
 					<tr>
@@ -323,12 +312,8 @@
 				 	<input type="hidden" name="boardName" value="product">
 				</td>
 			</tr>
-			
 		</table>
 		</div>
-
-		
-		
 </form>
 </div>
 
@@ -339,13 +324,10 @@
 			<div align="left" style="width: 800px; padding-left: 20px; padding-bottom: 20px;">
 			<font style="font-family: fantasy; font-size: 16pt;"> <b> Comment </b> </font>
 			</div>
-			
 			<!-- 댓글 리스트 -->
 			<div align="center" style="padding-top: 10px; width: 800px;">
 				<span id="commList" style="display: none"></span>
 			</div>
-			
-			
 			<div style="width: 800px;">
 				<div style="float: left; font-family: 나눔바른펜; font-size: 15pt">작성자</div>&nbsp;
 				<div id="name">${logInfo.userId } </div>
