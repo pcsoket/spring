@@ -12,9 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
+import com.sajo.dao.ContributionDAO;
 import com.sajo.dao.IdeaMainDAO;
 import com.sajo.dao.ImageDAO;
+import com.sajo.dto.ContributionDTO;
 import com.sajo.dto.LoginDTO;
 import com.sajo.dto.MainListDTO;
 
@@ -34,6 +35,10 @@ public class IdeaMainController {
 	ImageDAO idao;
 	
 	@Autowired
+	@Qualifier("contributionDAO")
+	ContributionDAO cdao;
+	
+	@Autowired
 	MyUtil myUtil;
 	
 	@RequestMapping(value="/ideaMain.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -44,7 +49,13 @@ public class IdeaMainController {
 		if(logInfo!=null){
 				int gno = logInfo.getGno();
 				String userId=logInfo.getUserId();
-				System.out.println(gno);
+
+				int myContribution = cdao.myContribution(userId);
+				List<ContributionDTO> contributionList = cdao.getContributionList(gno);
+
+
+				req.setAttribute("myContribution", myContribution);
+				req.setAttribute("contributionList", contributionList);
 			if(gno!=0){
 				MainListDTO dto1 = dao.getData(userId,"idea");
 				MainListDTO dto2 = dao.getData(userId,"sketch");
@@ -84,6 +95,9 @@ public class IdeaMainController {
 		List<MainListDTO> idealists = idao.imageForMlList(dao.getIdeaReadData());
 		req.setAttribute("idealists", idealists);
 		
+
+		
+
 	
 		
 		//complate ¼øÀ§
