@@ -13,13 +13,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.dao.CompletedDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dto.CompletedDTO;
-import com.sajo.dto.GroupDTO;
 import com.sajo.dto.ImageDTO;
 import com.sajo.dto.LoginDTO;
 import com.sajo.dto.ProductDTO;
@@ -84,8 +82,6 @@ public class CompletedController {
 		
 		String cp = req.getContextPath();
 		
-		//String boardName = "group";
-		
 		String pageNum = req.getParameter("pageNum");
 		int currentPage = 1;
 		
@@ -122,7 +118,7 @@ public class CompletedController {
 		
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
-		System.out.println(start+":"+end+":"+searchKey+":"+searchValue+"::");
+		//System.out.println(start+":"+end+":"+searchKey+":"+searchValue+"::");
 		List<CompletedDTO> lists =
 			cpdao.cp_getList(start, end, searchKey, searchValue);
 		
