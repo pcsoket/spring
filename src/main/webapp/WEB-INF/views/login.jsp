@@ -62,7 +62,7 @@ function findId() {
     <div style="width: 100%; border-bottom: solid 3px; border-color: #ddd; margin-top: 30px;margin-bottom: 10px;">
     </div>
    
-    <div id="pop_container" style="margin-bottom: 290px;">
+    <div id="pop_container" style="margin-bottom: 315px;">
        
         <div id="pop_content" class="content_primary login member" style="margin: 0 auto; width: 500px;">
             <div class="section">
@@ -112,7 +112,7 @@ function findId() {
                     <div class="bn_ar" style="width: 30%;" >
                     	<div>
                         	<a class="bn xsmall color1 join" href="<%=cp%>/write.action">
-                        	<span style="color: #000000;">회원가입</span></a>                        
+                        	<span>회원가입</span></a>                        
                     	</div>                    
                     </div>         
                 </div>

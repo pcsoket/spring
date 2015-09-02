@@ -40,12 +40,13 @@ input.checkbox {
 .bn_ar .xsmall.bn {
 	width: 150px; height: 36px; line-height: 36px; letter-spacing: -1px; font-size: 15px;
 }
-.bn_ar .color1.bn {
-	border-color: rgb(255, 210, 215); background-color: rgb(255, 210, 215);	
+.bn_ar .color1.bn {/* 회원가입 버튼 */
+	border-color: #EAEAEA; background-color: #EAEAEA;
+	color: #8C8C8C;	
 }
 .bn_ar .color3.bn {/* 로그인 버튼 */
-	border-color: rgb(255, 210, 215); background-color: rgb(255, 210, 215);
-	color: #000000;	
+	border-color: #EAEAEA; background-color: #EAEAEA;
+	color: #8C8C8C;	
 }
 .login .bn_ar .btn_login {
 	top: 0px; right: 21px; position: absolute;

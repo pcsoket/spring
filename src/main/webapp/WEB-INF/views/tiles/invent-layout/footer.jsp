@@ -33,19 +33,19 @@
 		
 		<a href="http://www.maque.co.kr/provision.php" onfocus='this.blur()' onmouseout="MM_swapImgRestore()"
 		onmouseover="MM_swapImage('ft_bt1','','http://www.maque.co.kr/img/ft/bt1_on.png',0)">		
-		<img src="<%=cp%>/resources/image/f1.png" name="ft_bt1" border="0" id="ft_bt1" /></a> 		
+		<img src="<%=cp%>/resources/image/f1.png" name="ft_bt1" border="0" id="ft_bt1" /></a><!-- 이용약관 -->
 		<img src="<%=cp%>/resources/image/line.png" alt="" border="0"> 
 		<a href="http://www.maque.co.kr/privacy.php"> 		
-		<img src="<%=cp%>/resources/image/f2.png" /></a> 
+		<img src="<%=cp%>/resources/image/f2.png" /></a><!-- 개인정보 -->
 		<img src="<%=cp%>/resources/image/line.png" alt="" border="0">
 		<a href="http://www.maque.co.kr/bbs/write.php?bo_table=partners">		
-		<img src="<%=cp%>/resources/image/f3.png" /></a> 
+		<img src="<%=cp%>/resources/image/f3.png" /></a> <!-- 제휴업체 -->
 		<img src="<%=cp%>/resources/image/line.png" alt="" border="0"> 
 		<a href="http://www.maque.co.kr/bbs/write.php?bo_table=invest">											
-		<img src="<%=cp%>/resources/image/f4.png" /></a> 
+		<img src="<%=cp%>/resources/image/f4.png" /></a> <!-- 투자문의 -->
 		<img src="<%=cp%>/resources/image/line.png" alt="" border="0"> 
 		<a href="http://www.maque.co.kr/bbs/write.php?bo_table=register">											
-		<img src="<%=cp%>/resources/image/f5.png" /></a>
+		<img src="<%=cp%>/resources/image/f5.png" /></a> <!-- 아이디어등록 -->
 		</td>
 	</tr>
 </table>
