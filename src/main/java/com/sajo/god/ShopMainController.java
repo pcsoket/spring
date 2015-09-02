@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.sajo.dao.BasketDAO;
+import com.sajo.dao.ImageDAO;
 import com.sajo.dao.MemberDAO;
 import com.sajo.dao.PurchaseDAO;
 import com.sajo.dto.BasketDTO;
@@ -36,6 +37,10 @@ public class ShopMainController {
 	
 	@Autowired
 	MemberDAO mdao;
+	
+	@Autowired
+	@Qualifier("imageDAO")
+	ImageDAO idao;
 	
 	@Autowired
 	PurchaseDAO pdao;
@@ -73,6 +78,8 @@ public class ShopMainController {
 		int dataCount = dao.getDataCount(logInfo.getUserId());
 		
 		List<BasketDTO> lists = (List<BasketDTO>)dao.readPro(logInfo.getUserId());
+		
+		lists = idao.imageForbList(lists);
 		
 		//String urlList = cp + "/img/list.action";
 		
@@ -275,7 +282,7 @@ public class ShopMainController {
 		
 		if(bnums != null){
 			
-	//		System.out.println("널인가" + bnums);
+		System.out.println("널인가" + bnums);
 			String[] nums= bnums.split("-");
 			
 			
