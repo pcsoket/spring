@@ -73,6 +73,5 @@ public class ContributionDAO {
 		List<ContributionDTO> lists =sessionTemplate.selectOne("com.sajo.contribution.getContributionList",gNo);			
 		
 		return lists;
-				
 	}
 }
