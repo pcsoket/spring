@@ -114,7 +114,6 @@ function searchId() {
 	</div>		
 </div>
 
-
 	<div class="fotorama" data-autoplay="3000" data-loop="true" data-width="100%"> 
 	  <img src="/god/resources/image/slide1.png">
 	  <img src="/god/resources/image/slide2.png">
