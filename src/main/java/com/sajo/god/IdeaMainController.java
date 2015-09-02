@@ -89,7 +89,7 @@ public class IdeaMainController {
 			req.removeAttribute("imageoriginalFile3");*/
 			}
 			
-		}	
+		}
 		//인기아이디어 순위
 		
 		List<MainListDTO> idealists = idao.imageForMlList(dao.getIdeaReadData());
