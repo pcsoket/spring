@@ -145,7 +145,7 @@ public class CompletedController {
 				+ URLEncoder.encode(searchValue, "UTF-8");
 		}
 		
-		String listUrl = cp + "/group/list.action";
+		String listUrl = cp + "/completed.action";
 		if(!param.equals("")){
 			listUrl = listUrl + "?" + param;				
 		}
@@ -155,7 +155,7 @@ public class CompletedController {
 		
 		//글보기 주소 정리
 		String articleUrl = 
-			cp + "/inventList.action?pageNum=" + currentPage;
+			cp + "/compl/article.action?pageNum=" + currentPage;
 			
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
@@ -236,7 +236,7 @@ public class CompletedController {
 				+ URLEncoder.encode(searchValue, "UTF-8");
 		}		
 			
-		mav.setViewName("board/ideaArticle");
+		mav.setViewName("invent/complArticle");
 		mav.addObject("ilists", ilists);
 		mav.addObject("dto",dto);
 		mav.addObject("params",param);

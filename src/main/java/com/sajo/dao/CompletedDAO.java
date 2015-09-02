@@ -70,7 +70,7 @@ public class CompletedDAO {
 		//조회수증가
 		public void updateHitCount(int cpNum){
 			
-			sessionTemplate.update("com.sajo.completed.p_updateHitCount",cpNum);
+			sessionTemplate.update("com.sajo.completed.updateHitCount",cpNum);
 			
 		}
 		
@@ -78,7 +78,7 @@ public class CompletedDAO {
 		public CompletedDTO getReadData(int cpNum){
 			
 			CompletedDTO dto =		
-					sessionTemplate.selectOne("com.sajo.completed.p_getReadData",cpNum);
+					sessionTemplate.selectOne("com.sajo.completed.getReadData",cpNum);
 			
 			return dto;
 			

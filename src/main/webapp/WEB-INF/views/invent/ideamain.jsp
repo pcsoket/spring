@@ -20,7 +20,10 @@
 				<div style="width: 800px;">
 				
 					<c:choose>
-					<c:when test="${!empty sessionScope.logInfo}">
+					<c:when test="${!empty sessionScope.logInfo && logInfo.gno!=0}">
+						
+						
+						
 						<c:if test="${dto1.gNum!=null}">
 						<div style="float: left; padding-right: 15px;">
 						<div><a href="<%=cp %>/group/article.action?gNum=${dto1.gNum}" ><img src="${ImageoriginalFile1}" style="width:200px; height:200px; border-radius:30%"/></a></div>
@@ -96,6 +99,8 @@
 							</div>
 						</div>
 					</c:otherwise>
+					
+		
 		
 
 					</c:choose>

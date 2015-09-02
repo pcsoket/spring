@@ -92,6 +92,9 @@
       <definition name="board/list" extends="idea">
      <put-attribute name="content" value="/WEB-INF/views/board/list.jsp" />
    </definition>
+    <definition name="invent/complArticle" extends="idea">
+     <put-attribute name="content" value="/WEB-INF/views/invent/complArticle.jsp" />
+   </definition>
    
    
    

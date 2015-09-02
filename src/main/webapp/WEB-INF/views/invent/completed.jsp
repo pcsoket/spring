@@ -39,7 +39,7 @@
 			<div> 
 				<c:forEach var="cdto" items="${clists }">
 				<div align="center" >
-					<div style="float:left; padding-left: 20px;"><a href="<%=cp %>/compl/article.action?gNum=${cdto.cpNum}"> <img alt="" src=" ${cdto.imgNum}" style="width:300px; height:250px;" ></a></div>
+					<div style="float:left; padding-left: 20px;"><a href="<%=cp %>/compl/article.action?cpNum=${cdto.cpNum}"> <img alt="" src=" ${cdto.imgNum}" style="width:300px; height:250px;" ></a></div>
 					<div>${cdto.cSubject }</div>
 				</div>
 				
@@ -63,9 +63,9 @@
 				<c:forEach var="dto" items="${lists }">
 				
 					<div>
-					<a href="${articleUrl}&pNum=${dto.cpNum}"><img alt="" src="${dto.imgNum }" width="300" height="250" /></a><br/>
+					<a href="${articleUrl}&cpNum=${dto.cpNum}"><img alt="" src="${dto.imgNum }" width="300" height="250" /></a><br/>
 					<font color="#8b4513 " style="font-family: 나눔바른펜; font-size:13pt;">
-					<a href ="${articleUrl}&pNum=${dto.cpNum}">
+					<a href ="${articleUrl}&cpNum=${dto.cpNum}">
 					${dto.cSubject}</a></font>
 					<br/>${dto.mid}
 					

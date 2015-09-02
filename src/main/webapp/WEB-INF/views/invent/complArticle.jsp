@@ -49,7 +49,7 @@ function gnoDelete() {
 	
 		$("#sendButton").click(function(){
 			
-			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+ "&cmContent=" + $("#content").val();
+			var params = "mid=" + "${logInfo.userId }" +"&gNum="+"${dto.cpNum}"+ "&cmContent=" + $("#content").val();
 
 
 			$.ajax({
@@ -81,8 +81,8 @@ function gnoDelete() {
 		/*  추천 버튼 */
 		$("#con_button").click(function(){
 			
-			var params = "userId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+"&gNo="+"${dto.gNo}"
-						+"&boardName="+"${dto.boardName}" +"&writer="+"${dto.mId}";
+			var params = "userId=" + "${logInfo.userId }" +"&gNum="+"${dto.cpNum}"+"&gNo="+"${dto.gNo}"
+						+"&boardName="+"completed" +"&writer="+"${dto.mid}";
 			
 			$.ajax({
 				
@@ -142,7 +142,7 @@ function gnoDelete() {
 		var url ="<%=cp%>/comm/list.action";
 		
 
-		$.post(url,{pageNO:page , gNum:"${dto.gNum}"}, function(args){
+		$.post(url,{pageNO:page , gNum:"${dto.cpNum}"}, function(args){
 		
 
 			$("#commList").html(args);
@@ -166,21 +166,11 @@ function gnoDelete() {
 		
 	}
 	
-	function reportData(str,str1,a) {
-		
-		document.all.gnum.value=a;
-		document.all.cmContent.value=str;
-		document.all.bName.value=str1;
-		var popOption = "width=510, height=350,resizable=false,scrollbars=no, status=no, top=300,left=700;";
-		win = window.open("<%=cp %>/report.action","popup",popOption);
-		
-	}	
-	
 	function updateRecomm(cmNum,page){
 		
 		var url = "<%=cp%>/comm/updated_Recomm.action";
 		
-		$.post(url,{cmNum:cmNum,gNum:"${dto.gNum}",pageNO:page}, function(args){
+		$.post(url,{cmNum:cmNum,gNum:"${dto.cpNum}",pageNO:page}, function(args){
 			
 		
 			$("#commList").html(args);
@@ -195,7 +185,7 @@ function gnoDelete() {
 		
 		var url ="<%=cp%>/comm/deleted.action";
 		
-		$.post(url,{cmNum:cmNum,gNum:"${dto.gNum}",pageNO:page}, function(args){
+		$.post(url,{cmNum:cmNum,gNum:"${dto.cpNum}",pageNO:page}, function(args){
 			
 			$("#commList").html(args);
 			
@@ -239,13 +229,13 @@ function gnoDelete() {
 		</div>
 		<!-- 주제 --> 
 		<div style="margin-left: 25px;">
-			<div align="left" style="border-bottom: solid 2px #4374D9; width: 350px; margin-left: 100px; padding-bottom: 20px;">
-			<font style="size: 12pt; font-family: 나눔바른펜; padding-left: 20px;">${dto.cSubject}</font>
+			<div align="left" style="border-bottom: solid 2px #4374D9; width: 350px; margin-top: 20px; margin-left: 100px; padding-bottom: 20px;">
+			<font style="size: 12pt; font-family: 나눔바른펜; padding-left: 20px; ">${dto.cSubject}</font>
 			</div>
 			<br/>
-			<div style="width: 500px; height: 150px; padding-left: 15px; padding-right: 15px;">${dto.cContent}</div>
+			<div style="width: 500px; height: 150px; padding-left: 100px; padding-right: 15px;">${dto.cContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
-		<div align="left" style="margin-left: 15px;">
+<%-- 		<div align="left" style="margin-left: 15px;">
 			<c:if test="${!empty logInfo}">
 				<div style="float: left;"><span id="message"></span></div><div style="float: left;"><input type="button" id="con_button" value="추천"/>
 							</div>
@@ -264,7 +254,7 @@ function gnoDelete() {
 				<div style="float: left;"><input type="button" value="신고" onclick="reportData('','${dto.boardName}','${dto.gNum}');"></div>
 			</c:if>
 
-		</div> 
+		</div> --%>
 			
 		</div>
 		</div>
