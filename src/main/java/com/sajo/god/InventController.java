@@ -21,7 +21,7 @@ import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dao.InventDAO;
 import com.sajo.dao.MemberDAO;
-import com.sajo.dto.CompletedDTO;
+//import com.sajo.dto.CompletedDTO;
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.InventDTO;
 import com.sajo.util.MyUtil;

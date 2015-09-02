@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+//import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.util.MyUtil;
 import com.sajo.dao.ContributionDAO;
@@ -38,7 +38,7 @@ public class ContributionController {
 		HttpSession session = request.getSession();
 		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
 		
-		ModelAndView mav = new ModelAndView();
+		//ModelAndView mav = new ModelAndView();
 		
 		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
 			

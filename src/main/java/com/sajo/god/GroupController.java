@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sajo.dto.CommentDTO;
+//import com.sajo.dto.CommentDTO;
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.ImageDTO;
 import com.sajo.dto.LoginDTO;
 import com.sajo.util.MyUtil;
 import com.sajo.dao.CommentDAO;
-import com.sajo.dao.CompletedDAO;
+//import com.sajo.dao.CompletedDAO;
 import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dao.MemberDAO;
@@ -307,7 +307,7 @@ public class GroupController {
 		
 		List<ImageDTO> ilists = idao.getImageList(dto.getImgNum());
 		
-		String listimgnum = idao.getImage(dto.getImgNum());
+		//String listimgnum = idao.getImage(dto.getImgNum());
 		
 		int lineSu = dto.getgContent().split("\n").length;
 		
@@ -402,7 +402,7 @@ public class GroupController {
 	@RequestMapping(value="/group/updated.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String updated(int gNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
-		String cp = request.getContextPath();
+		//String cp = request.getContextPath();
 	
 		String pageNum = request.getParameter("pageNum");
 		

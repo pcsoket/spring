@@ -1,11 +1,11 @@
 package com.sajo.god;
 
 import java.io.File;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
+//import java.util.ListIterator;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -72,7 +72,7 @@ public class ShopMainController {
 		
 		String savePath = "example" + File.separator + "resources" + File.separator + "imageFile";
 		
-		String cp = request.getContextPath();
+		//String cp = request.getContextPath();
 		
 		int dataCount = dao.getDataCount(logInfo.getUserId());
 		
@@ -299,6 +299,7 @@ public class ShopMainController {
 	
 	
 	
+	@SuppressWarnings("null")
 	@RequestMapping(value="/card_cancle.action")
 	public String card_cancel(String bnums, HttpServletRequest req, HttpServletResponse resp,HttpSession session){
 		

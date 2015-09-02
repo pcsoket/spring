@@ -13,15 +13,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.dao.CompletedDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dto.CompletedDTO;
-import com.sajo.dto.GroupDTO;
 import com.sajo.dto.ImageDTO;
-import com.sajo.dto.ProductDTO;
 import com.sajo.util.MyUtil;
 
 @Controller
