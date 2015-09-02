@@ -150,17 +150,17 @@ function modelsendIt() {
 	<form name="groupimg" method="post">
 	<div align="center" class="container" style="padding-top:5px; width: 1000px; margin-bottom: 10px;" >	
 		<!-- invent -->
-		<div align="center" style="border: solid 1px; float:left; margin-right: 20px; border-color: #D5D5D5; width: 300px; height: 300px;">
+		<div align="center" style=" float:left; margin-right: 20px; border-color: #D5D5D5; width: 300px; height: 300px;">
 			<img src="${ImageoriginalFile1}" onclick="inventsendIt();" style="width:200px; height:200px; border-radius: 50%;"/>
 			<div> <a href="javascript:inventsendIt();"> Idea </a></div>
 		</div>
 		<!-- 3d -->
-		<div align="center" style="border: solid 1px; float:left; margin-right: 20px; border-color: #D5D5D5; width: 300px; height: 300px;">
+		<div align="center" style=" float:left; margin-right: 20px; border-color: #D5D5D5; width: 300px; height: 300px;">
 			<img src="${ImageoriginalFile2}" onclick="sketchsendIt();" style="width:200px; height:200px; border-radius: 50%;"/>
 			<div> <a href="javascript:sketchsendIt();"> Sketch </a></div>
 		</div>
 		<!-- sketch -->
-		<div align="center" style="border: solid 1px; float:left; border-color: #D5D5D5; width: 300px; height: 300px;">
+		<div align="center" style=" float:left; border-color: #D5D5D5; width: 300px; height: 300px;">
 			<img src="${ImageoriginalFile3}" onclick="modelsendIt();" style="width:200px; height:200px; border-radius: 50%;"/>
 			<div> <a href="javascript:modelsendIt();"> 3D </a></div>
 		</div>
