@@ -51,7 +51,7 @@ public class CompletedController {
 		
 	}
 	
-	@RequestMapping(value="/compl/created.action")
+	@RequestMapping(value="/compl/created_ok.action")
 	public ModelAndView compl_created_ok(CompletedDTO cpdto,ImageDTO idto,HttpServletRequest req,HttpServletResponse resp, HttpSession session) throws Exception{
 		
 		ModelAndView mav = new ModelAndView();
