@@ -17,8 +17,8 @@
 	var defaultOpt = {
 			inputFile: $(this),
 			img: null,
-			w: 200,
-			h: 200
+			w: 100,
+			h: 100
 			};
 	$.extend(defaultOpt, opt);
 	var previewImage = function(){
@@ -67,8 +67,8 @@
 		$(document).ready(function(){
 			var opt = {
 					img: $('#img_preview'),
-					w: 200,
-					h: 200
+					w: 100,
+					h: 100
 					};
 			$('#file1').setPreview(opt);
 			
@@ -84,7 +84,7 @@ $(document).ready(function()
 });
 
 function sendIt() {
-	
+	alert(1);
 	var f=document.update;
 	f.action="<%=cp%>/mupdated.action";
 	f.submit();
@@ -266,7 +266,7 @@ float: right;
 			
 
 	            <dt><strong>나의 쇼핑 내역</strong></dt>
-	            <dd><a href="">주문/배송조회</a></dd>
+	            <dd><a href="<%=cp%>/orderList.action">주문/배송조회</a></dd>
 	            <dd><a href="">취소/반품/교환 신청</a></dd>
 	            <dd><a href="">취소/반품/교환 현황</a></dd>
 	            <dd><a href="">환불/입금내역</a></dd>
@@ -297,9 +297,9 @@ float: right;
 				<div class="basicInfo_boxtitle">
 				${dto.userId}님의 기본정보
 				</div>
-			<div class="basicInfo_contentWrap">
+			<div class="basicInfo_contentWrap" style="height: 160px;">
  					<div class="basicInfo_title">프로필 사진</div> 
-					<div style="width: 150px; height: 200px;" class="basicInfo_content"> 
+					<div style=" margin-left:300px; width: 150px; height: 200px;" class="basicInfo_content"> 
 					<img style=" width: 100px; height: 110px; float: right;" id="img_preview" src="${dto.userPimg}"/> 
  					<font style="color: black;"><input type="file" id="file1"  name="file2"/></font></div>
 				</div> 
@@ -314,12 +314,6 @@ float: right;
 				<div class="basicInfo_contentWrap">
 					<div class="basicInfo_title">비밀번호</div><div class="basicInfo_content"><input name="userPwd" type="password" value="${dto.userPwd}"></div>
 				</div>
-				<!-- <div class="basicInfo_contentWrap">
-					<div class="basicInfo_title">생년월일</div><div class="basicInfo_content">{dto.name}</div>
-				</div> -->
-				<%-- <div class="basicInfo_contentWrap">
-					<div class="basicInfo_title">연락처</div><div class="basicInfo_content"><input name="userTel" type="text" value="${dto.userTel}"></div>
-				</div> --%>
 				<div class="basicInfo_contentWrap">
 					<div class="basicInfo_title">이메일주소</div><div class="basicInfo_content"><input name="userEmail" type="text" value="${dto.userEmail}"></div>
 				</div>
@@ -404,7 +398,7 @@ float: right;
 					</div>
 				</div>
 		</form>
-		<div style="margin-top: 50px;">
+		<div style="margin-top: 20px;">
 		<div style="border-top: 2px solid #EAEAEA; "></div>
 		</div>
 		<div align="center" style="margin-top: 10px;">
