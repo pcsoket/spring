@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 function chk(str) {
-	alert("한글안되냐? : /r/n되냐?");
+	
 	var popOption = "width=300, height=200,resizable=no,scrollbars=no, status=no, top=300,left=700;";
 	win = window.open("<%=cp %>/chkRcontent.action?str=" + str,"popup",popOption);
 	
@@ -18,11 +18,11 @@ function chk(str) {
 <title> 신 고 게 시 판 </title>
 </head>
 <body>
-	<div align="center" style=" margin-left:250px; width: 800px;">
+	<div align="center" style=" margin-left:500px; width: 800px;">
 		<font size="9pt;" style="font-family: 나눔손글씨 붓;">신 고 접 수 현 황</font>
 	</div>
 		
-		<div align="center" style="width: 1200px;">
+		<div align="center" style=" margin-left:300px; width: 1200px;">
 		<table style="border:1px; border-color:#EAEAEA; width: 800px;">
 		<tr><td colspan="4"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
 		</tr>

@@ -21,7 +21,7 @@ import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dao.InventDAO;
 import com.sajo.dao.MemberDAO;
-import com.sajo.dto.CompletedDTO;
+//import com.sajo.dto.CompletedDTO;
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.InventDTO;
 import com.sajo.util.MyUtil;
@@ -62,52 +62,52 @@ public class InventController {
 		int gNum = Integer.parseInt(req.getParameter("gNum"));
 		int pageNum = Integer.parseInt(req.getParameter("pageNum"));
 		
-		System.out.println(boardName+":"+gNum+":");
+	//	System.out.println(boardName+":"+gNum+":");
 		
 		int gno = indao.getGno(gNum);
 		
 		if(gno!=0){
-			System.out.println(0);
+		//	System.out.println(0);
 			InventDTO dto1 = indao.getInventData(gno);
 			if(dto1==null){
-				String ImageoriginalFile1 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile1 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
-				System.out.println(1);
+				//System.out.println(1);
 			}else{
 			String ImageoriginalFile1 = idao.getImage(dto1.getImgnum());
 			req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
-			System.out.println(2);
+		//	System.out.println(2);
 			}
 			InventDTO dto2 = indao.get3dData(gno);
 			if(dto2==null){
-				String ImageoriginalFile2 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile2 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile2", ImageoriginalFile2);
-				System.out.println(3);
+		//		System.out.println(3);
 			}else{
 			String ImageoriginalFile2 =idao.getImage(dto2.getImgnum());
 			req.setAttribute("ImageoriginalFile2", ImageoriginalFile2);
-			System.out.println(4);
+		//	System.out.println(4);
 			}
 			InventDTO dto3 = indao.getSketchData(gno);
 			if(dto3==null){
-				String ImageoriginalFile3 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile3 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile3", ImageoriginalFile3);
-				System.out.println(5);
+		//		System.out.println(5);
 			}else{
 			String ImageoriginalFile3 =idao.getImage(dto3.getImgnum());
 			req.setAttribute("ImageoriginalFile3", ImageoriginalFile3);
-			System.out.println(6);
+		//	System.out.println(6);
 			}
 		}else{
-				String ImageoriginalFile1 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile1 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
-				String ImageoriginalFile2 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile2 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile2", ImageoriginalFile2);
-				String ImageoriginalFile3 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile3 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile3", ImageoriginalFile3);
 		}
 		
-		System.out.println(boardName+"::::"+gno);
+		//System.out.println(boardName+"::::"+gno);
 		
 		GroupDTO gdto = new GroupDTO();
 		gdto = dao.g_getReadData(gno, boardName);
@@ -139,7 +139,7 @@ public class InventController {
 		String searchKey = request.getParameter("searchKey");
 		String searchValue = request.getParameter("searchValue");
 		
-		System.out.println(dto.getgNo());
+	//	System.out.println(dto.getgNo());
 		
 		if(searchKey == null){
 			
@@ -165,7 +165,7 @@ public class InventController {
 		//전체페이지수
 		int numPerPage = 9;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
-		System.out.println("idea : "+dataCount);
+	//	System.out.println("idea : "+dataCount);
 		
 		if(currentPage > totalPage)
 			currentPage = totalPage;
@@ -213,8 +213,8 @@ public class InventController {
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
 		
-		System.out.println(dto.getgNo()+":idea article gNo");
-		System.out.println(articleUrl+":ideaarticle");
+	//	System.out.println(dto.getgNo()+":idea article gNo");
+	//	System.out.println(articleUrl+":ideaarticle");
 		
 		//포워딩 될 페이지에 데이터를 넘긴다
 		request.setAttribute("lists", lists);

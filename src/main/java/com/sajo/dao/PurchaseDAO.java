@@ -1,6 +1,6 @@
 package com.sajo.dao;
 
-import java.sql.Connection;
+//import java.sql.Connection;
 import java.util.HashMap;
 import java.util.List;
 
@@ -17,8 +17,6 @@ public class PurchaseDAO {
 	public void setSessionTemplate(SqlSessionTemplate asd) throws Exception{
 		this.sessionTemplate = asd;
 	}
-	
-	
 	
 	//1.num
 	public int getMaxNum(){

@@ -5,7 +5,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.sajo.dto.BasketDTO;
-import com.sajo.dto.PurchaseDTO;
+//import com.sajo.dto.PurchaseDTO;
 
 
 public class BasketDAO {

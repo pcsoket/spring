@@ -62,10 +62,10 @@ public class LoginController {
 			return "redirect:/login.action";
 		}
 		
-		System.out.println(dto.getGno());
+	//	System.out.println(dto.getGno());
 		
 		session.setAttribute("logInfo", dto);
-		System.out.println(pagePath+":page");
+	//	System.out.println(pagePath+":page");
 		
 		if(!pagePath.equals("")){
 			return pagePath;	                           // 로그인한후 돌아갈 곳 리턴

@@ -83,7 +83,7 @@ function gnoDelete() {
 			
 			var params = "userId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+"&gNo="+"${dto.gNo}"
 						+"&boardName="+"${dto.boardName}" +"&writer="+"${dto.mId}";
-			alert(params);
+			
 			$.ajax({
 				
 				type:"POST",
@@ -95,7 +95,7 @@ function gnoDelete() {
 					
 				},
 				error:function(e){
-					alert("2222222222"+e.responseText);
+					alert(e.responseText);
 				}
 				
 			});
@@ -171,7 +171,7 @@ function gnoDelete() {
 		document.all.gnum.value=a;
 		document.all.cmContent.value=str;
 		document.all.bName.value=str1;
-		var popOption = "width=520, height=300,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+		var popOption = "width=510, height=350,resizable=false,scrollbars=no, status=no, top=300,left=700;";
 		win = window.open("<%=cp %>/report.action","popup",popOption);
 		
 	}	

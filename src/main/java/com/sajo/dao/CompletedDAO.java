@@ -1,7 +1,6 @@
 package com.sajo.dao;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -9,7 +8,6 @@ import java.util.Map;
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.sajo.dto.CompletedDTO;
-import com.sajo.dto.ProductDTO;
 
 public class CompletedDAO {
 	

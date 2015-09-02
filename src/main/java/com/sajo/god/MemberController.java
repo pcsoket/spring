@@ -15,7 +15,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+//import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
@@ -192,10 +192,7 @@ public class MemberController {
 	//회원정보 수정 page 열기
 	@RequestMapping(value="/myPage.action")
 	public String myPage(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
-		
 	
-		//String userId= (String)session.getAttribute("userId");
-		
 		LoginDTO dto1 = (LoginDTO)session.getAttribute("logInfo");
 		
 		
@@ -210,7 +207,7 @@ public class MemberController {
 		String savepath = "/god/resources/imageFile/";
 		String pimg = savepath + dto.getUserPimg();
 		dto.setUserPimg(pimg);
-		System.out.println(dto.getUserPimg());
+		
 		String[] addr = dto.getUserAddr1().split("-");
 		
 		String code1 = addr[0];
@@ -234,6 +231,7 @@ public class MemberController {
 	@RequestMapping(value="/mupdated.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String updated(MultipartHttpServletRequest request,HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
 		
+		String userpimg;
 		String phn1 = req.getParameter("phn1");
 		String phn2 = req.getParameter("phn2");
 		String phn3 = req.getParameter("phn3");
@@ -247,10 +245,11 @@ public class MemberController {
 		dto.setUserAddr1(addr1);
 		
 		String path = 
-				request.getSession().getServletContext().getRealPath("/resources/testimg/");
+				request.getSession().getServletContext().getRealPath("/resources/imageFile/");
+		
 		
 		MultipartFile pimg = request.getFile("file2");
-		String userpimg = (String)pimg.getOriginalFilename();
+		userpimg = (String)pimg.getOriginalFilename();
 		
 		if(pimg!=null && pimg.getSize()>0){
 			
@@ -286,10 +285,17 @@ public class MemberController {
 				e.printStackTrace();
 			}
 		
-		}
-		
+			
 		dto.setUserPimg(userpimg);
+		}else{
 		
+		userpimg = req.getParameter("img");
+		
+		String[] a = userpimg.split("/");
+
+		dto.setUserPimg(a[4]);
+		}
+			
 		dao.updated(dto);
 		
 	
@@ -298,8 +304,6 @@ public class MemberController {
 
 	@RequestMapping(value="/memberList.action")
 	public String memberList(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
-		
-	
 		
 		String cp = req.getContextPath();
 		String pageNum = req.getParameter("pageNum");
@@ -371,7 +375,7 @@ public class MemberController {
 			
 		}
 		
-		 System.out.println(dto.getUserId());
+	//	 System.out.println(dto.getUserId());
 		dao.insertGno(dto.getUserId(), gno);		
 		
 		dto.setGno(gno);

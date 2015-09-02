@@ -4,9 +4,9 @@ body {
 fieldset {
 	margin: 0px; padding: 0px;
 }
-body {
+/* body {
 	line-height: 1.5em; font-family: "Apple SD Gothic Neo",AppleGothic,"µ¸¿ò",Dotum,Tahoma,Verdana,Geneva,Arial,Helvetica,sans-serif; font-size: 0.75em; position: relative;
-}
+} */
 legend {
 	width: 1px; height: 1px; line-height: 0; text-indent: -999em; overflow: hidden; font-size: 1px; display: block; white-space: nowrap; position: absolute;
 }

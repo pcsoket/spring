@@ -193,8 +193,6 @@
 	
 	function account(size) {
 		
-		
-		
 		var f = document.myForm;
 	
 		var str = "";
@@ -217,8 +215,8 @@
 				}
 			}
 		}
-		alert(str);
-		alert(amt);
+		/* alert(str);
+		alert(amt); */
 		f.bnums.value=str;
 		f.amt.value=amt;
 		

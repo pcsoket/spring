@@ -70,7 +70,7 @@ public class ContributionDAO {
 	
 	public List<ContributionDTO> getContributionList(int gNo){
 		
-		List<ContributionDTO> lists =sessionTemplate.selectOne("com.sajo.contribution.getContributionList",gNo);			
+		List<ContributionDTO> lists =sessionTemplate.selectList("com.sajo.contribution.getContributionList",gNo);			
 		
 		return lists;
 	}
