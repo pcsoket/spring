@@ -53,7 +53,7 @@ public class MemberController {
 	public String write(MultipartHttpServletRequest req,HttpServletRequest request,HttpServletResponse resp,MemberDTO dto){
 		
 		String path = 
-				req.getSession().getServletContext().getRealPath("/resources/testimg/");
+				req.getSession().getServletContext().getRealPath("/resources/imageFile/");
 		
 		if(dto.getUserId()==null){
 
