@@ -9,7 +9,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript">
 function chk(str) {
-	alert("한글안되냐? : /r/n되냐?");
+	
 	var popOption = "width=300, height=200,resizable=no,scrollbars=no, status=no, top=300,left=700;";
 	win = window.open("<%=cp %>/chkRcontent.action?str=" + str,"popup",popOption);
 	
