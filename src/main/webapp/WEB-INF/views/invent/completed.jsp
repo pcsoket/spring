@@ -36,10 +36,10 @@
 	<div style="width: 1140px;">
 		<div align="left" style="width: 1000px;">
 			<div> <img src="/god/resources/image/bestidea.png" style="margin-left: 20px;"> </div> <!-- bestidea -->
-			<div> 
+			<div style="height: 320px;"> 
 				<c:forEach var="cdto" items="${clists }">
-				<div align="center" >
-					<div style="float:left; padding-left: 20px;"><a href="<%=cp %>/compl/article.action?cpNum=${cdto.cpNum}"> <img alt="" src=" ${cdto.imgNum}" style="width:300px; height:250px;" ></a></div>
+				<div align="center" style="float:left;" >
+					<div style="padding-left: 20px;"><a href="<%=cp %>/compl/article.action?cpNum=${cdto.cpNum}"> <img alt="" src=" ${cdto.imgNum}" style="width:300px; height:250px;" ></a></div>
 					<div>${cdto.cSubject }</div>
 				</div>
 				
@@ -53,16 +53,16 @@
 	
 		<div style="width: 1000px;"> <!-- 이미지 틀 -->
 			
-			<div style="width: 1000px; border-bottom: solid 2px #ddd;">	
+			<div style="width: 1000px; margin-top: 20px; border-bottom: solid 2px #ddd;">	
 				<div align="right" style="width: 100px;">
-					<div style="float: left;" onclick="">조회순</div> <div>추천순</div>
+					<div style="float: left;" onclick="">조회순</div><div>추천순</div>
 				</div> <!-- 조회순 추천순 -->
 			
-			<div> 
+			<div style="margin-top : 20px;"> 
 				<c:set var="c" value="0"/>
 				<c:forEach var="dto" items="${lists }">
 				
-					<div>
+					<div style="float:left; padding-left: 20px;">
 					<a href="${articleUrl}&cpNum=${dto.cpNum}"><img alt="" src="${dto.imgNum }" width="300" height="250" /></a><br/>
 					<font color="#8b4513 " style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href ="${articleUrl}&cpNum=${dto.cpNum}">
@@ -82,6 +82,7 @@
 		
 		</div>
 	</div>
+</div>
 </div>
 
 </body>

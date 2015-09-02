@@ -159,7 +159,7 @@ function gnoDelete() {
 
 		var f = document.myForm;
 		alert(1);
-		f.action="<%=cp%>/compl/created.action";
+		f.action="<%=cp%>/shop_created.action";
 		f.submit();
 		
 		
@@ -245,12 +245,14 @@ function gnoDelete() {
 			</c:if>
 			<c:if test="${logInfo.gno==gNo}">
 				<div style="float: left;"><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
-			</c:if>
-			<c:if test="${dto.boardName=='3D' && logInfo.mauth==3 }">
+			</c:if> --%>
+			<c:if test="${logInfo.mauth==0 }">
 				<div  style="float: left;">
 				<input type="button" class="btn btn-primary btn-sm" style="background-color: #ddd; " name="completed1" value="completed" onclick="compl();">
 				</div>			
 			</c:if>
+			
+			<%--
 				<div style="float: left;"><input type="button" value="신고" onclick="reportData('','${dto.boardName}','${dto.gNum}');"></div>
 			</c:if>
 

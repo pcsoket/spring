@@ -423,6 +423,19 @@ public class GroupController {
 		
 	}
 	
+	@RequestMapping(value="/gnoattend.action",method={RequestMethod.GET,RequestMethod.POST})
+	public String gnoattend(int gNo,HttpServletRequest request,HttpServletResponse response) throws Exception{
+		
+		HttpSession session = request.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo"); 
+		String userId = logInfo.getUserId();
+		
+		mdao.updategno(gNo, userId);
+		
+		
+		return "redirect:/board/article.action";
+	}
+	
 	@RequestMapping(value="/group/deleted.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String deleted(int gNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
 		

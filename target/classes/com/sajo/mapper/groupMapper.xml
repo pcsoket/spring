@@ -46,6 +46,7 @@
 	update ideaGroup set gHitCount=gHitCount+1 where gNum=#{gNum}
 </update>
 
+
 <!-- 한개의 데이터 -->
 <select id="getReadData" parameterType="int" resultType="com.sajo.dto.GroupDTO">
 	select gNo,gNum,gHitCount,mId,gSubject,imgNum,

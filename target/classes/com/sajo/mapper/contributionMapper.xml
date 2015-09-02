@@ -32,7 +32,7 @@
 
 <!-- contribution update -->
 <select id="checkContribution" parameterType="com.sajo.dto.ContributionDTO" resultType="int">
-	select grecomm from contribution where gNum=#{gNum} and userId=#{userId}
+	select nvl(sum(grecomm),0) from contribution where gNum=#{gNum} and userId=#{userId}
 </select>
 
 

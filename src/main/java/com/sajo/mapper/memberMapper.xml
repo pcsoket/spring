@@ -53,6 +53,12 @@
 	<select id="maxNum">
 		select nvl(max(mid),0) from member
 	</select>
+	<!-- 그룹번호 수정 -->
+<update id="updategno" parameterType="hashMap">
+	update member set gno=#{gNo} where mid=#{userId}
+</update>
+	
+	
 	<select id="getListDataCount" parameterType="hashMap" resultType="int">
 		select nvl(count(*),0) from member
 		where ${searchKey} like '%' || #{searchValue} || '%'

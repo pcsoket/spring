@@ -49,7 +49,7 @@ public class IdeaMainController {
 		if(logInfo!=null){
 				int gno = logInfo.getGno();
 				String userId=logInfo.getUserId();
-
+				System.out.println("ideaMain :" + logInfo.getGno()+logInfo.getUserId());
 				int myContribution = cdao.myContribution(userId);
 				List<ContributionDTO> contributionList = cdao.getContributionList(gno);
 

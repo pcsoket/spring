@@ -20,6 +20,6 @@ public class MainController {
 	@RequestMapping(value="/golist.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String golist(HttpServletRequest req,HttpServletResponse res) throws Exception{
 		
-		return "board/golist";
+		return "shop/golist";
 	}
 }
