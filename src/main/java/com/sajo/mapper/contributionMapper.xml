@@ -34,5 +34,18 @@
 <select id="checkContribution" parameterType="com.sajo.dto.ContributionDTO" resultType="int">
 	select grecomm from contribution where gNum=#{gNum} and userId=#{userId}
 </select>
-	
+
+
+<!-- contribution check -->
+<select id="myContribution" parameterType="String" resultType="int">
+	select sum(grecomm) from contribution where userId=#{userId}
+</select>
+
+<!-- contribution check -->
+<select id="getContributionList"  parameterType="int" resultType="com.sajo.dto.ContributionDTO">
+	select userId,sum(grecomm) grecomm from contribution where gNo=#{gNo} group by userId order by grecomm desc
+</select>
+
+
+
 </mapper>

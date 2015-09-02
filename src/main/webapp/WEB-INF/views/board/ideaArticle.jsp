@@ -214,8 +214,6 @@ function gnoDelete() {
 </head>
 <body>
 
-<
-
 <div align="center" >
 <form action="" name="myForm" method="post">
 <!-- 전체 묶음 -->

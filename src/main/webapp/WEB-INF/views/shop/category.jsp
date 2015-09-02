@@ -244,8 +244,7 @@ padding: 0;
 	<div id="list_table">
 	
 	<table width="800px" class="category2">
-	<tr><td height="50px" colspan="4"><font color="#8C8C8C" style="font-family: 나눔바른펜;" size="4pt"><b>
-	&nbsp;&nbsp;&nbsp;판매 인기순</b></font></td></tr>
+	<tr><td height="50px" colspan="4"><img src="<%=cp%>/resources/image/pm.png"></td></tr>
 	<tr>
 	
 		<c:forEach var="dto" items="${hitcountlists}">	

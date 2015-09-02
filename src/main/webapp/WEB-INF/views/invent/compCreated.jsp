@@ -181,7 +181,7 @@
   <tr> 
       <td width="100" height="40" bgcolor="#EEEEEE" style="padding-left:20px;">상품이름&nbsp;</td>
       <td width="500" style="padding-left:10px;"> 
-        <input type="text" name="cSubject" size="74" maxlength="100" class="boxTF"/>
+        <input type="text" name="cSubject" size="74" maxlength="100" class="boxTF"/><input type="hidden" name="cpNum" value="${cpdto.cpNum }">
       </td>
   </tr>
   
@@ -246,13 +246,13 @@
     <tr align="center"  height="30"> 
       <td>
         <textarea name="cContent" cols="20" rows="20"></textarea>
-        <script>CKEDITOR.replace('pContent' ,
+        <script>CKEDITOR.replace('cContent' ,
         		
         		 {width : '650px', // 입력창의 넓이
         	      height : '200px',  // 입력창의 높이
         	      startupFocus : false});</script>
         <img alt="" src="${img}"><br/>
-      	<input type="hidden" name="tableName" value="test"/>
+      	
         <input type="button" value=" 등록하기 " onclick="sendIt();" class="btn1"/>
         <input type="reset"  value=" 다시입력 " onclick="document.myForm.subject.focus();" class="btn1"/>
         <input type="button" value=" 작성취소 " onclick="javascript:location.href='<%=cp%>/img/list.action';" class="btn1"/>
