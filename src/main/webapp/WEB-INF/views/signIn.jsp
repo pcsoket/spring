@@ -187,12 +187,13 @@ function sendIt() {
 	  }
 	  f.userEmail.value = str;
 	  
+	  f.action = "<%=cp%>/write_ok.action";
+	  f.submit();
 
 		if(!confirm("축하합니다!\n회원가입이 완료 되었습니다.")){
 			  return; 
 			 }
-		  f.action = "<%=cp%>/write_ok.action";
-		  f.submit();
+		  
 	
 }
 //주소 검색 팝업창 추가-> jsp도 같이 추가

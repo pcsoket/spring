@@ -53,7 +53,7 @@ public class MemberController {
 	public String write(MultipartHttpServletRequest req,HttpServletRequest request,HttpServletResponse resp,MemberDTO dto){
 		
 		String path = 
-				req.getSession().getServletContext().getRealPath("/resources/testimg/");
+				req.getSession().getServletContext().getRealPath("/resources/imageFile/");
 		
 		if(dto.getUserId()==null){
 
@@ -207,7 +207,7 @@ public class MemberController {
 		
 		dto= dao.getReadData(dto1.getUserId());
 		
-		String savepath = "/god/resources/testimg/";
+		String savepath = "/god/resources/imageFile/";
 		String pimg = savepath + dto.getUserPimg();
 		dto.setUserPimg(pimg);
 		System.out.println(dto.getUserPimg());

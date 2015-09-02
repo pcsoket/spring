@@ -1,5 +1,7 @@
 package com.sajo.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 
 import com.sajo.dto.ContributionDTO;
@@ -53,9 +55,23 @@ public class ContributionDAO {
 			return result;
 		}				
 		
+		return result;				
+	}
+	
+	public int myContribution(String userId){
+		
+		int result = 0;
+		
+		result =sessionTemplate.selectOne("com.sajo.contribution.myContribution",userId);			
+		
 		return result;
 				
 	}
-
-
+	
+	public List<ContributionDTO> getContributionList(int gNo){
+		
+		List<ContributionDTO> lists =sessionTemplate.selectOne("com.sajo.contribution.getContributionList",gNo);			
+		
+		return lists;
+	}
 }

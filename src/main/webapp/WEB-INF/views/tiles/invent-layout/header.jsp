@@ -45,7 +45,7 @@
 	</div>
 </div>
 
-<nav class="navbar navbar-inverse" style="background-color: #ffffff; border-color: #ddd; margin-bottom: 5px;">
+<nav class="navbar navbar-inverse" style="background-color: #ffffff; border-color: #ddd; margin-bottom: 5px; background-image: url(/god/resources/image/main1.png)">
   <div class="container-fluid" style="padding-left: 10px; padding-right: 10px; width: 1000px;">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -58,9 +58,9 @@
     </div>
     <div>
       <ul class="nav nav-pills nav-justified" style="padding-top: 10px; padding-bottom: 10px;" >
-	    <li><a href="<%=cp %>/group/list.action"><img src="/god/resources/image/Invent.png" style="margin-left: 20px;"></a></li>
-	    <li><a href="<%=cp %>/memberList.action"><img src="/god/resources/image/Community.png"></a></li>
-	    <li><a href="<%=cp %>/completed.action"><img src="/god/resources/image/Completed.png"></a></li>
+	    <li><a href="<%=cp %>/group/list.action"><img src="/god/resources/image/Inventwh.png" style="margin-left: 20px;"></a></li>
+	    <li><a href="<%=cp %>/memberList.action"><img src="/god/resources/image/communitywh.png"></a></li>
+	    <li><a href="<%=cp %>/completed.action"><img src="/god/resources/image/completedwh.png"></a></li>
  	  </ul>
  	 </div>
   </div>
