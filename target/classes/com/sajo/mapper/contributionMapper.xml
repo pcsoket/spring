@@ -16,7 +16,7 @@
 <!-- contribution  -->
 <insert id="insertData" parameterType="com.sajo.dto.ContributionDTO">
 	insert into contribution (conNum,gnum,gno,userId,grecomm,boardName,writer)
-	values (#{conNum},#{gNum},#{gNo},#{userId},1,#{boardName},#{writer})
+	values (#{conNum},#{gNum},#{gNo},#{userId},#{grecomm},#{boardName},#{writer})
 </insert>
 
 
@@ -27,7 +27,7 @@
 
 <!-- contribution check -->
 <select id="printContribution" parameterType="int" resultType="int">
-	select sum(grecomm) from contribution where gNum=#{gNum}
+	select nvl(sum(grecomm),0) from contribution where gNum=#{gNum}
 </select>
 
 <!-- contribution update -->
@@ -43,9 +43,21 @@
 
 <!-- contribution check -->
 <select id="getContributionList"  parameterType="int" resultType="com.sajo.dto.ContributionDTO">
-	select userId,sum(grecomm) grecomm from contribution where gNo=#{gNo} group by userId order by grecomm desc
+		select * from (
+		select rownum rnum, data.* from (
+		select userId,sum(grecomm) grecomm from contribution
+		where gNo=#{gNo}
+		group by userId order by grecomm desc) data)
+		 <![CDATA[
+		where rnum>=1 and rnum<=3
+		]]>
 </select>
 
+
+<!-- contribution complete check -->
+<select id="checkComplContribution" parameterType="com.sajo.dto.ContributionDTO" resultType="int">
+	select grecomm from contribution where gNum=#{gNum} and userId=#{userId} and grecomm = 0
+</select>
 
 
 </mapper>

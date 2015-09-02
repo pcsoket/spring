@@ -185,6 +185,22 @@ public class CompletedDAO {
 			
 			sessionTemplate.insert("com.sajo.completed.insertData",dto);
 		}
+		
+		
+//=======================================================================complete
+		public void updateRecomm(int cpNum){
+			
+			sessionTemplate.update("com.sajo.completed.updateRecomm",cpNum);
+		}
+		
+		
+		public int getRecomm(int cpNum){
+			
+			int result = 0;
+			
+			result = sessionTemplate.selectOne("com.sajo.completed.getRecomm",cpNum);
+			return result;
+		}
 
 		
 				

@@ -31,7 +31,7 @@ public class IdeaMainDAO {
 	
 	public List<MainListDTO> getIdeaReadData(){
 		
-		String boardName="group";
+		String boardName="group";             // 왜 dto와 dao따로만들었는지... ideagroup이랑 변수가 똑같은데...
 		
 		List<MainListDTO> lists = sessionTemplate.selectList("com.sajo.ideamainlist.getIdeaReadData",boardName);
 		

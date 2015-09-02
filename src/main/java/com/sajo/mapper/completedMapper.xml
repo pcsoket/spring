@@ -76,6 +76,16 @@
 ]]>
 </select>
 
+<!-- 추천수 +1 -->
+<update id="updateRecomm" parameterType="int">
+	update complete set crecomm=crecomm+1 where cpNum=#{cpNum}
+</update>
+
+<!-- 추천수 프린트 -->
+<select id="getRecomm" resultType="int" parameterType="int">
+	select crecomm from complete where cpNum=#{cpNum}
+</select>
+
 
 	
 </mapper>

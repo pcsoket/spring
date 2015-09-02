@@ -2,8 +2,8 @@ package com.sajo.dto;
 
 public class ContributionDTO {
 	
-	private int conNum,gNo,gNum;
-	private String userId,grecomm,boardName,writer;
+	private int conNum,gNo,gNum,grecomm;
+	private String userId,boardName,writer;
 	
 	public int getConNum() {
 		return conNum;
@@ -29,10 +29,10 @@ public class ContributionDTO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public String getGrecomm() {
+	public int getGrecomm() {
 		return grecomm;
 	}
-	public void setGrecomm(String grecomm) {
+	public void setGrecomm(int grecomm) {
 		this.grecomm = grecomm;
 	}
 	public String getBoardName() {

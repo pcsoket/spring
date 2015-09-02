@@ -16,12 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sajo.dto.ContributionDTO;
 //import com.sajo.dto.CommentDTO;
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.ImageDTO;
 import com.sajo.dto.LoginDTO;
 import com.sajo.util.MyUtil;
 import com.sajo.dao.CommentDAO;
+import com.sajo.dao.ContributionDAO;
 //import com.sajo.dao.CompletedDAO;
 import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
@@ -38,10 +40,13 @@ public class GroupController {
 	@Qualifier("commentDAO")
 	CommentDAO cdao;
 
-	
 	@Autowired
 	@Qualifier("imageDAO")
 	ImageDAO idao;
+	
+	@Autowired
+	@Qualifier("contributionDAO")
+	ContributionDAO condao;
 	
 	@Autowired
 	@Qualifier("memberDAO")
@@ -118,6 +123,19 @@ public class GroupController {
 			
 		}
 		dto.setImgNum(imgNum);  // 이미지테이블에서 가져올 이미지들의 넘버
+		
+		
+		//글씀과 동시에 점수 를 얻음.
+		ContributionDTO condto = new ContributionDTO();
+		condto.setConNum(condao.getMaxNum()+1);
+		condto.setBoardName(boardName);
+		condto.setgNo(dto.getgNo());
+		condto.setgNum(dto.getgNum());
+		condto.setUserId(dto.getmId());
+		condto.setGrecomm(1);                      //점수조절
+		condto.setWriter(dto.getmId());
+		condao.insertData(condto);
+		
 		
 		
 	
@@ -248,6 +266,7 @@ public class GroupController {
 			
 		if(!param.equals(""))
 			articleUrl = articleUrl + "&" + param;
+		
 		
 		
 		//포워딩 될 페이지에 데이터를 넘긴다

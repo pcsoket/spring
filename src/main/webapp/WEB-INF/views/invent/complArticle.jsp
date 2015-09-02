@@ -42,7 +42,7 @@ function gnoDelete() {
 	
 	$(function(){
 		listPage(1);//1페이지 호출
-		
+		  complContribution();
 	});
 
 	$(document).ready(function(){
@@ -87,7 +87,7 @@ function gnoDelete() {
 			$.ajax({
 				
 				type:"POST",
-				url:"<%=cp%>/insertContribution.action",
+				url:"<%=cp%>/complContribution.action",
 				data:params,
 				success:function(args){
 					
@@ -150,6 +150,23 @@ function gnoDelete() {
 		});
 		
 		$("#commList").show();
+		
+		
+	}
+	
+	function complContribution(page){
+		
+		var url ="<%=cp%>/checkComplContribution.action";
+		
+
+		$.post(url,{gNum:"${dto.cpNum}"}, function(args){
+		
+
+			$("#message").html(args);
+			
+		});
+		
+		$("#message").show();
 		
 		
 	}
@@ -235,11 +252,12 @@ function gnoDelete() {
 			<br/>
 			<div style="width: 500px; height: 150px; padding-left: 100px; padding-right: 15px;">${dto.cContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
-<%-- 		<div align="left" style="margin-left: 15px;">
+ 		<div align="left" style="margin-left: 15px;">
 			<c:if test="${!empty logInfo}">
 				<div style="float: left;"><span id="message"></span></div><div style="float: left;"><input type="button" id="con_button" value="추천"/>
 							</div>
-			
+			</c:if>
+			<%--
 			<c:if test="${logInfo.gno=='0'}">
 				<div style="float: left;"><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
 			</c:if>

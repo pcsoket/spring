@@ -147,7 +147,7 @@ A:hover {text-decoration:none}
 		<c:forEach var="dto" items="${lists}">	
 			<td width="200px" height="300px" align="center" class="category2">
 			
-					<img alt="" src="${dto.imgNum }" width="300" height="250" /><br/>
+					<img  src="${dto.imgNum }" width="300" height="250" /><br/>
 					<font color="#8b4513 " style="font-family: 나눔바른펜; font-size:13pt;">
 					<a href ="${articleUrl}&gNum=${dto.gNum}&boardName=${boardName}">
 					${dto.gSubject}</a></font>

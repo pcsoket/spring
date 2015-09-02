@@ -176,6 +176,8 @@ public class InventController {
 		List<GroupDTO> lists =
 			indao.getList(start, end, searchKey, searchValue, dto.getgNo(),boardName);
 		
+		lists = idao.imageForGList(lists);           //이미지 테이블에서 이미지가져옴 
+		
 		ListIterator<GroupDTO> it = lists.listIterator();
 
 		int listNum, n=0;
@@ -281,6 +283,8 @@ public class InventController {
 		List<GroupDTO> lists =
 			indao.getList(start, end, searchKey, searchValue, dto.getgNo(),boardName);
 		
+		lists = idao.imageForGList(lists);           //이미지 테이블에서 이미지가져옴
+		
 		ListIterator<GroupDTO> it = lists.listIterator();
 
 		int listNum, n=0;
@@ -382,6 +386,8 @@ public class InventController {
 		List<GroupDTO> lists =
 			indao.getList(start, end, searchKey, searchValue, dto.getgNo(), boardName);
 		
+		
+		lists = idao.imageForGList(lists);           //이미지 테이블에서 이미지가져옴
 		ListIterator<GroupDTO> it = lists.listIterator();
 
 		int listNum, n=0;

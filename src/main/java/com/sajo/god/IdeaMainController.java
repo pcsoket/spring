@@ -12,9 +12,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sajo.dao.CompletedDAO;
 import com.sajo.dao.ContributionDAO;
 import com.sajo.dao.IdeaMainDAO;
 import com.sajo.dao.ImageDAO;
+import com.sajo.dto.CompletedDTO;
 import com.sajo.dto.ContributionDTO;
 import com.sajo.dto.LoginDTO;
 import com.sajo.dto.MainListDTO;
@@ -39,6 +41,10 @@ public class IdeaMainController {
 	ContributionDAO cdao;
 	
 	@Autowired
+	@Qualifier("completedDAO")
+	CompletedDAO compldao;
+	
+	@Autowired
 	MyUtil myUtil;
 	
 	@RequestMapping(value="/ideaMain.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -49,7 +55,7 @@ public class IdeaMainController {
 		if(logInfo!=null){
 				int gno = logInfo.getGno();
 				String userId=logInfo.getUserId();
-				System.out.println("ideaMain :" + logInfo.getGno()+logInfo.getUserId());
+
 				int myContribution = cdao.myContribution(userId);
 				List<ContributionDTO> contributionList = cdao.getContributionList(gno);
 
@@ -95,12 +101,10 @@ public class IdeaMainController {
 		List<MainListDTO> idealists = idao.imageForMlList(dao.getIdeaReadData());
 		req.setAttribute("idealists", idealists);
 		
-
-		
-
-	
-		
 		//complate ¼øÀ§
+		
+		List<CompletedDTO> completeLists = idao.imageForcList(compldao.getbest());
+		req.setAttribute("completeLists", completeLists);
 		
 		return "ideamain";
 	}

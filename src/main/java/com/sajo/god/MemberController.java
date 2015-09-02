@@ -125,7 +125,7 @@ public class MemberController {
 		session.removeAttribute("logInfo");
 		session.invalidate();
 		
-		return"redirect:/shopmain.action";
+		return"redirect:/ideaMain.action";
 	}
 	
 	//주소 검색

@@ -74,4 +74,18 @@ public class ContributionDAO {
 		
 		return lists;
 	}
+	
+	
+	//=====================================================complete
+	
+	public int checkComplContribution(ContributionDTO dto){                         //userId,gNum
+		
+		int result = 1;
+		if(sessionTemplate.selectOne("com.sajo.contribution.checkComplContribution",dto)==null){
+			result=0;
+			return result;
+		}				
+		
+		return result;				
+	}
 }
