@@ -74,10 +74,10 @@ public class BasketDAO {
 		
 	}
 	
-	public int delbasket(int bnum){
+	public int delbasket(int bNum){
 		
 		int result = 0;
-		result = sessionTemplate.delete("com.sajo.mapper.basket.delbasket", bnum);
+		result = sessionTemplate.delete("com.sajo.mapper.basket.delbasket", bNum);
 		
 		return result;
 	}

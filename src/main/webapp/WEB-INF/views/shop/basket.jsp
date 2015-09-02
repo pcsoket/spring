@@ -263,7 +263,7 @@
 				<input type="hidden" name="bNum" value="${dto.bNum }">		
 				<div style="height: 60px; padding-top: 10px;">
 					<div style="float: left; width: 100px;"><input type="checkbox" name="chk" id="chk" onclick="check('${status.index }');" ></div>
-					<div style="float: left; width: 450px;"><img src="" width="30" height="30" border="0" name="bPname"/>${dto.bPName }</div>
+					<div style="float: left; width: 450px;"><img src="${dto.imgNum }" width="30" height="30" border="0" name="bPname"/>${dto.bPName }</div>
 					<div style="float: left; width: 100px; margin-left: 20px;">
 						<div style="float: left;"><img src="/god/resources/image/minus.png" name="minus" id="minus"  width="20px" height="20px" onclick="p(-1,'${dto.bPrice}','${status.index }');"></div>
 						 

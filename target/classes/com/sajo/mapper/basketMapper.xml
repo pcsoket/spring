@@ -29,7 +29,7 @@
 
 <select id="readPro" resultType="com.sajo.dto.BasketDTO" parameterType="String">
 	
-	select bNum,bAmount,bPName,bPrice,pNum from basket where mid=#{mid}
+	select bNum,bAmount,bPName,bPrice,pNum,imgNum from basket where mid=#{mid}
 
 </select>
 
@@ -52,7 +52,7 @@
 
 <delete id="delbasket" parameterType="int">
 	
-	delete from basket where bnum=#{bnum}
+	delete from basket where bnum=#{bNum}
 
 </delete>
 	
