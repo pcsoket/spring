@@ -54,7 +54,7 @@ function sendIt() {
 		<div style="margin: 0 auto; margin-top: 35px;">
 		<textarea id="rContent" name="rContent" rows="10" cols="36"></textarea>
 		</div> 
-	<div align="right" style=" margin-right:70px; margin-top: 5px;">
+	<div align="right" style=" margin-right:90px; margin-top: 5px;">
 		<input type="hidden" id="gnum" name="gnum"/>
 		<input type="hidden" id="boardName" name="boardName"/>
 		<input type="hidden" id="raddress" name="raddress" />
