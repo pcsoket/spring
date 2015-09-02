@@ -228,10 +228,7 @@ public class ShopMainController {
 			pdao.insertData(pdto);
 			
 		}
-		
-		
-	
-		
+
 		PurchaseDTO pdto = pdao.getBnums(mid);
 	//	System.out.println("11" + pdto.getbNum());
 	//	System.out.println("12"+pdto.getmId());
