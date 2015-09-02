@@ -36,25 +36,25 @@ function sendIt() {
 </script>
 <title> 신 고 등 록 </title>
 </head>
-<body>
+<body style="background-color: ">
 <!-- 전체 묶기 -->
-<div align="center" style=" width:500px; height: 200px;">
-	<div> <font size="9pt;" style=" color:red; font-family: 나눔손글씨 붓;"> 신 고 등 록 </font> </div>
+<div align="center" style=" width:460px; height: 200px;">
+	<div> <font size="9pt;" style=" color:red; font-family: 나눔바른 펜;"> 신 고 등 록 </font> </div>
 	<!-- <div style="border: 1px solid; border-top-color: #EAEAEA;"></div> -->
 	<div>
 	<form name="rdata" method="post">
-		<div style="float: left;">
-			<font size="5pt;" style=" color:red; font-family: 나눔손글씨 붓;">제 &nbsp;&nbsp;&nbsp;&nbsp; 목  </font> :
+		<div style="float: left; margin-top: 20px;">
+			<font size="3pt;" style=" color:red; font-family: 나눔바른 펜;"> <b>제 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;목</b></font> :
 			<input type="text" name="rsubject"/>
 		</div>
 		<br/>
 		<div style=" margin-top: 10px;  float: left; text-align: left; width: 500px;">
-		<font size="5pt;" style=" color:red; font-family: 나눔손글씨 붓;">신 고 내 용 </font>
+		<font size="3pt;" style=" color:red; font-family: 나눔바른 펜;"> <b>신 고 내 용</b> </font>
 		</div>
-		<div style="margin: 0 auto; margin-top: 50px;">
-		<textarea id="rContent" name="rContent" rows="10" cols="50"></textarea>
+		<div style="margin: 0 auto; margin-top: 35px;">
+		<textarea id="rContent" name="rContent" rows="10" cols="36"></textarea>
 		</div> 
-	<div align="right" style=" margin-right:60px; margin-top: 5px;">
+	<div align="right" style=" margin-right:70px; margin-top: 5px;">
 		<input type="hidden" id="gnum" name="gnum"/>
 		<input type="hidden" id="boardName" name="boardName"/>
 		<input type="hidden" id="raddress" name="raddress" />

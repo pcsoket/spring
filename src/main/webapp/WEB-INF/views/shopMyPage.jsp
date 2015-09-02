@@ -17,8 +17,8 @@
 	var defaultOpt = {
 			inputFile: $(this),
 			img: null,
-			w: 200,
-			h: 200
+			w: 110,
+			h: 110
 			};
 	$.extend(defaultOpt, opt);
 	var previewImage = function(){
@@ -67,8 +67,8 @@
 		$(document).ready(function(){
 			var opt = {
 					img: $('#img_preview'),
-					w: 200,
-					h: 200
+					w: 110,
+					h: 110
 					};
 			$('#file1').setPreview(opt);
 			
@@ -266,7 +266,7 @@ float: right;
 			
 
 	            <dt><strong>나의 쇼핑 내역</strong></dt>
-	            <dd><a href="">주문/배송조회</a></dd>
+	            <dd><a href="<%=cp%>/orderList.action">주문/배송조회</a></dd>
 	            <dd><a href="">취소/반품/교환 신청</a></dd>
 	            <dd><a href="">취소/반품/교환 현황</a></dd>
 	            <dd><a href="">환불/입금내역</a></dd>
@@ -297,12 +297,13 @@ float: right;
 				<div class="basicInfo_boxtitle">
 				${dto.userId}님의 기본정보
 				</div>
-			<div class="basicInfo_contentWrap">
+			<div class="basicInfo_contentWrap" >
  					<div class="basicInfo_title">프로필 사진</div> 
-					<div style="width: 150px; height: 200px;" class="basicInfo_content"> 
+					<div style=" margin-left:300px; width: 150px; height: 160px;" class="basicInfo_content"> 
 					<img style=" width: 100px; height: 110px; float: right;" id="img_preview" src="${dto.userPimg}"/> 
  					<font style="color: black;"><input type="file" id="file1"  name="file2"/></font></div>
 				</div> 
+				<input type="hidden" name="img" value="${dto.userPimg}"/>
 				<div class="basicInfo_contentWrap">
 					<div class="basicInfo_title">아이디</div>
 					<div class="basicInfo_content"><input type="text" name="userId" value="${dto.userId}" readonly="readonly"/></div>

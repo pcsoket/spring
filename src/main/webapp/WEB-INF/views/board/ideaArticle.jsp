@@ -159,7 +159,7 @@ function gnoDelete() {
 		document.all.gnum.value=a;
 		document.all.cmContent.value=str;
 		document.all.bName.value=str1;
-		var popOption = "width=520, height=350,resizable=no,scrollbars=no, status=no, top=300,left=700;";
+		var popOption = "width=510, height=350,resizable=false,scrollbars=no, status=no, top=300,left=700;";
 		win = window.open("<%=cp %>/report.action","popup",popOption);
 		
 	}	
