@@ -16,13 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.sajo.dto.CommentDTO;
+//import com.sajo.dto.CommentDTO;
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.ImageDTO;
 import com.sajo.dto.LoginDTO;
 import com.sajo.util.MyUtil;
 import com.sajo.dao.CommentDAO;
-import com.sajo.dao.CompletedDAO;
+//import com.sajo.dao.CompletedDAO;
 import com.sajo.dao.GroupDAO;
 import com.sajo.dao.ImageDAO;
 import com.sajo.dao.MemberDAO;
@@ -71,7 +71,7 @@ public class GroupController {
 			return mav;
 		}
 		
-		System.out.println(boardName);
+	//	System.out.println(boardName);
 		
 		mav.setViewName("board/created");
 		mav.addObject("boardName", boardName);
@@ -96,13 +96,13 @@ public class GroupController {
 		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
 		String imgNum = idao.writeFile(idto, path);  //ex "3,4,5"반환
 	
-		System.out.println(dto.getgContent());
+	//	System.out.println(dto.getgContent());
 		int maxNum = dao.getMaxNum();
 		int gnoMaxNum = dao.getGnoMaxNum();
-		System.out.println(dto.getgSubject());
+		//System.out.println(dto.getgSubject());
 		dto.setmId(logInfo.getUserId());
 		dto.setgNum(maxNum+1);
-		System.out.println("gno" + logInfo.getGno());
+		//System.out.println("gno" + logInfo.getGno());
 		
 		
 		if(logInfo.getGno() != 0){	
@@ -112,7 +112,7 @@ public class GroupController {
 		}else{
 			
 			dto.setgNo(gnoMaxNum + 1);
-			System.out.println("list : "+dto.getgNo());
+		//	System.out.println("list : "+dto.getgNo());
 			mdao.gnoUpdate(dto.getgNo(), logInfo.getUserId());
 			session.setAttribute("logInfo", logInfo);
 			
@@ -168,8 +168,6 @@ public class GroupController {
 	@RequestMapping(value="/group/list.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String list(GroupDTO dto,HttpServletRequest request,HttpServletResponse response) throws Exception{
 			
-		
-		
 		String cp = request.getContextPath();
 		
 		String boardName = "group";
@@ -210,7 +208,7 @@ public class GroupController {
 		
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
-		System.out.println(start+":"+end+":"+searchKey+":"+searchValue+":"+boardName);
+	//	System.out.println(start+":"+end+":"+searchKey+":"+searchValue+":"+boardName);
 		List<GroupDTO> lists =
 			dao.getList(start, end, searchKey, searchValue,boardName);
 		
@@ -284,7 +282,7 @@ public class GroupController {
 	
 		String cp = request.getContextPath();
 		
-		System.out.println(gNum);
+	//	System.out.println(gNum);
 		//int num = Integer.parseInt(request.getParameter("num"));
 		String pageNum = request.getParameter("pageNum");
 		
@@ -307,7 +305,7 @@ public class GroupController {
 		
 		List<ImageDTO> ilists = idao.getImageList(dto.getImgNum());
 		
-		String listimgnum = idao.getImage(dto.getImgNum());
+		//String listimgnum = idao.getImage(dto.getImgNum());
 		
 		int lineSu = dto.getgContent().split("\n").length;
 		
@@ -319,12 +317,7 @@ public class GroupController {
 			param += "&searchValue=" 
 				+ URLEncoder.encode(searchValue, "UTF-8");
 		}		
-		
-		
-
-		
-		
-		
+			
 		mav.setViewName("board/ideaArticle");
 		mav.addObject("ilists", ilists);
 		mav.addObject("dto",dto);
@@ -402,7 +395,7 @@ public class GroupController {
 	@RequestMapping(value="/group/updated.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String updated(int gNum, HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
-		String cp = request.getContextPath();
+		//String cp = request.getContextPath();
 	
 		String pageNum = request.getParameter("pageNum");
 		

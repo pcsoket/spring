@@ -13,7 +13,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+//import org.springframework.web.servlet.ModelAndView;
 
 import com.sajo.util.MyUtil;
 import com.sajo.dao.ContributionDAO;
@@ -38,7 +38,7 @@ public class ContributionController {
 		HttpSession session = request.getSession();
 		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
 		
-		ModelAndView mav = new ModelAndView();
+		//ModelAndView mav = new ModelAndView();
 		
 		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
 			
@@ -73,7 +73,7 @@ public class ContributionController {
 	
 	@RequestMapping(value="/checkContribution.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String check(ContributionDTO dto,String message, HttpServletRequest request,HttpServletResponse response){
-		System.out.println(dto.getgNum()+":::");
+	//	System.out.println(dto.getgNum()+":::");
 		int contribution = dao.printContribution(dto.getgNum());
 		request.setAttribute("contribution", contribution);
 		request.setAttribute("message", message);
@@ -82,14 +82,14 @@ public class ContributionController {
 	}
 	
 	@RequestMapping(value="/contributionInfo.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String contributionInfo(ContributionDTO dto,int gNo, HttpServletRequest request,HttpServletResponse response){
+	public String contributionInfo(ContributionDTO dto, HttpServletRequest request,HttpServletResponse response){
 		
 		HttpSession session = request.getSession();
 		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
 		
 		if(logInfo!=null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
-			if(logInfo.getGno()==gNo){
-				int myContributionInfo=dao.myContribution(dto.getUserId());  //아이디에 대한 기여도
+			if(logInfo.getGno()==dto.getgNo()){
+				int myContributionInfo=dao.myContribution(logInfo.getUserId());  //아이디에 대한 기여도
 				request.setAttribute("myContributionInfo", myContributionInfo);
 			}
 		}

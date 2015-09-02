@@ -139,7 +139,7 @@ function searchId() {
 
 <br/>
 
-	<div style="border:1px solid; border-color: #ff4b46; margin-top: 1px;">
+	<div style="margin-top: 1px;">
 	</div>
 		<div>	
 			<div align="center" style="width: 800px; height: 800px; margin-left:30%;">

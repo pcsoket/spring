@@ -138,7 +138,7 @@ list-style-type: none;
     <menu class="menu-segment">
       <ul>
 		<li class=""><a href="<%=cp%>/group/idea.action">그룹소개</a></li>
-		<li class=""><a href="<%=cp%>/contributionInfo.action">그룹통계</a></li>
+		<li class=""><a href="<%=cp%>/contributionInfo.action?gNo=${gNo}">${gNo}그룹통계</a></li>
       </ul>
     </menu>
         <div class="separator"></div>
