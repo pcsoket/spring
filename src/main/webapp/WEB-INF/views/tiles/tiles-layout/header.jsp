@@ -53,13 +53,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button> -->
-      <a class="navbar-brand" href="<%=cp %>/category.action"><img alt="" src="<%=cp%>/resources/image/ideaShop.PNG"></a>
+      <a class="navbar-brand" href="<%=cp %>/category.action"><img style="margin-right: 80px;"  src="<%=cp%>/resources/image/ideaShop.PNG"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="<%=cp %>/category.action"><img alt="" src="<%=cp%>/resources/image/ideaproduct.png"><span class="caret"></span></a>
-          <ul class="dropdown-menu">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="<%=cp %>/category.action">
+          <img src="<%=cp%>/resources/image/ideaproduct.png">
+          <span class="caret"></span></a>
+          <ul style="margin-left: 40px;" class="dropdown-menu">
             <li><a href="<%=cp %>/idea_category.action">생활/건강</a></li>
             <li><a href="#">디지털/가전</a></li>
             <li><a href="#">가구/인테리어</a></li>
@@ -67,8 +69,8 @@
             <li><a href="#">스포츠/레저</a></li>
           </ul>
         </li>
-        <li><a href="<%=cp %>/category.action"><img alt="" src="<%=cp%>/resources/image/bestproduct.png"></a></li>
-        <li><a href="#"><img alt="" src="<%=cp%>/resources/image/customer.png"></a></li>
+        <li><a href="<%=cp %>/category.action"><img style="margin-left: 80px;" src="<%=cp%>/resources/image/bestproduct.png"></a></li>
+        <li><a href="#"><img style="margin-left: 80px;" src="<%=cp%>/resources/image/customer.png"></a></li>
       </ul>
     </div>
   

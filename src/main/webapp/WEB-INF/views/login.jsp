@@ -57,12 +57,12 @@ function findId() {
 <div id="memberLogin" style="width: 100%; margin: 0 auto;">
     
     <div id="pop_header" >
-        <h1 style="font-family: 나눔손글씨 붓; ">로그인</h1>
+        <h1 style="font-family: 나눔고딕; ">로그인</h1>
     </div>
     <div style="width: 100%; border-bottom: solid 3px; border-color: #ddd; margin-top: 30px;margin-bottom: 10px;">
     </div>
    
-    <div id="pop_container" style="margin-bottom: 290px;">
+    <div id="pop_container" style="margin-bottom: 315px;">
        
         <div id="pop_content" class="content_primary login member" style="margin: 0 auto; width: 500px;">
             <div class="section">
@@ -74,13 +74,13 @@ function findId() {
                     <legend>로그인 정보입력</legend>
                
                     <div class="field">
-                        <label for="user_id" class="label" style="font-family: 나눔바른펜; font-size: 15px; color: #8b4513;">아이디</label>
+                        <label for="user_id" class="label" style="font-family: 나눔바른펜; font-size: 17px; ">아이디</label>
                         <div class="insert">
                             <input type="text" name="userId" id="user_id" class="input_text medium input_id" style="width:290px;" />
                         </div>
                     </div>
                     <div class="field">
-                        <label for="password_insert" class="label" style="font-family: 나눔바른펜; font-size: 15px; color: #8b4513;">비밀번호</label>
+                        <label for="password_insert" class="label" style="font-family: 나눔바른펜; font-size: 17px;">비밀번호</label>
                         <div class="insert">
                             <input type="password" name="userPwd" id="password_insert" class="input_text medium input_pw" style="width:290px;" />
                         </div>
@@ -112,7 +112,7 @@ function findId() {
                     <div class="bn_ar" style="width: 30%;" >
                     	<div>
                         	<a class="bn xsmall color1 join" href="<%=cp%>/write.action">
-                        	<span style="color: #8b4513;">회원가입</span></a>                        
+                        	<span>회원가입</span></a>                        
                     	</div>                    
                     </div>         
                 </div>
