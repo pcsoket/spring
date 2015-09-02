@@ -33,10 +33,9 @@
 				<b>제품</b>으로!
 			</div>
 			
-			<div>
-				 <a href="<%=cp %>/category.action">
-				 <button type="button" style="margin-top: 180px; width: 166px; height: 156px; margin-left: 30px;">
-				 shop</button></a>
+			<div style="cursor: pointer;">
+				 <div style="margin-top: 180px; width: 166px; height: 156px; margin-left: 70px; color: white; font-size: 28pt;" onclick="<%=cp %>/category.action">
+				 <b>SHOP</b></div>
 			</div>
 		</div>
 		
@@ -65,10 +64,9 @@
 				당신의 아이디어를 멋진 제품으로 만들어드립니다.
 			</div>
 			
-			<div>
-				 <a href="<%=cp %>/ideaMain.action">
-				 <button type="button" style="margin-top: 240px; width: 166px; height: 156px; margin-left: 30px;">
-				 invent</button></a>	
+			<div style="cursor: pointer;">
+				 <div style="margin-top: 238px; width: 166px; height: 156px; margin-left: 80px; color: white; font-size: 28pt;" onclick="<%=cp %>/ideaMain.action">
+				 <b>INVENT</b></div>
 			</div>
 		
 		</div>
