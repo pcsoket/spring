@@ -22,20 +22,47 @@
 				
 					<c:choose>
 					<c:when test="${!empty sessionScope.logInfo}">
-					
+						<c:if test="${dto1.gNum!=null}">
 						<div style="float: left; padding-right: 15px;">
 						<div><a href="<%=cp %>/group/article.action?gNum=${dto1.gNum}" ><img src="${ImageoriginalFile1}" style="width:200px; height:200px; border-radius:30%"/></a></div>
 						<div>${dto1.gsubject}</div>
-						
 						</div>
+						</c:if>
+						
+						<c:if test="${dto1.gNum==null}">
+						<div style="float: left; padding-right: 15px;">
+						<div> <img src="<%=cp %>/resources/image/noIMG.png" style="width:200px; height:200px; border-radius:30%" /></div>
+						<div>등록된 글이 없습니다.</div>
+						</div>
+						</c:if>
+						
+						<c:if test="${dto2.gNum!=null}">
 						<div style="float: left; padding-right: 15px;">
 						<div><a href="<%=cp %>/group/article.action?gNum=${dto2.gNum}"> <img src="${ImageoriginalFile2}" style="width:200px; height:200px; border-radius:30%" /></a></div>
 						<div>${dto2.gsubject}</div>
 						</div>
-						<div>
+						</c:if>
+						
+						<c:if test="${dto2.gNum==null}">
+						<div style="float: left; padding-right: 15px;">
+						<div> <img src="<%=cp %>/resources/image/noIMG.png" style="width:200px; height:200px; border-radius:30%" /></div>
+						<div>등록된 글이 없습니다.</div>
+						</div>
+						</c:if>
+						
+						<c:if test="${dto3.gNum!=null}">
+						<div style="float: left; padding-right: 15px;">
 						<div><a href="<%=cp %>/group/article.action?gNum=${dto3.gNum}"><img src="${ImageoriginalFile3}" style="width:200px; height:200px; border-radius:30%" /></a></div>
 						<div>${dto3.gsubject}</div>
 						</div>
+						</c:if>
+						
+						<c:if test="${dto3.gNum==null}">
+						<div style="float: left; padding-right: 15px;">
+						<div> <img src="<%=cp %>/resources/image/noIMG.png" style="width:200px; height:200px; border-radius:30%" /></div>
+						<div>등록된 글이 없습니다.</div>
+						</div>
+						</c:if>
 					</c:when>
 <%--				<c:when test="${sessionScope.logInfo.gno==0 }">
 						<div class="container" >
