@@ -25,6 +25,10 @@ function sendIt() {
 	
 	f.action ="<%=cp%>/report_ok.action";
 	f.submit();
+	
+	if(!confirm("신고가 접수 되었습니다.")){
+		  return; 
+		 }
 	self.close();
 	
 }

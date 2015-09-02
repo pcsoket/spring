@@ -2,6 +2,8 @@ package com.sajo.god;
 
 
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -77,5 +79,24 @@ public class ContributionController {
 		request.setAttribute("message", message);
 
 		return "board/contribution/contribution_update";
-	}	
+	}
+	
+	@RequestMapping(value="/contributionInfo.action",method={RequestMethod.GET,RequestMethod.POST})
+	public String contributionInfo(ContributionDTO dto,int gNo, HttpServletRequest request,HttpServletResponse response){
+		
+		HttpSession session = request.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
+		
+		if(logInfo!=null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
+			if(logInfo.getGno()==gNo){
+				int myContributionInfo=dao.myContribution(dto.getUserId());  //아이디에 대한 기여도
+				request.setAttribute("myContributionInfo", myContributionInfo);
+			}
+		}
+		
+		List<ContributionDTO> lists = dao.getContributionList(dto.getgNo());
+		request.setAttribute("lists", lists);
+		
+		return "contributionInfo";
+	}
 }
