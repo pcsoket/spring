@@ -18,7 +18,13 @@
 	
 	<!-- hold2 -->
 	<div style="margin-top: 250px; margin-left: 24%;">
+	
+		<%-- <div>
 		
+		<img src="<%=cp%>/resources/image/lo.png">
+		
+		</div>
+		 --%>
 		<!-- hold3 -->
 		<div style="float: left; overflow: hidden; margin-top: 85px;">
 			<div style="color: white; font-size: 43pt; margin-bottom: 5px;">

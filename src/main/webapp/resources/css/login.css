@@ -43,9 +43,9 @@ input.checkbox {
 .bn_ar .color1.bn {
 	border-color: rgb(255, 210, 215); background-color: rgb(255, 210, 215);	
 }
-.bn_ar .color3.bn {
+.bn_ar .color3.bn {/* 로그인 버튼 */
 	border-color: rgb(255, 210, 215); background-color: rgb(255, 210, 215);
-	color: #8b4513;	
+	color: #000000;	
 }
 .login .bn_ar .btn_login {
 	top: 0px; right: 21px; position: absolute;
@@ -61,7 +61,7 @@ input.checkbox {
 	text-align: center; position: relative;
 }
 #pop_header h1 {
-	margin: 0px; padding: 14px 0px 13px; height: 26px; color: #8b4513; line-height: 26px; letter-spacing: -1px; font-size: 45px; border-bottom-width: 2px; background-color: rgb(255, 255, 255);
+	margin: 0px; padding: 14px 0px 13px; height: 26px; line-height: 26px; letter-spacing: -1px; font-size: 45px; border-bottom-width: 2px; background-color: rgb(255, 255, 255);
 }
 .login .fieldset {
 	position: relative;
