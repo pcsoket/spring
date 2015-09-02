@@ -19,7 +19,6 @@
 			<br/>
 				<div style="width: 800px;">
 				
-				
 					<c:choose>
 					<c:when test="${!empty sessionScope.logInfo}">
 						<c:if test="${dto1.gNum!=null}">
@@ -63,7 +62,22 @@
 						<div>등록된 글이 없습니다.</div>
 						</div>
 						</c:if>
+						
 					</c:when>
+					
+					<c:when test="${!empty sessionScope.logInfo}">               <!-- 기여도 확인 -->
+						<div style="float: left; padding-right: 15px;height: 200px;width: 200px;">
+							나의 기여도<br/>
+							${myContribution}<br/>
+						
+						
+							그룹기여도 순위<br/>
+							<c:forEach var="dto" items="${lists}">
+							${dto.userId} : ${dto.grecomm} <br/>
+							</c:forEach>
+						</div>
+					</c:when>
+					
 <%--				<c:when test="${sessionScope.logInfo.gno==0 }">
 						<div class="container" >
 					 		<div class="jumbotron" align="center">
@@ -82,7 +96,9 @@
 							</div>
 						</div>
 					</c:otherwise>
-					</c:choose>      		  
+		
+
+					</c:choose>
 				</div>
 			</div>
 		</div>
