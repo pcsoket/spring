@@ -277,10 +277,10 @@ float: right;
 		</div>
 <!-- 왼쪽메뉴끝 -->
 
-
+<form name="update" method="post" action="" enctype="multipart/form-data" >
 <!-- 마이페이지내용 -->
-		<div id="bodyContent">
-		<form name="update" method="post" action="" enctype="multipart/form-data" >
+		<div id="bodyContent" style="height: 1000px;">
+		
 			<div class="bodytitle">
 			회원정보변경
 			</div>
@@ -403,7 +403,7 @@ float: right;
 						</div>
 					</div>
 				</div>
-		</form>
+		
 		<div style="margin-top: 50px;">
 		<div style="border-top: 2px solid #EAEAEA; "></div>
 		</div>
@@ -411,16 +411,9 @@ float: right;
 		<input type="submit" value="수정완료" onclick="sendIt();"/>
 		</div>	
 		</div>
+		</form>
 	</div><!-- bodyWrap끝 -->
-<!-- 마이페이지끝 -->
-	<div id="footer">
-		<div align="center" class="footerNotice">
-		
-		</div>
-		<div align="center" class="copyright">
-			<p>Copyright SK planet. All rights reserved.</p>
-		</div>
-	</div>
 </div><!-- 전체박스끝 -->
+
 </body>
 </html>
