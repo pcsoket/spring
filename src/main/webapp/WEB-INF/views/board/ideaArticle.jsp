@@ -15,28 +15,23 @@
 
 <script type="text/javascript">
 
-<%--  function commCreated() {
-	
-	f=document.replyInsert;
-	f.action="<%=cp%>/comm/created.action";
-	f.submit();
-}
+
 
 function gnoInsert() {
 	
-	f=document.group;
-	f.action="<%=cp%>/gnoInsert.action";
+	f=document.myForm;
+	f.action="<%=cp%>/gnoattend.action?gno=${dto.gNo}";
 	f.submit();
 	
 }
 
 function gnoDelete() {
 	
-	f=document.group;
+	f=document.myForm;
 	f.action="<%=cp%>/gnoDelete.action";
 	f.submit();
 	
-}  --%>
+} 
 
 
 	
@@ -101,6 +96,28 @@ function gnoDelete() {
 			});
 		
 		});
+		
+		<%-- $("#attend").click(function(){
+			var params = "userId=" +"${logInfo.userId}" + "&gNo=" + "${dto.gNo}"
+			
+			$.ajax({
+				
+				type:"post",
+				url:"<%=cp%>/gnoattend.action",
+				data:params,
+				success:function(args){
+					
+					$(document).html(args);
+					
+				},
+				error:function(e){
+					alert(e.responseText);
+				}
+				
+			});
+			
+		});
+		 --%>
 		
 	});
 	
@@ -240,20 +257,20 @@ function gnoDelete() {
 		<!-- 주제 --> 
 		<div style="margin-left: 25px;">
 			<div align="left" style="border-bottom: solid 2px #4374D9; width: 350px; margin-left: 100px; padding-bottom: 20px;">
-			<font style="size: 12pt; font-family: 나눔바른펜; padding-left: 20px;">${dto.cSubject}</font>
+			<font style="size: 12pt; font-family: 나눔바른펜; padding-left: 20px;">${dto.gSubject}</font>
 			</div>
 			<br/>
-			<div style="width: 500px; height: 150px; padding-left: 15px; padding-right: 15px;">${dto.cContent}</div>
+			<div style="width: 500px; height: 150px; padding-left: 15px; padding-right: 15px;">${dto.gContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
 		<div align="left" style="margin-left: 15px;">
 			<c:if test="${!empty logInfo}">
 				<div style="float: left;"><span id="message"></span></div><div style="float: left;"><input type="button" id="con_button" value="추천"/>
 							</div>
 			
-			<c:if test="${logInfo.gno=='0'}">
-				<div style="float: left;"><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
+			<c:if test="${logInfo.gno==0}">
+				<div style="float: left;"><input type="button" id="attend" value="그룹참여" onclick="gnoInsert();"/></div>
 			</c:if>
-			<c:if test="${logInfo.gno==gNo}">
+			<c:if test="${logInfo.gno==dto.getgNo()}">
 				<div style="float: left;"><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
 			</c:if>
 			<c:if test="${dto.boardName=='3D' && logInfo.mauth==3 }">

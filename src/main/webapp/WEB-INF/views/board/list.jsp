@@ -89,12 +89,13 @@ A:hover {text-decoration:none}
 	    <h3 style="color: #ff4b46">Good Idea</h3>      
 	    <p style="color: #ff4b46">당신의 아이디어가 현실이 됩니다.</p>
 	    <c:choose>
-			<c:when test="${logInfo.gno == 0}">
+			<c:when test="${logInfo.gno == 0 && boardName=='group'}">
 			 	<a href="<%=cp %>/group/created.action?boardName=${boardName}" class="btn btn-danger btn-lg">Start Invent</a>
 			</c:when>
 			<c:when test="${boardName=='group'}">
 			 	
 			</c:when>
+			
 			<c:when test="${logInfo.gno == gNo }">
 				<a href="<%=cp %>/group/created.action?boardName=${boardName}" class="btn btn-danger btn-lg">Write</a>
 			</c:when>
@@ -114,7 +115,7 @@ A:hover {text-decoration:none}
 
 		<td width="50px" align="left" margin-left="20px"  colspan="4" >	
 				
-			<div style="float: left">
+			<div style="float: left"><input type="text" value="${logInfo.gno }">	
 			<select name="searchKey"  style="height: 40px; width: 81px;"  class="form-control">
 				<option value="gSubject">제목</option>
 				<option value="mId">작성자</option>

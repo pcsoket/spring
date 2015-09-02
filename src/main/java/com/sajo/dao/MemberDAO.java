@@ -24,6 +24,17 @@ public class MemberDAO {
 		
 	}
 	
+	public void updategno(int gNo,String userId){
+		
+		HashMap<String, Object> params = new HashMap<String, Object>();
+		
+		params.put("gNo", gNo);
+		params.put("userId", userId);
+		
+		sessionTemplate.update("com.sajo.mapper.updategno",params);
+		
+	}
+	
 	public void deleteData(String userId){
 		
 		sessionTemplate.delete("com.sajo.member.sql.deleteData",userId);

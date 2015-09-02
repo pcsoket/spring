@@ -84,6 +84,10 @@ public class GroupDAO {
 		
 	}
 	
+	//gno변경
+	
+	
+	
 	//한명의 데이터 출력
 	public GroupDTO getReadData(int gNum){
 		
