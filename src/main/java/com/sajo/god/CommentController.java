@@ -59,7 +59,6 @@ public class CommentController {
 		
 		
 		totalDataCount = dao.getDataCount(dto.getgNum());
-		System.out.println("list:"+ dto.getgNum());
 		
 		//전체 페이지수 구하기
 		if(totalDataCount!=0)
@@ -93,9 +92,6 @@ public class CommentController {
 		String pageIndexList = myUtil.pageIndexList(currentPage, totalPage);
 		
 		CommentDTO cdto = dao.getBestRecomm(dto.getgNum());
-		System.out.println(dto.getgNum());
-		//System.out.println(cdto.getCmId());
-
 		
 		request.setAttribute("cdto", cdto);
 		request.setAttribute("c_lists", lists);

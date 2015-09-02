@@ -59,10 +59,10 @@ function findId() {
     <div id="pop_header" >
         <h1 style="font-family: 나눔손글씨 붓; ">로그인</h1>
     </div>
-    <div style="width: 100%; border-bottom: solid 3px; border-color: #ddd;">
+    <div style="width: 100%; border-bottom: solid 3px; border-color: #ddd; margin-top: 30px;margin-bottom: 10px;">
     </div>
    
-    <div id="pop_container">
+    <div id="pop_container" style="margin-bottom: 290px;">
        
         <div id="pop_content" class="content_primary login member" style="margin: 0 auto; width: 500px;">
             <div class="section">
@@ -87,7 +87,7 @@ function findId() {
                     </div>
                    
                     <div class="bn_ar">
-                        <button type="submit" class="bn btn_login color3" style="margin: 0 auto; cursor:pointer; outline: none;" onclick="sendIt();">로그인</button>
+                        <button type="submit" class="bn btn_login color3" style="margin: 0 auto; cursor:pointer; outline: none; left: 360px;" onclick="sendIt();">로그인</button>
                     </div>
                    <div>
                    	<c:if test="${!empty message}">
@@ -95,19 +95,19 @@ function findId() {
                    	</c:if>
                    </div>
                    <div class="login_support_pannel">
-                        <label for="keep_id" class="keep_id"><input type="checkbox" id="keep_id" name="keep_id" title="아이디 저장" class="checkbox" /> 아이디 저장</label>
-                        <a onclick="findId();" class="find_profile">아이디/비밀번호 찾기</a>
+                        <!-- <label for="keep_id" class="keep_id"><input type="checkbox" id="keep_id" name="keep_id" title="아이디 저장" class="checkbox" /> 아이디 저장</label> -->
+                        <a style="cursor: pointer;" onclick="findId();" class="find_profile">아이디/비밀번호 찾기</a>
                     </div>
-                   <input type="text" name="pagePath" value="${pagePath}">
+                   <input type="hidden" name="pagePath" value="${pagePath}">
                 </fieldset>
              
                 </form>
                 
-              <div class="content_support" style="width: 100%; overflow: hidden; padding-left: 35px;"  >
+              <div class="content_support" style="width: 535px; overflow: hidden; padding-left: 35px;height: 69px;">
                   
                   	<div style="width: 60%; float: left;">
 	                    <div><strong style="font-family: 나눔바른펜; font-size: 20px;">아직 회원이 아니신가요?</strong></div>
-	                    <div style="font-family: 나눔바른펜; font-size: 15px; ">회원으로 가입하시면 편리하게 이용 하실 수 있습니다.</div>
+	                    <div style="font-family: 나눔바른펜; font-size: 15px; margin-top: 5px;">회원으로 가입하시면 편리하게 이용 하실 수 있습니다.</div>
                    	</div>
                     <div class="bn_ar" style="width: 30%;" >
                     	<div>

@@ -37,9 +37,10 @@
 		<div align="left">
 			<div> <img src="/god/resources/image/bestidea.png" style="margin-left: 20px;"> </div> <!-- bestidea -->
 			<div> 
-				<c:forEach var="dto" items="${clists }">
-				<div>
-					<img alt="" src="  ">
+				<c:forEach var="cdto" items="${clists }">
+				<div align="center">
+					<div><a href="<%=cp %>/group/article.action?gNum=${cdto.cpNum}"> <img alt="" src=" ${cdto.imgNum}" style="width:300px; height:250px;" ></a></div>
+					<div>${cdto.cSubject }</div>
 				</div>
 				
 				</c:forEach>
@@ -47,20 +48,32 @@
 			</div>
 		</div>
 		
-		<div> 선 긋기</div>
+		<div style="border-bottom: solid 2px #ddd;"></div>
 		
 	
 		<div> <!-- 이미지 틀 -->
 		
-			<div>조회순  추천순</div> <!-- 조회순 추천순 -->
+			<div><div onclick="">조회순</div>  추천순</div> <!-- 조회순 추천순 -->
 			
 			<div> 
-				
+				<c:set var="c" value="0"/>
 				<c:forEach var="dto" items="${lists }">
 				
+					<div>
+					<a href="${articleUrl}&pNum=${dto.cpNum}"><img alt="" src="${dto.imgNum }" width="300" height="250" /></a><br/>
+					<font color="#8b4513 " style="font-family: 나눔바른펜; font-size:13pt;">
+					<a href ="${articleUrl}&pNum=${dto.cpNum}">
+					${dto.cSubject}</a></font>
+					<br/>${dto.mid}
 					
-				
+					</div>
+				<c:set var="c" value="${c+1 }"/>
+				<c:if test="${c%3==0}">
+					<div></div>
+				</c:if>
 				</c:forEach>
+				
+				
 	
 			</div>
 		

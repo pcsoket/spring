@@ -1,12 +1,12 @@
 package com.sajo.god;
 
 
-import java.io.BufferedInputStream;
+//import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
+//import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
+//import java.io.OutputStream;
 import java.util.Calendar;
 import java.util.List;
 import java.util.ListIterator;
@@ -114,7 +114,7 @@ public class ImageController {
 	public String created(ImageDTO dto,MultipartHttpServletRequest request) throws Exception{
 		
 		String path = request.getSession().getServletContext().getRealPath("/resources/imageFile/");
-		System.out.println(path);
+	//	System.out.println(path);
 		File dir = new File(path);
 		if (!dir.exists())
 			dir.mkdirs();
@@ -152,7 +152,7 @@ public class ImageController {
 
 				}
 
-				System.out.println(newFileName);
+			//	System.out.println(newFileName);
 				istream.close();
 				ostream.close();
 				dto.setSaveFileName(newFileName);

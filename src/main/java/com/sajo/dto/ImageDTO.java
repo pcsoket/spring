@@ -1,7 +1,6 @@
 package com.sajo.dto;
 
 import java.io.InputStream;
-import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;

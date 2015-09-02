@@ -155,10 +155,7 @@ public class ProductController {
 		
 		String searchKey = request.getParameter("searchKey");
 		String searchValue = request.getParameter("searchValue");
-		
-		
-		
-		
+	
 		if(searchKey == null){
 			
 			searchKey = "pName";
@@ -179,7 +176,7 @@ public class ProductController {
 		//전체데이터갯수
 		int dataCount = dao.p_getDataCount(searchKey, searchValue,pCategory);
 		
-		System.out.println(dataCount);
+	//	System.out.println(dataCount);
 		//전체페이지수
 		int numPerPage = 12;
 		int totalPage = myUtil.getPageCount(numPerPage, dataCount);
@@ -199,8 +196,8 @@ public class ProductController {
 		//첫번째 이미지만 골라서 넣어줌.
 		idea_categorylists = idao.imageForPList(idea_categorylists);
 	
-		System.out.println(pCategory+":pca");
-		System.out.println(end);
+	//	System.out.println(pCategory+":pca");
+	//	System.out.println(end);
 		
 		
 		//페이징 처리
@@ -212,9 +209,7 @@ public class ProductController {
 		}
 		
 		String listUrl = cp + "/idea_category.action";
-		
-	
-		
+
 		if(!param.equals("")){
 			listUrl = listUrl + "?" + param;		
 			
@@ -256,9 +251,7 @@ public class ProductController {
 	
 	
 		String cp = request.getContextPath();
-
-		String pageNum = request.getParameter("pageNum");
-		
+		String pageNum = request.getParameter("pageNum");	
 		String searchKey = request.getParameter("searchKey");
 		String searchValue = request.getParameter("searchValue");
 		
@@ -371,8 +364,8 @@ public class ProductController {
 		//null이 없는 imageDTO와 저장경로를 넣어주면 image테이블에 저장하고 저장한 이미지들의 넘버를 String으로 반환
 		String imglistnum = idao.writeFile(idto, path);  //ex "3,4,5"반환
 		
-		System.out.println(path);
-		System.out.println(imglistnum);
+	//	System.out.println(path);
+	//	System.out.println(imglistnum);
 		
 		pdto.setpNum(dao.p_maxNum()+1); //product번호지정
 		pdto.setpImg(imglistnum);        //product 에서 뿌려줄 이미지들의 번호
