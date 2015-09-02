@@ -47,7 +47,7 @@ public class ContributionDAO {
 				
 	}
 	
-	public int checkContribution(ContributionDTO dto){
+	public int checkContribution(ContributionDTO dto){                         //userId,gNum
 		
 		int result = 1;
 		if(sessionTemplate.selectOne("com.sajo.contribution.checkContribution",dto)==null){

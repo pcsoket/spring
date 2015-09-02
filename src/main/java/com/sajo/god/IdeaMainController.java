@@ -12,9 +12,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-
+import com.sajo.dao.ContributionDAO;
 import com.sajo.dao.IdeaMainDAO;
 import com.sajo.dao.ImageDAO;
+import com.sajo.dto.ContributionDTO;
 import com.sajo.dto.LoginDTO;
 import com.sajo.dto.MainListDTO;
 
@@ -34,6 +35,10 @@ public class IdeaMainController {
 	ImageDAO idao;
 	
 	@Autowired
+	@Qualifier("contributionDAO")
+	ContributionDAO cdao;
+	
+	@Autowired
 	MyUtil myUtil;
 	
 	@RequestMapping(value="/ideaMain.action",method={RequestMethod.GET,RequestMethod.POST})
@@ -44,16 +49,22 @@ public class IdeaMainController {
 		if(logInfo!=null){
 				int gno = logInfo.getGno();
 				String userId=logInfo.getUserId();
-	//			System.out.println(gno);
+
+				int myContribution = cdao.myContribution(userId);
+				List<ContributionDTO> contributionList = cdao.getContributionList(gno);
+
+
+				req.setAttribute("myContribution", myContribution);
+				req.setAttribute("contributionList", contributionList);
 			if(gno!=0){
 				MainListDTO dto1 = dao.getData(userId,"idea");
 				MainListDTO dto2 = dao.getData(userId,"sketch");
 				MainListDTO dto3 = dao.getData(userId,"3D");
 				
 				if(dto1!=null){
-			//		System.out.println(dto1.getImgNum()+"00");
+					System.out.println(dto1.getImgNum()+"00");
 				String ImageoriginalFile1 = idao.getImage(dto1.getImgNum());
-		//		System.out.println("99");
+				System.out.println("99");
 				req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
 				req.setAttribute("dto1", dto1);
 				req.setAttribute("gno", gno);			
@@ -78,12 +89,15 @@ public class IdeaMainController {
 			req.removeAttribute("imageoriginalFile3");*/
 			}
 			
-		}	
+		}
 		//인기아이디어 순위
 		
 		List<MainListDTO> idealists = idao.imageForMlList(dao.getIdeaReadData());
 		req.setAttribute("idealists", idealists);
 		
+
+		
+
 	
 		
 		//complate 순위
