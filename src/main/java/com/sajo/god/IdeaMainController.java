@@ -56,7 +56,7 @@ public class IdeaMainController {
 		//		System.out.println("99");
 				req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
 				req.setAttribute("dto1", dto1);
-				req.setAttribute("gno", gno);
+				req.setAttribute("gno", gno);			
 				}
 				if(dto2!=null){
 				String ImageoriginalFile2 = idao.getImage(dto2.getImgNum());
@@ -70,12 +70,12 @@ public class IdeaMainController {
 				}
 				
 			}else{
-			req.removeAttribute("dto1");
+/*			req.removeAttribute("dto1");
 			req.removeAttribute("dto2");
 			req.removeAttribute("dto3");
 			req.removeAttribute("imageoriginalFile1");
 			req.removeAttribute("imageoriginalFile2");
-			req.removeAttribute("imageoriginalFile3");
+			req.removeAttribute("imageoriginalFile3");*/
 			}
 			
 		}	
