@@ -21,7 +21,7 @@
 				
 				
 					<c:choose>
-					<c:when test="${sessionScope.logInfo.gno!=0}">
+					<c:when test="${!empty sessionScope.logInfo}">
 					
 						<div style="float: left; padding-right: 15px;">
 						<div><a href="<%=cp %>/group/article.action?gNum=${dto1.gNum}" ><img src="${ImageoriginalFile1}" style="width:200px; height:200px; border-radius:30%"/></a></div>
@@ -37,7 +37,7 @@
 						<div>${dto3.gsubject}</div>
 						</div>
 					</c:when>
-<%-- <%-- 					<c:when test="${sessionScope.logInfo.gno==0 }">
+<%--				<c:when test="${sessionScope.logInfo.gno==0 }">
 						<div class="container" >
 					 		<div class="jumbotron" align="center">
 								<h3>Good Idea</h3>      
