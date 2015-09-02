@@ -73,7 +73,7 @@ public class ContributionController {
 	
 	@RequestMapping(value="/checkContribution.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String check(ContributionDTO dto,String message, HttpServletRequest request,HttpServletResponse response){
-		System.out.println(dto.getgNum()+":::");
+	//	System.out.println(dto.getgNum()+":::");
 		int contribution = dao.printContribution(dto.getgNum());
 		request.setAttribute("contribution", contribution);
 		request.setAttribute("message", message);

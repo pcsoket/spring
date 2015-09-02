@@ -58,7 +58,7 @@
 		//document.getElementById('fileList').append= "<div id=file"+i+">"+f.upup.value+"</div>";
 		
 		str+="<div id=file"+i+">"+f.upup.value+"</div>";
-		alert(str+"1");
+		/* alert(str+"1"); */
 		i++;
 	}
 	

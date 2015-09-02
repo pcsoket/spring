@@ -44,16 +44,16 @@ public class IdeaMainController {
 		if(logInfo!=null){
 				int gno = logInfo.getGno();
 				String userId=logInfo.getUserId();
-				System.out.println(gno);
+	//			System.out.println(gno);
 			if(gno!=0){
 				MainListDTO dto1 = dao.getData(userId,"idea");
 				MainListDTO dto2 = dao.getData(userId,"sketch");
 				MainListDTO dto3 = dao.getData(userId,"3D");
 				
 				if(dto1!=null){
-					System.out.println(dto1.getImgNum()+"00");
+			//		System.out.println(dto1.getImgNum()+"00");
 				String ImageoriginalFile1 = idao.getImage(dto1.getImgNum());
-				System.out.println("99");
+		//		System.out.println("99");
 				req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
 				req.setAttribute("dto1", dto1);
 				req.setAttribute("gno", gno);

@@ -192,10 +192,7 @@ public class MemberController {
 	//회원정보 수정 page 열기
 	@RequestMapping(value="/myPage.action")
 	public String myPage(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
-		
 	
-		
-		
 		LoginDTO dto1 = (LoginDTO)session.getAttribute("logInfo");
 		
 		
@@ -298,9 +295,7 @@ public class MemberController {
 
 		dto.setUserPimg(a[4]);
 		}
-		
-		
-				
+			
 		dao.updated(dto);
 		
 	
@@ -309,8 +304,6 @@ public class MemberController {
 
 	@RequestMapping(value="/memberList.action")
 	public String memberList(HttpServletRequest req,HttpServletResponse resp,MemberDTO dto,HttpSession session){
-		
-	
 		
 		String cp = req.getContextPath();
 		String pageNum = req.getParameter("pageNum");
@@ -382,7 +375,7 @@ public class MemberController {
 			
 		}
 		
-		 System.out.println(dto.getUserId());
+	//	 System.out.println(dto.getUserId());
 		dao.insertGno(dto.getUserId(), gno);		
 		
 		dto.setGno(gno);

@@ -47,16 +47,12 @@ public class ShopMainController {
 	@RequestMapping(value="/shopmain.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String list(HttpServletRequest req, String data) throws Exception{
 		
-		 
-				
 		return "shop";
 	}
 	
 	@RequestMapping(value="/invent.action",method={RequestMethod.GET,RequestMethod.POST})  //테스트
 	public String invent(HttpServletRequest req, String data) throws Exception{
-		
-		 
-				
+	
 		return "Invent";
 	}
 	
@@ -140,7 +136,7 @@ public class ShopMainController {
 		BasketDTO dto = dao.readbasket(bNum);
 		PurchaseDTO pdto = pdao.getReadData(dto.getpNum());
 		
-		System.out.println(bNum+":"+pdto.getpPrice());
+	//	System.out.println(bNum+":"+pdto.getpPrice());
 		//int total = dto.getbPrice() * amount;
 		req.setAttribute("bnums", bNum);
 		req.setAttribute("pdto", pdto);
@@ -170,22 +166,22 @@ public class ShopMainController {
 			String[] nums= bnums.split("-");
 			String[] amts= amt.split("-");
 			
-			System.out.println(nums.length);
-			System.out.println(bnums);
-			System.out.println(amt);
+	//		System.out.println(nums.length);
+	//		System.out.println(bnums);
+	//		System.out.println(amt);
 			
 			PurchaseDTO pdto;
 			for(int i=0;i<nums.length;i++){
 				
 				BasketDTO dto = dao.readbasket(Integer.parseInt(nums[i]));
 				
-				System.out.println(2 + "nums:" + nums[i]);
-				System.out.println(nums.length);
+		//		System.out.println(2 + "nums:" + nums[i]);
+		//		System.out.println(nums.length);
 				pdto = new PurchaseDTO();
 				
 				pdto.setbNum(dto.getbNum());
 				
-				System.out.println(3 +  dto.getbNum());
+			//	System.out.println(3 +  dto.getbNum());
 				pdto.setpAmount(Integer.parseInt(amts[i]));
 				pdto.setpName(dto.getbPName());
 				pdto.setpPrice(Integer.parseInt(amts[i]) * dto.getbPrice());
@@ -216,7 +212,7 @@ public class ShopMainController {
 			BasketDTO dto = dao.readbasket(Integer.parseInt(bnums));
 			
 			PurchaseDTO pdto = new PurchaseDTO();
-			System.out.println(4);
+		//	System.out.println(4);
 			
 			pdto.setbNum(dto.getbNum());
 			pdto.setpAmount(dto.getbAmount());
@@ -237,8 +233,8 @@ public class ShopMainController {
 	
 		
 		PurchaseDTO pdto = pdao.getBnums(mid);
-		System.out.println("11" + pdto.getbNum());
-		System.out.println("12"+pdto.getmId());
+	//	System.out.println("11" + pdto.getbNum());
+	//	System.out.println("12"+pdto.getmId());
 		
 		req.setAttribute("mdto", mdto);
 		req.setAttribute("pdto", pdto);
@@ -261,7 +257,7 @@ public class ShopMainController {
 			return "login";
 		}
 		
-		System.out.println("여기는" + bnums);
+	//	System.out.println("여기는" + bnums);
 		
 		req.setAttribute("bnums", bnums);
 				
@@ -278,11 +274,11 @@ public class ShopMainController {
 			return "login";
 		}
 		
-		System.out.println("널인가!!" + bnums);
+	//	System.out.println("널인가!!" + bnums);
 		
 		if(bnums != null){
 			
-			System.out.println("널인가" + bnums);
+	//		System.out.println("널인가" + bnums);
 			String[] nums= bnums.split("-");
 			
 			
@@ -311,13 +307,11 @@ public class ShopMainController {
 		List<PurchaseDTO> lists = (List<PurchaseDTO>)pdao.getReadId(mid);
 		
 		Iterator<PurchaseDTO> reinst = lists.iterator();
-		
-		
+			
 		while(reinst.hasNext()){
 			
 			pdto = (PurchaseDTO)reinst.next();
-			
-			
+				
 			dto.setbNum(pdto.getbNum());
 			dto.setbAmount(1);
 			dto.setbPName(pdto.getpName());
@@ -335,7 +329,7 @@ public class ShopMainController {
 		
 		if(bnums != null){
 			
-			System.out.println("널인가" + bnums);
+		//	System.out.println("널인가" + bnums);
 			String[] nums= bnums.split("-");
 			
 			//PurchaseDTO pdto=null;
@@ -345,7 +339,7 @@ public class ShopMainController {
 				
 				dto = new BasketDTO();
 				
-				System.out.println(nums[i]);
+		//		System.out.println(nums[i]);
 				dto.setbNum(Integer.parseInt(nums[i]));
 				dto.setbAmount(1);
 				dto.setbPName(pdto.getpName());
@@ -377,9 +371,7 @@ public class ShopMainController {
 	public String del(Integer bnum,HttpServletRequest req, HttpServletResponse resp){
 		
 		dao.delbasket(bnum);
-				
-		
-		
+			
 		return "redirect:basket.action";
 	}
 	

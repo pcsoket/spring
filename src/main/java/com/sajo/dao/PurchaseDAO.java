@@ -18,8 +18,6 @@ public class PurchaseDAO {
 		this.sessionTemplate = asd;
 	}
 	
-	
-	
 	//1.num
 	public int getMaxNum(){
 		

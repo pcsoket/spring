@@ -22,7 +22,6 @@
 
 	}
 
-	
 	function sendIt() {
 		
 		f = document.myForm;

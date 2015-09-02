@@ -76,8 +76,6 @@ public class CompletedController {
 		
 		String cp = req.getContextPath();
 		
-		//String boardName = "group";
-		
 		String pageNum = req.getParameter("pageNum");
 		int currentPage = 1;
 		
@@ -114,7 +112,7 @@ public class CompletedController {
 		
 		int start = (currentPage-1)*numPerPage+1;
 		int end = currentPage*numPerPage;
-		System.out.println(start+":"+end+":"+searchKey+":"+searchValue+"::");
+		//System.out.println(start+":"+end+":"+searchKey+":"+searchValue+"::");
 		List<CompletedDTO> lists =
 			cpdao.cp_getList(start, end, searchKey, searchValue);
 		

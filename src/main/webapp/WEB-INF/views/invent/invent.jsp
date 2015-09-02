@@ -23,7 +23,7 @@
 	 f = document.groupimg;
 	 
 	 f.action ="<%=cp%>/group/idea.action?pageNum="+'${pageNum}' +"&gNo="+ '${gNo}';
-	 alert('${gNo}');
+	
 	 <%-- f.action ="<%=cp%>/group/article.action?pageNum="+'${pageNum}' + "&gNum=" +'${gNum}'; --%>
 	 f.submit();
 	

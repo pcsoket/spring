@@ -83,7 +83,7 @@ function gnoDelete() {
 			
 			var params = "userId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+"&gNo="+"${dto.gNo}"
 						+"&boardName="+"${dto.boardName}" +"&writer="+"${dto.mId}";
-			alert(params);
+			
 			$.ajax({
 				
 				type:"POST",
@@ -95,7 +95,7 @@ function gnoDelete() {
 					
 				},
 				error:function(e){
-					alert("2222222222"+e.responseText);
+					alert(e.responseText);
 				}
 				
 			});
