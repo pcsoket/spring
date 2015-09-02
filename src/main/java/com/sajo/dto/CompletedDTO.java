@@ -3,17 +3,23 @@ package com.sajo.dto;
 public class CompletedDTO {
 	
 	int listNum,cpNum,gNo,cRecomm,cHitCount,cPrice;
+	String mid,cCategory,cSubject,cContent,cCreated,imgNum;
 	
 	
+	
+	
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
 	public int getListNum() {
 		return listNum;
 	}
 	public void setListNum(int listNum) {
 		this.listNum = listNum;
 	}
-	String cCategory,cSubject,cContent,cCreated,imgNum;
-	
-	
 
 	public int getCpNum() {
 		return cpNum;

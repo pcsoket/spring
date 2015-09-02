@@ -34,14 +34,14 @@
 	function sendIt() {
 		f = document.myForm;
 		
-		str = f.pName.value;
+		str = f.cSubject.value;
 		str = str.trim();
 		if (!str) {
 			alert("제목을 입력하세요 !!!");
 			f.pName.focus();
 			return;
 		}
-		f.pName.value = str;
+		f.cSubject.value = str;
 		
 		f.action = "<%=cp%>/compl/created_ok.action";
 		f.submit();
@@ -77,20 +77,20 @@
 		//alert(value);
 		
 		value1 = value;
-		pCategory2.options.add(new Option("선택", "") );
+		cCategory2.options.add(new Option("선택", "") );
 		if(value=="life"){
-		pCategory2.options.add(new Option("욕실", "bath") );
-		pCategory2.options.add(new Option("공구", "util") );
-		pCategory2.options.add(new Option("청소", "cleaning"));
-		pCategory2.options.add(new Option("주방", "cleaning") );
-		pCategory2.options.add(new Option("문구/사무", "cleaning") );
+		cCategory2.options.add(new Option("욕실", "bath") );
+		cCategory2.options.add(new Option("공구", "util") );
+		cCategory2.options.add(new Option("청소", "cleaning"));
+		cCategory2.options.add(new Option("주방", "cleaning") );
+		cCategory2.options.add(new Option("문구/사무", "cleaning") );
 		
 		}
 		
 		if(value=="sports"){
-			pCategory2.options.add(new Option("캠핑", "camping") );
-			pCategory2.options.add(new Option("등산", "climbing") );
-			pCategory2.options.add(new Option("헬스", "health") );
+			cCategory2.options.add(new Option("캠핑", "camping") );
+			cCategory2.options.add(new Option("등산", "climbing") );
+			cCategory2.options.add(new Option("헬스", "health") );
 
 			
 			}
@@ -104,16 +104,16 @@
 			}
 		
 		if(value=="digital"){
-			pCategory2.options.add(new Option("PC악세서리", "PC") );
-			pCategory2.options.add(new Option("음향가전", "sound") );
-			pCategory2.options.add(new Option("휴대폰악세서리", "phone") );
+			cCategory2.options.add(new Option("PC악세서리", "PC") );
+			cCategory2.options.add(new Option("음향가전", "sound") );
+			cCategory2.options.add(new Option("휴대폰악세서리", "phone") );
 			
 			}
 		
 		if(value=="sundries"){
-			pCategory2.options.add(new Option("남성가방", "man") );
-			pCategory2.options.add(new Option("여성가방", "woman") );
-			pCategory2.options.add(new Option("선글라스/안경테", "sunglasses") );
+			cCategory2.options.add(new Option("남성가방", "man") );
+			cCategory2.options.add(new Option("여성가방", "woman") );
+			cCategory2.options.add(new Option("선글라스/안경테", "sunglasses") );
 
 			
 			}
@@ -124,16 +124,16 @@
 	
 	function clearOption() {              /* 옵션초기화 */
 	 
-	        for( var i=pCategory2.options.length-1; i>=0; i--){
+	        for( var i=cCategory2.options.length-1; i>=0; i--){
 	 
-	        	pCategory2.options[i]=null;
+	        	cCategory2.options[i]=null;
 	        }
 	}
 
 	
 	function toCategory(value2){      /* 카테고리1,2합침 */
 		
-		document.myForm.pCategory.value = value1+value2;
+		document.myForm.cCategory.value = value1+value2;
 		
 	}
 
@@ -141,16 +141,16 @@
 	
 	function clearOption() {              /* 옵션초기화 */
 	 
-	        for( var i=pCategory2.options.length-1; i>=0; i--){
+	        for( var i=cCategory2.options.length-1; i>=0; i--){
 	 
-	        	pCategory2.options[i]=null;
+	        	cCategory2.options[i]=null;
 	        }
 	}
 	
 	
 	function toCategory(value2){
 		
-		document.myForm.pCategory.value = value1+value2;
+		document.myForm.cCategory.value = value1+value2;
 		
 	}
 
@@ -181,7 +181,7 @@
   <tr> 
       <td width="100" height="40" bgcolor="#EEEEEE" style="padding-left:20px;">상품이름&nbsp;</td>
       <td width="500" style="padding-left:10px;"> 
-        <input type="text" name="cSubject" size="74" maxlength="100" class="boxTF"/><input type="hidden" name="cpNum" value="${cpdto.cpNum }">
+        <input type="text" name="cSubject" size="74" maxlength="100" class="boxTF"/>
       </td>
   </tr>
   
@@ -189,7 +189,7 @@
       <td width="80" height="30" bgcolor="#EEEEEE" style="padding-left:20px;">카테고리&nbsp;</td>
       <td width="480" style="padding-left:10px;">
       
-      	<select name="pCategory1" class="boxTF" id="pCategory1" onchange="AddSelect(this.value);">
+      	<select name="cCategory1" class="boxTF" id="cCategory1" onchange="AddSelect(this.value);">
 
       		<option value="null">선택</option>
 
@@ -200,12 +200,12 @@
       		<option value="sundries">패션잡화</option>
       	</select>
       	
-      	<select name="pCategory2" class="boxTF" id="pCategory2" onchange="toCategory(this.value);">
+      	<select name="cCategory2" class="boxTF" id="cCategory2" onchange="toCategory(this.value);">
       		<option value="">선택</option>
 
 
       	</select>
-      	<input type="text" name="pCategory" id="pCategory" >
+      	<input type="text" name="cCategory" id="cCategory" >
 
       </td>
   </tr>

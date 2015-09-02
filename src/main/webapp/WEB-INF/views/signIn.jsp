@@ -77,6 +77,13 @@ function sendIt() {
 	
 	f = document.write;
 	
+	str = f.file2.value;
+	str = str.trim();
+	if(!str){
+		alert("\n사진을 등록하세요.");
+		
+		return;
+	}
 	str = f.userId.value;
 	str = str.trim();
 	if(!str){
