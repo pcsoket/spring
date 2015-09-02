@@ -70,7 +70,7 @@ public class InventController {
 		//	System.out.println(0);
 			InventDTO dto1 = indao.getInventData(gno);
 			if(dto1==null){
-				String ImageoriginalFile1 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile1 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
 				//System.out.println(1);
 			}else{
@@ -80,7 +80,7 @@ public class InventController {
 			}
 			InventDTO dto2 = indao.get3dData(gno);
 			if(dto2==null){
-				String ImageoriginalFile2 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile2 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile2", ImageoriginalFile2);
 		//		System.out.println(3);
 			}else{
@@ -90,7 +90,7 @@ public class InventController {
 			}
 			InventDTO dto3 = indao.getSketchData(gno);
 			if(dto3==null){
-				String ImageoriginalFile3 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile3 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile3", ImageoriginalFile3);
 		//		System.out.println(5);
 			}else{
@@ -99,11 +99,11 @@ public class InventController {
 		//	System.out.println(6);
 			}
 		}else{
-				String ImageoriginalFile1 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile1 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile1", ImageoriginalFile1);
-				String ImageoriginalFile2 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile2 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile2", ImageoriginalFile2);
-				String ImageoriginalFile3 = "/god/resources/imageFile/asdf.jpg";
+				String ImageoriginalFile3 = "/god/resources/imageFile/imagedefault.png";
 				req.setAttribute("ImageoriginalFile3", ImageoriginalFile3);
 		}
 		
