@@ -18,8 +18,10 @@
 				<div align="left"><img alt="" src="<%=cp %>/resources/image/project1.png"></div>
 			<br/>
 				<div style="width: 800px;">
+				
+				
 					<c:choose>
-					<c:when test="${logInfo.gno!=0}">
+					<c:when test="${sessionScope.logInfo.gno!=0}">
 					
 						<div style="float: left; padding-right: 15px;">
 						<div><a href="<%=cp %>/group/article.action?gNum=${dto1.gNum}" ><img src="${ImageoriginalFile1}" style="width:200px; height:200px; border-radius:30%"/></a></div>
@@ -35,7 +37,7 @@
 						<div>${dto3.gsubject}</div>
 						</div>
 					</c:when>
-					<c:when test="${!empty logInfo }">
+<%-- <%-- 					<c:when test="${sessionScope.logInfo.gno==0 }">
 						<div class="container" >
 					 		<div class="jumbotron" align="center">
 								<h3>Good Idea</h3>      
@@ -43,16 +45,16 @@
 								<a href="<%=cp %>/group/created.action?boardName=group" class="btn btn-info btn-lg">register group</a>
 							</div>
 						</div>
-					</c:when>
-						<c:otherwise>
-							<div class="container" >
+					</c:when> --%>
+					<c:otherwise>                                            <!-- 로그인을 안했거나 그룹참여를 안했을때 -->
+						<div class="container" >
 					 		<div class="jumbotron" align="center">
 								<h3>Good Idea</h3>      
 								<p>당신의 아이디어가 현실이 됩니다.</p>
-								<%-- <a href="<%=cp %>/group/created.action?boardName=group" class="btn btn-info btn-lg">register group</a> --%>
+								<a href="<%=cp %>/group/created.action?boardName=group" class="btn btn-info btn-lg">register group</a>
 							</div>
 						</div>
-						</c:otherwise>
+					</c:otherwise>
 					</c:choose>      		  
 				</div>
 			</div>

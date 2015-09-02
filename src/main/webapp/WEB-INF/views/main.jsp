@@ -34,7 +34,7 @@
 			</div>
 			
 			<div style="cursor: pointer;">
-				 <div style="margin-top: 180px; width: 166px; height: 156px; margin-left: 70px; color: white; font-size: 28pt;" onclick="<%=cp %>/category.action">
+				 <div style="margin-top: 180px; width: 166px; height: 156px; margin-left: 70px; color: white; font-size: 28pt;" onclick="javascript:location.href='<%=cp %>/category.action';">
 				 <b>SHOP</b></div>
 			</div>
 		</div>
@@ -65,7 +65,7 @@
 			</div>
 			
 			<div style="cursor: pointer;">
-				 <div style="margin-top: 238px; width: 166px; height: 156px; margin-left: 80px; color: white; font-size: 28pt;" onclick="<%=cp %>/ideaMain.action">
+				 <div style="margin-top: 238px; width: 166px; height: 156px; margin-left: 80px; color: white; font-size: 28pt;" onclick="javascript:location.href='<%=cp %>/ideaMain.action';">
 				 <b>INVENT</b></div>
 			</div>
 		

@@ -18,7 +18,7 @@
 
 <!-- 데이터 입력 -->
 <insert id="insertData" parameterType="com.sajo.dto.CompletedDTO">
-	insert into complete (gNo,gNum,gHitCount,mId,gSubject,imgnum,
+	insert into complete (gNo,cpNum,cHitCount,mId,gSubject,imgnum,
 	gContent,gCreated,boardName,gRecomm) values (#{gNo},#{gNum},0,#{mId},#{gSubject},#{imgNum},
 	#{gContent},sysdate,#{boardName},0)
 </insert>
@@ -33,7 +33,7 @@
 <select id="getLists" parameterType="hashMap" resultType="com.sajo.dto.CompletedDTO">
 	select * from (
 	select rownum rnum, data.* from(
-	select gNum,mId,gSubject,gHitCount,to_char(gCreated,'YYYY-MM-DD') gCreated
+	select cpNum,mId,cSubject,gHitCount,to_char(gCreated,'YYYY-MM-DD') gCreated
 	from complete where boardName=#{boardName} and ${searchKey} like '%' || #{searchValue} || '%'
 	order by gNum desc) data)
 <![CDATA[

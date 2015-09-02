@@ -53,6 +53,7 @@ imgnum VARCHAR2(100));
 CREATE TABLE complete(
 cpNum number,
 gno NUMBER PRIMARY KEY,
+mid VARCHAR2(12) NOT NULL,
 crecomm NUMBER,
 chitCount Number,
 ccategory VARCHAR2(20) NOT NULL,

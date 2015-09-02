@@ -184,6 +184,23 @@
 	font-weight: #FFFFFF;
 	border-radius : 10px;
 	}
+	
+.btn2{
+	background-color: #BDBDBD;
+	border: 1px solid #BDBDBD;
+	font-weight: #FFFFFF;
+	border-radius : 10px;
+	margin-left:5px; 
+	float:left; 
+	width: 80px; 
+	height: 80px;
+	font-size: 15pt; 
+	font-family: 나눔바른펜;
+	font-weight: bold;
+
+	}
+	
+	
 #imageGallery{
 	float: left;
 }
@@ -198,7 +215,7 @@
 </head>
 <body>
 <!-- 전체묶음 -->
-<div style="width: 100%;">
+<div style="width: 100%;" align="center">
 
 <div id="bodyWrap"  style="width:1000px">
 
@@ -211,6 +228,7 @@
 
 
 <form name="myForm">
+
 	<div id="imageGallery" style="margin-right: 50px;">
 		<div class="fotorama" data-autoplay="3000"             
 						 data-width="480"
@@ -228,7 +246,7 @@
 	</div> 
 	
 	  			
-		<div id="productInfo">
+		<div id="productInfo" style="width: 1000px">
 		<table width="350px" height="700px" class="box" >
 		
 		
@@ -266,7 +284,9 @@
 				<td class="line4" width="150px" height="50px" align="center">
 					<b>수량</b></td>
 				<td class="line5" width="200px" height="50px">
-					&nbsp;&nbsp;<a onclick="minus();">-&nbsp;</a><input type="text" name="bAmount" id="bAmount" size=2 value=1><a onclick="plus();">&nbsp;+</a>
+					&nbsp;&nbsp;<a onclick="minus();"><img src="<%=cp%>/resources/image/s_minus.png">&nbsp;
+					</a><input type="text" name="bAmount" id="bAmount" size=2 value=1>
+					<a onclick="plus();">&nbsp;<img src="<%=cp%>/resources/image/s_plus.png"></a>
 					
 					</td>
 			</tr>
@@ -289,9 +309,11 @@
 				<table>
 					<tr>
 					<td width="250px" height="70px" align="center">
-					<input type="button" style="width:100px; height:50px; font-size: 15pt; color: #ffffff; font-weight: bold;" class="btn1" value="장바구니" onclick="sendIt();"></td>
+					<input type="button" style="width:100px; height:50px; font-size: 15pt; font-family: 나눔바른펜; 
+					color: #ffffff; font-weight: bold;" class="btn1" value="장바구니" onclick="sendIt();"></td>
 					<td width="250px" height="70px" colspan="2">
-				 	<input type="button" style="width:100px; height:50px; font-size: 15pt; color: #ffffff; font-weight: bold;" class="btn1" value="바로 구매"></td>
+				 	<input type="button" style="width:100px; height:50px; font-size: 15pt; font-family: 나눔바른펜;
+				 	color: #ffffff; font-weight: bold;" class="btn1" value="바로 구매"></td>
 				</table>
 				 	<input type="hidden" name="bAmount" value=1><!-- 임시로. 고를수있게 해놓아야됨 -->
 				 	<input type="hidden" name="bPName" value="${dto.pName}">
@@ -305,15 +327,17 @@
 		</table>
 		</div>
 
+		
+		
 </form>
 </div>
 
 <!-- 댓글 등록 -->
 	<div style="margin-top: 40px; width: 1000px;" align="center">
-		<div align="center" style="width: 900px; float: left; margin-bottom:10px; border-bottom: solid 2px #ddd">
+		<div align="center" style="width: 900px; float: left; margin-bottom:10px; border-bottom: solid 2px #ddd;">
 		
 			<div align="left" style="width: 800px; padding-left: 20px; padding-bottom: 20px;">
-			<font style="font-family: 나눔손글씨 붓; color: #2F9D27; font-size: 15pt;"> <b> 댓 글 </b> </font>
+			<font style="font-family: fantasy; font-size: 16pt;"> <b> Comment </b> </font>
 			</div>
 			
 			<!-- 댓글 리스트 -->
@@ -323,15 +347,18 @@
 			
 			
 			<div style="width: 800px;">
-				<div style="float: left;">작성자</div>
+				<div style="float: left; font-family: 나눔바른펜; font-size: 15pt">작성자</div>&nbsp;
 				<div id="name">${logInfo.userId } </div>
 			</div>
 			<div style="border-top: solid 1px #ddd ; padding-top: 10px; width: 900px;" >
 				<div style="float: left;"><textarea rows="5" cols="100" id="content"></textarea></div>
-				<div><input type="button" value="등록" id="sendButton" style="margin-left:5px; float:left; width: 80px; height: 80px;"/></div>
+				<div><input type="button" value="등록" id="sendButton" 
+				 class="btn2"/>
+				</div>
 			</div>
 		</div>	
 	</div>
+
 
 
 </div>
