@@ -207,7 +207,7 @@ public class MemberController {
 		
 		dto= dao.getReadData(dto1.getUserId());
 		
-		String savepath = "/god/resources/testimg/";
+		String savepath = "/god/resources/imageFile/";
 		String pimg = savepath + dto.getUserPimg();
 		dto.setUserPimg(pimg);
 		System.out.println(dto.getUserPimg());
