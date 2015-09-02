@@ -34,12 +34,12 @@
 </table>
 
 	<div style="width: 1140px;">
-		<div align="left">
+		<div align="left" style="width: 1000px;">
 			<div> <img src="/god/resources/image/bestidea.png" style="margin-left: 20px;"> </div> <!-- bestidea -->
 			<div> 
 				<c:forEach var="cdto" items="${clists }">
-				<div align="center">
-					<div><a href="<%=cp %>/group/article.action?gNum=${cdto.cpNum}"> <img alt="" src=" ${cdto.imgNum}" style="width:300px; height:250px;" ></a></div>
+				<div align="center" >
+					<div style="float:left; padding-left: 20px;"><a href="<%=cp %>/compl/article.action?gNum=${cdto.cpNum}"> <img alt="" src=" ${cdto.imgNum}" style="width:300px; height:250px;" ></a></div>
 					<div>${cdto.cSubject }</div>
 				</div>
 				
@@ -51,9 +51,12 @@
 		<div style="border-bottom: solid 2px #ddd;"></div>
 		
 	
-		<div> <!-- 이미지 틀 -->
-		
-			<div><div onclick="">조회순</div>  추천순</div> <!-- 조회순 추천순 -->
+		<div style="width: 1000px;"> <!-- 이미지 틀 -->
+			
+			<div style="width: 1000px; border-bottom: solid 2px #ddd;">	
+				<div align="right" style="width: 100px;">
+					<div style="float: left;" onclick="">조회순</div> <div>추천순</div>
+				</div> <!-- 조회순 추천순 -->
 			
 			<div> 
 				<c:set var="c" value="0"/>
