@@ -49,7 +49,7 @@
 	}
 	
 .category2{
-	border: 1px solid #EAEAEA;
+	/* border: 1px solid #EAEAEA; */
 	height: 300px;
 	width: 300px;
 	padding-right: 30px;

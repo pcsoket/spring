@@ -52,14 +52,6 @@ public class ReportController {
 		dto.setMid(ldto.getUserId());
 		dto.setrContent(req.getParameter("rContent"));
 		
-		System.out.println(dto.getBoardName());
-		System.out.println(dto.getGnum());
-		System.out.println(dto.getMid());
-		System.out.println(dto.getRaddress());
-		System.out.println(dto.getrContent());
-		System.out.println(dto.getRnum());
-		System.out.println(dto.getRsubject());
-		
 		rpdao.insertData(dto);
 		
 	}
@@ -89,9 +81,7 @@ public class ReportController {
 		
 		String pageIndexList =
 				myUtil.pageIndexList(currentPage, totalPage, listUrl);
-		for(ReportDTO a : lists){
-			System.out.println(a.getrContent());
-		}
+		
 		req.setAttribute("lists", lists);
 		req.setAttribute("pageIndexList",pageIndexList);
 		req.setAttribute("dataCount",dataCount);

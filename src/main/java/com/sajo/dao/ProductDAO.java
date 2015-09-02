@@ -50,11 +50,6 @@ public class ProductDAO {
 			
 		}
 		
-		
-	
-		
-	
-		
 		//전체 데이터수 구하기
 		public int p_getDataCount(String searchKey,String searchValue,String pCategory){
 					
@@ -177,11 +172,6 @@ public class ProductDAO {
 
 						
 		}
-						
-				
-		
-		
-		
 		
 		//상품 insertData
 		public void p_insertData(ProductDTO dto){

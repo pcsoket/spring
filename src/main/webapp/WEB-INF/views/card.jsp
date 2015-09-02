@@ -93,12 +93,9 @@
 		
 		var f = document.MyForm;
 		var bnums = f.bnums.value;
-
-				
+	
 		opener.parent.location.href='<%=cp%>/card_cancel.action?bnums=' + bnums;
 		self.close();
-		
-		
 		
 	}
 	

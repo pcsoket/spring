@@ -54,8 +54,7 @@
 	            return;
 	        }
 	    	f.cmContent.value = str;
-	
-	 	
+
 	        f.action = "<%=cp%>/comm/created.action";
 	        f.submit();
 	}

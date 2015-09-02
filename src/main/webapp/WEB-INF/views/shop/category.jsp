@@ -280,8 +280,8 @@ padding: 0;
 	</tr> --%>
 	
 	
-	<tr><td height="50px" colspan="4"><font color="#8C8C8C" style="font-family: 나눔바른펜;" size="4pt"><b>
-	&nbsp;&nbsp;&nbsp;추천 순</b></font></td></tr>
+	<tr><td height="50px" colspan="4">
+	<img src="<%=cp%>/resources/image/cu.png"></td></tr>
 	<tr>
 	
 		<c:forEach var="dto" items="${recommandlists}">	
@@ -297,8 +297,8 @@ padding: 0;
 	</tr>
 	
 	
-	<tr><td height="50px" colspan="4"><font color="#8C8C8C" style="font-family: 나눔바른펜;" size="4pt"><b>
-	&nbsp;&nbsp;&nbsp;조회순</b></font></td></tr>
+	<tr><td height="50px" colspan="4">
+	<img src="<%=cp%>/resources/image/hitcount.png"></td></tr>
 	<tr>
 	
 		<c:forEach var="dto" items="${hitcountlists}">	

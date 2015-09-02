@@ -114,7 +114,6 @@ function searchId() {
 	</div>		
 </div>
 
-
 	<div class="fotorama" data-autoplay="3000" data-loop="true" data-width="100%"> 
 	  <img src="/god/resources/image/slide1.png">
 	  <img src="/god/resources/image/slide2.png">
@@ -139,7 +138,7 @@ function searchId() {
 
 <br/>
 
-	<div style="border:1px solid; border-color: #ff4b46; margin-top: 1px;">
+	<div style="margin-top: 1px;">
 	</div>
 		<div>	
 			<div align="center" style="width: 800px; height: 800px; margin-left:30%;">
