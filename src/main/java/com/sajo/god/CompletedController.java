@@ -21,6 +21,7 @@ import com.sajo.dao.ImageDAO;
 import com.sajo.dto.CompletedDTO;
 import com.sajo.dto.GroupDTO;
 import com.sajo.dto.ImageDTO;
+import com.sajo.dto.LoginDTO;
 import com.sajo.dto.ProductDTO;
 import com.sajo.util.MyUtil;
 
@@ -54,6 +55,9 @@ public class CompletedController {
 	@RequestMapping(value="/compl/created_ok.action")
 	public ModelAndView compl_created_ok(CompletedDTO cpdto,ImageDTO idto,HttpServletRequest req,HttpServletResponse resp, HttpSession session) throws Exception{
 		
+		session = req.getSession();
+		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
+		
 		ModelAndView mav = new ModelAndView();
 		
 		String path = req.getSession().getServletContext().getRealPath("/resources/imageFile/"); //저장할 경로 지정 실제경로를 가져옴
@@ -64,7 +68,8 @@ public class CompletedController {
 		System.out.println(imglistnum);
 		
 		cpdto.setCpNum(cpdao.cp_maxNum()+1); //product번호지정
-		cpdto.setImgNum(imglistnum);        //product 에서 뿌려줄 이미지들의 번호
+		cpdto.setImgNum(imglistnum);   //product 에서 뿌려줄 이미지들의 번호
+		cpdto.setMid(logInfo.getUserId());
 		cpdao.p_insertData(cpdto);          //product 테이블에 insert
 		mav.setViewName("redirect:/completed.action"); //?cpNum="+cpdto.getCpNum()); //나갈곳
 		mav.addObject("cpdto",cpdto); //가져감?
@@ -92,7 +97,7 @@ public class CompletedController {
 		
 		if(searchKey == null){
 			
-			searchKey = "gSubject";
+			searchKey = "cSubject";
 			searchValue = "";
 			
 		}else{
@@ -105,7 +110,7 @@ public class CompletedController {
 		
 		//전체데이터갯수
 		int dataCount = 0;
-		dataCount = cpdao.cp_getDataCount(searchKey, searchValue);
+		dataCount = cpdao.cp_getDataCount();
 		
 		//전체페이지수
 		int numPerPage = 9;
@@ -170,7 +175,7 @@ public class CompletedController {
 		
 		List<CompletedDTO> belists = cpdao.getbest();
 		
-		belists = idao.imageForcList(lists);
+		belists = idao.imageForcList(belists);
 		
 		req.setAttribute("clists", belists);
 

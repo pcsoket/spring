@@ -53,27 +53,17 @@ public class CompletedDAO {
 			params.put("searchKey", searchKey);
 			params.put("searchValue", searchValue);
 			
-			List<CompletedDTO> lists = sessionTemplate.selectList("com.sajo.completed.p_getLists",params);
+			List<CompletedDTO> lists = sessionTemplate.selectList("com.sajo.completed.getLists",params);
 			
 			return lists;
 			
 		}
 		
 		
-	
-		
-	
-		
 		//전체 데이터수 구하기
-		public int cp_getDataCount(String searchKey,String searchValue){
-					
-			HashMap<String, Object> params = new HashMap<String, Object>();
-			
-			params.put("searchKey", searchKey);
-			params.put("searchValue", searchValue);
-			
-			
-			int result = sessionTemplate.selectOne("com.sajo.completed.getDataCount",params);
+		public int cp_getDataCount(){
+		
+			int result = sessionTemplate.selectOne("com.sajo.completed.getDataCount");
 							
 			return result;
 			
@@ -195,7 +185,7 @@ public class CompletedDAO {
 		//상품 insertData
 		public void p_insertData(CompletedDTO dto){
 			
-			sessionTemplate.insert("com.sajo.god.product.mapper.p_insertData",dto);
+			sessionTemplate.insert("com.sajo.completed.insertData",dto);
 		}
 
 		
