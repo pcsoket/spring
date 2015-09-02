@@ -48,7 +48,7 @@ function gnoDelete() {
 	$(document).ready(function(){
 	
 		$("#sendButton").click(function(){
-			alert(${dto.gNum});
+			
 			var params = "cmId=" + "${logInfo.userId }" +"&gNum="+"${dto.gNum}"+ "&cmContent=" + $("#content").val();
 
 
@@ -154,6 +154,18 @@ function gnoDelete() {
 		
 	}
 	
+	function compl() {
+	
+
+		var f = document.myForm;
+		alert(1);
+		f.action="<%=cp%>/compl/created.action";
+		f.submit();
+		
+		
+		
+	}
+	
 	function reportData(str,str1,a) {
 		
 		document.all.gnum.value=a;
@@ -194,18 +206,8 @@ function gnoDelete() {
 		
 	}
 	
-	/* completed로 넘기기 */
+		
 	
-	function completed() {
-		
-		var f = document.myForm;
-		
-		f.action="<%=cp%>/compl/created.action";
-		f.submit();
-		
-		
-		
-	}
 	
 
 
@@ -243,21 +245,23 @@ function gnoDelete() {
 			<br/>
 			<div style="width: 500px; height: 150px; padding-left: 15px; padding-right: 15px;">${dto.gContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
-		<div>
+		<div align="left" style="margin-left: 15px;">
 			<c:if test="${!empty logInfo}">
-				<div><span id="message"></span></div><div><input type="button" id="con_button" value="추천"/>
+				<div style="float: left;"><span id="message"></span></div><div style="float: left;"><input type="button" id="con_button" value="추천"/>
 							</div>
 			
 			<c:if test="${logInfo.gno=='0'}">
-				<div><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
+				<div style="float: left;"><input type="button" value="그룹참여" onclick="gnoInsert();"/></div>
 			</c:if>
 			<c:if test="${logInfo.gno==gNo}">
-				<div><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
+				<div style="float: left;"><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
 			</c:if>
-			<c:if test="${dto.boardName=='3D' && logInfo.auth==3 }">
-				<div><input type="button" name="completed" value="completed" onclick="completed();"></div>			
+			<c:if test="${dto.boardName=='3D' && logInfo.mauth==3 }">
+				<div  style="float: left;">
+				<input type="button" class="btn btn-primary btn-sm" style="background-color: #ddd; " name="completed1" value="completed" onclick="compl();">
+				</div>			
 			</c:if>
-				<div><input type="button" value="신고" onclick="reportData('','${dto.boardName}','${dto.gNum}');"></div>
+				<div style="float: left;"><input type="button" value="신고" onclick="reportData('','${dto.boardName}','${dto.gNum}');"></div>
 			</c:if>
 
 		</div>
