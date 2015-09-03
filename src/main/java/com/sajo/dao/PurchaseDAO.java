@@ -112,6 +112,12 @@ public class PurchaseDAO {
 		
 		sessionTemplate.update("com.sajo.purchase.updateData",bNum);
 	}
+	
+	/*public void getReadpcNum(int bNum){
+		
+		sessionTemplate.selectOne("com.sajo.purchase.getReadpcNum",bNum);
+	}
+	*/
 }
 
 

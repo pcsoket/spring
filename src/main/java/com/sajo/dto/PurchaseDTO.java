@@ -10,7 +10,7 @@ public class PurchaseDTO {
 	private String state;
 	private String imgNum;
 	
-	private int bNum,pNum;
+	private int bNum,pNum,pcNum;
 	private int  pAmount, pPrice,retake;
 	
 	public String getmId() {
@@ -78,5 +78,11 @@ public class PurchaseDTO {
 	}
 	public void setRetake(int retake) {
 		this.retake = retake;
+	}
+	public int getPcNum() {
+		return pcNum;
+	}
+	public void setPcNum(int pcNum) {
+		this.pcNum = pcNum;
 	}
 }

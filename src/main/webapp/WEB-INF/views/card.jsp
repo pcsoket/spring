@@ -121,7 +121,8 @@
 				<div >카드번호</div>
 				<div style="font-size: 7pt;">/ Credit Card No. </div>
 			</div>
-			<div  align="left" style="padding: 10px; padding-left: 110px; border-bottom: solid 1px #005766;"><input type="text" style="border: solid 1px; width: 50px;" name="card1">-<input type="text" style="border: solid 1px;width: 50px;" name="card2">-<input type="text" style="border: solid 1px; width: 50px;" name="card3">-<input type="text" style="border: solid 1px; width: 50px;" name="card4"></div>
+			<div  align="left" style="padding: 10px; padding-left: 110px; border-bottom: solid 1px #005766;">
+			<input type="text" style="border: solid 1px; width: 50px;" maxlength="4" name="card1">-<input type="text" maxlength="4" style="border: solid 1px;width: 50px;" name="card2">-<input type="text" maxlength="4" style="border: solid 1px; width: 50px;" name="card3">-<input type="text" maxlength="4" style="border: solid 1px; width: 50px;" name="card4"></div>
 	
 		<div style="background-color: #C7D3ED; float: left; padding: 5px; width: 100px; border-right: solid 1px #005766; border-bottom: solid 1px #005766;">
 			<div>이메일</div>
@@ -147,7 +148,7 @@
 		<input type="button" value="결제" style="padding: 10px;" onclick="charge();">
 		<input type="button" value="취소" style="padding: 10px;" onclick="cancel();">
 	</div>
-	<input type="hidden" name="status" value=""><input type="text" name="bnums" value="${bnums }">
+	<input type="hidden" name="status" value=""><input type="hidden" name="bnums" value="${bnums }">
 </div>
 
 

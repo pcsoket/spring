@@ -107,9 +107,8 @@ public class GroupController {
 		//System.out.println(dto.getgSubject());
 		dto.setmId(logInfo.getUserId());
 		dto.setgNum(maxNum+1);
+		System.out.println("gno" + logInfo.getGno());
 		
-		//System.out.println("gno" + logInfo.getGno());
-		System.out.println(logInfo.getGno() +"ad");
 		
 		if(logInfo.getGno() != 0){	
 			
@@ -118,8 +117,6 @@ public class GroupController {
 		}else{
 			
 			dto.setgNo(gnoMaxNum + 1);
-			
-			System.out.println(dto.getgNo()+":gno 처음등록");
 		//	System.out.println("list : "+dto.getgNo());
 			mdao.gnoUpdate(dto.getgNo(), logInfo.getUserId());
 			session.setAttribute("logInfo", logInfo);
@@ -147,8 +144,6 @@ public class GroupController {
 			dto.setBoardName("group");                 // group,idea,3d,sketch
 			
 			dao.insertData(dto);
-			logInfo.setGno(dto.getgNo());
-			session.setAttribute("logInfo", logInfo);                      //바뀐 gno 세션에 업데이트
 			
 			return "redirect:/group/list.action";
 			
@@ -448,13 +443,13 @@ public class GroupController {
 	}
 	
 	@RequestMapping(value="/gnoattend.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String gnoattend(int gno,HttpServletRequest request,HttpServletResponse response) throws Exception{
+	public String gnoattend(int gNo,HttpServletRequest request,HttpServletResponse response) throws Exception{
 		
 		HttpSession session = request.getSession();
 		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo"); 
 		String userId = logInfo.getUserId();
 		
-		mdao.updategno(gno, userId);
+		mdao.updategno(gNo, userId);
 		
 		
 		return "redirect:/board/article.action";
@@ -468,34 +463,6 @@ public class GroupController {
 		dao.deleteData(gNum);
 		
 		return "redirect:/group/list.action?pageNum=" + pageNum;
-	
-	}
-	
-	@RequestMapping(value="/group/updateGroup.action",method={RequestMethod.GET,RequestMethod.POST})
-	public String updated(GroupDTO dto,HttpServletRequest request,HttpServletResponse response) throws Exception{
-		
-		HttpSession session = request.getSession();
-		LoginDTO logInfo = (LoginDTO) session.getAttribute("logInfo");  //세션에서 로그인정보가져오기
-		
-		if(logInfo==null){                                              //로그인이 필요한 페이지에 꼭넣어야함 없을경우 null값으로 인한 에러뜸
-			request.setAttribute("pagePath", "redirect:/group/list.action");
-			return "login";
-		}
-		
-		if(logInfo.getGno()==0){
-			
-			System.out.println(dto.getgNo()+":gno 그룹참여");
-		//	System.out.println("list : "+dto.getgNo());
-			mdao.gnoUpdate(dto.getgNo(), logInfo.getUserId());
-			
-			
-			logInfo.setGno(dto.getgNo());
-			session.setAttribute("logInfo", logInfo);
-			
-		}
-		
-		
-		return "";
 	
 	}
 }
