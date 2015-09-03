@@ -185,7 +185,7 @@ public class ShopMainController {
 		//		System.out.println(2 + "nums:" + nums[i]);
 		//		System.out.println(nums.length);
 				pdto = new PurchaseDTO();
-				
+				pdto.setPcNum(pdao.getMaxNum()+1);
 				pdto.setbNum(dto.getbNum());
 				
 			//	System.out.println(3 +  dto.getbNum());
@@ -228,7 +228,7 @@ public class ShopMainController {
 			pdto.setmId(mid);
 			pdto.setmAddr(mdto.getUserAddr2());
 			pdto.setbDate("");
-			pdto.setState("결제전");
+			pdto.setState("결제완료");
 			pdto.setRetake(0);
 			pdto.setpNum(dto.getpNum());
 			
@@ -261,6 +261,20 @@ public class ShopMainController {
 			return "login";
 		}
 		
+		if(bnums != null){
+			
+			System.out.println("널인가" + bnums);
+				String[] nums= bnums.split("-");
+				
+				
+				for(int i = 0;i<nums.length;i++){
+					
+					pdao.updateData(Integer.parseInt(nums[i]));
+				
+				}
+				
+			}
+		
 	//	System.out.println("여기는" + bnums);
 		
 		req.setAttribute("bnums", bnums);
@@ -282,7 +296,7 @@ public class ShopMainController {
 		
 		if(bnums != null){
 			
-		System.out.println("널인가" + bnums);
+		//System.out.println("널인가" + bnums);
 			String[] nums= bnums.split("-");
 			
 			

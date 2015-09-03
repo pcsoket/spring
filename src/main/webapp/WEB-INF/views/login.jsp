@@ -57,12 +57,12 @@ function findId() {
 <div id="memberLogin" style="width: 100%; margin: 0 auto;">
     
     <div id="pop_header" >
-        <h1 style="font-family: 나눔고딕; ">로그인</h1>
+        <h1 style="font-family: 나눔고딕; margin-top: 80px;">로그인</h1>
     </div>
-    <div style="width: 100%; border-bottom: solid 3px; border-color: #ddd; margin-top: 30px;margin-bottom: 10px;">
+    <div style="width: 100%; border-bottom: solid 3px; border-color: #ddd; margin-top: 30px;margin-bottom: 15px;">
     </div>
    
-    <div id="pop_container" style="margin-bottom: 315px;">
+    <div id="pop_container" style="margin-bottom: 251px;">
        
         <div id="pop_content" class="content_primary login member" style="margin: 0 auto; width: 500px;">
             <div class="section">

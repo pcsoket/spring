@@ -91,34 +91,35 @@
 	}
 	
 .btn1{
-	background-color: #ffd2d7;
-	border:1px solid #ffd2d7;
+	background-color: #EAEAEA;
+	border:1px solid #EAEAEA;
 	font :"#8b4513";
-	font-family : 나눔바른펜";
+	font-family : 나눔바른펜";	
+	color: #8C8C8C;	
 	}
 
 </style>
 
 </head>
 <body>
-<form name="myForm" id="myForm" method="post" action="" enctype="multipart/form-data">
+<form name="myForm" id="myForm" method="post" action="" enctype="multipart/form-data" style="margin-bottom: 69px;">
 <table width="1000" align="center" class="box">
 	<tr height="100px"></tr>
 	
 	<tr height="40px"> 
-		<td class="line3" colspan="2"><font color="#8b4513 " style="font-family: 나눔손글씨 붓; size :10pt;"><b>글 쓰기</b></font></td>
+		<td class="line3" colspan="2"><font color="#8b4513 " style="font-family:나눔바른펜; size :10pt;"><b>글 쓰기</b></font></td>
 	</tr>
 	<tr height="20px"></tr>
 	
 	<tr height="30px">
-		<td colspan="2"><input type="text" style="height:25px;"
+		<td colspan="2"><input type="text" style="height:25px; width: 679px;"
 		name="gSubject" size="107" maxlength="100" 
 		class="border1"/></td>
 	</tr>
 	<tr>
 		<td><input type="hidden" name="boardName" value="${boardName }">
 		<input type="file"  name="upload" size="58" maxlength="100" class="boxTF" onchange=""/>
-        <div id="file-list" style="border:2px solid #c9c9c9;min-height:50px"></div> 
+        <div id="file-list" style="border:2px solid #c9c9c9;min-height:50px; width: 682px;"></div> 
 		</td>
 	</tr>
 	<tr height="10px"></tr>
@@ -137,10 +138,9 @@
 	<tr>
 		<td>
 		<input type="button" style="width:50px; height:50px;" value="목록" class="btn1"
-        onclick="javascript:location.href='<%=cp%>/group/list.action';"/></td>
-        <td align="center">
-        <input type="button" style="width:50px; height:50px;" value=" 등록" class="btn1" 
-        onclick="sendIt();"/>
+        onclick="javascript:location.href='<%=cp%>/group/list.action';"/>
+        <input type="button" style="width:50px; height:50px;" value=" 등록" class="btn1"
+        onclick="sendIt();"/>               
 		<input type="reset" style="width:70px; height:50px;" value="다시입력 " class="btn1" 
 		onclick="document.myForm.gSubject.focus();"/>
         </td>

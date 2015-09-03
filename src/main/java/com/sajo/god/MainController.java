@@ -14,7 +14,7 @@ public class MainController {
 	@RequestMapping(value="/main.action",method={RequestMethod.GET,RequestMethod.POST})
 	public String list(HttpServletRequest req,HttpServletResponse res) throws Exception{
 		
-		return "board/main";
+		return "main";
 	}
 	
 	@RequestMapping(value="/golist.action",method={RequestMethod.GET,RequestMethod.POST})

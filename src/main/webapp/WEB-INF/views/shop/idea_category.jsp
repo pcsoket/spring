@@ -80,7 +80,7 @@
 <body>
 <form name="myForm">
 <input type="hidden" name="pCategory">
-<table width="1020px" class="box" align="center" style="height: 650px;">
+<table width="1020px" class="box" align="center" style="height:650px;">
 	<tr><td rowspan="3" valign="top">
 			<table class="box" width="200px">
 			
