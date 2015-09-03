@@ -107,8 +107,9 @@ public class GroupController {
 		//System.out.println(dto.getgSubject());
 		dto.setmId(logInfo.getUserId());
 		dto.setgNum(maxNum+1);
-		//System.out.println("gno" + logInfo.getGno());
 		
+		//System.out.println("gno" + logInfo.getGno());
+		System.out.println(logInfo.getGno() +"ad");
 		
 		if(logInfo.getGno() != 0){	
 			
@@ -117,6 +118,8 @@ public class GroupController {
 		}else{
 			
 			dto.setgNo(gnoMaxNum + 1);
+			
+			System.out.println(dto.getgNo()+":gno 처음등록");
 		//	System.out.println("list : "+dto.getgNo());
 			mdao.gnoUpdate(dto.getgNo(), logInfo.getUserId());
 			session.setAttribute("logInfo", logInfo);
@@ -144,6 +147,8 @@ public class GroupController {
 			dto.setBoardName("group");                 // group,idea,3d,sketch
 			
 			dao.insertData(dto);
+			logInfo.setGno(dto.getgNo());
+			session.setAttribute("logInfo", logInfo);                      //바뀐 gno 세션에 업데이트
 			
 			return "redirect:/group/list.action";
 			
