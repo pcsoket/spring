@@ -14,16 +14,32 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
-  
+<script>
+	$("#invent").click(function(){
+		$("#invent").css("class","active");
+		$("#shop").css("class","");
+	});
+
+	$("#shop").click(function(){
+		$("#shop").css("class","active");
+		$("#invent").css("class","");
+	});
+
+</script>  
+
 </head>
+
+
 <body>
+
+
 
 <div style="width: 100% ;text-align: center;">
 	<div class="container">
 		<div style="padding-top: 5px; float: left; width: 1000px;">
 			<ul class="nav nav-tabs" style="float: left;">
-			    <li class="active"><a href="<%=cp %>/category.action">Shop</a></li>
-			    <li><a href="<%=cp %>/ideaMain.action">Invent</a></li>
+			    <li id="shop" class="active"><a href="<%=cp %>/category.action">Shop</a></li>
+			    <li id="invent"><a href="<%=cp %>/ideaMain.action">Invent</a></li>
 		  	</ul>
 	<div align="right">
     	<ul id="nav navbar-nav navbar-right" style="width: 240px; padding-top: 20px; margin-bottom: 0px; margin-right: 0px;">
