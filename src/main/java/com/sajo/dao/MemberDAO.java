@@ -31,7 +31,7 @@ public class MemberDAO {
 		params.put("gNo", gNo);
 		params.put("userId", userId);
 		
-		sessionTemplate.update("com.sajo.mapper.updategno",params);
+		sessionTemplate.update("com.sajo.mapper.sql.updategno",params);
 		
 	}
 	
@@ -92,6 +92,7 @@ public int getDataCount(String dong){
 		params.put("userId", userId);
 		
 		sessionTemplate.update("com.sajo.member.sql.gnoUpdate", params);
+		
 		
 	}
 	
