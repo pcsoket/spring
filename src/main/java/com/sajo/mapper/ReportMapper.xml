@@ -25,6 +25,6 @@
 		select nvl(count(*),0) from report
 	</select>
 	<delete id="deleteData" parameterType="int">
-	delete from report where rnum=#{rnum}
+	delete report where rnum=#{rnum}
 	</delete>
 	</mapper>
