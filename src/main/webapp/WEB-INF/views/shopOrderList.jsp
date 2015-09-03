@@ -37,6 +37,8 @@ float: left;
 width: 200px;
 height: 90px;
 float: left;
+color: #FFFFFF;
+font-size: 20pt;
 }
 
 .datesearchBox{
@@ -54,6 +56,7 @@ float: left;
 .searchOrdertitle{
 height: 30px;
 border-top: 2px solid #EAEAEA;
+font: #ffffff;
 }
 
 #searchOrdertitle{
@@ -170,9 +173,15 @@ height: 150px;
 }
 
 .searchOrderwithdate{
-background-color:#ffd2d7;
+background-image: url(/god/resources/image/banner2.png);
 height: 110px;
 border-top: 2px solid #EAEAEA
+}
+
+.datebtn{
+	border-color: #EAEAEA; 
+	background-color: #EAEAEA;
+	color: #8C8C8C;	
 }
 
 </style>
@@ -191,12 +200,12 @@ $(document).ready(function()
 <div id="bodyWrap">
 	<div id="bodyContent">
 		<div id="searchOrderbox">
-			<div class="searchOrdertitle">
-				주문 배송조회
+			<div class="searchOrdertitle" style="font-family: 나눔바른고딕; font-size: 20px">
+				주문 / 배송조회
 			</div>
 			<div class="searchOrderwithdate" style="">
-				<div class="orderdatetitle">조회기간</div>
-				<div class="datesearchBox">
+				<div class="orderdatetitle">&nbsp;&nbsp;&nbsp;조회기간</div>
+				<div class="datesearchBox" style="margin-top: 10px">
 					<button type="button" class="datebtn" onClick="setDate('20150730','20150730', 'form1');"><span>오늘</span></button>
 					<button type="button" class="datebtn" onClick="setDate('20150724','20150730', 'form1');"><span>1주일</span></button>
 					<button type="button" class="datebtn" onClick="setDate('20150701','20150730', 'form1');"><span>1개월</span></button>
@@ -206,7 +215,7 @@ $(document).ready(function()
 					<select name="startYY" id="startYY"  onchange="setDD('start', 'form1');">
 						<option value='<%=year%>' selected><%=year%></option>
 					</select>
-					<label for="startYY">년</label>
+					<label for="startYY" style="color: #8C8C8C;	">년</label>
 					<select name="startMM" id="startMM"  onchange="setDD('start', 'form1');">
 						<option value='01' >1</option>
 						<option value='02' >2</option>
@@ -221,7 +230,7 @@ $(document).ready(function()
 						<option value='11' >11</option>
 						<option value='12' >12</option>
 					</select>
-					<label for="startMM">월</label>
+					<label for="startMM" style="color: #8C8C8C;	">월</label>
 					<select name="startDD" id="startDD">
 						<option value='01' >1</option>
 						<option value='02' >2</option>
@@ -236,11 +245,11 @@ $(document).ready(function()
 						<option value='11' >11</option>
 						<option value='12' >12</option>
 					</select>
-					<label for="startDD">일</label>&nbsp;~&nbsp;
+					<label for="startDD" style="color: #8C8C8C;	">일</label>&nbsp;~&nbsp;
 					<select name="endYY" id="endYY" onchange="setDD('end', 'form1');">
 						<option value='2015'  selected>2015</option>
 					</select>
-					<label for="endYY">년</label>
+					<label for="endYY" style="color: #8C8C8C;">년</label>
 					<select name="endMM" id="endMM" onchange="setDD('end', 'form1');">
 						<option value='01' >1</option>
 						<option value='02' >2</option>
@@ -255,7 +264,7 @@ $(document).ready(function()
 						<option value='11' >11</option>
 						<option value='12' >12</option>
 					</select>
-					<label for="endMM">월</label>
+					<label for="endMM" style="color: #8C8C8C;">월</label>
 					<select name="endDD" id="endDD" >
 						<option value='01' >1</option>
 						<option value='02' >2</option>
@@ -270,11 +279,11 @@ $(document).ready(function()
 						<option value='11' >11</option>
 						<option value='12' >12</option>
 					</select>
-					<label for="endDD">일&nbsp;</label>
+					<label for="endDD" style="color: #8C8C8C;">일&nbsp;</label>
 				</div>
 				<div class="datesearchBox">
 					<input type="text" name="searchPname" class="textField">
-					<input type="button" value=" 검색 " class="searchbtn" onclick="sendIt();"/>
+					<input type="button" value=" 검색 " class="datebtn" onclick="sendIt();"/>
 				</div>	
 			</div>
 		</div>
@@ -284,11 +293,11 @@ $(document).ready(function()
 		<div id="orderList_list">
 			<div id="title">
 				<dl>
-					<dt class="date">주문일자</dt>
-					<dt class="orderinfo">주문상품정보</dt>
-					<dt class="price">상품금액(수량)</dt>
-					<dt class="tax">배송비(판매자)</dt>
-					<dt class="state">주문상태</dt>
+					<dt class="date" style="font-size: 15px">주문일자</dt>
+					<dt class="orderinfo" style="font-size: 15px">주문상품정보</dt>
+					<dt class="price" style="font-size: 15px">상품금액(수량)</dt>
+					<dt class="tax" style="font-size: 12px">배송비(판매자)</dt>
+					<dt class="state" style="font-size: 12px">주문상태</dt>
 				</dl>
 			</div>
 			<div id="lists">
@@ -305,10 +314,10 @@ $(document).ready(function()
 			</c:forEach>
 			</div>
 			
-			<div id="pageIndex">
+			<div id="pageIndex" align="center" style="margin-top: 30px">
 				<p>
 					<c:if test="${dataCount!=0 }">
-						${pageIndexList }
+						${pageIndexList}
 					</c:if>
 					<c:if test="${dataCount==0 }">
 						등록된게시물이 없습니다.
