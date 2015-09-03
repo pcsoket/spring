@@ -10,10 +10,19 @@
 <script type="text/javascript">
 function chk(str) {
 	
-	var popOption = "width=300, height=200,resizable=no,scrollbars=no, status=no, top=300,left=700;";
-	win = window.open("<%=cp %>/chkRcontent.action?str=" + str,"popup",popOption);
+	var popOption = "resizable=no,scrollbars=no, status=no, top=300,left=700;";
+	win = window.open(str,"popup",popOption);
 	
 }
+
+function deleted() {
+	
+	var f = document.deldata;
+	f.action = "<%=cp%>/reportdelete.action";
+	f.submit();
+	
+}
+
 </script>
 <title> 신 고 게 시 판 </title>
 </head>
@@ -23,8 +32,9 @@ function chk(str) {
 	</div>
 		
 		<div align="center" style=" margin-left:300px; width: 1200px;">
+		<form name="deldata" method="post">
 		<table style="border:1px; border-color:#EAEAEA; width: 800px;">
-		<tr><td colspan="4"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
+		<tr><td colspan="5"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
 		</tr>
 			<tr>
 				<td style="width: 30px;">
@@ -33,18 +43,21 @@ function chk(str) {
 				<td style="width: 230px;">
 				신고된 내용
 				</td>
-				<td style="width: 100px;">
+				<td style="width: 30px;">
 				신고 ID
 				</td>
 				<td style="width: 30px;">
 				게시판
 				</td>
+				<td style="width: 30px;">
+				확인
+				</td>
 			</tr>
-			<tr><td colspan="4"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
+			<tr><td colspan="5"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
 			<c:forEach var="dto" items="${lists}">
 				<tr>
 				<td>
-				<a href="${dto.raddress}">Link</a>
+				<a onclick="chk('${dto.raddress}');">Link</a>
 				</td>
 				<td style="width: 30px;">
 				${dto.rContent}
@@ -55,11 +68,17 @@ function chk(str) {
 				<td>
 				${dto.boardName}
 				</td>
+				<td>
+					<input type="hidden" name="gnum" value="${dto.gnum}"/>
+					<input type="hidden" name="rnum" value="${dto.rnum}"/>
+					<input type="submit" value="확인" onclick="deleted();"/>
+				</td>
 				</tr>
-				<tr><td colspan="4"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
+				<tr><td colspan="5"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
 			</tr>
 			</c:forEach>
 			</table>
+			</form>
 			<div style="height: 30px;">
 			<div align="center">${pageIndexList}</div>
 			</div>
