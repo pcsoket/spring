@@ -90,14 +90,14 @@ public class ReportController {
 		
 	}
 	
-	@RequestMapping(value="/chkRcontent.action")
-	public String chkRcontent (HttpServletRequest req, ReportDTO dto, HttpServletResponse resp, HttpSession session){
+	@RequestMapping(value="/reportdelete.action")
+	public String reportdelete (HttpServletRequest req, HttpServletResponse resp, HttpSession session){
 		
-		String str = req.getParameter("str");
+		int rnum = Integer.parseInt(req.getParameter("rnum"));
 		
-		req.setAttribute("rcontent", str);
+		rpdao.deleteData(rnum);
 		
-		return "chkRcontent";
+		return "redirect:/reportlist.action";
 		
 	}
 	

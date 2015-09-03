@@ -36,7 +36,6 @@
 			    <li style="padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px;">
 			    Admin</li>
 			</c:otherwise>
-			
 			</c:choose>    
 		  	</ul>
 	<div align="right">

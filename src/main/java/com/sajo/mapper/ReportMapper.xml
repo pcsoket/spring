@@ -24,4 +24,7 @@
 	<select id="getDataCount" resultType="int">
 		select nvl(count(*),0) from report
 	</select>
+	<delete id="deleteData" parameterType="int">
+	delete report where rnum=#{rnum}
+	</delete>
 	</mapper>
