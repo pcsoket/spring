@@ -115,7 +115,7 @@ A:hover {text-decoration:none}
 
 		<td width="50px" align="left" margin-left="20px"  colspan="4" >	
 				
-			<div style="float: left"><input type="text" value="${logInfo.gno }">	
+			<div style="float: left"><input type="hidden" value="${logInfo.gno }">	
 			<select name="searchKey"  style="height: 40px; width: 81px;"  class="form-control">
 				<option value="gSubject">제목</option>
 				<option value="mId">작성자</option>

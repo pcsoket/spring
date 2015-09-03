@@ -22,8 +22,22 @@
 	<div class="container">
 		<div style="padding-top: 5px; float: left; width: 1000px;">
 			<ul class="nav nav-tabs" style="float: left;">
-			    <li class="active"><a href="<%=cp %>/category.action">Shop</a></li>
-			    <li><a href="<%=cp %>/ideaMain.action">Invent</a></li>
+			    <c:choose>
+			<c:when test="${logInfo.userId =='admin' }">
+				<li><a href="<%=cp %>/category.action">Shop</a></li>
+			    <li class="active"><a href="<%=cp %>/ideaMain.action">Invent</a></li>
+			    <li style="padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px;">
+			    <a href="<%=cp %>/reportlist.action">Admin</a>
+			    </li>
+			</c:when>
+			<c:otherwise>
+			    <li><a href="<%=cp %>/category.action">Shop</a></li>
+			    <li class="active"><a href="<%=cp %>/ideaMain.action">Invent</a></li>
+			    <li style="padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px;">
+			    Admin</li>
+			</c:otherwise>
+			
+			</c:choose>    
 		  	</ul>
 	<div align="right">
     	<ul id="nav navbar-nav navbar-right" style="width: 240px; padding-top: 20px; margin-bottom: 0px; margin-right: 0px;">
@@ -70,7 +84,7 @@
           </ul>
         </li>
         <li><a href="<%=cp %>/category.action"><img style="margin-left: 80px;" src="<%=cp%>/resources/image/bestproduct.png"></a></li>
-        <li><a href="#"><img style="margin-left: 80px;" src="<%=cp%>/resources/image/customer.png"></a></li>
+        <li><a href="<%=cp %>/golist.action"><img style="margin-left: 80px;" src="<%=cp%>/resources/image/customer.png"></a></li>
       </ul>
     </div>
   

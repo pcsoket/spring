@@ -107,7 +107,7 @@ public class GroupController {
 		//System.out.println(dto.getgSubject());
 		dto.setmId(logInfo.getUserId());
 		dto.setgNum(maxNum+1);
-		//System.out.println("gno" + logInfo.getGno());
+		System.out.println("gno" + logInfo.getGno());
 		
 		
 		if(logInfo.getGno() != 0){	

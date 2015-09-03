@@ -41,7 +41,8 @@ pnum NUMBER NOT NULL,
 imgnum VARCHAR2(12 not null);
 
 CREATE TABLE purchase
-(bnum NUMBER PRIMARY KEY,
+(pcnum Number PRIMARY KEY,
+bnum NUMBER NOT NULL,
 pamount NUMBER(3) NOT NULL,
 pname VARCHAR2(100) NOT NULL,
 pprice NUMBER(8) NOT NULL,

@@ -23,7 +23,7 @@
 		<div style="padding-top: 5px; float: left; width: 1000px;">
 			<ul class="nav nav-tabs" style="float: left;">
 			<c:choose>
-			<c:when test="${loIngo.userId =='admin' }">
+			<c:when test="${logInfo.userId =='admin' }">
 				<li><a href="<%=cp %>/category.action">Shop</a></li>
 			    <li class="active"><a href="<%=cp %>/ideaMain.action">Invent</a></li>
 			    <li style="padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px;">

@@ -123,6 +123,7 @@ $(document).ready(function(){
 </head>
 <body>
 
+<div  style="width: 1000px; margin-left: 24%;">
 
 	<div style="margin-left: 20px;">
 		<font style="font-size: 23px;"><b>자주하는</font>&nbsp;<font style="font-size: 26px;color: #61DBF0">Q&A</b></font>
@@ -146,7 +147,7 @@ $(document).ready(function(){
 				 <div class="a1">
 					<div style="border-bottom: solid 1px; color: #bdbdbd"></div>
 					<img src="/god/resources/image/a1.png"><font style="color: black">
-                    　저희 WHOLE FOODS의 로그인이 되지 않는 경우는 브라우저 쿠키 설정 오류일 가능성이 높으며<br><br>
+                    　저희 GoodIdea의 로그인이 되지 않는 경우는 브라우저 쿠키 설정 오류일 가능성이 높으며<br><br>
                  　　　　사용하시는 브라우저에 맞게 쿠키 설정을 확인해 주시길 부탁 드리겠습니다.<br><br><br><br>
                  　　　　Microsoft Internet Explorer를 사용하는 경우, 브라우저 쿠키 설정 및 캐시, 쿠키 삭제하는 방법은 <br/><br/><br/><br/>
                  　　　　다음과 같습니다.<br><br><br><br>
@@ -225,7 +226,7 @@ $(document).ready(function(){
                     　　　　- 주문건의 상태가 "결제완료"이더라도 직접취소 불가<br>
                     　　　　- 1:1상담 게시판 혹은 전화상담으로 요청<br><br>
                     　　　　3. 공통 : 주문건 상태가 "결제완료" 이외 상태의 주문건들은 <br>
-                    　　　　단 한 건이라도 업체배송준비, WHOLE FOODS발송준비 단계에서는 직접취소 불가하기 때문에 1:1<br>
+                    　　　　단 한 건이라도 업체배송준비,GoodIdea발송준비 단계에서는 직접취소 불가하기 때문에 1:1<br>
                    　　　　상담 혹은 유선상 요청 바랍니다.<br>
                     </font>
                  </div>
@@ -252,7 +253,7 @@ $(document).ready(function(){
 			<div style="border-top: solid 1px; color: #bdbdbd;">
 				<div class="q4">
 					<img src="/god/resources/image/q1.png">
-					　<b style="color: black;cursor: pointer;">WHOLE FOODS 이용중에 로그인 상태가 풀립니다.</b>
+					　<b style="color: black;cursor: pointer;">GoodIdea 이용중에 로그인 상태가 풀립니다.</b>
 				</div>
 				
 				 <div class="a4">
@@ -262,7 +263,7 @@ $(document).ready(function(){
                     　　　　도 있습니다.<br><br>
                     　　　　인터넷 익스플로러10 은 기존 브라우저와는 다르게 한 사이트에 대하여 동시에 2개 이상의 창 혹은 
                     　　　　탭을 열어놓고 사용중하나의 창이나 탭을 종료하면 로그인 상태가 풀리는 현상이 있습니다.<br><br>
-                    　　　　WHOLE FOODS를 여러개의 창 혹은 탭을 이용하여 사용중이시라면 로그인 이후 창을 종료하지 마
+                    　　　　GoodIdea를 여러개의 창 혹은 탭을 이용하여 사용중이시라면 로그인 이후 창을 종료하지 마
                     　　　　시거나 혹 종료하신다면 모든 창을 닫고 다시 로그인하여 하나의 탭에서만 이용 부탁 드립니다.<br>
                     　　　　
 
@@ -359,7 +360,7 @@ $(document).ready(function(){
 			<div style="border-top: solid 1px; color: #bdbdbd;">
 				<div class="q9">
 					<img src="/god/resources/image/q1.png">
-					　<b style="color: black;cursor: pointer;">WHOLE FOODS 운영시간은 어떻게 되나요?</b>
+					　<b style="color: black;cursor: pointer;">GoodIdea 운영시간은 어떻게 되나요?</b>
 				</div>
 				
 				 <div class="a9">
@@ -387,7 +388,7 @@ $(document).ready(function(){
 				 <div class="a10">
 					<div style="border-bottom: solid 1px; color: #bdbdbd"></div>
 					<img src="/god/resources/image/a1.png"><font style="color: black">
-					　`마이플레이트 > 주문내역 및 배송조회` 에서 확인 가능합니다.  
+					　`마이페이지 > 주문내역 및 배송조회` 에서 확인 가능합니다.  
 
 
                     </font>
@@ -397,6 +398,7 @@ $(document).ready(function(){
 		
 		<br/><br/><br/><br/>
 
+</div>
 
 </body>
 </html>
