@@ -241,7 +241,7 @@
 		</div>
 	</div> 
 		
-		<div id="productInfo" style="width: 1000px">
+		<div id="productInfo" style="width: 1000px; float: left" >
 		<table width="350px" height="700px" class="box" >
 
 			<tr>

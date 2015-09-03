@@ -86,7 +86,7 @@
           </ul>
         </li>
         <li><a href="<%=cp %>/category.action"><img style="margin-left: 80px;" src="<%=cp%>/resources/image/bestproduct.png"></a></li>
-        <li><a href="#"><img style="margin-left: 80px;" src="<%=cp%>/resources/image/customer.png"></a></li>
+        <li><a href="<%=cp %>/golist.action"><img style="margin-left: 80px;" src="<%=cp%>/resources/image/customer.png"></a></li>
       </ul>
     </div>
   

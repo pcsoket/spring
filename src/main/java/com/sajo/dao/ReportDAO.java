@@ -34,7 +34,7 @@ public class ReportDAO {
 		
 	}
 	
-public int getDataCount(){
+	public int getDataCount(){
 		
 		int result = sessionTemplate.selectOne("com.sajo.report.getDataCount");
 		
@@ -42,7 +42,7 @@ public int getDataCount(){
 		
 	}
 
-public List<ReportDTO> getReadData(int start,int end){
+	public List<ReportDTO> getReadData(int start,int end){
 	
 	HashMap<String, Object> params = new HashMap<String, Object>();
 	
@@ -55,6 +55,12 @@ public List<ReportDTO> getReadData(int start,int end){
 	return lists;
 			
 		
+	}
+
+	public void deleteData(int rnum){
+	
+		sessionTemplate.delete("com.sajo.report.deleteData",rnum);
+	
 	}
 
 }

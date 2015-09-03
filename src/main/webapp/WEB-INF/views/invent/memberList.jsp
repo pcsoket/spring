@@ -141,12 +141,12 @@ function searchId() {
 	<div style="margin-top: 1px;">
 	</div>
 		<div>	
-			<div align="center" style="width: 800px; height: 800px; margin-left:30%;">
+			<div align="center" style="width: 900px; height: 800px; margin-left:30%;">
 				<dl>
 				<c:forEach var="dto" items="${lists}">
-					<dd style="float:left; margin-top: 2px;">
-						<img style="border-radius:50%; width: 200px; height: 200px;"
-						 src="/god/resources/testimg/${dto.userPimg}"/><br/>
+					<dd style="float:left; margin-top: 3px; margin-left: 40px;">
+						<img style="border-radius:50%; margin-left:3px; width: 200px; height: 200px;"
+						 src="/god/resources/testimg/${dto.userPimg }"/><br/>
 						ID : ${dto.userId}
 						<br/>
 						MySelf : ${dto.userSelf}

@@ -241,7 +241,7 @@ function gnoDelete() {
 	<div style="margin-top: 2px; width: 1000px; ">
 	 	<!-- 아이디어 이미지 -->
 		
-		<div align="center"  style="float: left;">
+		<div align="center"  style="float: left; width: 360px;">
 			<%-- <div> <img alt="" src="${listimgnum }" style="width: 250px; height: 250px;" name="img01"/></div> <!-- 큰사진 --> --%>
 			
 			<div class="fotorama" data-nav="thumbs" data-autoplay="3000" data-width="350" data-high="350"
@@ -255,32 +255,33 @@ function gnoDelete() {
 			</div>
 		</div>
 		<!-- 주제 --> 
-		<div style="margin-left: 25px;">
+		<div style="margin-left: 200px;">
 			<div align="left" style="border-bottom: solid 2px #4374D9; width: 350px; margin-left: 100px; padding-bottom: 20px;">
 			<font style="size: 12pt; font-family: 나눔바른펜; padding-left: 20px;">${dto.gSubject}</font>
 			</div>
 			<br/>
 			<div style="width: 500px; height: 150px; padding-left: 15px; padding-right: 15px;">${dto.gContent}</div>
 			<div align="right" style="margin-right: 20px; padding-top: 10px; width: 500px;">
-		<div align="left" style="margin-left: 15px;">
+		<div align="left" style=" margin-left: 325px; ">
 			<c:if test="${!empty logInfo}">
-				<div style="float: left;"><span id="message"></span></div><div style="float: left;"><input type="button" id="con_button" value="추천"/>
-							</div>
-			
+				<div style="float: left;"><span id="message"></span></div><div style="float: left;">
+				<input type="button" id="con_button" value="추천"/>
+				</div>
 			<c:if test="${logInfo.gno==0}">
-				<div style="float: left;"><input type="button" id="attend" value="그룹참여" onclick="gnoInsert();"/></div>
+				<div style="float: left;  margin-left: 4px;"><input type="button" id="attend" value="그룹참여" onclick="gnoInsert();"/></div>
 			</c:if>
 			<c:if test="${logInfo.gno==dto.getgNo()}">
-				<div style="float: left;"><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
+				<div style="float: left; margin-left: 4px;"><input type="button" value="그룹탈퇴" onclick="gnoDelete();"/></div>
+			</c:if>
+			<c:if test="${!empty logInfo}">
+				<div style="float: left; margin-left: 4px;"><input type="button" value="신고" onclick="reportData('','${dto.boardName}','${dto.gNum}');"></div>
 			</c:if>
 			<c:if test="${dto.boardName=='3D' && logInfo.mauth==3 }">
-				<div  style="float: left;">
+				<div  style="float: left; margin-top:5px; margin-left: 90px;">
 				<input type="button" class="btn btn-primary btn-sm" style="background-color: #ddd; " name="completed1" value="completed" onclick="compl();">
 				</div>			
 			</c:if>
-				<div style="float: left;"><input type="button" value="신고" onclick="reportData('','${dto.boardName}','${dto.gNum}');"></div>
 			</c:if>
-
 		</div> 
 			
 		</div>

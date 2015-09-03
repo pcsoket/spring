@@ -28,12 +28,12 @@
 	,mself=#{userSelf},mpimg=#{userPimg} where mid=#{userId}
 	</update>
 	<!-- gno수정하기 -->
-	<update id="gnoUpdate" parameterType="com.sajo.dto.MemberDTO">
+	<update id="gnoUpdate" parameterType="hashMap">
 		update member set gno=#{gno},mauth=3 where mid=#{userId}
 	</update>
 	
 	<delete id="deleteData" parameterType="String">
-	 delete member where mid=#{userId}
+	 delete member where mid=#{userId}6
 	</delete>
 	<!-- memberList -->
 	<select id="getTotalReadData" parameterType="hashmap" resultType="com.sajo.dto.MemberDTO">

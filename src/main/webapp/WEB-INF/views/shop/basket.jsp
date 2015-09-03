@@ -236,23 +236,23 @@
 
 <div align="center" style="width: 100%;"> <!-- 전체 틀 -->
 	<form action="" method="post" name="myForm">
-	<div style="background-color: #ffd2d7;width: 1000px; height: 55px;">
-		<div align="left" style="font-size: 30pt; float:left; width: 535px; margin-left: 15px; font-family: 나눔손글씨 붓;">장바구니</div>
-		<div align="right" style="font-size: 20pt; float:left; width: 440px; height:55px; vertical-align: bottom; margin-right: 10px; font-family: 나눔손글씨 붓;"><font style="font-size:25pt;"><b>장바구니</b></font> > 주문결제 > 주문완료 </div>
+	<div style="background-image: url(/god/resources/image/banner2.png); width: 1000px; height: 55px;">
+		<div align="left" style="font-size: 30pt; float:left; width: 535px; margin-left: 15px; font-family: 나눔고딕;">장바구니</div>
+		<div align="right" style="font-size: 20pt; float:left; width: 440px; height:55px; vertical-align: bottom; margin-right: 10px; font-family: 나눔고딕;"><font style="font-size:25pt;"><b>장바구니</b></font> > 주문결제 > 주문완료 </div>
 	</div>
 	<br/>
 	<div> <!-- 장바구니 메뉴 -->
 		
 		<div style="width: 1000px;"> <!-- 장바구니에 들어있는 물품 -->
 		
-			<div align="center" style="height:25px; background-color:#ffd2d7; border-top: solid 2px #ff7b8a; border-bottom: solid 2px #ffa3ad; padding-left: 10px; padding-right: 10px;"> <!-- 장바구니 물품 내역 -->
+			<div align="center" style="height:25px; background-image: url(/god/resources/image/banner2.png); border-top: solid 2px #8C8C8C;
+			border-bottom: solid 2px #8C8C8C; padding-left: 10px; padding-right: 10px;"> <!-- 장바구니 물품 내역 -->
 
-				<div style="float: left; width: 100px;"><input type="checkbox" name="chk1" onclick="allchk(${dataCount});"></div>
-				
-				<div style="float: left; width: 450px;">상품명</div>
-				<div style="float: left; width: 100px;">수량</div>
-				<div style="float: left; width: 100px; margin-left: 15px;">가격</div>				
-				<div style="width: 200px; float: left;">상태</div>
+			<div style="float: left; width: 100px;"><input type="checkbox" name="chk1" onclick="allchk(${dataCount});"></div>
+				<div style="float: left; width: 450px; font-size: 15px;"><b>상품명</b></div>
+				<div style="float: left; width: 100px; font-size: 15px;"><b>수량</b></div>
+				<div style="float: left; width: 100px; font-size: 15px; margin-left: 15px;"><b>가격</b></div>				
+				<div style="width: 200px; float: left;  font-size: 15px;"><b>상태</b></div>
 			</div>
 		
 			<div style="padding-left: 10px; padding-right: 10px;">
@@ -294,7 +294,7 @@
 			
 			</c:if>
 			<c:if test="${dataCount == 0 }">
-				<div align="left" style="padding-left: 50px;">
+				<div align="center" style="padding-left: 50px; margin-top: 30px; font-size: 20px">
 					장바구니에 등록된 상품이 없습니다.
 				</div>
 				</c:if>
@@ -302,9 +302,10 @@
 			
 			<br/>
 			
-			<div style="border-top: solid 2px #ff7b8a; padding-top: 10px; padding-left: 10px; padding-right: 10px;">
+			<div style="border-top: solid 2px #8C8C8C; padding-top: 10px; padding-left: 10px; padding-right: 10px;">
 				<div align="left" style="padding-bottom: 5px; padding-left: 40px;">
-				<button type="button" class="btn btn-primary btn-xs" onclick="deleted('${dataCount}');">삭제</button>
+				<button type="button" class="btn btn-primary btn-xs" onclick="deleted('${dataCount}');"
+				style="border-color: #BDBDBD; background-color: #EAEAEA; color: #000000; font-size: 20px; width:60px; height: 40px;">삭제</button>
 				</div>
 			</div>
 			
@@ -333,7 +334,9 @@
 		
 	<div style="width: 100%;height: 60px;">
 		<input type="hidden" name="bnums" value=""><input type="hidden" name="amt" value="">
-			<div><button type="button" class="btn btn-primary btn-lg" onclick="account('${bklists.size()}');">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg">취소</button></div>
+			<div><button type="button" class="btn btn-primary btn-lg" onclick="account('${bklists.size()}');"
+			style="border-color: #BDBDBD; background-color: #EAEAEA; color: #000000; font-size: 20px;">주문 결제</button>&nbsp;<button type="button" class="btn btn-primary btn-lg"
+			style="border-color: #BDBDBD; background-color: #EAEAEA; color: #000000; font-size: 20px;">취소</button></div>
 		</div>
 	</form>
 	
