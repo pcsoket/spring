@@ -14,11 +14,11 @@
 	</select>
 	<select id="getReadData" parameterType="hashmap" resultType="com.sajo.dto.ReportDTO">
 		select * from (
-		select rownum rnum, data.* from (
-		select gnum,mid,rsubject,rContent,raddress,boardName,rcreated from report
+		select rownum enum, data.* from (
+		select rnum,gnum,mid,rsubject,rContent,raddress,boardName,rcreated from report
 		 order by rcreated desc) data)
 		 <![CDATA[
-		where rnum>=#{start} and rnum<=#{end}
+		where enum>=#{start} and enum<=#{end}
 		]]>
 	</select>
 	<select id="getDataCount" resultType="int">
