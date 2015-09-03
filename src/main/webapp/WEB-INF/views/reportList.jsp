@@ -15,14 +15,6 @@ function chk(str) {
 	
 }
 
-function deleted() {
-	
-	var f = document.deldata;
-	f.action = "<%=cp%>/reportdelete.action";
-	f.submit();
-	
-}
-
 </script>
 <title> 신 고 게 시 판 </title>
 </head>
@@ -32,7 +24,7 @@ function deleted() {
 	</div>
 		
 		<div align="center" style=" margin-left:300px; width: 1200px;">
-		<form name="deldata" method="post">
+		
 		<table style="border:1px; border-color:#EAEAEA; width: 800px;">
 		<tr><td colspan="5"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
 		</tr>
@@ -53,8 +45,10 @@ function deleted() {
 				확인
 				</td>
 			</tr>
-			<tr><td colspan="5"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
+			<tr><td colspan="5"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td></tr>
+			
 			<c:forEach var="dto" items="${lists}">
+			
 				<tr>
 				<td>
 				<a onclick="chk('${dto.raddress}');">Link</a>
@@ -69,16 +63,16 @@ function deleted() {
 				${dto.boardName}
 				</td>
 				<td>
+				
 					<input type="hidden" name="gnum" value="${dto.gnum}"/>
-					<input type="hidden" name="rnum" value="${dto.rnum}"/>
-					<input type="submit" value="확인" onclick="deleted();"/>
+					<input type="text" name="rnum" value="${dto.rnum}"/>
+					<input type="button" value="확인" onclick="javascript:location.href='<%=cp%>/reportdelete.action?rnum=${dto.rnum}';"/>
+					
 				</td>
 				</tr>
-				<tr><td colspan="5"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td>
-			</tr>
+				<tr><td colspan="5"><div style="border: 1px solid; border-top-color: #EAEAEA;"></div></td></tr>
 			</c:forEach>
 			</table>
-			</form>
 			<div style="height: 30px;">
 			<div align="center">${pageIndexList}</div>
 			</div>
