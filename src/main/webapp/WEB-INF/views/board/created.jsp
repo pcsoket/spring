@@ -102,12 +102,12 @@
 
 </head>
 <body>
-<form name="myForm" id="myForm" method="post" action="" enctype="multipart/form-data" style="margin-bottom: 69px;">
+<form name="myForm" id="myForm" method="post" action="" enctype="multipart/form-data" style="margin-bottom: 68px;">
 <table width="1000" align="center" class="box">
 	<tr height="100px"></tr>
 	
 	<tr height="40px"> 
-		<td class="line3" colspan="2"><font color="#8b4513 " style="font-family:나눔바른펜; size :10pt;"><b>글 쓰기</b></font></td>
+		<td class="line3" colspan="2"><font color="#8b4513 " style="font-family:나눔바른펜; font-size :20pt;"><b>글 쓰기</b></font></td>
 	</tr>
 	<tr height="20px"></tr>
 	
