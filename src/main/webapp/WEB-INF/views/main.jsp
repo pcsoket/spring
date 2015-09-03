@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>GOD</title>
 </head>
 <body style="background-image: url(/god/resources/image/main1.png); width:1920px;">
 
@@ -24,7 +24,7 @@
 		<img style="width: 200px;" src="<%=cp%>/resources/image/lo.png">
 		
 		</div>
-		 
+		
 		<!-- hold3 -->
 		<div style="float: left; overflow: hidden; margin-top: 85px;">
 			<div style="color: white; font-size: 43pt; margin-bottom: 5px;">
